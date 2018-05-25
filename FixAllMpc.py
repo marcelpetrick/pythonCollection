@@ -5,12 +5,15 @@ import os
 #------------------------------------------
 def addVc14ToMpb(filename):
     #print("called addVc14ToMpb:", filename)
-
+    returnValue = "fail"
     for line in fileinput.input(filename, inplace=True):
         if line.__contains__("vc13") and not line.__contains__("vc14"):
             line = line.replace("vc13", "vc13, vc14", 1) # replace once
+            returnValue = "success"
 
         sys.stdout.write(line) # prints without additional newline (on windows)
+
+    return returnValue
 
 # ------------------------------------------
 # find all mpb/mpc files
@@ -20,7 +23,9 @@ def fixAllFilesRecursively(path, suffix):
             full_path = os.path.join(dirname, filename)
             if full_path.endswith(suffix):
                 print(full_path)
-                addVc14ToMpb(full_path)
+                wasSuccessful = addVc14ToMpb(full_path)
+                if wasSuccessful == "success":
+                    print("  modified :)")
 
         # prevent recursion into those subdirs with meta-data
         if '.svn' in dirnames:
