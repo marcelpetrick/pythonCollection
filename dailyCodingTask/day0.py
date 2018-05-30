@@ -4,13 +4,24 @@
 
 #-------------------------------------------------------------------
 
-def firstNaiveApproach(inputList):
-    print("firstNaiveApproach:", inputList)
-    pass
+def firstNaiveApproach(inputList, expectedSum):
+    #print("firstNaiveApproach:", inputList)
 
+    found = False
+    for elem in inputList:
+        missing = expectedSum - elem
+        #contained = inputList.__contains__(missing)
+        #print("\tmissing ", missing, " is contained?", contained)
+        if inputList.__contains__(missing):
+            found = True
+            break
+
+    return found
 
 #-------------------------------------------------------------------
 
-inputList = [10, 5, 3, 17]
-firstNaiveApproach(inputList)
-
+inputList = [10, 5, 3, 7]
+k = 17
+result = firstNaiveApproach(inputList, k)
+resultString = "For k = %i the list %s yields %s" % (k, inputList, result)
+print(resultString)
