@@ -28,6 +28,22 @@ def firstNaiveApproach(inputList, expectedSum):
 
 def mappedFunction(inputList, expectedSum):
     found = False
+    dictionary = {}
+    for elem in inputList:
+        #print("processing:", elem)
+        # put the current value into the dictionary
+        if elem in dictionary:
+            dictionary[elem] += 1
+        else:
+            dictionary[elem] = 1
+
+        remainder = expectedSum - elem #todo: check that not negative; todo check that remainder != elem
+        if remainder in dictionary:
+            #print("found the entry:", remainder)
+            found = True
+            break
+        #else:
+            #print("remainder not found :(", remainder)
 
     return found
 
@@ -36,20 +52,13 @@ def mappedFunction(inputList, expectedSum):
 # execution #
 #############
 
-#inputList = [10, 5, 3, 7]
-#k = 17
-#result = firstNaiveApproach(inputList, k)
-#resultString = "For k = %i the list %s yields %s" % (k, inputList, result)
-#print(resultString)
-
-#k = 16
-#result = firstNaiveApproach(inputList, k)
-#resultString = "For k = %i the list %s yields %s" % (k, inputList, result)
-#print(resultString)
-
-
-inputList = [10, 5, 3, 7]
+inputList = [10, 5, 3, 7, 12]
 k = 17
 print("For k = %i the list %s yields %s" % (k, inputList, firstNaiveApproach(inputList, k)))
 k = 16
 print("For k = %i the list %s yields %s" % (k, inputList, firstNaiveApproach(inputList, k)))
+print("#####################################")
+k = 17
+print("For k = %i the list %s yields %s" % (k, inputList, mappedFunction(inputList, k)))
+k = 16
+print("For k = %i the list %s yields %s" % (k, inputList, mappedFunction(inputList, k)))
