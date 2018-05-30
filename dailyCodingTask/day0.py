@@ -3,9 +3,12 @@
 # Bonus: Can you do this in one pass?
 
 #-------------------------------------------------------------------
+###########################################################################
+# naive implementation: no optimization, runtime O(n^2) du to "contains") #
+###########################################################################
 
 def firstNaiveApproach(inputList, expectedSum):
-    #print("firstNaiveApproach:", inputList)
+    #print("firstNaiveApproach:", inputList, expectedSum)
 
     found = False
     for elem in inputList:
@@ -19,9 +22,34 @@ def firstNaiveApproach(inputList, expectedSum):
     return found
 
 #-------------------------------------------------------------------
+###########################################################################
+# naive implementation: no optimization, runtime O(n^2) du to "contains") #
+###########################################################################
+
+def mappedFunction(inputList, expectedSum):
+    found = False
+
+    return found
+
+#-------------------------------------------------------------------
+#############
+# execution #
+#############
+
+#inputList = [10, 5, 3, 7]
+#k = 17
+#result = firstNaiveApproach(inputList, k)
+#resultString = "For k = %i the list %s yields %s" % (k, inputList, result)
+#print(resultString)
+
+#k = 16
+#result = firstNaiveApproach(inputList, k)
+#resultString = "For k = %i the list %s yields %s" % (k, inputList, result)
+#print(resultString)
+
 
 inputList = [10, 5, 3, 7]
 k = 17
-result = firstNaiveApproach(inputList, k)
-resultString = "For k = %i the list %s yields %s" % (k, inputList, result)
-print(resultString)
+print("For k = %i the list %s yields %s" % (k, inputList, firstNaiveApproach(inputList, k)))
+k = 16
+print("For k = %i the list %s yields %s" % (k, inputList, firstNaiveApproach(inputList, k)))
