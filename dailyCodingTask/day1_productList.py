@@ -6,24 +6,29 @@
 #
 # Follow-up: what if you can't use division?
 
-# todo: implement the task
-# write some unit-test
+# done: implement the task
+# todo: write some unit-test
 
 
 # idea:
 # 0. create outputList with same size as given inputList; initialized with 1
 # 1. iterate once over the inputList; multiply this element-wise to the outputList except at current position
 def produceProductList(inputList):
+    # save the length, because needed three times
+    listLength = len(inputList)
+
     # prepare an initialized list (value 1) of the given input-length
-    returnValue = [1] * len(inputList)
-    indexInput = 0
-    for elemInput in inputList:
-        indexOutput = 0
-        for elemOutput in returnValue:
+    returnValue = [1] * listLength
+
+    # do the multiplication
+    for indexInput in range(listLength):
+        currentMultiplier = inputList[indexInput]
+        # inner loop
+        #print(range(len(returnValue))) #todom remove
+        for indexOutput in range(len(returnValue)):
             if indexInput != indexOutput:
-                elemOutput *= elemInput
-            indexOutput += 1
-        indexInput += 1
+                #print("indexOutput: ", indexOutput) #todom remove
+                returnValue[indexOutput] *= currentMultiplier
 
     return returnValue
 
@@ -32,4 +37,7 @@ def produceProductList(inputList):
 innputList0 = [1, 2, 3, 4, 5]
 innputList1 = [3, 2, 1]
 
+#todo write a decorator for that
 print(innputList0, "->", produceProductList(innputList0))
+print(innputList1, "->", produceProductList(innputList1))
+
