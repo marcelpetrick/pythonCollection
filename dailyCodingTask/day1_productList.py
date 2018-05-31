@@ -10,6 +10,11 @@
 # write some unit-test
 
 
+# idea:
+# 0. create outputList with same size as given inputList; initialized with 1
+# 1. iterate once over the inputList; multiply this element-wise to the outputList except at current position
+def produceProductList(inputList):
+
 
 #---------------------------------------------
 
