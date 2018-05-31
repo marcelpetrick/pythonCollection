@@ -9,6 +9,20 @@
 # done: implement the task
 # todo: write some unit-test
 
+# now we add some unit-testing :)
+# https://jeffknupp.com/blog/2013/12/09/improve-your-python-understanding-unit-testing/
+import unittest
+
+class ProductListTestCase(unittest.TestCase):
+    ''' Tests for day1_productList.py '''
+
+    def testExampleOneWorks(self):
+        self.assertTrue(is_prime())
+
+
+if __name__ == '__main__':
+    unittest.main()
+
 
 # idea:
 # 0. create outputList with same size as given inputList; initialized with 1
@@ -34,8 +48,8 @@ def produceProductList(inputList):
 
 #---------------------------------------------
 
-innputList0 = [1, 2, 3, 4, 5]
-innputList1 = [3, 2, 1]
+innputList0 = [1, 2, 3, 4, 5] # expected result: [120, 60, 40, 30, 24]
+innputList1 = [3, 2, 1] # expected result: [2, 3, 6]
 
 #todo write a decorator for that
 print(innputList0, "->", produceProductList(innputList0))
