@@ -14,9 +14,22 @@
 # 0. create outputList with same size as given inputList; initialized with 1
 # 1. iterate once over the inputList; multiply this element-wise to the outputList except at current position
 def produceProductList(inputList):
+    # prepare an initialized list (value 1) of the given input-length
+    returnValue = [1] * len(inputList)
+    indexInput = 0
+    for elemInput in inputList:
+        indexOutput = 0
+        for elemOutput in returnValue:
+            if indexInput != indexOutput:
+                elemOutput *= elemInput
+            indexOutput += 1
+        indexInput += 1
 
+    return returnValue
 
 #---------------------------------------------
 
 innputList0 = [1, 2, 3, 4, 5]
-innputList0 = [3, 2, 1]
+innputList1 = [3, 2, 1]
+
+print(innputList0, "->", produceProductList(innputList0))
