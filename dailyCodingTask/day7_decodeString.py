@@ -7,3 +7,29 @@
 # You can assume that the messages are decodable. For example, '001' is not allowed.
 
 # todo write unit-tests for the first five(?)-char-strings
+
+import unittest
+
+def countDecodePossibilities(inputString):
+    ''' bla bla '''
+    amountOfFoundPossibilities = 0 # has to be fixed, of course ..
+
+    return amountOfFoundPossibilities
+
+
+#---------------------------------------------
+
+
+class ProductListTestCase(unittest.TestCase):
+    ''' Tests for day7_decodeString.py '''
+
+    def test0(self):
+        inputString = "1"
+        expectedOutput = 1
+       # self.assertTrue(expectedOutput == countDecodePossibilities(inputString))
+        self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
+
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
