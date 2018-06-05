@@ -6,14 +6,35 @@
 #
 # You can assume that the messages are decode-able. For example, '001' is not allowed.
 
+import time
 import unittest
+
+
+# todo decorator with dictionary
+# todo time-measurement
+
+# ---------------------------------------------
+
+def stopwatchDecorator(func):
+    def decoratedFunc(n):
+        start = time.time()
+        result = func(n)
+        end = time.time()
+        print("call needed:", end - start)
+        return result
+
+    return decoratedFunc
+
+
+# ---------------------------------------------
 
 # given word : interpretable in how many ways?
 # 1 : 1 (1)
 # 11 : 2 (11 and 2)
 # 111 : 3 (111, 21, 12)
 # 1111 :  5 (1111, 211, 121, 112, 22)
-# 11111 : (11111, 2111, 1211, 1121, 1112,
+# 11111 : (11111, 2111, 1211, 1121, 1112,..)
+# @stopwatchDecorator
 def countDecodePossibilities(inputString):
     ''' Count all possibilites to decode a given string. '''
     amountOfFoundPossibilities = 0  # has to be fixed, of course ..
@@ -55,7 +76,6 @@ def isValidPair(inputString):
 
 
 # ---------------------------------------------
-
 
 class ProductListTestCase(unittest.TestCase):
     ''' Tests for day7_decodeString.py '''
@@ -110,5 +130,25 @@ class ProductListTestCase(unittest.TestCase):
 
 
 # ---- here comes the execution of the unit-tests ----
-if __name__ == '__main__':
-    unittest.main()
+#if __name__ == '__main__':
+#    unittest.main()
+
+# ---- just some random-run for testing ----
+import string
+import random
+
+
+# #@stopwatchDecorator
+# def testRun(amountOfRuns):
+#     inputString = ''.join(random.choices(string.ascii_uppercase + string.digits, 10))
+#     print(inputString, amountOfRuns)
+
+# stack overflow ..
+def id_generator(size = 6, chars = string.digits):
+    return ''.join(random.choice(chars) for _ in range(size)).replace("0", "")
+
+
+foo = id_generator(110)
+start = time.time()
+print(foo, "->", countDecodePossibilities(foo))
+print("call took ", time.time() - start, "seconds")
