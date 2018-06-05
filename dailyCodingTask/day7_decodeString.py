@@ -10,9 +10,17 @@
 
 import unittest
 
+# given word : interpretable in how many ways?
+# 1 : 1 (1)
+# 11 : 2 (11 and 2)
+# 111 : 3 (111, 21, 12)
+# 1111 :  5 (1111, 211, 121, 112, 22)
+# 11111 : (11111, 2111, 1211, 1121, 1112,
 def countDecodePossibilities(inputString):
-    ''' bla bla '''
+    ''' Count all possibilites to decode a given string. '''
     amountOfFoundPossibilities = 0 # has to be fixed, of course ..
+
+    # todo: dictionary for the already computed values
 
     return amountOfFoundPossibilities
 
@@ -26,7 +34,16 @@ class ProductListTestCase(unittest.TestCase):
     def test0(self):
         inputString = "1"
         expectedOutput = 1
-       # self.assertTrue(expectedOutput == countDecodePossibilities(inputString))
+        self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
+
+    def test1(self):
+        inputString = "11"
+        expectedOutput = 2 # namely: as "1,1" and "11"
+        self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
+
+    def test2(self):
+        inputString = "111"
+        expectedOutput = 3 # 111 : 3 (111, 21, 12)
         self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
 
 
