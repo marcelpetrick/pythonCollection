@@ -21,9 +21,22 @@ def countDecodePossibilities(inputString):
     amountOfFoundPossibilities = 0 # has to be fixed, of course ..
 
     # todo: dictionary for the already computed values
+    if inputString.__len__() == 1:
+        amountOfFoundPossibilities = 1
+    elif inputString.__len__() == 2:
+        amountOfFoundPossibilities = 1
+        if isValidPair(inputString):
+            amountOfFoundPossibilities += 1 # add one
 
     return amountOfFoundPossibilities
 
+#---------------------------------------------
+def isValidPair(inputString):
+    '''
+    In case the given string of size two is <= 26, then return true. Else false.
+    Check also the length: if different from two, then throw an exception.
+    '''
+    return (int(inputString) <= 26)
 
 #---------------------------------------------
 
