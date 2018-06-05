@@ -30,7 +30,16 @@ def countDecodePossibilities(inputString):
     else: # we have a longer string
         # plan:
         # cut of one item; also for the two-letter-case; recursively process the input
-        pass
+        prefixOne = inputString[:1]
+        remainderOne = inputString[1:]
+        prefixTwo = inputString[:2] # check here if this is at all a valid double-digit item
+        remainderTwo = inputString[2:]
+        # print(prefixOne, remainderOne)
+        # print(prefixTwo, remainderTwo)
+
+        amountOfFoundPossibilities = countDecodePossibilities(remainderOne)
+        if(isValidPair(prefixTwo)):
+            amountOfFoundPossibilities += countDecodePossibilities(remainderTwo)
 
     output = "countDecodePossibilities(" + inputString + ") = " + str(amountOfFoundPossibilities)
     print(output)
@@ -75,10 +84,15 @@ class ProductListTestCase(unittest.TestCase):
         expectedOutput = 2 # 3 : 2,3,2; 23,2; 32,2 is invalid
         self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
 
-    # def test3(self):
-    #     inputString = "1111"
-    #     expectedOutput = 3 # 1111 : 3 (111, 21, 12)
-    #     self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
+    def test2b(self):
+        inputString = "123"
+        expectedOutput = 3  # 3 : 1,2,3; 12,3; 1,23
+        self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
+
+    def test3(self):
+        inputString = "1111"
+        expectedOutput = 5 # 1,1,1,1; 2,1,1; 1,2,1; 1,1,2; 2,2
+        self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
