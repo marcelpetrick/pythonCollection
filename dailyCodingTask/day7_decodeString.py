@@ -27,7 +27,13 @@ def countDecodePossibilities(inputString):
         amountOfFoundPossibilities = 1
         if isValidPair(inputString):
             amountOfFoundPossibilities += 1 # add one
+    else: # we have a longer string
+        # plan:
+        # cut of one item; also for the two-letter-case; recursively process the input
+        pass
 
+    output = "countDecodePossibilities(" + inputString + ") = " + str(amountOfFoundPossibilities)
+    print(output)
     return amountOfFoundPossibilities
 
 #---------------------------------------------
@@ -36,7 +42,7 @@ def isValidPair(inputString):
     In case the given string of size two is <= 26, then return true. Else false.
     Check also the length: if different from two, then throw an exception.
     '''
-    return (int(inputString) <= 26)
+    return (int(inputString) <= 26) # converts string to int
 
 #---------------------------------------------
 
@@ -54,11 +60,25 @@ class ProductListTestCase(unittest.TestCase):
         expectedOutput = 2 # namely: as "1,1" and "11"
         self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
 
+    def test1a(self):
+        inputString = "27"
+        expectedOutput = 1 # namely: 2,7
+        self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
+
     def test2(self):
         inputString = "111"
         expectedOutput = 3 # 111 : 3 (111, 21, 12)
         self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
 
+    def test2a(self):
+        inputString = "232"
+        expectedOutput = 2 # 3 : 2,3,2; 23,2; 32,2 is invalid
+        self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
+
+    # def test3(self):
+    #     inputString = "1111"
+    #     expectedOutput = 3 # 1111 : 3 (111, 21, 12)
+    #     self.assertEqual(expectedOutput, countDecodePossibilities(inputString), "expected result does not match")
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
