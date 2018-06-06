@@ -18,6 +18,8 @@ import unittest
 
 # a tree consists of nodes with up to two children.
 
+# should be: TreeNode(0, TreeNode(1), TreeNode(0, TreeNode(1,TreeNode(1),TreeNode(1)), TreeNode(0)))
+
 #------------------------------------------------------------------------------
 
 class TreeNode:
@@ -28,9 +30,28 @@ class TreeNode:
         self.rightNode = rightNode
 
     def isUnival(self):
-        # todo: not complete: it is not enough that both children are unival, but also have the same value!
-        #return (self.leftNode is None) AND (self.rightNode is None) # OR (self.leftNode.isUnival() AND self.rightNode.isUnival()))
-        return True
+        ''' needed to check for each node if that is a valid subtree '''
+        # it is not enough that both children are unival, but also have the same value!
+        returnValue = False
+        returnValue = returnValue or (self.leftNode is None) and (self.rightNode is None)
+        if (self.leftNode is not None) and (self.rightNode is not None):
+            returnValue = returnValue or (self.leftNode.isUnival() and self.rightNode.isUnival() and self.leftNode.value == self.rightNode.value)
+
+        #print(returnValue)
+        return returnValue
+
+    def countUnivalTrees(self):
+        ''' this was the initial task of the exercise :') '''
+        returnValue = 0
+        if self.isUnival():
+            returnValue += 1
+        if self.leftNode is not None:
+            returnValue += self.leftNode.countUnivalTrees()
+        if self.rightNode is not None:
+            returnValue += self.rightNode.countUnivalTrees()
+
+        #print(returnValue)
+        return returnValue
 
     def getTreeString(self):
         ''' recursive iteration '''
@@ -48,28 +69,41 @@ class TreeNode:
 #------------------------------------------------------------------------------
 
 class UnivalTestcase(unittest.TestCase):
-    ''' Tests for day8.py '''
+    ''' Tests for day8_countUnivalSubtrees.py '''
 
     def testUnivalDetection0(self):
         inputTree = TreeNode(1)
-        self.assertTrue(inputTree)
-#        print("countDecodePossibilities(" + inputString + ") = " + str(countDecodePossibilities(inputString)))
+        self.assertTrue(inputTree.isUnival())
 
-    # def testUnivalDetection1(self):
-    #     inputTree = TreeNode(1, TreeNode(0, None, None), None)
-    #     self.assertFalse(inputTree)
-    #
-    # def testUnivalDetection2(self):
-    #     inputTree = TreeNode(1, None, TreeNode(0, None, None))
-    #     self.assertFalse(inputTree)
+    def testUnivalDetection1(self):
+        inputTree = TreeNode(1, TreeNode(0))
+        #print(inputTree.getTreeString())
+        self.assertFalse(inputTree.isUnival())
+
+    def testUnivalDetection2(self):
+        inputTree = TreeNode(1, TreeNode(0), TreeNode(0))
+        self.assertTrue(inputTree.isUnival())
+
+    def testUnivalDetection3(self):
+        inputTree = TreeNode(1, TreeNode(0), TreeNode(1))
+        #print(inputTree.countUnivalTrees())
+        self.assertFalse(inputTree.isUnival())
+        self.assertEquals(2, inputTree.countUnivalTrees()) # done in that case: 2
+
+    # todo: add some tests for the count-method ... or even better: put them into the existing methods for unival-test!
 
 #------------------------------------------------------------------------------
 
 # ---- here comes the execution of the unit-tests ----
-#if __name__ == '__main__':
-#    unittest.main()
+if __name__ == '__main__':
+    unittest.main()
 
 
-print("output:", TreeNode(1).getTreeString())
+# just for additional testing
+#print("single item tree:", TreeNode(1).getTreeString())
+#print("tree with two children:", TreeNode(0, TreeNode(1), TreeNode(2)).getTreeString())
 
-print("output:", TreeNode(0, TreeNode(1), TreeNode(2)).getTreeString())
+print("######################################################")
+givenTree = TreeNode(0, TreeNode(1), TreeNode(0, TreeNode(1,TreeNode(1),TreeNode(1)), TreeNode(0)))
+print(givenTree.getTreeString())
+print(givenTree.countUnivalTrees())
