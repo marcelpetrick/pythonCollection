@@ -28,6 +28,19 @@ def stopwatchDecorator(func):
 
 # ---------------------------------------------
 
+def memoisationDecorator(funk):
+    ''' decorator for memoisation - works quite well :)'''
+    d = {} # emptxy dictionary
+    def decorated_func(n):
+        if n in d: # if found, then return the already computed thing
+            return d[n]
+        d[n] = funk(n) # else: decorate
+        return d[n]
+
+    return decorated_func # return the new (the decorated) function
+
+# ---------------------------------------------
+
 # given word : interpretable in how many ways?
 # 1 : 1 (1)
 # 11 : 2 (11 and 2)
@@ -35,6 +48,7 @@ def stopwatchDecorator(func):
 # 1111 :  5 (1111, 211, 121, 112, 22)
 # 11111 : (11111, 2111, 1211, 1121, 1112,..)
 # @stopwatchDecorator
+@memoisationDecorator
 def countDecodePossibilities(inputString):
     ''' Count all possibilites to decode a given string. '''
     amountOfFoundPossibilities = 0  # has to be fixed, of course ..
@@ -148,7 +162,18 @@ def id_generator(size = 6, chars = string.digits):
     return ''.join(random.choice(chars) for _ in range(size)).replace("0", "")
 
 
-foo = id_generator(110)
+foo = id_generator(500)
+#foo = "9883627168399891958164272916396843616135412715394522814986713184577291221548244546742314444947666848275782528199"
 start = time.time()
 print(foo, "->", countDecodePossibilities(foo))
 print("call took ", time.time() - start, "seconds")
+
+#without decorator for memoisation:
+#9883627168399891958164272916396843616135412715394522814986713184577291221548244546742314444947666848275782528199 -> 1048576
+#call took  7.7468485832214355 seconds
+
+#with:
+#9883627168399891958164272916396843616135412715394522814986713184577291221548244546742314444947666848275782528199 -> 1048576
+#call took  0.0 seconds
+
+# even with leng5h 500 just 0.0 seconds! :)
