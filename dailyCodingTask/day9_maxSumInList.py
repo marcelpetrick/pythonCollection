@@ -20,14 +20,40 @@ def maxSumInList(inputList):
         pass  # do nothing
     elif inputList.__len__() == 1:
         returnValue += inputList[0]  # add the value of first element and return
-    else:
-        head = inputList[0]
-        remainderWithGap = inputList[2:]
-        # print(remainderWithGap)
-        returnValue += head + maxSumInList(remainderWithGap)
+    else: # length at least two
+        # idea: check if first or second element is bigger: pick the bigger one
+        first = inputList[0]
+        second = inputList[1]
+        if first >= second:
+            index = 0
+            returnValue += first
+        else:
+            index = 1
+            returnValue += second
+
+        # now check if the next element for gap is negative or zero: if that is the case, then this is ALWAYS the proper gap
+        additionalOffset = 1
+        if inputList[index + additionalOffset] <= 0 or inputList.__len__() == 2:
+            print("negative or zero value found:", inputList[index + additionalOffset])
+            remainderWithGap = inputList[(index + additionalOffset):]
+            # check now for that part for the maxSum
+            returnValue += maxSumInList(remainderWithGap)
+        else:
+            # do a regular gap - or do a two-gap and call again
+            # compare both results and use the bigger one
+            remainderOneGap = inputList[(index + 1):]
+            remainderTwoGap = inputList[(index + 2):] # will this crash?
+            # todo maybe add some history of the worthy path?
+            resultOneGap = maxSumInList(remainderOneGap)
+            resultTwoGap = maxSumInList(remainderTwoGap)
+            if resultOneGap >= resultTwoGap:
+                print("oneGap won")
+                returnValue += resultOneGap
+            else:
+                print("twoGap won")
+                returnValue += resultTwoGap
 
     return returnValue
-
 
 # ------------------------------------------------------------------------------
 
@@ -51,3 +77,6 @@ class UnivalTestcase(unittest.TestCase):
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
     unittest.main()
+
+
+# https://jeffknupp.com/blog/2013/12/09/improve-your-python-understanding-unit-testing/
