@@ -8,16 +8,28 @@
 
 import unittest
 
+
 def maxSumInList(inputList):
+    print("maxsumlist called with: ", inputList)
     returnValue = 0
 
+    # idea: since they shall be non-adjacent, adding always the first and calling
+    # the function on the rest of the list (without head and head+1) recursively. Of course, this has lookup of O(n^2)
+
+    if inputList.__len__() == 0:
+        pass  # do nothing
+    elif inputList.__len__() == 1:
+        returnValue += inputList[0]  # add the value of first element and return
+    else:
+        head = inputList[0]
+        remainderWithGap = inputList[2:]
+        # print(remainderWithGap)
+        returnValue += head + maxSumInList(remainderWithGap)
 
     return returnValue
 
 
-
-
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 class UnivalTestcase(unittest.TestCase):
     ''' Tests for day8_countUnivalSubtrees.py '''
@@ -26,6 +38,7 @@ class UnivalTestcase(unittest.TestCase):
         input = [2, 4, 6, 2, 5]
         expectedResult = 13
         self.assertEqual(maxSumInList(input), expectedResult)
+        print("input", input, "yielded result", maxSumInList(input), ":)")
 
     def test1(self):
         input = [5, 1, 1, 5]
@@ -33,7 +46,7 @@ class UnivalTestcase(unittest.TestCase):
         self.assertEqual(maxSumInList(input), expectedResult)
 
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
