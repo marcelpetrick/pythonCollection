@@ -21,37 +21,46 @@ def maxSumInList(inputList):
     elif inputList.__len__() == 1:
         returnValue += inputList[0]  # add the value of first element and return
     else: # length at least two
+        additionalOffset = 1
         # idea: check if first or second element is bigger: pick the bigger one
         first = inputList[0]
         second = inputList[1]
         if first >= second:
             index = 0
             returnValue += first
+            print("take first", first)
         else:
             index = 1
             returnValue += second
+            print("take second", second)
 
-        # now check if the next element for gap is negative or zero: if that is the case, then this is ALWAYS the proper gap
-        additionalOffset = 1
-        if inputList[index + additionalOffset] <= 0 or inputList.__len__() == 2:
-            print("negative or zero value found:", inputList[index + additionalOffset])
-            remainderWithGap = inputList[(index + additionalOffset):]
-            # check now for that part for the maxSum
-            returnValue += maxSumInList(remainderWithGap)
-        else:
-            # do a regular gap - or do a two-gap and call again
-            # compare both results and use the bigger one
-            remainderOneGap = inputList[(index + 1):]
-            remainderTwoGap = inputList[(index + 2):] # will this crash?
-            # todo maybe add some history of the worthy path?
-            resultOneGap = maxSumInList(remainderOneGap)
-            resultTwoGap = maxSumInList(remainderTwoGap)
-            if resultOneGap >= resultTwoGap:
-                print("oneGap won")
-                returnValue += resultOneGap
-            else:
-                print("twoGap won")
-                returnValue += resultTwoGap
+        if inputList.__len__() >= (index + 2): # prevent index Error while accessing
+            remainingList = inputList[(index + 2):] # with gap of one
+            print(".. even enough for another call with:", remainingList)
+            returnValue += maxSumInList(remainingList)
+
+
+        # # now check if the next element for gap is negative or zero: if that is the case, then this is ALWAYS the proper gap
+        # additionalOffset = 1
+        # if inputList[index + additionalOffset] <= 0 or inputList.__len__() == 2:
+        #     print("negative or zero value found:", inputList[index + additionalOffset])
+        #     remainderWithGap = inputList[(index + additionalOffset):]
+        #     # check now for that part for the maxSum
+        #     returnValue += maxSumInList(remainderWithGap)
+        # else:
+        #     # do a regular gap - or do a two-gap and call again
+        #     # compare both results and use the bigger one
+        #     remainderOneGap = inputList[(index + 1):]
+        #     remainderTwoGap = inputList[(index + 2):] # will this crash?
+        #     # todo maybe add some history of the worthy path?
+        #     resultOneGap = maxSumInList(remainderOneGap)
+        #     resultTwoGap = maxSumInList(remainderTwoGap)
+        #     if resultOneGap >= resultTwoGap:
+        #         print("oneGap won")
+        #         returnValue += resultOneGap
+        #     else:
+        #         print("twoGap won")
+        #         returnValue += resultTwoGap
 
     return returnValue
 
