@@ -8,3 +8,36 @@
 #
 # You can assume all the integers in the array are unique.
 
+
+
+
+###################
+
+
+import unittest
+
+
+def findInRotatedArray(inputList, element):
+    print("findInRotatedArray called with: ", inputList, " and element ", element)
+    returnValue = -1 # is the found index
+
+    return returnValue
+
+# ------------------------------------------------------------------------------
+
+class UnivalTestcase(unittest.TestCase):
+    ''' Tests for day8_countUnivalSubtrees.py '''
+
+    def test0(self):
+        inputList = [13, 18, 25, 2, 8, 10]
+        element = 8
+        expectedResult = 4
+        output = findInRotatedArray(inputList, element)
+        self.assertEqual(output , expectedResult)
+        print(" --> input", inputList, " with element ", element, "yielded result:", output, ":)")
+
+# ------------------------------------------------------------------------------
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
