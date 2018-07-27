@@ -18,16 +18,28 @@ def wrapText(s, k):
     :param s - input string
     :param k - length in integer of desired substrings'''
     print("wrapText called with: ", s, " and length ", k)
+    returnValue = []
 
     # my idea:
     # - split the whole text into substrings
-    #- their length should be then used to "try" out all possible permutation-sums with less-equal the given length
+    #- their length should be then used to "try" out all possible permutation-sums with a length less-equal the given length
     # would be: 3, 5, 5, 3, 5, 4, 3, 4, 3
     #- but when computing the length of concatenated words, then don't forget the space between as +1!
     splitString = s.split(" ")
     print("splitString", splitString)
 
-    returnValue = []
+    # lazybutt-wrap: check if each element is a fitting substring and then just return this!
+    allElementsOfValidLength = True
+    for elem in splitString:
+        if elem.__len__() > k:
+            allElementsOfValidLength = False
+            break
+        print("check now:", elem) # todo remove: to see if break works
+
+    if allElementsOfValidLength:
+        print("yes, fits!")
+        returnValue = splitString
+    # end of lazybutt-version
 
     return returnValue
 
