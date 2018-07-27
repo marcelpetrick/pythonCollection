@@ -54,18 +54,62 @@ def wrapText(s, k):
     splitString = s.split(" ")
     print("splitString", splitString)
 
-    # lazybutt-wrap: check if each element is a fitting substring and then just return this!
-    allElementsOfValidLength = True
-    for elem in splitString:
-        if elem.__len__() > k:
-            allElementsOfValidLength = False
-            break
-        print("check now:", elem) # todo remove: to see if break works
+    # find first what would be the maximum lookahead with the given splits
+    greedyLookAhead = greedyMatch(splitString, k)
+    print("greedyMatch:", greedyLookAhead)
 
-    if allElementsOfValidLength:
-        print("yes, fits!")
-        returnValue = splitString
-    # end of lazybutt-version
+    # todo try from max to 1 if the rest would return fitting stuff; in case the rest is at least one element big
+    for max in range(greedyLookAhead, 0, -1):
+        print("max:", max)
+        # prepare the remaining list
+        remainingList = splitString.copy()
+        for amountOfPops in range(0, max, 1):
+            #print("pop")
+            remainingList.pop(0)
+        print("remainingList:", remainingList)
+
+        # todo test if the remaining list is at least one element big
+        if remainingList.__len__() == 0:
+            print("len == 0")
+            # then we have a valid splitting! :)
+            firstItems = splitString[0:max] # slice it
+            concatenatedString = ""
+            for elem in firstItems:
+                concatenatedString += elem
+            returnValue.append(concatenatedString)
+            print("valid wrapping found - no remainder left: will return now:", returnValue)
+            break
+        else:
+            print("len != 0")
+            resultFromWrappingTheRest = wrapText(remainingList, k)
+            print("resultFromWrappingTheRest:", resultFromWrappingTheRest) # just for checking
+            if resultFromWrappingTheRest.__len__() > 0: # not empty means success!
+                # todo result is list of (concatenated) substrings
+                print("got valid result from the call on remaining elems:", resultFromWrappingTheRest)
+                firstItems = splitString[0:max]  # slice it
+                concatenatedString = ""
+                for elem in firstItems:
+                    concatenatedString += elem
+                returnValue.append(concatenatedString)
+                returnValue.append(resultFromWrappingTheRest)
+                print("will return therefore:", returnValue)
+
+    return returnValue
+
+# ------------------------------------------------------------------------------
+
+def greedyMatch(list, k):
+    ''' Find the amount of items which would be smaller-equal the given k. '''
+    returnValue = 0
+    currentLength = 0
+
+    for elem in list:
+        if (currentLength + elem.__len__()) <= k:
+            returnValue += 1 # add the current element
+            currentLength += elem.__len__() + 1 # add it to the current length; plus one because of the needed space between the words
+        else:
+            #print("stop!")
+            break
 
     return returnValue
 
@@ -88,6 +132,8 @@ class Testcase(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-print("############################################################")
-print("should not work:", lazybuttWrapText("klaushaus", 2))
-print("should work:", lazybuttWrapText("klaushaus", 20))
+#print("############################################################")
+#print("should not work:", lazybuttWrapText("klaushaus", 2))
+#print("should work:", lazybuttWrapText("klaushaus", 20))
+#print("############################################################")
+# todo add some case with fitting text?
