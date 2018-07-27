@@ -80,13 +80,7 @@ def wrapTextHelper(inputList, k):
         if remainingList.__len__() == 0:
             print("len == 0")
             # then we have a valid splitting! :)
-            firstItems = inputList[0:max] # slice it # todo improve, becuase this part comes twice!
-            concatenatedString = ""
-            for elem in firstItems:
-                concatenatedString += elem + " "
-            concatenatedString = concatenatedString.rstrip(" ")  # just to prevent the trailing space ;) #todo improve
-            returnValue.append(concatenatedString)
-            ##############
+            returnValue.append(listOfFirstXItemsToString(inputList, max))
 
             print("valid wrapping found - no remainder left: will return now:", returnValue)
             break
@@ -97,19 +91,29 @@ def wrapTextHelper(inputList, k):
             if resultFromWrappingTheRest.__len__() > 0: # not empty means success!
                 # todo result is list of (concatenated) substrings
                 print("got valid result from the call on remaining elements:", resultFromWrappingTheRest)
-                firstItems = inputList[0:max]  # slice it # todo improve, becuase this part comes twice!
-                concatenatedString = ""
-                for elem in firstItems:
-                    concatenatedString += elem + " "
-                concatenatedString = concatenatedString.rstrip(" ")  # just to prevent the trailing space ;) #todo improve
-                returnValue.append(concatenatedString)
-                ##############
+                returnValue.append(listOfFirstXItemsToString(inputList, max))
 
                 for elem in resultFromWrappingTheRest:
                     returnValue.append(elem)
                 print("will return therefore:", returnValue)
+                break
 
     return returnValue
+
+# ------------------------------------------------------------------------------
+
+def listOfFirstXItemsToString(list, amount):
+    print("listOfFirstXItemsToString: with", list, "and", amount)
+
+    firstItems = list[0:amount]  # slice it # todo improve, because this part comes twice!
+    concatenatedString = ""
+    for elem in firstItems:
+        concatenatedString += elem + " "
+    concatenatedString = concatenatedString.rstrip(" ")  # just to prevent the trailing space ;) #todo improve
+
+    print(" ->returnValue:", concatenatedString)
+
+    return concatenatedString
 
 # ------------------------------------------------------------------------------
 
@@ -147,8 +151,13 @@ class Testcase(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-#print("############################################################")
-#print("should not work:", lazybuttWrapText("klaushaus", 2))
-#print("should work:", lazybuttWrapText("klaushaus", 20))
-#print("############################################################")
-# todo add some case with fitting text?
+print("############################################################")
+print("should not work:", lazybuttWrapText("klaushaus", 2))
+print("should work:", lazybuttWrapText("klaushaus", 20))
+print("############################################################")
+
+# real version
+s = "the quick brown fox jumps over the lazy dog"
+k = 10
+output = wrapText(s, k)
+print(" --> input", s, " with length ", k, "yielded result:", output, ":)")
