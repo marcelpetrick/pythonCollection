@@ -13,6 +13,32 @@ import unittest
 
 # ------------------------------------------------------------------------------
 
+def lazybuttWrapText(s, k):
+    '''
+    :param s - input string
+    :param k - length in integer of desired substrings'''
+    print("lazybuttWrapText called with: ", s, " and length ", k)
+    returnValue = []
+
+    splitString = s.split(" ")
+
+    # lazybutt-wrap: check if each element is a fitting substring and then just return this!
+    allElementsOfValidLength = True
+    for elem in splitString:
+        if elem.__len__() > k:
+            allElementsOfValidLength = False
+            break
+        print("check now:", elem) # todo remove: to see if break works
+
+    if allElementsOfValidLength:
+        print("yes, fits!")
+        returnValue = splitString
+    # end of lazybutt-version
+
+    return returnValue
+
+# ------------------------------------------------------------------------------
+
 def wrapText(s, k):
     '''
     :param s - input string
@@ -61,3 +87,7 @@ class Testcase(unittest.TestCase):
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
     unittest.main()
+
+print("############################################################")
+print("should not work:", lazybuttWrapText("klaushaus", 2))
+print("should work:", lazybuttWrapText("klaushaus", 20))
