@@ -44,7 +44,6 @@ def wrapText(s, k):
     :param s - input string
     :param k - length in integer of desired substrings'''
     print("wrapText called with: ", s, " and length ", k)
-    returnValue = []
 
     # my idea:
     # - split the whole text into substrings
@@ -54,15 +53,24 @@ def wrapText(s, k):
     splitString = s.split(" ")
     print("splitString", splitString)
 
+    returnValue = wrapTextHelper(splitString, k)
+    return returnValue
+
+def wrapTextHelper(inputList, k):
+    ''' Same like the real function, just with list of split words instead of the string. '''
+    print("#############################################################")
+    print("wrapText called with: ", inputList, " and length ", k)
+    returnValue = []
+
     # find first what would be the maximum lookahead with the given splits
-    greedyLookAhead = greedyMatch(splitString, k)
+    greedyLookAhead = greedyMatch(inputList, k)
     print("greedyMatch:", greedyLookAhead)
 
     # todo try from max to 1 if the rest would return fitting stuff; in case the rest is at least one element big
     for max in range(greedyLookAhead, 0, -1):
         print("max:", max)
         # prepare the remaining list
-        remainingList = splitString.copy()
+        remainingList = inputList.copy()
         for amountOfPops in range(0, max, 1):
             #print("pop")
             remainingList.pop(0)
@@ -72,26 +80,33 @@ def wrapText(s, k):
         if remainingList.__len__() == 0:
             print("len == 0")
             # then we have a valid splitting! :)
-            firstItems = splitString[0:max] # slice it
+            firstItems = inputList[0:max] # slice it # todo improve, becuase this part comes twice!
             concatenatedString = ""
             for elem in firstItems:
-                concatenatedString += elem
+                concatenatedString += elem + " "
+            concatenatedString = concatenatedString.rstrip(" ")  # just to prevent the trailing space ;) #todo improve
             returnValue.append(concatenatedString)
+            ##############
+
             print("valid wrapping found - no remainder left: will return now:", returnValue)
             break
         else:
             print("len != 0")
-            resultFromWrappingTheRest = wrapText(remainingList, k)
+            resultFromWrappingTheRest = wrapTextHelper(remainingList, k)
             print("resultFromWrappingTheRest:", resultFromWrappingTheRest) # just for checking
             if resultFromWrappingTheRest.__len__() > 0: # not empty means success!
                 # todo result is list of (concatenated) substrings
-                print("got valid result from the call on remaining elems:", resultFromWrappingTheRest)
-                firstItems = splitString[0:max]  # slice it
+                print("got valid result from the call on remaining elements:", resultFromWrappingTheRest)
+                firstItems = inputList[0:max]  # slice it # todo improve, becuase this part comes twice!
                 concatenatedString = ""
                 for elem in firstItems:
-                    concatenatedString += elem
+                    concatenatedString += elem + " "
+                concatenatedString = concatenatedString.rstrip(" ")  # just to prevent the trailing space ;) #todo improve
                 returnValue.append(concatenatedString)
-                returnValue.append(resultFromWrappingTheRest)
+                ##############
+
+                for elem in resultFromWrappingTheRest:
+                    returnValue.append(elem)
                 print("will return therefore:", returnValue)
 
     return returnValue
