@@ -32,34 +32,34 @@ def partitionIntoEqualSumMultiset(multiset):
 def generateAllSubsetsForSet(multiset): # input-param multiset is a list
     ''' Generate all possible sets for the given list. '''
 
-    print("generateAllSubsetsForSet called with: ", multiset)
+    #print("generateAllSubsetsForSet called with: ", multiset)
 
-    resultSet = list() # set of lists or list of lists?
+    resultSet = list()
     resultSet.append([])
 
     for elem in multiset:
-        print("up:", resultSet, " ::", len(resultSet))
+        #print("up:", resultSet, " ::", len(resultSet))
         #original = list(resultSet) # the original content has to be retained
         original = copy.deepcopy(resultSet) # ATTENTION: just this works, not just cloning or copying the list (of lists) ..
-        print("original has x elems: ", original.__len__(), ":", original)
+        #print("original has x elems: ", original.__len__(), ":", original)
 
         for index in range(len(resultSet)):
-            print("current elem:", resultSet[index])
+            #print("current elem:", resultSet[index])
             resultSet[index].append(elem) # immediately change the items
-            print("\t after change elem:", resultSet[index])
+            #print("\t after change elem:", resultSet[index])
 
-        print("original has x elems: ", original.__len__(), ":", original)
-        print("resultlist has x elems: ", resultSet.__len__(), ":", resultSet)
+        #print("original has x elems: ", original.__len__(), ":", original)
+        #print("resultlist has x elems: ", resultSet.__len__(), ":", resultSet)
 
         resultSet = resultSet + original # add the copied initial list
-        print("appended version has x elems: ", resultSet.__len__(), "--->", resultSet)
-        print("----------------------")
+        #print("appended version has x elems: ", resultSet.__len__(), "--->", resultSet)
+        #print("----------------------")
 
     return resultSet
 
 # ------------------------------------------------------------------------------
 
-# class Testcase(unittest.TestCase):
+class Testcase(unittest.TestCase):
 #     def test0(self):
 #         multiset = [15, 5, 20, 10, 35, 15, 10] # interpret the multiset as list .. {15, 5, 20, 10, 35, 15, 10}
 #         expectedResult = True
@@ -73,13 +73,50 @@ def generateAllSubsetsForSet(multiset): # input-param multiset is a list
 #         output = partitionIntoEqualSumMultiset(multiset)
 #         self.assertEqual(output, expectedResult)
 #         print(" --> input", multiset, "yielded result:", output)
-#
+
+    # test the "Potenzmenge"-generator (power set!)
+    # proves everything, since recursive
+    def test0_generateAllSubsetsForSet(self):
+        set = []
+        expectedResult = [[]]
+        output = generateAllSubsetsForSet(set)
+        self.assertEqual(output.sort(), expectedResult.sort()) # sort to prevent that
+        print("test0_generateAllSubsetsForSet", set, "yielded result:", output)
+
+    def test1_generateAllSubsetsForSet(self):
+        set = [1]
+        expectedResult = [[], [1]]
+        output = generateAllSubsetsForSet(set)
+        self.assertEqual(output.sort(), expectedResult.sort())
+        print("test1_generateAllSubsetsForSet", set, "yielded result:", output) # can the name of the function be printed?
+
+    def test2_generateAllSubsetsForSet(self):
+        set = [1, 2]
+        expectedResult = [[], [1], [2], [1,2]]
+        output = generateAllSubsetsForSet(set)
+        self.assertEqual(output.sort(), expectedResult.sort())
+        print("test2_generateAllSubsetsForSet", set, "yielded result:", output)
+
+    def test3_generateAllSubsetsForSet(self):
+        set = [1, 2, 3]
+        expectedResult = [[1, 2, 3], [2, 3], [1, 3], [3], [1, 2], [2], [1], []]
+        output = generateAllSubsetsForSet(set)
+        self.assertEqual(output.sort(), expectedResult.sort())
+        print("test3_generateAllSubsetsForSet", set, "yielded result:", output)
+
+    def test4_generateAllSubsetsForSet(self):
+        set = [3, 3, 3]
+        expectedResult = [[3, 3, 3], [3, 3], [3, 3], [3, 3], [3], [3], [3], []] # 1, 3, 3, 1 ... binomial numbers :)
+        output = generateAllSubsetsForSet(set)
+        self.assertEqual(output.sort(), expectedResult.sort())
+        print("test4_generateAllSubsetsForSet", set, "yielded result:", output)
 # # ------------------------------------------------------------------------------
 #
-# # ---- here comes the execution of the unit-tests ----
-# if __name__ == '__main__':
-#     unittest.main()
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
 
-multiset = [1, 2, 3]
-partitionIntoEqualSumMultiset(multiset)
+#multiset = [1, 2, 3]
+#partitionIntoEqualSumMultiset(multiset)
 # expected: [[1, 2, 3], [2, 3], [1, 3], [3], [1, 2], [2], [1], []]
+
