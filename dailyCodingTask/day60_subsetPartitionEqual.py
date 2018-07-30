@@ -20,28 +20,50 @@ def partitionIntoEqualSumMultiset(multiset):
     print("partitionIntoEqualSumMultiset called with: ", multiset)
     returnValue = False
 
+    generateAllSubsetsForSet(multiset)
 
     return returnValue
 
 # ------------------------------------------------------------------------------
 
-class Testcase(unittest.TestCase):
-    def test0(self):
-        multiset = [15, 5, 20, 10, 35, 15, 10] # interpret the multiset as list .. {15, 5, 20, 10, 35, 15, 10}
-        expectedResult = True
-        output = partitionIntoEqualSumMultiset(multiset)
-        self.assertEqual(output, expectedResult)
-        print(" --> input", multiset, "yielded result:", output)
+def generateAllSubsetsForSet(multiset): # input-param multiset is a list
+    ''' Generate all possible sets for the given list. '''
+    resultSet = set() # set of lists or list of lists?
+    # decision: set of lists!
+    print("generateAllSubsetsForSet called with: ", multiset)
 
-    def test1(self):
-        multiset = [15, 5, 20, 10, 35]
-        expectedResult = False
-        output = partitionIntoEqualSumMultiset(multiset)
-        self.assertEqual(output, expectedResult)
-        print(" --> input", multiset, "yielded result:", output)
+    for elem in multiset:
+        resultSet = resultSet.add([])
+        print("up:", resultSet, len(resultSet))
+        for index in range(len(resultSet)):
+            resultSet[index] = resultSet[index] + elem # append to existing things in list
+        print("down:", resultSet)
+
+
+    return resultSet
 
 # ------------------------------------------------------------------------------
 
-# ---- here comes the execution of the unit-tests ----
-if __name__ == '__main__':
-    unittest.main()
+# class Testcase(unittest.TestCase):
+#     def test0(self):
+#         multiset = [15, 5, 20, 10, 35, 15, 10] # interpret the multiset as list .. {15, 5, 20, 10, 35, 15, 10}
+#         expectedResult = True
+#         output = partitionIntoEqualSumMultiset(multiset)
+#         self.assertEqual(output, expectedResult)
+#         print(" --> input", multiset, "yielded result:", output)
+#
+#     def test1(self):
+#         multiset = [15, 5, 20, 10, 35]
+#         expectedResult = False
+#         output = partitionIntoEqualSumMultiset(multiset)
+#         self.assertEqual(output, expectedResult)
+#         print(" --> input", multiset, "yielded result:", output)
+#
+# # ------------------------------------------------------------------------------
+#
+# # ---- here comes the execution of the unit-tests ----
+# if __name__ == '__main__':
+#     unittest.main()
+
+multiset = [1, 2, 3, 4]
+partitionIntoEqualSumMultiset(multiset)
