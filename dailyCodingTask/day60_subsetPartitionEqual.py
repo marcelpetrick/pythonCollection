@@ -28,16 +28,19 @@ def partitionIntoEqualSumMultiset(multiset):
 
 def generateAllSubsetsForSet(multiset): # input-param multiset is a list
     ''' Generate all possible sets for the given list. '''
-    resultSet = set() # set of lists or list of lists?
+    resultSet = list() # set of lists or list of lists?
     # decision: set of lists!
     print("generateAllSubsetsForSet called with: ", multiset)
 
     for elem in multiset:
-        resultSet = resultSet.add([])
-        print("up:", resultSet, len(resultSet))
+        resultSet.append([])
+        print("up:", resultSet, " ::", len(resultSet))
+        #copy = resultSet.copy()
         for index in range(len(resultSet)):
-            resultSet[index] = resultSet[index] + elem # append to existing things in list
-        print("down:", resultSet)
+            print("current elem:", resultSet[index])
+            resultSet[index].append(elem)
+        #resultSet += copy
+        print("down:", resultSet, " ::", len(resultSet))
 
 
     return resultSet
