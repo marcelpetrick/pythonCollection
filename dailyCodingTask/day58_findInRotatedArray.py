@@ -62,3 +62,6 @@ class Testcase(unittest.TestCase):
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
     unittest.main()
+
+
+print("ATTENTION: not fully implemented version!!!")
