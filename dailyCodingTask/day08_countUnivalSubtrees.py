@@ -69,7 +69,7 @@ class TreeNode:
 #------------------------------------------------------------------------------
 
 class UnivalTestcase(unittest.TestCase):
-    ''' Tests for day8_countUnivalSubtrees.py '''
+    ''' Tests for day08_countUnivalSubtrees.py '''
 
     def testUnivalDetection0(self):
         inputTree = TreeNode(1)

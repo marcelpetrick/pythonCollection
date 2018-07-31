@@ -44,7 +44,7 @@ def maxSumInList(inputList):
 # ------------------------------------------------------------------------------
 
 class UnivalTestcase(unittest.TestCase):
-    ''' Tests for day8_countUnivalSubtrees.py '''
+    ''' Tests for day08_countUnivalSubtrees.py '''
 
     def test0(self):
         input = [2, 4, 6, 2, 5]

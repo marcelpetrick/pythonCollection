@@ -92,7 +92,7 @@ def isValidPair(inputString):
 # ---------------------------------------------
 
 class ProductListTestCase(unittest.TestCase):
-    ''' Tests for day7_decodeString.py '''
+    ''' Tests for day07_decodeString.py '''
 
     def test0(self):
         inputString = "1"

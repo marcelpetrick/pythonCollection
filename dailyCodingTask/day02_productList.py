@@ -48,7 +48,7 @@ def produceProductList(inputList):
 # also: http://docs.python-guide.org/en/latest/writing/tests/
 
 class ProductListTestCase(unittest.TestCase):
-    ''' Tests for day2_productList.py '''
+    ''' Tests for day02_productList.py '''
 
     def testExampleOneWorks(self):
         inputList = [1, 2, 3, 4, 5]
