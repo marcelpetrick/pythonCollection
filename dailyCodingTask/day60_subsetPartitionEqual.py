@@ -21,18 +21,18 @@ def partitionIntoEqualSumMultiset(multiset):
     print("partitionIntoEqualSumMultiset called with: ", multiset)
     returnValue = False
 
-    output = generateAllSubsetsForSet(multiset)
+    powerset = generatePowersetForSet(multiset)
 
-    print("final set:", output)
+    print("final set has", powerset.__len__(), "elements:", powerset)
 
     return returnValue
 
 # ------------------------------------------------------------------------------
 
-def generateAllSubsetsForSet(multiset): # input-param multiset is a list
+def generatePowersetForSet(multiset): # input-param multiset is a list
     ''' Generate all possible sets for the given list. '''
 
-    #print("generateAllSubsetsForSet called with: ", multiset)
+    #print("generatePowersetForSet called with: ", multiset)
 
     resultSet = list()
     resultSet.append([])
@@ -60,12 +60,12 @@ def generateAllSubsetsForSet(multiset): # input-param multiset is a list
 # ------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
-#     def test0(self):
-#         multiset = [15, 5, 20, 10, 35, 15, 10] # interpret the multiset as list .. {15, 5, 20, 10, 35, 15, 10}
-#         expectedResult = True
-#         output = partitionIntoEqualSumMultiset(multiset)
-#         self.assertEqual(output, expectedResult)
-#         print(" --> input", multiset, "yielded result:", output)
+    def test0_partitionIntoEqualSumMultiset(self):
+        multiset = [15, 5, 20, 10, 35, 15, 10] # interpret the multiset as list .. {15, 5, 20, 10, 35, 15, 10}
+        expectedResult = True
+        output = partitionIntoEqualSumMultiset(multiset)
+        self.assertEqual(output, expectedResult)
+        print(" --> input", multiset, "yielded result:", output)
 #
 #     def test1(self):
 #         multiset = [15, 5, 20, 10, 35]
@@ -74,42 +74,43 @@ class Testcase(unittest.TestCase):
 #         self.assertEqual(output, expectedResult)
 #         print(" --> input", multiset, "yielded result:", output)
 
-    # test the "Potenzmenge"-generator (power set!)
+    # test the "Potenzmenge"-generator (power set)
     # proves everything, since recursive
     def test0_generateAllSubsetsForSet(self):
         set = []
         expectedResult = [[]]
-        output = generateAllSubsetsForSet(set)
+        output = generatePowersetForSet(set)
         self.assertEqual(output.sort(), expectedResult.sort()) # sort to prevent that
-        print("test0_generateAllSubsetsForSet", set, "yielded result:", output)
+        #print("test0_generateAllSubsetsForSet", set, "yielded result:", output)
 
     def test1_generateAllSubsetsForSet(self):
         set = [1]
         expectedResult = [[], [1]]
-        output = generateAllSubsetsForSet(set)
+        output = generatePowersetForSet(set)
         self.assertEqual(output.sort(), expectedResult.sort())
-        print("test1_generateAllSubsetsForSet", set, "yielded result:", output) # can the name of the function be printed?
+        #print("test1_generateAllSubsetsForSet", set, "yielded result:", output) # can the name of the function be printed?
 
     def test2_generateAllSubsetsForSet(self):
         set = [1, 2]
         expectedResult = [[], [1], [2], [1,2]]
-        output = generateAllSubsetsForSet(set)
+        output = generatePowersetForSet(set)
         self.assertEqual(output.sort(), expectedResult.sort())
-        print("test2_generateAllSubsetsForSet", set, "yielded result:", output)
+        #print("test2_generateAllSubsetsForSet", set, "yielded result:", output)
 
     def test3_generateAllSubsetsForSet(self):
         set = [1, 2, 3]
         expectedResult = [[1, 2, 3], [2, 3], [1, 3], [3], [1, 2], [2], [1], []]
-        output = generateAllSubsetsForSet(set)
+        output = generatePowersetForSet(set)
         self.assertEqual(output.sort(), expectedResult.sort())
-        print("test3_generateAllSubsetsForSet", set, "yielded result:", output)
+        #print("test3_generateAllSubsetsForSet", set, "yielded result:", output)
 
     def test4_generateAllSubsetsForSet(self):
         set = [3, 3, 3]
         expectedResult = [[3, 3, 3], [3, 3], [3, 3], [3, 3], [3], [3], [3], []] # 1, 3, 3, 1 ... binomial numbers :)
-        output = generateAllSubsetsForSet(set)
+        output = generatePowersetForSet(set)
         self.assertEqual(output.sort(), expectedResult.sort())
-        print("test4_generateAllSubsetsForSet", set, "yielded result:", output)
+        #print("test4_generateAllSubsetsForSet", set, "yielded result:", output)
+
 # # ------------------------------------------------------------------------------
 #
 # ---- here comes the execution of the unit-tests ----
