@@ -19,11 +19,23 @@ def partitionIntoEqualSumMultiset(multiset):
     :param s - input string
     :param k - length in integer of desired substrings'''
     print("partitionIntoEqualSumMultiset called with: ", multiset)
-    returnValue = False
+    returnValue = None
 
-    powerset = generatePowersetForSet(multiset)
+    # first note: if the multiset has odd sum, then it can't be partitioned into two equal sets!
+    sumOfMultiset = sum(multiset)
+    print("sumOfMultiset: ", sumOfMultiset)
+    if(sumOfMultiset %2 == 1):
+        print("no fitting sum -> no luck")
+        returnValue = False
+    else:
+        powerset = generatePowersetForSet(multiset)
+        print("final set has", powerset.__len__(), "elements:", powerset)
 
-    print("final set has", powerset.__len__(), "elements:", powerset)
+        for set in powerset:
+            if(sum(set) * 2 == sumOfMultiset):
+                print("this set", set, "is correct partition of the set", multiset)
+                returnValue = True
+                break
 
     return returnValue
 
@@ -66,13 +78,20 @@ class Testcase(unittest.TestCase):
         output = partitionIntoEqualSumMultiset(multiset)
         self.assertEqual(output, expectedResult)
         print(" --> input", multiset, "yielded result:", output)
-#
-#     def test1(self):
-#         multiset = [15, 5, 20, 10, 35]
-#         expectedResult = False
-#         output = partitionIntoEqualSumMultiset(multiset)
-#         self.assertEqual(output, expectedResult)
-#         print(" --> input", multiset, "yielded result:", output)
+
+    def test1_partitionIntoEqualSumMultiset(self):
+        multiset = [15, 5, 20, 10, 35]
+        expectedResult = False
+        output = partitionIntoEqualSumMultiset(multiset)
+        self.assertEqual(output, expectedResult)
+        print(" --> input", multiset, "yielded result:", output)
+
+    def test2_partitionIntoEqualSumMultiset(self):
+        multiset = [1, 2, 3, 6]
+        expectedResult = True
+        output = partitionIntoEqualSumMultiset(multiset)
+        self.assertEqual(output, expectedResult)
+        print(" --> input", multiset, "yielded result:", output)
 
     # test the "Potenzmenge"-generator (power set)
     # proves everything, since recursive
