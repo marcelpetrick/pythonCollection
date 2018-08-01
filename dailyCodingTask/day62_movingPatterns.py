@@ -8,3 +8,35 @@
 # Right, then down
 # Down, then right
 # Given a 5 by 5 matrix, there are 70 ways to get to the bottom-right.
+
+import unittest
+
+# ------------------------------------------------------------------------------
+
+def computeWaysToMove(m, n):
+    '''
+    :param m - one side of the matrix
+    :param m - other side of the matrix
+    '''
+    print("computeWaysToMove called with: ", m, n)
+    returnValue = None
+
+    # TODO
+
+    return returnValue
+
+# ------------------------------------------------------------------------------
+
+class Testcase(unittest.TestCase):
+    def test0(self):
+        m, n = 2,2
+        expectedResult = 2
+        output = computeWaysToMove(m, n)
+        self.assertEqual(output, expectedResult)
+        print(" --> input", m, "x", n, "yielded result:", output)
+
+# # ------------------------------------------------------------------------------
+#
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
