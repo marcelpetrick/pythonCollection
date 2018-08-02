@@ -9,6 +9,8 @@
 # Input : n = 10, m = 15
 # Output : 10, 12
 
+# ------------------------------------------------------------------------------
+
 def printSteppingNumbersInRange(m, n):
     '''
     @param: m begin (inclusive)
@@ -18,13 +20,12 @@ def printSteppingNumbersInRange(m, n):
     results = []
 
     for number in range(m, n + 1): # n should be inclusive, therefore +1
-        print(number)
         if isSteppingNumber(number):
             results.append(number)
 
     return results
 
-# # ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 def isSteppingNumber(number):
     returnValue = False
@@ -38,20 +39,22 @@ def isSteppingNumber(number):
         next = number % 10
         number //= 10
         returnValue = True
-        for position in range(0, numberOfDigits):
+        for position in range(0, numberOfDigits - 1):
             # use div and mod to acquire the digits and check them
             current = next
             next = number % 10
             if(abs(next - current) != 1):
-                print("current and next differ by more than one:", current, next)
+                #print("current and next differ by more than one:", current, next)
                 returnValue = False
                 break
             number //= 10
-        # if the control flow reaches this position, then we have a valid steppingNumber
 
-    print("isSteppingNumber:", originalNumber, "returns", returnValue)
+    #print("isSteppingNumber:", originalNumber, "returns", returnValue)
+    #print("###################")
     return returnValue
 
-# # ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
-print(printSteppingNumbersInRange(10, 15))
+print("-----------------------------------------------------------------------------")
+print("range(10,15):", printSteppingNumbersInRange(10, 15))
+print("range(0,100):", printSteppingNumbersInRange(0, 100))
