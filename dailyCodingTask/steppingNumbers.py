@@ -24,14 +24,34 @@ def printSteppingNumbersInRange(m, n):
 
     return results
 
+# # ------------------------------------------------------------------------------
+
 def isSteppingNumber(number):
     returnValue = False
+    originalNumber = number
 
-    if (str(number).__len__() == 1):
+    numberOfDigits = str(number).__len__()
+    if (numberOfDigits == 1):
         returnValue = True
     else:
-        pass #todo
+        current = 0
+        next = number % 10
+        number //= 10
+        returnValue = True
+        for position in range(0, numberOfDigits):
+            # use div and mod to acquire the digits and check them
+            current = next
+            next = number % 10
+            if(abs(next - current) != 1):
+                print("current and next differ by more than one:", current, next)
+                returnValue = False
+                break
+            number //= 10
+        # if the control flow reaches this position, then we have a valid steppingNumber
 
+    print("isSteppingNumber:", originalNumber, "returns", returnValue)
     return returnValue
 
-print(printSteppingNumbersInRange(0, 3))
+# # ------------------------------------------------------------------------------
+
+print(printSteppingNumbersInRange(10, 15))
