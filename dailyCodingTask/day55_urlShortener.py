@@ -14,3 +14,9 @@
 # + hash the input and put into dictionary
 # + to avoid the problem with "double input -> what now?" use the current time as suffix as salt; but what kind
 # of separator which is not in the valid urls?
+
+# 20180804:
+# read about https://blog.codinghorror.com/url-shortening-hashes-in-practice/ to get some practical insight
+# https://www.pythoncentral.io/hashing-strings-with-python/
+
+# Afterwards I tend to use the "just count upwards some six-digit word made out of regular of expanded alphabet"-approach.
