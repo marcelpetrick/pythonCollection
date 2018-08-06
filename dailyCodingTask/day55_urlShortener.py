@@ -20,3 +20,13 @@
 # https://www.pythoncentral.io/hashing-strings-with-python/
 
 # Afterwards I tend to use the "just count upwards some six-digit word made out of regular of expanded alphabet"-approach.
+
+import string
+allchar = string.ascii_letters +\
+    string.digits
+          #string.punctuation +\
+
+print(allchar.__len__()) # 62
+print(allchar)
+
+# six digits with 52 possibilities: 19*10^4 - but is 'a' different from 'A' for urls?
