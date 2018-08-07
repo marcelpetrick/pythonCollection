@@ -6,6 +6,10 @@
 #
 # You can assume the list has at least three integers.
 
+# my idea: go once throught the whole list, check each element with container.
+# that container saves the two smallest negative numbers and the three biggest.
+# afterwards: choose wisely ;)
+
 import unittest
 
 # ------------------------------------------------------------------------------
