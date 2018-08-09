@@ -6,12 +6,28 @@
 #
 # For example, given 1, you should return 19. Given 2, you should return 28.
 
+# question: does it mean just once sum of the digits or repeatedly? (like for 991 -> 19 -> 10?)
+
 import unittest
+# import this
 
 # ------------------------------------------------------------------------------
 
 def nthPerfectNumber(input):
+    # idea: make a generator? have to inform myself how this was done via python
 	pass
+
+# ------------------------------------------------------------------------------
+
+def calculateCrossfoot(input):
+    digitSum = 0
+    while input > 0:
+        #print("input:", input, "digitSum:", digitSum)
+        digit = input % 10 # could be as well immediately summed up, but for the sake of readability
+        input = input // 10
+        digitSum += digit
+
+    return digitSum
 
 # ------------------------------------------------------------------------------
 
@@ -36,3 +52,7 @@ class Testcase(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
+# todo make this unit-tests
+print(calculateCrossfoot(1)) # 1
+print(calculateCrossfoot(12)) # 3
+print(calculateCrossfoot(123)) # 6
