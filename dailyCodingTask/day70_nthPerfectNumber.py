@@ -14,8 +14,20 @@ import unittest
 # ------------------------------------------------------------------------------
 
 def nthPerfectNumber(input):
-    # idea: make a generator? have to inform myself how this was done via python
-	pass
+    # todo idea: make a generator? have to inform myself how this was done via python
+
+    currentOne = 0
+    number = -1
+    while currentOne != input:
+        number += 1
+        if calculateCrossfoot(number) == 10:
+            currentOne += 1 # todo howto ++ in  python?!?
+            print("perfect number", currentOne, "is", number)
+        #else:
+            #print(number, "not perfect")
+
+    #print("will return:", number)
+    return number
 
 # ------------------------------------------------------------------------------
 
@@ -56,3 +68,5 @@ if __name__ == '__main__':
 print(calculateCrossfoot(1)) # 1
 print(calculateCrossfoot(12)) # 3
 print(calculateCrossfoot(123)) # 6
+
+nthPerfectNumber(20)
