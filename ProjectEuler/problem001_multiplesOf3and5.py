@@ -8,8 +8,8 @@
 #----------------------------------------------------------------------------------------
 
 def sumOfMultiplesOf3And5Below(limit):
-    print(limit)
-    allNumbers = list(range(1, limit + 1))
+    print("\nsumOfMultiplesOf3And5Below with limit", limit, "yields:")
+    allNumbers = list(range(1, limit))
     print(allNumbers)
     allMultiples = [x for x in allNumbers if (x % 3 == 0 or x % 5 == 0)]
     print(allMultiples)
@@ -18,7 +18,17 @@ def sumOfMultiplesOf3And5Below(limit):
 #----------------------------------------------------------------------------------------
 
 # limit=10; expect: 23
-print(sumOfMultiplesOf3And5Below(10))
+print("->", sumOfMultiplesOf3And5Below(10))
 
 # limit 1000: result?
-print(sumOfMultiplesOf3And5Below(1000))
+print("->", sumOfMultiplesOf3And5Below(1000))
+# 233168 - is proven correct
+
+#----------------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 1 is correct.
+#
+# You are the 773168th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you had previously solved was 0%.
+# This is a new record. Well done!
