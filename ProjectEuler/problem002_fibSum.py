@@ -16,19 +16,63 @@
 # ------------------------------------------------------------------------------
 
 def getFibGen():
-    pass
+    a = 1
+    b = 1
+    while True:
+        yield a # yay, my first generator! :)
+        a,b = b, a + b
 
 # ------------------------------------------------------------------------------
 
 def getNextEvenValue():
-    pass
+    # create your own generator
+    generator = getFibGen()
+    currentValue = 1 # just for initialization
+    while True:
+        # increase until we have the next even one
+        while currentValue % 2 == 1:
+            currentValue = generator.__next__()
+        yield currentValue
+
+        # go to the next value
+        currentValue = generator.__next__()
 
 # ------------------------------------------------------------------------------
 
 def problem002():
     print("problem002")
-    pass
+
+    # generator = getFibGen()
+
+    # print(next(generator))
+    # print(next(generator))
+    # print(next(generator))
+    #
+    # for x in range(0, 5):
+    #     print(generator.__next__())
+
+    genEven = getNextEvenValue()
+    # for x in range(0, 5):
+    #     print(genEven.__next__())
+
+    sum = 0
+    currentValue = genEven.__next__()
+
+    while currentValue < 4000000:
+        sum += currentValue
+        currentValue = genEven.__next__()
+
+    return sum
 
 # ------------------------------------------------------------------------------
 
-problem002()
+print(problem002())
+#>> 4613732
+
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 2 is correct.
+#
+# You are the 620993rd person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved remains at 5%.
