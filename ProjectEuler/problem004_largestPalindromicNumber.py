@@ -5,6 +5,7 @@
 
 # ------------------------------------------------------------------------------
 import unittest
+import time
 # ------------------------------------------------------------------------------
 
 # idea: try to check downwards: use two loops over the input; starting with the biggest possible number from the amount of digits
@@ -102,8 +103,9 @@ if __name__ == '__main__':
 #findLargestPalindromicNumberFromTwoXDigitNumbers(2)
 
 print("#############################################")
-for x in range(0, 7):
-    print(x, "digits:", findLargestPalindromicNumberFromTwoXDigitNumbers(x))
+for x in range(0, 8):
+    start = time.time()
+    print(x, "digits:", findLargestPalindromicNumberFromTwoXDigitNumbers(x), "in", time.time() - start, "seconds")
 
 # ------------------------------------------------------------------------------
 
