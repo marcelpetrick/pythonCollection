@@ -21,7 +21,7 @@ def findLargestPrimeFactor(input):
 # ------------------------------------------------------------------------------
 
 def isPrime(input):
-    for x in range(2, input): # is -1
+    for x in range(2, int(input**(1/2)+0.5)): # is -1
         #print("input:", input, "test:", x)
         if input % x == 0:
             #print("is dividing!")
@@ -50,8 +50,13 @@ class Testcase(unittest.TestCase):
         self.assertEqual(output, expectedResult)
         print(" --> input", input, "yielded result:", output)
 
-
+# ------------------------------------------------------------------------------
+# just my own testing
 print(2, findLargestPrimeFactor(2))
 print(6, findLargestPrimeFactor(6))
 print(25, findLargestPrimeFactor(25))
 print(87, findLargestPrimeFactor(87))
+
+# ------------------------------------------------------------------------------
+# project Euler-question:
+print(600851475143, findLargestPrimeFactor(600851475143))
