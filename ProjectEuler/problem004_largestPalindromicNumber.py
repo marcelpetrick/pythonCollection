@@ -39,6 +39,9 @@ def isPalindrom(input):
             substring = stringifiedNumber[1:-1]
             if substring.__len__() > 0:
                 #print("call with substring", substring, "the function")
+                if str(int(substring)) != substring: # ATTENTION this check is needed, else 009 is converted to 9, which is palindromic!
+                    #print("big fuckup!:", substring)
+                    return False
                 return isPalindrom(int(substring))
             else:
                 #print("no more stuff left - return True")
@@ -62,7 +65,6 @@ class Testcase(unittest.TestCase):
         self.assertEqual(False, isPalindrom(900099))
 
     def test_largestPalindromic(self):
-        print("dsfsafsadf")
         self.assertEqual(9009, findLargestPalindromicNumberFromTwoXDigitNumbers(2))
 
 # ------------------------------------------------------------------------------
@@ -82,3 +84,5 @@ isPalindrom(123421)
 findLargestPalindromicNumberFromTwoXDigitNumbers(1)
 findLargestPalindromicNumberFromTwoXDigitNumbers(2)
 findLargestPalindromicNumberFromTwoXDigitNumbers(3)
+
+isPalindrom(900099)
