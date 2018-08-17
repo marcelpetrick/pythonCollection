@@ -10,23 +10,32 @@ import unittest
 # idea: try to check downwards: use two loops over the input; starting with the biggest possible number from the amount of digits
 def findLargestPalindromicNumberFromTwoXDigitNumbers(digits):
     biggestNumber = 10 ** digits - 1
-    print(biggestNumber)
+    #print(biggestNumber)
+    foundBiggestNumber = -1
 
     for a in range(biggestNumber, 1, -1):
         for b in range(biggestNumber, 1, -1):
             product = a*b
+            #print("do:", a, "*", b, "=", product)
+            # stop this path in case we have already something bigger here
+            if product < foundBiggestNumber:
+                #print("break because: if product < foundBiggestNumber:")
+                break
+            # check for the required attribute
             if isPalindrom(product):
-                print(a, "*", b, "=", product)
-                return product
+                #print("palindrom:", a, "*", b, "=", product)
+                if product > foundBiggestNumber:
+                    foundBiggestNumber = product
+                break # because all following computations can just yield a smaller product
 
-    return None #error!
+    return foundBiggestNumber #error!
 
 # ------------------------------------------------------------------------------
 
 # todo rename the function name: e at suffix missing
 def isPalindrom(input):
     #print("-----------------------")
-    #print("isafdasf called with", input)
+    #print("isPalindrom called with", input)
     if input < 0: # all negative numbers are not palindromic
         return False
     elif input < 10: # all single digit numbers are palindromic
@@ -41,6 +50,10 @@ def isPalindrom(input):
                 #print("call with substring", substring, "the function")
                 if str(int(substring)) != substring: # ATTENTION this check is needed, else 009 is converted to 9, which is palindromic!
                     #print("big fuckup!:", substring)
+                    # in case of 0 or 0000
+                    if int(substring) == 0:
+                        return True
+                    # else
                     return False
                 return isPalindrom(int(substring))
             else:
@@ -63,6 +76,7 @@ class Testcase(unittest.TestCase):
         self.assertEqual(True, isPalindrom(123321))
         self.assertEqual(False, isPalindrom(-2))
         self.assertEqual(False, isPalindrom(900099))
+        self.assertEqual(True, isPalindrom(9009)) # has to work
 
     def test_largestPalindromic(self):
         self.assertEqual(9009, findLargestPalindromicNumberFromTwoXDigitNumbers(2))
@@ -79,10 +93,5 @@ if __name__ == '__main__':
 #findLargestPalindromicNumberFromTwoXDigitNumbers(2)
 
 print("#############################################")
-isPalindrom(123421)
-
-findLargestPalindromicNumberFromTwoXDigitNumbers(1)
-findLargestPalindromicNumberFromTwoXDigitNumbers(2)
-findLargestPalindromicNumberFromTwoXDigitNumbers(3)
-
-isPalindrom(900099)
+for x in range(0, 7):
+    print(x, "digits:", findLargestPalindromicNumberFromTwoXDigitNumbers(x))
