@@ -9,7 +9,17 @@ import unittest
 
 # idea: try to check downwards: use two loops over the input; starting with the biggest possible number from the amount of digits
 def findLargestPalindromicNumberFromTwoXDigitNumbers(digits):
-    pass
+    biggestNumber = 10 ** digits - 1
+    print(biggestNumber)
+
+    for a in range(biggestNumber, 1, -1):
+        for b in range(biggestNumber, 1, -1):
+            product = a*b
+            if isPalindrom(product):
+                print(a, "*", b, "=", product)
+                return product
+
+    return None #error!
 
 # ------------------------------------------------------------------------------
 
@@ -49,6 +59,7 @@ class Testcase(unittest.TestCase):
         self.assertEqual(False, isPalindrom(123421))
         self.assertEqual(True, isPalindrom(123321))
         self.assertEqual(False, isPalindrom(-2))
+        self.assertEqual(False, isPalindrom(900099))
 
     def test_largestPalindromic(self):
         print("dsfsafsadf")
@@ -56,8 +67,18 @@ class Testcase(unittest.TestCase):
 
 # ------------------------------------------------------------------------------
 
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
+
+# ------------------------------------------------------------------------------
+
 # should return 91x99 --> 9009
 #findLargestPalindromicNumberFromTwoXDigitNumbers(2)
 
-#print("##################################")
-#isPalindrom(123421)
+print("#############################################")
+isPalindrom(123421)
+
+findLargestPalindromicNumberFromTwoXDigitNumbers(1)
+findLargestPalindromicNumberFromTwoXDigitNumbers(2)
+findLargestPalindromicNumberFromTwoXDigitNumbers(3)
