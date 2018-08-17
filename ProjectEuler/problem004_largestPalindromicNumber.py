@@ -104,3 +104,11 @@ if __name__ == '__main__':
 print("#############################################")
 for x in range(0, 7):
     print(x, "digits:", findLargestPalindromicNumberFromTwoXDigitNumbers(x))
+
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 4 is correct.
+#
+# You are the 395508th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved remains at 5%.
