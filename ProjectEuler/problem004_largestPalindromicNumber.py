@@ -15,6 +15,7 @@ def findLargestPalindromicNumberFromTwoXDigitNumbers(digits):
     foundBiggestNumber = -1
 
     for a in range(biggestNumber, 1, -1):
+        #print(a)
         for b in range(biggestNumber, 1, -1):
             product = a*b
             #print("do:", a, "*", b, "=", product)
@@ -27,6 +28,7 @@ def findLargestPalindromicNumberFromTwoXDigitNumbers(digits):
                 #print("palindrom:", a, "*", b, "=", product)
                 if product > foundBiggestNumber:
                     foundBiggestNumber = product
+                    print(foundBiggestNumber)
                 break # because all following computations can just yield a smaller product
 
     return foundBiggestNumber #error!
@@ -69,6 +71,9 @@ def isPalindrome(input):
 # ------------------------------------------------------------------------------
 
 def isPalindrome2(input):
+    if input[0] != input[-1]:
+        return False
+
     return input == input[::-1]
 
 # ------------------------------------------------------------------------------
@@ -114,3 +119,7 @@ for x in range(0, 8):
 # You are the 395508th person to have solved this problem.
 #
 # This problem had a difficulty rating of 5%. The highest difficulty rating you have solved remains at 5%.
+
+# ------------------------------------------------------------------------------
+
+# 7 digits: 99956644665999 in 154.34471154212952 seconds
