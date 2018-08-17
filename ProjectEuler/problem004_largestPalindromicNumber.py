@@ -22,7 +22,7 @@ def findLargestPalindromicNumberFromTwoXDigitNumbers(digits):
                 #print("break because: if product < foundBiggestNumber:")
                 break
             # check for the required attribute
-            if isPalindrom(product):
+            if isPalindrome(product):
                 #print("palindrom:", a, "*", b, "=", product)
                 if product > foundBiggestNumber:
                     foundBiggestNumber = product
@@ -33,53 +33,62 @@ def findLargestPalindromicNumberFromTwoXDigitNumbers(digits):
 # ------------------------------------------------------------------------------
 
 # todo rename the function name: e at suffix missing
-def isPalindrom(input):
-    #print("-----------------------")
-    #print("isPalindrom called with", input)
-    if input < 0: # all negative numbers are not palindromic
-        return False
-    elif input < 10: # all single digit numbers are palindromic
-        return True
-    else: # first is equal the last digit? then check for the inner core
-        stringifiedNumber = str(input)
-        #print(stringifiedNumber[0], stringifiedNumber[-1]) # -1 is last elem
-        if stringifiedNumber[0] == stringifiedNumber[-1]:
-            #print("same!")
-            substring = stringifiedNumber[1:-1]
-            if substring.__len__() > 0:
-                #print("call with substring", substring, "the function")
-                if str(int(substring)) != substring: # ATTENTION this check is needed, else 009 is converted to 9, which is palindromic!
-                    #print("big fuckup!:", substring)
-                    # in case of 0 or 0000
-                    if int(substring) == 0:
-                        return True
-                    # else
-                    return False
-                return isPalindrom(int(substring))
-            else:
-                #print("no more stuff left - return True")
-                return True
-        else:
-            #print("begin and end not equal :'(")
-            return False
+def isPalindrome(input):
+    return isPalindrome2(str(input))
+
+    # #print("-----------------------")
+    # #print("isPalindrome called with", input)
+    # if input < 0: # all negative numbers are not palindromic
+    #     return False
+    # elif input < 10: # all single digit numbers are palindromic
+    #     return True
+    # else: # first is equal the last digit? then check for the inner core
+    #     stringifiedNumber = str(input)
+    #     #print(stringifiedNumber[0], stringifiedNumber[-1]) # -1 is last elem
+    #     if stringifiedNumber[0] == stringifiedNumber[-1]:
+    #         #print("same!")
+    #         substring = stringifiedNumber[1:-1]
+    #         if substring.__len__() > 0:
+    #             #print("call with substring", substring, "the function")
+    #             if str(int(substring)) != substring: # ATTENTION this check is needed, else 009 is converted to 9, which is palindromic!
+    #                 #print("big fuckup!:", substring)
+    #                 # in case of 0 or 0000
+    #                 if int(substring) == 0:
+    #                     return True
+    #                 # else
+    #                 return False
+    #             return isPalindrome(int(substring))
+    #         else:
+    #             #print("no more stuff left - return True")
+    #             return True
+    #     else:
+    #         #print("begin and end not equal :'(")
+    #         return False
+
+# ------------------------------------------------------------------------------
+
+def isPalindrome2(input):
+    return input == input[::-1]
 
 # ------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
     def test_isPalindrome(self):
-        self.assertEqual(True, isPalindrom(1))
-        self.assertEqual(True, isPalindrom(11))
-        self.assertEqual(False, isPalindrom(12))
-        self.assertEqual(True, isPalindrom(121))
-        self.assertEqual(True, isPalindrom(1221))
-        self.assertEqual(False, isPalindrom(123421))
-        self.assertEqual(True, isPalindrom(123321))
-        self.assertEqual(False, isPalindrom(-2))
-        self.assertEqual(False, isPalindrom(900099))
-        self.assertEqual(True, isPalindrom(9009)) # has to work
+        self.assertEqual(True, isPalindrome(1))
+        self.assertEqual(True, isPalindrome(11))
+        self.assertEqual(False, isPalindrome(12))
+        self.assertEqual(True, isPalindrome(121))
+        self.assertEqual(True, isPalindrome(1221))
+        self.assertEqual(False, isPalindrome(123421))
+        self.assertEqual(True, isPalindrome(123321))
+        self.assertEqual(False, isPalindrome(-2))
+        self.assertEqual(False, isPalindrome(900099))
+        self.assertEqual(True, isPalindrome(9009)) # has to work
+        self.assertEqual(True, isPalindrome(906609))  # has to work
 
     def test_largestPalindromic(self):
         self.assertEqual(9009, findLargestPalindromicNumberFromTwoXDigitNumbers(2))
+        #self.assertEqual(906609, findLargestPalindromicNumberFromTwoXDigitNumbers(3)) # googled ... but why is mine wrong?
 
 # ------------------------------------------------------------------------------
 
