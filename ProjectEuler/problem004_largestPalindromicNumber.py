@@ -108,7 +108,7 @@ if __name__ == '__main__':
 #findLargestPalindromicNumberFromTwoXDigitNumbers(2)
 
 print("#############################################")
-for x in range(0, 8):
+for x in range(0, 10):
     start = time.time()
     print(x, "digits:", findLargestPalindromicNumberFromTwoXDigitNumbers(x), "in", time.time() - start, "seconds")
 
@@ -122,4 +122,12 @@ for x in range(0, 8):
 
 # ------------------------------------------------------------------------------
 
-# 7 digits: 99956644665999 in 154.34471154212952 seconds
+# 0 digits: -1 in 2.1457672119140625e-06 seconds
+# 1 digits: 9 in 3.075599670410156e-05 seconds
+# 2 digits: 9009 in 5.316734313964844e-05 seconds
+# 3 digits: 906609 in 0.004776716232299805 seconds
+# 4 digits: 99000099 in 0.009120464324951172 seconds
+# 5 digits: 9966006699 in 0.46706056594848633 seconds
+# 6 digits: 999000000999 in 0.5814318656921387 seconds
+# 7 digits: 99956644665999 in 93.65605902671814 seconds
+# 8 digits: 9999000000009999 in 59.7429838180542 seconds
