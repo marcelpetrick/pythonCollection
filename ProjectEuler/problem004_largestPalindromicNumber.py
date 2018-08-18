@@ -28,7 +28,7 @@ def findLargestPalindromicNumberFromTwoXDigitNumbers(digits):
                 #print("palindrom:", a, "*", b, "=", product)
                 if product > foundBiggestNumber:
                     foundBiggestNumber = product
-                    print(foundBiggestNumber)
+                    # print(foundBiggestNumber) # un-comment this line to see some "progress"
                 break # because all following computations can just yield a smaller product
 
     return foundBiggestNumber #error!

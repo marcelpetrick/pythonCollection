@@ -15,32 +15,33 @@
     <session id="-2072714679">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="6" />
+          <entry key="py" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="6" />
+          <entry key="Python" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="py" value="1046" />
+          <entry key="py" value="1777" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="1046" />
+          <entry key="Python" value="1777" />
         </counts>
       </usages-collector>
     </session>
@@ -48,21 +49,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProjectEuler/problem002_fibSum.py">
+        <entry file="file://$PROJECT_DIR$/ProjectEuler/problem004_largestPalindromicNumber.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+            <state relative-caret-position="181">
+              <caret line="87" column="41" lean-forward="true" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
+              <folding>
+                <element signature="e#297#312#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ProjectEuler/problem004_largestPalindromicNumber.py">
+        <entry file="file://$PROJECT_DIR$/ProjectEuler/problem005_smallestMultiple.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+            <state relative-caret-position="507">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
-                <marker date="1534545514913" expanded="true" signature="3106:3139" ph="..." />
+                <marker date="1534597996016" expanded="true" signature="796:880" ph="..." />
               </folding>
             </state>
           </provider>
@@ -71,7 +75,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjectEuler/problem003_largestPrimeFactor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
+            <state relative-caret-position="1575">
               <caret line="105" selection-start-line="105" selection-end-line="105" />
             </state>
           </provider>
@@ -80,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/teamcity/diff_tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="405">
               <caret line="31" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
@@ -95,6 +99,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>time</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -103,6 +112,7 @@
       <list>
         <option value="$PROJECT_DIR$/dailyCodingTask/day74_numberOfAppearances.py" />
         <option value="$PROJECT_DIR$/ProjectEuler/problem004_largestPalindromicNumber.py" />
+        <option value="$PROJECT_DIR$/ProjectEuler/problem005_smallestMultiple.py" />
       </list>
     </option>
   </component>
@@ -120,7 +130,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,6 +146,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -155,28 +165,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in problem004_largestPalindromicNumber.py">
-    <configuration name="day70_nthPerfectNumber" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pythonCollection" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dailyCodingTask/day70_nthPerfectNumber.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittests in problem005_smallestMultiple.py">
     <configuration name="problem002_fibSum" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -247,20 +236,34 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests in problem005_smallestMultiple.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="pythonCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/ProjectEuler/problem005_smallestMultiple.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.day70_nthPerfectNumber" />
       <item itemvalue="Python.problem002_fibSum" />
       <item itemvalue="Python tests.Unittests in problem004_largestPalindromicNumber.py" />
       <item itemvalue="Python tests.Unittests for problem004_largestPalindromicNumber.Testcase" />
       <item itemvalue="Python.problem004_largestPalindromicNumber" />
+      <item itemvalue="Python tests.Unittests in problem005_smallestMultiple.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in problem005_smallestMultiple.py" />
         <item itemvalue="Python tests.Unittests in problem004_largestPalindromicNumber.py" />
         <item itemvalue="Python.problem004_largestPalindromicNumber" />
         <item itemvalue="Python tests.Unittests for problem004_largestPalindromicNumber.Testcase" />
         <item itemvalue="Python.problem002_fibSum" />
-        <item itemvalue="Python.day70_nthPerfectNumber" />
       </list>
     </recent_temporary>
   </component>
@@ -278,35 +281,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 25m 08s.xml">
+    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 49m 10s.xml">
       <configuration name="Unittests in problem004_largestPalindromicNumber.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 25m 17s.xml">
+    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 51m 31s.xml">
       <configuration name="Unittests in problem004_largestPalindromicNumber.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 25m 57s.xml">
+    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 51m 54s.xml">
       <configuration name="Unittests in problem004_largestPalindromicNumber.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 26m 23s.xml">
+    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 53m 16s.xml">
       <configuration name="Unittests in problem004_largestPalindromicNumber.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 26m 28s.xml">
+    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 54m 28s.xml">
       <configuration name="Unittests in problem004_largestPalindromicNumber.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 26m 40s.xml">
+    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 56m 48s.xml">
       <configuration name="Unittests in problem004_largestPalindromicNumber.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 26m 57s.xml">
+    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 57m 32s.xml">
       <configuration name="Unittests in problem004_largestPalindromicNumber.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 35m 09s.xml">
+    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 15h 05m 42s.xml">
       <configuration name="Unittests in problem004_largestPalindromicNumber.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 36m 11s.xml">
+    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 15h 07m 53s.xml">
       <configuration name="Unittests in problem004_largestPalindromicNumber.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_problem004_largestPalindromicNumber_py - 2018.08.18 at 00h 37m 08s.xml">
-      <configuration name="Unittests in problem004_largestPalindromicNumber.py" configurationId="tests" />
+    <history-entry file="Unittests_in_problem005_smallestMultiple_py - 2018.08.18 at 15h 12m 07s.xml">
+      <configuration name="Unittests in problem005_smallestMultiple.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -325,7 +328,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="9" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32990867" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -371,19 +374,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem003_largestPrimeFactor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/teamcity/diff_tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="405">
           <caret line="31" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjectEuler/problem004_largestPalindromicNumber.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+        <state relative-caret-position="181">
+          <caret line="87" column="41" lean-forward="true" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
           <folding>
-            <marker date="1534545514913" expanded="true" signature="3106:3139" ph="..." />
+            <element signature="e#297#312#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem005_smallestMultiple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <marker date="1534597996016" expanded="true" signature="796:880" ph="..." />
           </folding>
         </state>
       </provider>
