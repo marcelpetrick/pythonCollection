@@ -71,3 +71,12 @@ for i in range(0,10):
 # ------------------------------------------------------------------------------
 
 print("getPrimeNumber(10001):", getPrimeNumber(10001))
+#getPrimeNumber(10001): 104743
+
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 7 is correct.
+#
+# You are the 347591st person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved remains at 5%.
