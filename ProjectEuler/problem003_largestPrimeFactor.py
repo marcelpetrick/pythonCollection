@@ -45,7 +45,9 @@ def findLargestPrimeFactor2(input):
 # ------------------------------------------------------------------------------
 
 def isPrime(input):
-    for x in range(2, int(input**(1/2)+0.5)): # is -1
+    upperLimit = input // 2 + 1
+    #print(list(range(2, upperLimit)))
+    for x in range(2, upperLimit): # is -1
         #print("input:", input, "test:", x)
         if input % x == 0:
             #print("is dividing!")
