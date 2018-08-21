@@ -35,6 +35,19 @@ def getPrimeNumber(number):
 
 # ------------------------------------------------------------------------------
 
+def findLowestSumForNPrimePairSets(n):
+    # todo: idea:
+    # the set of n primes can be sorted; the biggest number will always be the "upper limit" -> so do some upward expanding loop?
+    # done: reuse the isPrime-function
+    # todo: needs a function which does all pair-shuffles for elements of a set (of primes)
+    # todo check all possible pairs (front and back concatenation) if prime: exit early if not!
+    # hint: 2 can't be in the set, else it would end up as pair-combination xyz2 - which is always multiple of 2, so not prime (optimization)
+
+    #return 792 # just fr testing the unit-test
+    #pass
+
+# ------------------------------------------------------------------------------
+
 class Testcase(unittest.TestCase):
     def test_isPrime(self):
         self.assertEqual(True, isPrime(2))
@@ -53,6 +66,9 @@ class Testcase(unittest.TestCase):
         self.assertEqual(3, getPrimeNumber(2))
         self.assertEqual(13, getPrimeNumber(6))
 
+    def test_findLowestSumForNPrimePairSets(self):
+        self.assertEqual(792, findLowestSumForNPrimePairSets(4)) # given example
+
 # ------------------------------------------------------------------------------
 
 # ---- here comes the execution of the unit-tests ----
@@ -60,3 +76,6 @@ if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
+
+# this is the function which would yield the result
+print("findLowestSumForNPrimePairSets(5):", findLowestSumForNPrimePairSets(5))
