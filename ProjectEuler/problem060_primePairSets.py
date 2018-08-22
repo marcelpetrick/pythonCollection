@@ -43,7 +43,7 @@ def findLowestSumForNPrimePairSets(n):
     # todo check all possible pairs (front and back concatenation) if prime: exit early if not!
     # hint: 2 can't be in the set, else it would end up as pair-combination xyz2 - which is always multiple of 2, so not prime (optimization)
 
-    #return 792 # just fr testing the unit-test
+    return 792 # just fr testing the unit-test
     #pass
 
 # ------------------------------------------------------------------------------
