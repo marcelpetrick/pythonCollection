@@ -36,7 +36,7 @@ def getPrimeNumber(number):
 # ------------------------------------------------------------------------------
 
 def createAllPairs(inputList, unique, sorted): # todo add default params
-    ''' Create al 2-tupes for the given @param inputList.
+    ''' Create all 2-tuples for the given @param inputList.
     @param sorted is boolean and determines if the resulting list shall be sorted before return.
     @param unique determines if (a,b) AND (b,a) shall be part of the result-list.
     '''
@@ -44,7 +44,17 @@ def createAllPairs(inputList, unique, sorted): # todo add default params
     resultList = []
     #todo implement this ...
 
-    
+    # todo: redo this ... not working. maybe recursive is easier here (or use "itertools" ..)
+    count = 0
+    for elem in inputList:
+        restList = inputList.copy()
+        for a in range(0, count+1):
+            restList.pop(0)
+        print(elem, restList)
+        for elemRest in restList:
+            resultList.append((elem, elemRest))
+            print((elem, elemRest))
+
     return resultList
 
 # ------------------------------------------------------------------------------
