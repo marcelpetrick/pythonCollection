@@ -59,6 +59,26 @@ def createAllPairs(inputList, unique, sorted): # todo add default params
 
 # ------------------------------------------------------------------------------
 
+def createAllPairsHelper(elem, restList):
+    resultList = []
+
+    if elem == None:
+        if len(restList) == 0:
+            return []
+        else:
+            first = restList.pop(0)
+            return createAllPairsHelper(first, restList)
+    else:
+        if len(restList) == 0: # no more items to combine with
+            return []
+        else:
+            first = restList.pop(0)
+            # todo add all pairs with the current "elem" and restList
+            # todo do recursive call with restList's head and restList[1:]
+            resultList
+
+# ------------------------------------------------------------------------------
+
 def findLowestSumForNPrimePairSets(n):
     # todo: idea:
     # the set of n primes can be sorted; the biggest number will always be the "upper limit" -> so do some upward expanding loop?
