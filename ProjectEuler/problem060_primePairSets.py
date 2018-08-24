@@ -35,6 +35,20 @@ def getPrimeNumber(number):
 
 # ------------------------------------------------------------------------------
 
+def createAllPairs(inputList, unique, sorted): # todo add default params
+    ''' Create al 2-tupes for the given @param inputList.
+    @param sorted is boolean and determines if the resulting list shall be sorted before return.
+    @param unique determines if (a,b) AND (b,a) shall be part of the result-list.
+    '''
+
+    resultList = []
+    #todo implement this ...
+
+    
+    return resultList
+
+# ------------------------------------------------------------------------------
+
 def findLowestSumForNPrimePairSets(n):
     # todo: idea:
     # the set of n primes can be sorted; the biggest number will always be the "upper limit" -> so do some upward expanding loop?
@@ -43,7 +57,7 @@ def findLowestSumForNPrimePairSets(n):
     # todo check all possible pairs (front and back concatenation) if prime: exit early if not!
     # hint: 2 can't be in the set, else it would end up as pair-combination xyz2 - which is always multiple of 2, so not prime (optimization)
 
-    return 792 # just fr testing the unit-test
+    return 792 # just for testing the unit-test
     #pass
 
 # ------------------------------------------------------------------------------
@@ -68,6 +82,24 @@ class Testcase(unittest.TestCase):
 
     def test_findLowestSumForNPrimePairSets(self):
         self.assertEqual(792, findLowestSumForNPrimePairSets(4)) # given example
+
+    def test_createAllPairs(self):
+        # not enough input
+        inputList = []
+        expectedOutput = []
+        self.assertEqual(expectedOutput, createAllPairs(inputList, True, False))
+        # not enough input
+        inputList = [1]
+        expectedOutput = []
+        self.assertEqual(expectedOutput, createAllPairs(inputList, True, False))
+        # unique pairs
+        inputList = [1, 2]
+        expectedOutput = [(1,2)]
+        self.assertEqual(expectedOutput, createAllPairs(inputList, True, True))
+        # not unique pairs
+        inputList = [1, 2]
+        expectedOutput = [(1,2), (2,1)]
+        self.assertEqual(expectedOutput, createAllPairs(inputList, False, True))
 
 # ------------------------------------------------------------------------------
 
