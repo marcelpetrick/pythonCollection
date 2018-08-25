@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79168d8e-0685-474b-a47c-685eddf68000" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day88_division.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day88_division.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,13 +34,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="py" value="2012" />
+          <entry key="py" value="2428" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="2012" />
+          <entry key="Python" value="2428" />
         </counts>
       </usages-collector>
     </session>
@@ -57,22 +56,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+            <state relative-caret-position="329">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dailyCodingTask/day88_division.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+            <state relative-caret-position="60">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="35" />
               <folding>
-                <marker date="1535233477202" expanded="true" signature="450:545" ph="..." />
+                <marker date="1535233521598" expanded="true" signature="450:545" ph="..." />
               </folding>
             </state>
           </provider>
@@ -81,11 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjectEuler/problem060_primePairSets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="50" selection-end-column="34" />
-              <folding>
-                <marker date="1535058703808" expanded="true" signature="1386:1391" ph="..." />
-              </folding>
+            <state relative-caret-position="855">
+              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
             </state>
           </provider>
         </entry>
@@ -113,8 +109,8 @@
         <option value="$PROJECT_DIR$/dailyCodingTask/day74_numberOfAppearances.py" />
         <option value="$PROJECT_DIR$/ProjectEuler/problem005_smallestMultiple.py" />
         <option value="$PROJECT_DIR$/ProjectEuler/problem004_largestPalindromicNumber.py" />
-        <option value="$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py" />
         <option value="$PROJECT_DIR$/dailyCodingTask/day88_division.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py" />
       </list>
     </option>
   </component>
@@ -172,7 +168,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.day88_division">
+  <component name="RunManager" selected="Python.day86_minimumParenthesis">
+    <configuration name="day86_minimumParenthesis" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pythonCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="day88_division" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -186,27 +203,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dailyCodingTask/day88_division.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="problem004_largestPalindromicNumber" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pythonCollection" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProjectEuler/problem004_largestPalindromicNumber.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -266,18 +262,18 @@
     </configuration>
     <list>
       <item itemvalue="Python tests.Unittests in problem004_largestPalindromicNumber.py" />
-      <item itemvalue="Python.problem004_largestPalindromicNumber" />
       <item itemvalue="Python tests.Unittests in problem005_smallestMultiple.py" />
       <item itemvalue="Python.day88_division" />
       <item itemvalue="Python.problem060_primePairSets" />
+      <item itemvalue="Python.day86_minimumParenthesis" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.day86_minimumParenthesis" />
         <item itemvalue="Python.day88_division" />
         <item itemvalue="Python.problem060_primePairSets" />
         <item itemvalue="Python tests.Unittests in problem004_largestPalindromicNumber.py" />
         <item itemvalue="Python tests.Unittests in problem005_smallestMultiple.py" />
-        <item itemvalue="Python.problem004_largestPalindromicNumber" />
       </list>
     </recent_temporary>
   </component>
@@ -442,30 +438,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProjectEuler/problem060_primePairSets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="50" selection-end-column="34" />
-          <folding>
-            <marker date="1535058703808" expanded="true" signature="1386:1391" ph="..." />
-          </folding>
+        <state relative-caret-position="855">
+          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day88_division.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="35" />
           <folding>
-            <marker date="1535233477202" expanded="true" signature="450:545" ph="..." />
+            <marker date="1535233521598" expanded="true" signature="450:545" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
         </state>
       </provider>
     </entry>
