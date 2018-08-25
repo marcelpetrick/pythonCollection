@@ -8,13 +8,25 @@ import unittest
 # ------------------------------------------------------------------------------
 
 def divide(a,b):
-    return a #todo
+    if b == 0:
+        return None
+
+    quotient = 0
+    while a >= b:
+        a -= b
+        quotient += 1
+
+    return quotient
 
 #------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
     def test_divide(self):
-        self.assertEqual(1,1)
+        self.assertEqual(0, divide(0, 3))
+        self.assertEqual(2, divide(4, 2))
+        self.assertEqual(2, divide(5, 2))
+        self.assertEqual(3, divide(6, 2))
+        self.assertEqual(None, divide(5, 0))
 
 #------------------------------------------------------------------------------
 
