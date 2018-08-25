@@ -49,6 +49,8 @@ class Testcase(unittest.TestCase):
         self.assertEqual(1, computeMinimumNumberOfParenthesesToBeRemoved("("))
         self.assertEqual(1, computeMinimumNumberOfParenthesesToBeRemoved(")"))
         self.assertEqual(0, computeMinimumNumberOfParenthesesToBeRemoved("()"))
+        self.assertEqual(3, computeMinimumNumberOfParenthesesToBeRemoved(")))"))
+        self.assertEqual(3, computeMinimumNumberOfParenthesesToBeRemoved("((("))
         # todo add more
 
     # For example, given the string "()())()", you should return 1.
