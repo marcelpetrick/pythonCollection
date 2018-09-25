@@ -24,3 +24,12 @@ inputList = [-9, -2, 0, 2, 3]
 result = squareAndOrderList(inputList)
 
 print("result:", result)
+
+# ------------------------------------------------------------------------------
+# Of course: there is a better and more performant solution:
+# "It can be done in O(n) time. Split your array into two logical parts. Positive and negative. Then apply square to" \
+# "each element in both arrays. Then merge the arrays( merging can be done in O(n) ), but merge the array with previously" \
+# "negative integers in reverse order, since its values will be reversed."
+# ------------------------------------------------------------------------------
+
+# todo: implement this :)
