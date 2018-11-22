@@ -18,7 +18,7 @@ class Testcase(unittest.TestCase):
 
     def test_foo(self):
         pass
-    
+
     # def test_computeMinimumNumberOfParenthesesToBeRemoved(self):
     #     self.assertEqual(0, computeMinimumNumberOfParenthesesToBeRemoved(""))
     #     self.assertEqual(1, computeMinimumNumberOfParenthesesToBeRemoved("("))
@@ -45,4 +45,6 @@ if __name__ == '__main__':
 
 #------------------------------------------------------------------------------
 print("-------- additional output ----------------------------------------------------------------------")
-print("foo")
+#print("foo")
+#print("globals:", globals())
+#print("locals:", locals())

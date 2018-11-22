@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="" />
+    <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,74 +23,52 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="11" />
+          <entry key="py" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="11" />
+          <entry key="Python" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3" />
+          <entry key="py" value="149" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3" />
+          <entry key="Python" value="149" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProjectEuler/problem060_primePairSets.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2295">
-              <caret line="135" column="54" selection-start-line="135" selection-start-column="54" selection-end-line="135" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProjectEuler/problem001_multiplesOf3and5.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProjectEuler/problem003_largestPrimeFactor.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProjectEuler/problem007_1001prime.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-227">
-              <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="136">
+              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+              <folding>
+                <marker date="1542811623500" expanded="true" signature="692:711" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dailyCodingTask/day118_orderedSquaresList.py">
+        <entry file="file://$PROJECT_DIR$/dailyCodingTask/day09_maxSumInList.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="-652" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="62">
+              <caret line="43" selection-start-line="43" selection-end-line="67" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -162,28 +143,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in problem007_1001prime.py">
-    <configuration name="day105_debouncedFunction" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pythonCollection" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dailyCodingTask/day105_debouncedFunction.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittests in day150_nearestPoints.py">
     <configuration name="problem001_multiplesOf3and5" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -203,6 +163,34 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for day150_nearestPoints.Testcase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="pythonCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;day150_nearestPoints.Testcase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in day150_nearestPoints.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="pythonCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Unittests in problem003_largestPrimeFactor.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
@@ -233,34 +221,20 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in problem060_primePairSets.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="pythonCollection" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/ProjectEuler/problem060_primePairSets.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.day105_debouncedFunction" />
-      <item itemvalue="Python tests.Unittests in problem060_primePairSets.py" />
       <item itemvalue="Python.problem001_multiplesOf3and5" />
       <item itemvalue="Python tests.Unittests in problem003_largestPrimeFactor.py" />
       <item itemvalue="Python tests.Unittests in problem007_1001prime.py" />
+      <item itemvalue="Python tests.Unittests in day150_nearestPoints.py" />
+      <item itemvalue="Python tests.Unittests for day150_nearestPoints.Testcase" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in day150_nearestPoints.py" />
+        <item itemvalue="Python tests.Unittests for day150_nearestPoints.Testcase" />
         <item itemvalue="Python tests.Unittests in problem007_1001prime.py" />
         <item itemvalue="Python tests.Unittests in problem003_largestPrimeFactor.py" />
         <item itemvalue="Python.problem001_multiplesOf3and5" />
-        <item itemvalue="Python tests.Unittests in problem060_primePairSets.py" />
-        <item itemvalue="Python.day105_debouncedFunction" />
       </list>
     </recent_temporary>
   </component>
@@ -286,6 +260,27 @@
     </history-entry>
     <history-entry file="Unittests_in_problem007_1001prime_py - 2018.11.21 at 14h 49m 55s.xml">
       <configuration name="Unittests in problem007_1001prime.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 37m 45s.xml">
+      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 38m 09s.xml">
+      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 38m 45s.xml">
+      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 38m 50s.xml">
+      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 38m 55s.xml">
+      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_day150_nearestPoints_Testcase - 2018.11.21 at 15h 39m 35s.xml">
+      <configuration name="Unittests for day150_nearestPoints.Testcase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 45m 17s.xml">
+      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -352,13 +347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day118_orderedSquaresList.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProjectEuler/problem007_1001prime.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-227">
@@ -366,10 +354,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day118_orderedSquaresList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day08_countUnivalSubtrees.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1366" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="43" selection-start-line="43" selection-end-line="67" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day09_maxSumInList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-652" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="136">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding>
+            <marker date="1542811623500" expanded="true" signature="692:711" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
