@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day08_countUnivalSubtrees.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day008_countUnivalSubtrees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day09_maxSumInList.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day009_maxSumInList.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day55_urlShortener.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day055_urlShortener.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day57_textWrapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day057_textWrapping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day58_findInRotatedArray.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day058_findInRotatedArray.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day60_subsetPartitionEqual.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day060_subsetPartitionEqual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day62_movingPatterns.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day062_movingPatterns.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day66_biasedCoin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day066_biasedCoin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day69_biggestProduct.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day069_biggestProduct.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day70_nthPerfectNumber.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day070_nthPerfectNumber.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day71_rand5Fromrand7.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day071_rand5Fromrand7.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day74_numberOfAppearances.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day074_numberOfAppearances.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day086_minimumParenthesis.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,21 +34,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="14" />
+          <entry key="py" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="14" />
+          <entry key="Python" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="dummy" value="21" />
           <entry key="py" value="149" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="PLAIN_TEXT" value="21" />
           <entry key="Python" value="149" />
         </counts>
       </usages-collector>
@@ -48,27 +61,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+            <state relative-caret-position="408">
+              <caret line="24" column="80" lean-forward="true" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
               <folding>
                 <marker date="1542811623500" expanded="true" signature="692:711" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dailyCodingTask/day09_maxSumInList.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-652" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="43" selection-start-line="43" selection-end-line="67" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -143,26 +140,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in day150_nearestPoints.py">
-    <configuration name="problem001_multiplesOf3and5" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python tests.Unittests in day002_productList.py">
+    <configuration name="Unittests for dailyCodingTask.day002_productList.ProductListTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProjectEuler/problem001_multiplesOf3and5.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;dailyCodingTask.day002_productList.ProductListTestCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Unittests for day150_nearestPoints.Testcase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
@@ -179,6 +169,20 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests in day002_productList.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="pythonCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/dailyCodingTask/day002_productList.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unittests in day150_nearestPoints.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,20 +194,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests in problem003_largestPrimeFactor.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="pythonCollection" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/ProjectEuler/problem003_largestPrimeFactor.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -222,19 +212,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.problem001_multiplesOf3and5" />
-      <item itemvalue="Python tests.Unittests in problem003_largestPrimeFactor.py" />
       <item itemvalue="Python tests.Unittests in problem007_1001prime.py" />
       <item itemvalue="Python tests.Unittests in day150_nearestPoints.py" />
       <item itemvalue="Python tests.Unittests for day150_nearestPoints.Testcase" />
+      <item itemvalue="Python tests.Unittests for dailyCodingTask.day002_productList.ProductListTestCase" />
+      <item itemvalue="Python tests.Unittests in day002_productList.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in day002_productList.py" />
+        <item itemvalue="Python tests.Unittests for dailyCodingTask.day002_productList.ProductListTestCase" />
         <item itemvalue="Python tests.Unittests in day150_nearestPoints.py" />
         <item itemvalue="Python tests.Unittests for day150_nearestPoints.Testcase" />
         <item itemvalue="Python tests.Unittests in problem007_1001prime.py" />
-        <item itemvalue="Python tests.Unittests in problem003_largestPrimeFactor.py" />
-        <item itemvalue="Python.problem001_multiplesOf3and5" />
       </list>
     </recent_temporary>
   </component>
@@ -252,12 +242,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_problem060_primePairSets_py - 2018.11.13 at 16h 44m 25s.xml">
-      <configuration name="Unittests in problem060_primePairSets.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_problem003_largestPrimeFactor_py - 2018.11.13 at 16h 44m 40s.xml">
-      <configuration name="Unittests in problem003_largestPrimeFactor.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_problem007_1001prime_py - 2018.11.21 at 14h 49m 55s.xml">
       <configuration name="Unittests in problem007_1001prime.py" configurationId="tests" />
     </history-entry>
@@ -282,17 +266,22 @@
     <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 45m 17s.xml">
       <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_day02_productList_ProductListTestCase - 2018.11.22 at 10h 30m 47s.xml">
+      <configuration name="Unittests for day02_productList.ProductListTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day002_productList_py - 2018.11.22 at 10h 32m 07s.xml">
+      <configuration name="Unittests in day002_productList.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17913593" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30911064" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30911064" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -305,25 +294,37 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17913593" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30911064" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day01_checkPairSum.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="68" lean-forward="true" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day105_debouncedFunction.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day71_rand5Fromrand7.py">
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day071_rand5Fromrand7.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day62_movingPatterns.py">
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day062_movingPatterns.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
           <caret line="47" column="48" lean-forward="true" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
@@ -361,27 +362,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day08_countUnivalSubtrees.py">
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day008_countUnivalSubtrees.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1366" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py">
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day086_minimumParenthesis.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
           <caret line="43" selection-start-line="43" selection-end-line="67" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day09_maxSumInList.py">
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day002_productList.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-652" />
+        <state relative-caret-position="279">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day001_checkPairSum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="68" lean-forward="true" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day009_maxSumInList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-367" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        <state relative-caret-position="408">
+          <caret line="24" column="80" lean-forward="true" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
           <folding>
             <marker date="1542811623500" expanded="true" signature="692:711" ph="..." />
           </folding>

@@ -47,7 +47,7 @@ def findPivotElement(inputList):
 # ------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
-    ''' Tests for day58_findInRotatedArray.py '''
+    ''' Tests for day058_findInRotatedArray.py '''
 
     def test0(self):
         inputList = [13, 18, 25, 2, 8, 10]
