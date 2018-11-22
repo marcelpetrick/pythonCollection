@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day08_countUnivalSubtrees.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day008_countUnivalSubtrees.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day09_maxSumInList.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day009_maxSumInList.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day55_urlShortener.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day055_urlShortener.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day57_textWrapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day057_textWrapping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day58_findInRotatedArray.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day058_findInRotatedArray.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day60_subsetPartitionEqual.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day060_subsetPartitionEqual.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day62_movingPatterns.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day062_movingPatterns.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day66_biasedCoin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day066_biasedCoin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day69_biggestProduct.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day069_biggestProduct.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day70_nthPerfectNumber.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day070_nthPerfectNumber.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day71_rand5Fromrand7.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day071_rand5Fromrand7.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day74_numberOfAppearances.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day074_numberOfAppearances.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day86_minimumParenthesis.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day086_minimumParenthesis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,13 +33,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="21" />
-          <entry key="py" value="149" />
+          <entry key="py" value="163" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="149" />
+          <entry key="Python" value="163" />
         </counts>
       </usages-collector>
     </session>
@@ -61,10 +49,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="80" lean-forward="true" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
+            <state relative-caret-position="442">
+              <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
               <folding>
-                <marker date="1542811623500" expanded="true" signature="692:711" ph="..." />
+                <marker date="1542879574494" expanded="true" signature="692:711" ph="..." />
               </folding>
             </state>
           </provider>
@@ -140,7 +128,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in day002_productList.py">
+  <component name="RunManager" selected="Python tests.Unittests in day150_nearestPoints.py">
     <configuration name="Unittests for dailyCodingTask.day002_productList.ProductListTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -220,9 +208,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in day150_nearestPoints.py" />
         <item itemvalue="Python tests.Unittests in day002_productList.py" />
         <item itemvalue="Python tests.Unittests for dailyCodingTask.day002_productList.ProductListTestCase" />
-        <item itemvalue="Python tests.Unittests in day150_nearestPoints.py" />
         <item itemvalue="Python tests.Unittests for day150_nearestPoints.Testcase" />
         <item itemvalue="Python tests.Unittests in problem007_1001prime.py" />
       </list>
@@ -275,6 +263,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17913593" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -395,10 +384,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="80" lean-forward="true" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
+        <state relative-caret-position="442">
+          <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
           <folding>
-            <marker date="1542811623500" expanded="true" signature="692:711" ph="..." />
+            <marker date="1542879574494" expanded="true" signature="692:711" ph="..." />
           </folding>
         </state>
       </provider>
