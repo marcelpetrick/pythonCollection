@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,46 +15,56 @@
     <session id="467418088">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="16" />
+          <entry key="py" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="16" />
+          <entry key="Python" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="21" />
-          <entry key="py" value="163" />
+          <entry key="py" value="184" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="163" />
+          <entry key="Python" value="184" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+            <state relative-caret-position="755">
+              <caret line="50" column="27" lean-forward="true" selection-start-line="5" selection-end-line="50" selection-end-column="27" />
               <folding>
                 <marker date="1542879574494" expanded="true" signature="692:711" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="487">
+              <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -74,6 +85,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py" />
       </list>
     </option>
   </component>
@@ -128,7 +140,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in day150_nearestPoints.py">
+  <component name="RunManager" selected="Python tests.Unittests in day184_largestCommonDenominator.py">
     <configuration name="Unittests for dailyCodingTask.day002_productList.ProductListTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,34 +197,34 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in problem007_1001prime.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in day184_largestCommonDenominator.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/ProjectEuler/problem007_1001prime.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Unittests in problem007_1001prime.py" />
       <item itemvalue="Python tests.Unittests in day150_nearestPoints.py" />
       <item itemvalue="Python tests.Unittests for day150_nearestPoints.Testcase" />
       <item itemvalue="Python tests.Unittests for dailyCodingTask.day002_productList.ProductListTestCase" />
       <item itemvalue="Python tests.Unittests in day002_productList.py" />
+      <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
         <item itemvalue="Python tests.Unittests in day150_nearestPoints.py" />
         <item itemvalue="Python tests.Unittests in day002_productList.py" />
         <item itemvalue="Python tests.Unittests for dailyCodingTask.day002_productList.ProductListTestCase" />
         <item itemvalue="Python tests.Unittests for day150_nearestPoints.Testcase" />
-        <item itemvalue="Python tests.Unittests in problem007_1001prime.py" />
       </list>
     </recent_temporary>
   </component>
@@ -230,18 +242,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_problem007_1001prime_py - 2018.11.21 at 14h 49m 55s.xml">
-      <configuration name="Unittests in problem007_1001prime.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 37m 45s.xml">
-      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 38m 09s.xml">
-      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 38m 45s.xml">
-      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 38m 50s.xml">
       <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
     </history-entry>
@@ -260,6 +260,18 @@
     <history-entry file="Unittests_in_day002_productList_py - 2018.11.22 at 10h 32m 07s.xml">
       <configuration name="Unittests in day002_productList.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.22 at 10h 39m 35s.xml">
+      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 26m 55s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 27m 15s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 27m 26s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -269,8 +281,8 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30911064" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30911064" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -384,11 +396,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+        <state relative-caret-position="755">
+          <caret line="50" column="27" lean-forward="true" selection-start-line="5" selection-end-line="50" selection-end-column="27" />
           <folding>
             <marker date="1542879574494" expanded="true" signature="692:711" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
         </state>
       </provider>
     </entry>
