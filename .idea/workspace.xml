@@ -34,38 +34,28 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="21" />
-          <entry key="py" value="567" />
+          <entry key="py" value="1524" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="567" />
+          <entry key="Python" value="1524" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="755">
-              <caret line="50" column="27" lean-forward="true" selection-start-line="5" selection-end-line="50" selection-end-column="27" />
-              <folding>
-                <marker date="1542879574494" expanded="true" signature="692:711" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="417">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
               <folding>
-                <marker date="1543574036610" expanded="true" signature="720:753" ph="..." />
+                <marker date="1543576675109" expanded="true" signature="858:1097" ph="..." />
+                <marker date="1543576675109" expanded="true" signature="1124:1763" ph="..." />
+                <marker date="1543576675109" expanded="true" signature="2263:2282" ph="..." />
               </folding>
             </state>
           </provider>
@@ -80,6 +70,13 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Given n numbers, find the greatest common denominator between them.</find>
+      <find>denomi</find>
+      <find>testcase</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -91,9 +88,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="40" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="2211" />
+    <option name="y" value="-78" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -142,21 +139,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for day184_largestCommonDenominator.Testcase">
-    <configuration name="Unittests for dailyCodingTask.day002_productList.ProductListTestCase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="pythonCollection" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;dailyCodingTask.day002_productList.ProductListTestCase&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittests in day184_largestCommonDenominator.py">
     <configuration name="Unittests for day184_largestCommonDenominator.Testcase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -171,7 +154,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in day002_productList.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -181,11 +164,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/dailyCodingTask/day002_productList.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;day184_largestCommonDenominator.Testcase.test_getDivisors&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in day150_nearestPoints.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_greatestCommonDivisor" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -195,8 +178,22 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;day184_largestCommonDenominator.Testcase.test_greatestCommonDivisor&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_test_greatest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="pythonCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;day184_largestCommonDenominator.Testcase.test_test_greatest&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Unittests in day184_largestCommonDenominator.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
@@ -214,19 +211,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Unittests in day150_nearestPoints.py" />
-      <item itemvalue="Python tests.Unittests for dailyCodingTask.day002_productList.ProductListTestCase" />
-      <item itemvalue="Python tests.Unittests in day002_productList.py" />
       <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
       <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase" />
+      <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_test_greatest" />
+      <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_greatestCommonDivisor" />
+      <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase" />
         <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
-        <item itemvalue="Python tests.Unittests in day150_nearestPoints.py" />
-        <item itemvalue="Python tests.Unittests in day002_productList.py" />
-        <item itemvalue="Python tests.Unittests for dailyCodingTask.day002_productList.ProductListTestCase" />
+        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_greatestCommonDivisor" />
+        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" />
+        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_test_greatest" />
+        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase" />
       </list>
     </recent_temporary>
   </component>
@@ -244,47 +241,47 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 38m 55s.xml">
-      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
+    <history-entry file="Unittests_for_day184_largestCommonDenominator_Testcase_test_getDivisors - 2018.11.30 at 11h 53m 30s.xml">
+      <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_day150_nearestPoints_Testcase - 2018.11.21 at 15h 39m 35s.xml">
-      <configuration name="Unittests for day150_nearestPoints.Testcase" configurationId="tests" />
+    <history-entry file="Unittests_for_day184_largestCommonDenominator_Testcase_test_greatestCommonDivisor - 2018.11.30 at 11h 56m 16s.xml">
+      <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_greatestCommonDivisor" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.21 at 15h 45m 17s.xml">
-      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_day02_productList_ProductListTestCase - 2018.11.22 at 10h 30m 47s.xml">
-      <configuration name="Unittests for day02_productList.ProductListTestCase" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day002_productList_py - 2018.11.22 at 10h 32m 07s.xml">
-      <configuration name="Unittests in day002_productList.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day150_nearestPoints_py - 2018.11.22 at 10h 39m 35s.xml">
-      <configuration name="Unittests in day150_nearestPoints.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 26m 55s.xml">
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 56m 22s.xml">
       <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 27m 15s.xml">
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 56m 23s.xml">
       <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 27m 26s.xml">
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 56m 28s.xml">
       <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_day184_largestCommonDenominator_Testcase - 2018.11.30 at 11h 33m 42s.xml">
-      <configuration name="Unittests for day184_largestCommonDenominator.Testcase" configurationId="tests" />
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 56m 32s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 56m 35s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 58m 48s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 59m 22s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 00m 24s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="2211" y="-78" width="1400" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17913593" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2496329" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30911064" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290993" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -408,10 +405,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="417">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
           <folding>
-            <marker date="1543574036610" expanded="true" signature="720:753" ph="..." />
+            <marker date="1543576675109" expanded="true" signature="858:1097" ph="..." />
+            <marker date="1543576675109" expanded="true" signature="1124:1763" ph="..." />
+            <marker date="1543576675109" expanded="true" signature="2263:2282" ph="..." />
           </folding>
         </state>
       </provider>

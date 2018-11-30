@@ -14,18 +14,55 @@
 # * check for each possible divisor then the biggest shared quantity
 # * multiply all the found divisors in their quantity -> result
 
+# other idea: apply the gdc to the first two numbers. then compute gdc of the result and all following elements (iteratively).
+
 # ------------------------------------------------------------------------------
 import unittest
 # ------------------------------------------------------------------------------
 
-def getDivisors(list):
-    list = []
+def greatestCommonDivisor(a, b):
+    if(a == 0): # check if a is zero: if yes, then return b, because it is the biggest divisor
+        return b
 
-    return list
+    return greatestCommonDivisor(b % a, a)
+
+#------------------------------------------------------------------------------
+
+def getDivisors(inputList):
+    resultList = []
+
+    # in case of zero or one element, just return the resultList
+    if(inputList.__len__() < 2):
+        print("if(inputList.__len__() < 2): do nothing")
+        resultList = inputList
+        pass
+    else:
+        print("more than one element in input!")
+
+        # split the list into the first element and the rest
+        head, rest = inputList[:1], inputList[1:]
+        print("head:", head, "rest:", rest) # todom: remove
+
+        result = head
+        for element in rest:
+            result = greatestCommonDivisor(result, element)
+            print("intermediate result:", result)
+
+
+    return resultList
 
 #------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
+
+    def test_greatestCommonDivisor(self):
+        self.assertEqual(0, greatestCommonDivisor(0, 0))
+        self.assertEqual(2, greatestCommonDivisor(0, 2))
+        self.assertEqual(2, greatestCommonDivisor(2, 0))
+        self.assertEqual(2, greatestCommonDivisor(2, 2))
+        self.assertEqual(5, greatestCommonDivisor(5, 5))
+        self.assertEqual(1, greatestCommonDivisor(3, 5))
+        pass
 
     def test_getDivisors(self):
         # empty list
@@ -37,23 +74,6 @@ class Testcase(unittest.TestCase):
         # double list
         self.assertEqual([2,3], getDivisors([2,3]))
 
-    # def test_computeMinimumNumberOfParenthesesToBeRemoved(self):
-    #     self.assertEqual(0, computeMinimumNumberOfParenthesesToBeRemoved(""))
-    #     self.assertEqual(1, computeMinimumNumberOfParenthesesToBeRemoved("("))
-    #     self.assertEqual(1, computeMinimumNumberOfParenthesesToBeRemoved(")"))
-    #     self.assertEqual(0, computeMinimumNumberOfParenthesesToBeRemoved("()"))
-    #     self.assertEqual(3, computeMinimumNumberOfParenthesesToBeRemoved(")))"))
-    #     self.assertEqual(3, computeMinimumNumberOfParenthesesToBeRemoved("((("))
-    #     # todo add more
-    #
-    # # For example, given the string "()())()", you should return 1.
-    # def test_fromTask0(self):
-    #     self.assertEqual(1, computeMinimumNumberOfParenthesesToBeRemoved("()())()"))
-    #
-    # # Given the string ")(", you should return 2, since we must remove all of them.
-    # def test_fromTask1(self):
-    #     self.assertEqual(2, computeMinimumNumberOfParenthesesToBeRemoved(")("))
-
 #------------------------------------------------------------------------------
 
 # ---- here comes the execution of the unit-tests ----
@@ -63,5 +83,10 @@ if __name__ == '__main__':
 
 #------------------------------------------------------------------------------
 print("-------- additional output: begin -------------------------------------------------------------------")
-print("test")
+print("## first some empty list")
+print(getDivisors([]))
+print("## list with two elems")
+print(getDivisors([3]))
+print("## list with three elems")
+print(getDivisors([2, 4, 6]))
 print("-------- additional output: end ---------------------------------------------------------------------")
