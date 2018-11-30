@@ -29,27 +29,27 @@ def greatestCommonDivisor(a, b):
 #------------------------------------------------------------------------------
 
 def getDivisors(inputList):
-    resultList = []
+    result = inputList[:1]
+    #print("first item:", result)
 
     # in case of zero or one element, just return the resultList
     if(inputList.__len__() < 2):
-        print("if(inputList.__len__() < 2): do nothing")
-        resultList = inputList
-        pass
+        #print("if(inputList.__len__() < 2): do nothing: just return the elem or zero")
+        result =  result[0] if result.__len__() == 1 else 0
     else:
-        print("more than one element in input!")
+        #print("more than one element in input!")
 
         # split the list into the first element and the rest
         head, rest = inputList[:1], inputList[1:]
-        print("head:", head, "rest:", rest) # todom: remove
+        #print("head:", head, "rest:", rest) # todom: remove
 
-        result = head
+        result = head[0]
         for element in rest:
             result = greatestCommonDivisor(result, element)
-            print("intermediate result:", result)
+            #print("intermediate result:", result)
 
-
-    return resultList
+    print("getDivisors:", inputList, " --> final result:", result)
+    return result
 
 #------------------------------------------------------------------------------
 
@@ -62,24 +62,25 @@ class Testcase(unittest.TestCase):
         self.assertEqual(2, greatestCommonDivisor(2, 2))
         self.assertEqual(5, greatestCommonDivisor(5, 5))
         self.assertEqual(1, greatestCommonDivisor(3, 5))
-        pass
+        self.assertEqual(8, greatestCommonDivisor(24, 32))
 
     def test_getDivisors(self):
         # empty list
-        self.assertEqual([], getDivisors([]))
+        self.assertEqual(0, getDivisors([]))
         # single element list with primes
-        self.assertEqual([2], getDivisors([2]))
-        self.assertEqual([5], getDivisors([5]))
-        self.assertEqual([5], getDivisors([5]))
+        self.assertEqual(2, getDivisors([2]))
+        self.assertEqual(3, getDivisors([3]))
+        self.assertEqual(5, getDivisors([5]))
         # double list
-        self.assertEqual([2,3], getDivisors([2,3]))
+        self.assertEqual(1, getDivisors([2,3]))
+        # the task!
+        self.assertEqual(14, getDivisors([42, 56, 14]))
 
 #------------------------------------------------------------------------------
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
     unittest.main()
-
 
 #------------------------------------------------------------------------------
 print("-------- additional output: begin -------------------------------------------------------------------")
@@ -89,4 +90,6 @@ print("## list with two elems")
 print(getDivisors([3]))
 print("## list with three elems")
 print(getDivisors([2, 4, 6]))
+print("## list: [42, 56, 14]")
+print(getDivisors([42, 56, 14]))
 print("-------- additional output: end ---------------------------------------------------------------------")

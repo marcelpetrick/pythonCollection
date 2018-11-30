@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,13 +35,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="21" />
-          <entry key="py" value="1524" />
+          <entry key="py" value="1742" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="1524" />
+          <entry key="Python" value="1742" />
         </counts>
       </usages-collector>
     </session>
@@ -50,12 +51,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="349">
+              <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
               <folding>
-                <marker date="1543576675109" expanded="true" signature="858:1097" ph="..." />
-                <marker date="1543576675109" expanded="true" signature="1124:1763" ph="..." />
-                <marker date="1543576675109" expanded="true" signature="2263:2282" ph="..." />
+                <marker date="1543578618085" expanded="true" signature="858:1097" ph="..." />
+                <marker date="1543578618085" expanded="true" signature="1124:1895" ph="..." />
+                <marker date="1543578618085" expanded="true" signature="2454:2460" ph="..." />
               </folding>
             </state>
           </provider>
@@ -220,10 +221,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
-        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_greatestCommonDivisor" />
         <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" />
-        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_test_greatest" />
         <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase" />
+        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_greatestCommonDivisor" />
+        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_test_greatest" />
       </list>
     </recent_temporary>
   </component>
@@ -241,27 +242,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_day184_largestCommonDenominator_Testcase_test_getDivisors - 2018.11.30 at 11h 53m 30s.xml">
-      <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_day184_largestCommonDenominator_Testcase_test_greatestCommonDivisor - 2018.11.30 at 11h 56m 16s.xml">
-      <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_greatestCommonDivisor" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 56m 22s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 56m 23s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 56m 28s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 56m 32s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 56m 35s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 58m 48s.xml">
       <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
     </history-entry>
@@ -270,6 +250,27 @@
     </history-entry>
     <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 00m 24s.xml">
       <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 29m 45s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 30m 02s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 43m 35s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 43m 37s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 44m 20s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 48m 19s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_day184_largestCommonDenominator_Testcase - 2018.11.30 at 12h 49m 08s.xml">
+      <configuration name="Unittests for day184_largestCommonDenominator.Testcase" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -282,7 +283,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290993" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995381" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -405,12 +406,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="349">
+          <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
           <folding>
-            <marker date="1543576675109" expanded="true" signature="858:1097" ph="..." />
-            <marker date="1543576675109" expanded="true" signature="1124:1763" ph="..." />
-            <marker date="1543576675109" expanded="true" signature="2263:2282" ph="..." />
+            <marker date="1543578618085" expanded="true" signature="858:1097" ph="..." />
+            <marker date="1543578618085" expanded="true" signature="1124:1895" ph="..." />
+            <marker date="1543578618085" expanded="true" signature="2454:2460" ph="..." />
           </folding>
         </state>
       </provider>
