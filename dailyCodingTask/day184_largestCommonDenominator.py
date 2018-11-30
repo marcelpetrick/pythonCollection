@@ -10,17 +10,32 @@
 # ------------------------------------------------------------------------------
 
 # idea:
+# * for each element, determine the divisor and store them
+# * check for each possible divisor then the biggest shared quantity
+# * multiply all the found divisors in their quantity -> result
 
 # ------------------------------------------------------------------------------
 import unittest
 # ------------------------------------------------------------------------------
 
+def getDivisors(list):
+    list = []
+
+    return list
+
 #------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
 
-    def test_foo(self):
-        pass
+    def test_getDivisors(self):
+        # empty list
+        self.assertEqual([], getDivisors([]))
+        # single element list with primes
+        self.assertEqual([2], getDivisors([2]))
+        self.assertEqual([5], getDivisors([5]))
+        self.assertEqual([5], getDivisors([5]))
+        # double list
+        self.assertEqual([2,3], getDivisors([2,3]))
 
     # def test_computeMinimumNumberOfParenthesesToBeRemoved(self):
     #     self.assertEqual(0, computeMinimumNumberOfParenthesesToBeRemoved(""))
