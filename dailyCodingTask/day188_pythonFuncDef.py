@@ -8,13 +8,30 @@ def make_functions():
     flist = []
 
     for i in [1, 2, 3]:
-        def print_i():
+        print("line 11: i=", i)
+        funcString = "print" + str(i)
+        print("funcString:", funcString)
+        def funcString():
             print(i)
-        flist.append(print_i)
+
+        # works with the current value of i
+        funcString()
+        #print_i.__name__ = "print_i" + str(i)
+        flist.append(funcString) # inserts correctly, without braces, or?
+
+    print("########################################################")
+    # test if here at least it works: does not!
+    # I think the problem is that the function definition itself is overwritten each time
+    # update: no, but the used "i" is always at 3 ..
+    for f in flist:
+        f()
 
     return flist
 
+
+print("########################################################")
 functions = make_functions()
+print("########################################################")
 for f in functions:
     f()
 
