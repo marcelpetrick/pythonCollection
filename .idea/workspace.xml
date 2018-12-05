@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,49 +14,59 @@
     <session id="467418088">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="17" />
+          <entry key="py" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="17" />
+          <entry key="Python" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="21" />
-          <entry key="py" value="1742" />
+          <entry key="py" value="1783" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="1742" />
+          <entry key="Python" value="1783" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+            <state relative-caret-position="257">
+              <caret line="68" column="44" lean-forward="true" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
               <folding>
-                <marker date="1543578618085" expanded="true" signature="858:1097" ph="..." />
-                <marker date="1543578618085" expanded="true" signature="1124:1895" ph="..." />
-                <marker date="1543578618085" expanded="true" signature="2454:2460" ph="..." />
+                <marker date="1543578761477" expanded="true" signature="858:1097" ph="..." />
+                <marker date="1543578761477" expanded="true" signature="1124:1919" ph="..." />
+                <marker date="1543578761477" expanded="true" signature="2478:2484" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -86,12 +95,13 @@
       <list>
         <option value="$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py" />
         <option value="$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2211" />
-    <option name="y" value="-78" />
+    <option name="x" value="2233" />
+    <option name="y" value="-15" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -100,7 +110,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -122,6 +131,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -140,7 +150,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in day184_largestCommonDenominator.py">
+  <component name="RunManager" selected="Python.day188_pythonFuncDef">
+    <configuration name="day188_pythonFuncDef" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pythonCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unittests for day184_largestCommonDenominator.Testcase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -183,20 +214,6 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_test_greatest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="pythonCollection" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;day184_largestCommonDenominator.Testcase.test_test_greatest&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Unittests in day184_largestCommonDenominator.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -214,17 +231,17 @@
     <list>
       <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
       <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase" />
-      <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_test_greatest" />
       <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_greatestCommonDivisor" />
       <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" />
+      <item itemvalue="Python.day188_pythonFuncDef" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.day188_pythonFuncDef" />
         <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
         <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" />
         <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase" />
         <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_greatestCommonDivisor" />
-        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_test_greatest" />
       </list>
     </recent_temporary>
   </component>
@@ -242,24 +259,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 58m 48s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 11h 59m 22s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 00m 24s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 29m 45s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 30m 02s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 43m 35s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 43m 37s.xml">
       <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
     </history-entry>
@@ -272,9 +271,27 @@
     <history-entry file="Unittests_for_day184_largestCommonDenominator_Testcase - 2018.11.30 at 12h 49m 08s.xml">
       <configuration name="Unittests for day184_largestCommonDenominator.Testcase" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_day184_largestCommonDenominator_Testcase_test_getDivisors - 2018.11.30 at 12h 50m 19s.xml">
+      <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 50m 48s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 51m 33s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 52m 49s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 15h 40m 20s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 16h 38m 37s.xml">
+      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2211" y="-78" width="1400" height="1000" extended-state="0" />
+    <frame x="2233" y="-15" width="1400" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2496329" />
@@ -398,21 +415,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="755">
           <caret line="50" column="27" lean-forward="true" selection-start-line="5" selection-end-line="50" selection-end-column="27" />
-          <folding>
-            <marker date="1542879574494" expanded="true" signature="692:711" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+        <state relative-caret-position="257">
+          <caret line="68" column="44" lean-forward="true" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
           <folding>
-            <marker date="1543578618085" expanded="true" signature="858:1097" ph="..." />
-            <marker date="1543578618085" expanded="true" signature="1124:1895" ph="..." />
-            <marker date="1543578618085" expanded="true" signature="2454:2460" ph="..." />
+            <marker date="1543578761477" expanded="true" signature="858:1097" ph="..." />
+            <marker date="1543578761477" expanded="true" signature="1124:1919" ph="..." />
+            <marker date="1543578761477" expanded="true" signature="2478:2484" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
         </state>
       </provider>
     </entry>
