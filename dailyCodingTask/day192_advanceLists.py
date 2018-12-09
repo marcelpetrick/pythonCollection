@@ -9,4 +9,39 @@
 # Given the array [1, 2, 1, 0, 0], we can't reach the end, so return false.
 #
 # ---------------------------------
-# 
+#
+# idea: solve this recursively.
+# end of array: last element; value does not matter
+# begin of array: first element
+#
+# if canAdvanceToEnd([n]): return true, because at the end of the array
+# else: for(all possible reachable starting-elements for the remaining list): call  canAdvanceToEnd([restList with start])
+#
+# since this is recursive, it will do depth-first-search
+#
+# stop if one of the calls returns true (break early?)
+#
+# ---------------------------------
+
+
+def canAdvanceToEnd(inputArray):
+    if(inputArray.__length__ == 1):
+        return true
+    else:
+        # split list in head and remainder
+        first, rest = inputArray[0], inputArray[1:]
+
+        # todo
+        return false
+
+#----------------
+
+def helper(inputArray):
+    print("canAdvanceToEnd(", inputArray, ") returns:", canAdvanceToEnd(inputArray))
+    return
+
+# ----------------
+
+helper([])
+
+helper[[1]]
