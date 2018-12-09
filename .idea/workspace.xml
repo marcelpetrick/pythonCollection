@@ -15,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="94" column="59" selection-start-line="94" selection-start-column="59" selection-end-line="94" selection-end-column="59" />
+            <state relative-caret-position="252">
+              <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -123,20 +123,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for day184_largestCommonDenominator.Testcase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="pythonCollection" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;day184_largestCommonDenominator.Testcase&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -148,6 +134,20 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;day184_largestCommonDenominator.Testcase.test_getDivisors&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="pythonCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;day192_advanceLists.Testcase.test_canAdvanceList1&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -182,17 +182,17 @@
     <list>
       <item itemvalue="Python.day188_pythonFuncDef" />
       <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
-      <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase" />
       <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" />
       <item itemvalue="Python tests.Unittests in day192_advanceLists.py" />
+      <item itemvalue="Python tests.Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Unittests in day192_advanceLists.py" />
+        <item itemvalue="Python tests.Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" />
         <item itemvalue="Python.day188_pythonFuncDef" />
         <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
         <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" />
-        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase" />
       </list>
     </recent_temporary>
   </component>
@@ -210,48 +210,48 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 43m 37s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 44m 20s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 48m 19s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_day184_largestCommonDenominator_Testcase - 2018.11.30 at 12h 49m 08s.xml">
-      <configuration name="Unittests for day184_largestCommonDenominator.Testcase" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_day184_largestCommonDenominator_Testcase_test_getDivisors - 2018.11.30 at 12h 50m 19s.xml">
-      <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 50m 48s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 51m 33s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 12h 52m 49s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 15h 40m 20s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 16h 38m 37s.xml">
       <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 23m 54s.xml">
+      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 25m 33s.xml">
+      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 26m 09s.xml">
+      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 26m 11s.xml">
+      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 28m 04s.xml">
+      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 28m 16s.xml">
+      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_day192_advanceLists_Testcase_test_canAdvanceList1 - 2018.12.09 at 23h 31m 16s.xml">
+      <configuration name="Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 31m 18s.xml">
+      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_day192_advanceLists_Testcase_test_canAdvanceList1 - 2018.12.09 at 23h 31m 35s.xml">
+      <configuration name="Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290993" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995381" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3279743" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39871383" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -295,6 +295,11 @@
           <url>file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py</url>
           <line>19</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py</url>
+          <line>91</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -344,11 +349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day008_countUnivalSubtrees.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1366" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day086_minimumParenthesis.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
@@ -382,13 +382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
@@ -396,10 +389,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day008_countUnivalSubtrees.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="96" selection-start-line="96" selection-end-line="99" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="94" column="59" selection-start-line="94" selection-start-column="59" selection-end-line="94" selection-end-column="59" />
+        <state relative-caret-position="252">
+          <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
         </state>
       </provider>
     </entry>

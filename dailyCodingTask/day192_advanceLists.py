@@ -40,7 +40,7 @@ def canAdvanceToEnd(inputArray):
             result = canAdvanceToEnd(restList)
 
             if(result == True):
-                print("found one! :)")
+                #print("found one! :)")
                 return True
         else:
             #print("did all steps - dough!")
@@ -58,17 +58,17 @@ def helper(inputArray):
 
 # ----------------
 
-helper([])
-
-helper([1])
-
-helper([1, 1]) # should return True
-
-helper([0, 1]) # should return False
-
-helper([1, 3, 1, 2, 0, 1])
-
-helper([1, 2, 1, 0, 0])
+# helper([])
+#
+# helper([1])
+#
+# helper([1, 1]) # should return True
+#
+# helper([0, 1]) # should return False
+#
+# helper([1, 3, 1, 2, 0, 1])
+#
+# helper([1, 2, 1, 0, 0])
 
 # # test - should print nothing, because the range is empty
 # print("###################### test #############")
@@ -94,7 +94,10 @@ class Testcase(unittest.TestCase):
         self.assertEqual(False, canAdvanceToEnd([1, 0, 0]))
         self.assertEqual(True, canAdvanceToEnd([2, 0, 0]))
 
-    # todo: add more - the final two inputs for repeated calls
+    def test_canAdvanceList_givenSamples(self):
+        # a check with repeated jumps
+        self.assertEqual(True, canAdvanceToEnd([1, 3, 1, 2, 0, 1]))
+        self.assertEqual(False, canAdvanceToEnd([1, 2, 1, 0, 0]))
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
