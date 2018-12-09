@@ -4,15 +4,32 @@
 #
 # What will this code print out?
 
+# def make_functions():
+#     flist = []
+#
+#     for i in [1, 2, 3]:
+#         def print_i():
+#             print(i)
+#         flist.append(print_i)
+#
+#     return flist
+#
+# functions = make_functions()
+# for f in functions:
+#     f()
+
+#---------------------------------------------
+
 def make_functions():
     flist = []
 
     for i in [1, 2, 3]:
-        print("line 11: i=", i)
-        funcString = "print" + str(i)
-        print("funcString:", funcString)
+        #print("line 11: i=", i)
+        #funcString = "print" + str(i)
+        #print("funcString:", funcString)
         def funcString():
-            print(i)
+            print(str(i))
+            return
 
         # works with the current value of i
         funcString()
