@@ -20,28 +20,21 @@
 
 #---------------------------------------------
 
+def make_function(inputValue):
+    def newFunc():
+        print(inputValue)
+        return
+
+    return newFunc
+
 def make_functions():
     flist = []
 
     for i in [1, 2, 3]:
-        #print("line 11: i=", i)
-        #funcString = "print" + str(i)
-        #print("funcString:", funcString)
-        def funcString():
-            print(str(i))
-            return
+        newFunction = make_function(i)
+        #newFunction() # just for testing
 
-        # works with the current value of i
-        funcString()
-        #print_i.__name__ = "print_i" + str(i)
-        flist.append(funcString) # inserts correctly, without braces, or?
-
-    print("########################################################")
-    # test if here at least it works: does not!
-    # I think the problem is that the function definition itself is overwritten each time
-    # update: no, but the used "i" is always at 3 ..
-    for f in flist:
-        f()
+        flist.append(newFunction) # inserts correctly, without braces, or?
 
     return flist
 
@@ -59,3 +52,14 @@ for f in functions:
 #3
 #
 #Process finished with exit code 0
+
+#---------------------------------- new version :) --------------------------
+# The difference is now that a specific function is creating the new function.
+# And then returns it. Then it is stored (as first class function) inside the list.
+# And that works! :)
+#
+# 1
+# 2
+# 3
+#
+# Process finished with exit code 0

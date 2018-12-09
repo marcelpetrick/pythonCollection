@@ -12,11 +12,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
+            <state relative-caret-position="336">
+              <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -45,8 +54,8 @@
       <list>
         <option value="$PROJECT_DIR$/dailyCodingTask/day150_nearestPoints.py" />
         <option value="$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py" />
-        <option value="$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py" />
         <option value="$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py" />
       </list>
     </option>
   </component>
@@ -101,7 +110,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in day192_advanceLists.py">
+  <component name="RunManager" selected="Python.day188_pythonFuncDef">
     <configuration name="day188_pythonFuncDef" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -188,9 +197,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.day188_pythonFuncDef" />
         <item itemvalue="Python tests.Unittests in day192_advanceLists.py" />
         <item itemvalue="Python tests.Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" />
-        <item itemvalue="Python.day188_pythonFuncDef" />
         <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
         <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" />
       </list>
@@ -210,12 +219,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_day184_largestCommonDenominator_py - 2018.11.30 at 16h 38m 37s.xml">
-      <configuration name="Unittests in day184_largestCommonDenominator.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 23m 54s.xml">
-      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 25m 33s.xml">
       <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
     </history-entry>
@@ -239,6 +242,12 @@
     </history-entry>
     <history-entry file="Unittests_for_day192_advanceLists_Testcase_test_canAdvanceList1 - 2018.12.09 at 23h 31m 35s.xml">
       <configuration name="Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 34m 03s.xml">
+      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 34m 16s.xml">
+      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -288,12 +297,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py</url>
-          <line>32</line>
+          <line>42</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py</url>
-          <line>19</line>
+          <line>36</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -389,13 +398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day008_countUnivalSubtrees.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -405,8 +407,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
+        <state relative-caret-position="336">
+          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
         </state>
       </provider>
     </entry>
