@@ -23,6 +23,10 @@
 #
 # ---------------------------------
 
+# ------------------------------------------------------------------------------
+import unittest
+# ------------------------------------------------------------------------------
+
 def canAdvanceToEnd(inputArray):
     if(len(inputArray) <= 1):
         return True
@@ -72,3 +76,23 @@ helper([1, 2, 1, 0, 0])
 #     print(x)
 # else:
 #     print("else of the 'for'")
+
+# ------------------------------------------------------------------------------
+
+class Testcase(unittest.TestCase):
+    def test_canAdvanceList0(self):
+        # empty or one item lists are always true
+        self.assertEqual(True, canAdvanceToEnd([]))
+        self.assertEqual(True, canAdvanceToEnd([1]))
+        self.assertEqual(True, canAdvanceToEnd([31415]))
+
+    def test_canAdvanceList1(self):
+        # one jump needed to the end: but is the step-width enough?
+        self.assertEqual(False, canAdvanceToEnd([0, 1]))
+        self.assertEqual(True, canAdvanceToEnd([1, 0]))
+
+        self.assertEqual(False, canAdvanceToEnd([1, 0, 0]))
+        self.assertEqual(False, canAdvanceToEnd([2, 0, 0]))
+
+
+    # todo: add more - the final two inputs for repeated calls
