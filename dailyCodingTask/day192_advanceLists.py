@@ -35,7 +35,7 @@ def canAdvanceToEnd(inputArray):
         #print("allowed steps:", numberOfAllowedSteps)
 
         # assume the number is bigger 0
-        for step in range(1, numberOfAllowedSteps):
+        for step in range(1, numberOfAllowedSteps + 1): # ATTENTION: big fat error, range does not include the end!
             restList = inputArray[step:]
             result = canAdvanceToEnd(restList)
 
@@ -92,7 +92,10 @@ class Testcase(unittest.TestCase):
         self.assertEqual(True, canAdvanceToEnd([1, 0]))
 
         self.assertEqual(False, canAdvanceToEnd([1, 0, 0]))
-        self.assertEqual(False, canAdvanceToEnd([2, 0, 0]))
-
+        self.assertEqual(True, canAdvanceToEnd([2, 0, 0]))
 
     # todo: add more - the final two inputs for repeated calls
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
