@@ -25,23 +25,24 @@
 
 
 def canAdvanceToEnd(inputArray):
-    if(inputArray.__length__ == 1):
-        return true
+    if(len(inputArray) <= 1):
+        return True
     else:
         # split list in head and remainder
         first, rest = inputArray[0], inputArray[1:]
 
         # todo
-        return false
+        return False
 
 #----------------
 
 def helper(inputArray):
-    print("canAdvanceToEnd(", inputArray, ") returns:", canAdvanceToEnd(inputArray))
+    result = canAdvanceToEnd(inputArray)
+    print("canAdvanceToEnd(", inputArray, ") returns:", result)
     return
 
 # ----------------
 
 helper([])
 
-helper[[1]]
+helper([1])
