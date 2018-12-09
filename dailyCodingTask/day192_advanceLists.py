@@ -30,8 +30,22 @@ def canAdvanceToEnd(inputArray):
     else:
         # split list in head and remainder
         first, rest = inputArray[0], inputArray[1:]
-
+        numberOfAllowedSteps = inputArray[0]
+        print("allowed steps:", numberOfAllowedSteps)
         # todo
+        # assume the number is bigger 0
+        for step in range(1, numberOfAllowedSteps):
+            restList = inputArray[step:]
+            result = canAdvanceToEnd(restList)
+
+            if(result == True):
+                print("found one! :)")
+                return True
+        else:
+            print("did all steps - dough!")
+            return False
+
+
         return False
 
 #----------------
@@ -46,3 +60,12 @@ def helper(inputArray):
 helper([])
 
 helper([1])
+
+helper([1, 1]) # should return True
+
+helper([0, 1]) # should return False
+
+for x in range(1, 0):
+    print(x)
+else:
+    print("foo")
