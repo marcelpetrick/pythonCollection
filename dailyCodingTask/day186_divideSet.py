@@ -16,14 +16,30 @@ import unittest
 
 def createPowerset(inputList):
     # question: is the input a seat or a list? does order matter? i think not
-    pass
+
+    result = [[]] # the list which includes at least the empty list
+    for elemInputList in inputList:
+        print("current item:", elemInputList) # todom remove
+        newList = [[]]
+        for elemIntermediateList in result:
+            newItem = elemIntermediateList
+            newItem.append(elemInputList)
+            newList.append(newItem)
+        print("newList (applied item to old resultList):", newList)
+        result.append(newList)
+        print("current resultlist:", result)
+
+    return result
 
 # ------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
     def test_createPowerset(self):
         print("test 1 ")
+        powerSet = createPowerset([1,2,3]) # expected [], [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3] --> 6 elems
+        print(powerSet)
         pass
+    
     #     # empty or one item lists are always true
     #     self.assertEqual(True, canAdvanceToEnd([]))
     #     self.assertEqual(True, canAdvanceToEnd([1]))
