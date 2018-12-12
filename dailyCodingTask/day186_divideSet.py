@@ -15,7 +15,13 @@ import unittest
 # ------------------------------------------------------------------------------
 
 def createPowerset(inputList):
-    # question: is the input a seat or a list? does order matter? i think not
+    # question: is the input a set or a list? does order matter? i think not
+
+    # idea:
+    # iterate over all elements of the input list: with each do a combination with all elements of the
+    # current elements (are already sets) of the result set. then append this to the intermediate result set.
+    # (repeat with all remaining elements.)
+    # maybe: sort the list
 
     result = [[]] # the list which includes at least the empty list
     for elemFromOriginalList in inputList:
@@ -31,6 +37,10 @@ def createPowerset(inputList):
         #print("current resultlist:", result)
 
     return result
+#    def getKey(item):
+#        return item[0]
+
+#    return sorted(result, key=getKey)
 
 # ------------------------------------------------------------------------------
 
@@ -43,25 +53,29 @@ class Testcase(unittest.TestCase):
         print("powerSet [1]   ::", createPowerset([1]))
         print("powerSet [1,2] ::", createPowerset([1,2]))
         print("powerSet [1,3] ::", createPowerset([1,2,3]))
-        pass
 
-    #     # empty or one item lists are always true
-    #     self.assertEqual(True, canAdvanceToEnd([]))
-    #     self.assertEqual(True, canAdvanceToEnd([1]))
-    #     self.assertEqual(True, canAdvanceToEnd([31415]))
-    #
-    # def test_canAdvanceList1(self):
-    #     # one jump needed to the end: but is the step-width enough?
-    #     self.assertEqual(False, canAdvanceToEnd([0, 1]))
-    #     self.assertEqual(True, canAdvanceToEnd([1, 0]))
-    #
-    #     self.assertEqual(False, canAdvanceToEnd([1, 0, 0]))
-    #     self.assertEqual(True, canAdvanceToEnd([2, 0, 0]))
-    #
-    # def test_canAdvanceList_givenSamples(self):
-    #     # a check with repeated jumps
-    #     self.assertEqual(True, canAdvanceToEnd([1, 3, 1, 2, 0, 1]))
-    #     self.assertEqual(False, canAdvanceToEnd([1, 2, 1, 0, 0]))
+        hasEmptyList = createPowerset([1,2,3]).__contains__([5])
+        print("has empty:", hasEmptyList)
+
+        #---------- inline helper-function ----------
+        def compareLists(list0, list1):
+            ''' helper to compare if both compare the same elements (type and amount ..) '''
+
+            if len(list0) != len(list1):
+                return False
+
+            returnValue = True
+            for elem0 in list0:
+                if elem0 not in  list1:
+                    returnValue = False
+
+            return returnValue
+
+        #---------- end of inline helper-function ----------
+
+
+        self.assertEqual(True, compareLists(createPowerset([1]),  [[], [1]]))
+        self.assertEqual(False, compareLists([1],  [[], [1]]))
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
