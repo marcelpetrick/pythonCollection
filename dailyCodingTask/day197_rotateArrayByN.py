@@ -24,6 +24,10 @@ def rotateByOne(array):
 
 def rotateArrayByK(array, k):
     #print("rotateArrayByK: ", array, "k=", k)
+
+    # optimization: just rotate by k mod len(array) to avoid too many single-element-rotations
+    k = k % len(array)
+
     for applications in range(0, k):
         array = rotateByOne(array)
         #print("\t array:", array)
@@ -44,7 +48,10 @@ class Testcase(unittest.TestCase):
         self.assertEqual(True, [1, 2, 0] == rotateArrayByK([0, 1, 2], 1))
         self.assertEqual(True, [2, 0, 1] == rotateArrayByK([0, 1, 2], 2))
 
+        # rotation by multiples of the len(array) should yield the identity
         self.assertEqual(True, [0, 1, 2, 4] == rotateArrayByK([0, 1, 2, 4], 4))
+        self.assertEqual(True, [0, 1, 2, 4] == rotateArrayByK([0, 1, 2, 4], 8))
+        self.assertEqual(True, [0, 1, 2, 4] == rotateArrayByK([0, 1, 2, 4], 1200000)) # change: optimization 0.875s versus 0.000s!
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
