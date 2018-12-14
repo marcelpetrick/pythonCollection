@@ -8,7 +8,8 @@
 #
 # ---------------------------------
 #
-# idea: solve this recursively.
+# idea: create the powerset. Check then for each element of it (which gives set and the remainder - the possible
+# distribution) the difference the sums have. Store the result. Finally print the one with the least difference.
 #
 # ------------------------------------------------------------------------------
 import unittest
