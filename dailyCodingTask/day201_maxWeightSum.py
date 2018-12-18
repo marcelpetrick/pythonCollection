@@ -37,21 +37,22 @@ def findMaximumWeightedSum(inputArray):
     pass
 
 # ------------------------------------------------------------------------------
+
 def generatePaths(inputArray):
     # todo find the depth of the pyramid
     depth = len(inputArray)
-    print("depth:", depth)
+    print("generatePaths: depth:", depth)
 
     returnValue = []
 
     if depth == 0:
-        pass
+        pass # nothing to do
     else:
         firstElem = [inputArray[0]] # as list
         returnValue.append(firstElem)
         # todo continue here
 
-    print("will return: ", returnValue)
+    print("will return returnValue: ", returnValue)
 
     # todo generate all paths
     # return a list of lists (the paths)
