@@ -15,21 +15,60 @@
 
 # ------------------------------------------------------------------------------
 # idea:
-# *
+# * looks like the trick is to imagine this pyramid not as "centered" version, but as one aligned to the left
+# 0
+# 0 1
+# 0 1 2
+# 0 1 2 3 ..
+# Then it is immediately clear by the indices which are the "followers". 0 goes to 00, 01. 01 has 011 and 012.
+# Given the fact that the levels are fully filled, the follower of n is n and n+1.
+#
+# First we need a "path-generator": which yields all possible paths through the pyramid (array of arrays).
+# Then a "sum the path".
+# Then a driver iterating over all paths, getting their sums and then finding the biggest one. Printing that path.
+#
 # ------------------------------------------------------------------------------
 
 import unittest
 
 # ------------------------------------------------------------------------------
 
-# todo: add solution here
+def findMaximumWeightedSum(inputArray):
+    pass
+
+# ------------------------------------------------------------------------------
+def generatePaths(inputArray):
+    # todo find the depth of the pyramid
+    depth = len(inputArray)
+    print("depth:", depth)
+
+    returnValue = []
+
+    if depth == 0:
+        pass
+    else:
+        firstElem = [inputArray[0]] # as list
+        returnValue.append(firstElem)
+        # todo continue here
+
+    print("will return: ", returnValue)
+
+    # todo generate all paths
+    # return a list of lists (the paths)
+    return returnValue
 
 # ------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
-    def test_rotateByOne(self):
+    def test_findMaximumWeightedSum(self):
         #self.assertEqual(True, [] == rotateByOne([]))
         pass
+
+    def test_generatePaths(self):
+        # no paths for an empty array
+        self.assertEqual(True, [] == generatePaths([]))
+        # just one path for an one-element array
+        self.assertEqual(True, [[0]] == generatePaths([0]))
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
