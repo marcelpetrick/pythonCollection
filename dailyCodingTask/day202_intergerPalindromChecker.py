@@ -4,10 +4,6 @@
 #
 # Write a program that checks whether an integer is a palindrome. For example, 121 is a palindrome,
 # as well as 888. 678 is not a palindrome. Do not convert the integer into a string.
-#
-# ------------------------------------------------------------------------------
-# idea:
-#
 # ------------------------------------------------------------------------------
 
 import unittest
@@ -46,12 +42,17 @@ def isPalindrome(input):
 
     lastDigit = input % 10
     highestPowerOfTen = 10**int(power)
-    firstDigit = input // highestPowerOfTen # attention: use integer divison with //
+    firstDigit = input // highestPowerOfTen # attention: use integer division with //
     print("firstDigit:", firstDigit)
     print("lastDigit:", lastDigit)
 
     if firstDigit == lastDigit:
         middlePartOfNumber = (input % highestPowerOfTen) // 10
+
+        # attention: doing this for 10201 results in: 20 and not 020. 20 is not palindrome, therefore follow-up error
+        # workaround: separate into chunks of one digit and then check the array from each side ..
+
+
         print("middlePartOfNumber:", middlePartOfNumber)
         return isPalindrome(middlePartOfNumber)
     else:
@@ -94,8 +95,8 @@ class Testcase(unittest.TestCase):
         # dual digits
         self.assertEqual(False, isPalindrome(10))
         self.assertEqual(True, isPalindrome(11))
-        # self.assertEqual(False, isPalindrome(42))
-        # self.assertEqual(True, isPalindrome(99))
+        self.assertEqual(False, isPalindrome(42))
+        self.assertEqual(True, isPalindrome(99))
 
         # # three or more
         self.assertEqual(True, isPalindrome(101))
