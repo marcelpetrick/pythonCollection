@@ -11,12 +11,29 @@
 # ------------------------------------------------------------------------------
 
 import unittest
+import math
 
 # ------------------------------------------------------------------------------
 
 def isPalindrome(input):
+    # if the number is negative, then never a palindrome
+    if input < 0:
+        return False
+
+    power = math.log(input, 10)
+    # if the number has just one digit, it is palindrome
+    if power < 1:
+        return True
+
+    # now check for those bigger (10 and upwards)
+
     # todo implement this
-    return True
+
+    # find first the power of 10
+    power = math.log(input, 10)
+    print(power)
+
+    return False
 
 # ------------------------------------------------------------------------------
 
@@ -25,5 +42,8 @@ def driver(input):
 
 # ------------------------------------------------------------------------------
 
-driver(12) # wrong, of course
-driver(22)
+driver(-1)
+driver(2)
+driver(10) # wrong, of course
+driver(100)
+driver(101)
