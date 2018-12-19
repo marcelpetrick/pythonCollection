@@ -20,18 +20,20 @@ def isPalindrome(input):
     if input < 0:
         return False
 
+    # find first the power of 10
     power = math.log(input, 10)
     # if the number has just one digit, it is palindrome
     if power < 1:
         return True
 
     # now check for those bigger (10 and upwards)
+    # if the first digit has the same value like the last one
+    # - then check the inner part (in case it exists!) and return that result-value
+    # - else: return false
 
     # todo implement this
 
-    # find first the power of 10
-    power = math.log(input, 10)
-    print(power)
+
 
     return False
 
@@ -47,3 +49,6 @@ driver(2)
 driver(10) # wrong, of course
 driver(100)
 driver(101)
+
+
+# todo add some proper unit-test!
