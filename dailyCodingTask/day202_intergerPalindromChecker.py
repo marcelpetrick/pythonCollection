@@ -20,6 +20,10 @@ def isPalindrome(input):
     if input < 0:
         return False
 
+    # prevent that log(0, 10) results in an error
+    if input == 0:
+        return True
+
     # find first the power of 10
     power = math.log(input, 10)
     # if the number has just one digit, it is palindrome
@@ -33,6 +37,9 @@ def isPalindrome(input):
 
     # todo implement this
 
+    # means: now we got a call with at least two digits!
+    print("at least two digits?", input, "has log", power)
+
 
 
     return False
@@ -44,11 +51,46 @@ def driver(input):
 
 # ------------------------------------------------------------------------------
 
-driver(-1)
-driver(2)
-driver(10) # wrong, of course
-driver(100)
-driver(101)
+# driver(-1)
+# driver(0)
+# driver(2)
+# driver(9)
+# driver(10) # wrong, of course
+# driver(11)
+# driver(100)
+# driver(101)
 
+# ------------------------------------------------------------------------------
+# proper unit-test
+class Testcase(unittest.TestCase):
+    def test_isPalindrome(self):
+        self.assertEqual(False, isPalindrome(-10))
+        self.assertEqual(False, isPalindrome(-1))
 
-# todo add some proper unit-test!
+        # special case because of log-definition
+        self.assertEqual(True, isPalindrome(0))
+        # all single digit values are palindromes
+        self.assertEqual(True, isPalindrome(1))
+        self.assertEqual(True, isPalindrome(2))
+        self.assertEqual(True, isPalindrome(3))
+        self.assertEqual(True, isPalindrome(9))
+
+        # dual digits
+        self.assertEqual(False, isPalindrome(10))
+        self.assertEqual(True, isPalindrome(11))
+        self.assertEqual(False, isPalindrome(42))
+        self.assertEqual(True, isPalindrome(99))
+
+        # # three or more
+        # self.assertEqual(True, isPalindrome(101))
+        # self.assertEqual(True, isPalindrome(232))
+        # self.assertEqual(True, isPalindrome(40504))
+        #
+        # self.assertEqual(False, isPalindrome(102))
+        # self.assertEqual(False, isPalindrome(543))
+        # self.assertEqual(False, isPalindrome(12345))
+        # self.assertEqual(False, isPalindrome(12345678900987654321))
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
