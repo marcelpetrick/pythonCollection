@@ -30,38 +30,66 @@ def isPalindrome(input, shouldPrint=False):
     if shouldPrint:
         print("at least two digits?", input, "has log", power)
 
-    # now check for those bigger (10 and upwards)
-    # if the first digit has the same value like the last one
-    # - then check the inner part (in case it exists!) and return that result-value
-    # - else: return false
+    ######### now check for those bigger (10 and upwards) #########
 
-    # get last digit: modulo by 10
-    # get first digit: div
-    #256 -> should give 2
-    #log=2 --> 10^floor(power) -> 100
-    #256 div 100 -> 2
+    # # if the first digit has the same value like the last one
+    # # - then check the inner part (in case it exists!) and return that result-value
+    # # - else: return false
+    #
+    # # get last digit: modulo by 10
+    # # get first digit: div
+    # #256 -> should give 2
+    # #log=2 --> 10^floor(power) -> 100
+    # #256 div 100 -> 2
+    #
+    # lastDigit = input % 10
+    # highestPowerOfTen = 10**int(power)
+    # firstDigit = input // highestPowerOfTen # attention: use integer division with //
+    # if shouldPrint:
+    #     print("firstDigit:", firstDigit)
+    #     print("lastDigit:", lastDigit)
+    #
+    # if firstDigit == lastDigit:
+    #     middlePartOfNumber = (input % highestPowerOfTen) // 10
+    #
+    #     # attention: doing this for 10201 results in: 20 and not 020. 20 is not palindrome, therefore follow-up error
+    #     # workaround: separate into chunks of one digit and then check the array from each side ..
+    #
+    #     if shouldPrint:
+    #         print("middlePartOfNumber:", middlePartOfNumber)
+    #     return isPalindrome(middlePartOfNumber)
+    # else:
+    #     return False
 
-    lastDigit = input % 10
-    highestPowerOfTen = 10**int(power)
-    firstDigit = input // highestPowerOfTen # attention: use integer division with //
+    # split the number into an array of digits
+    copyOfInput = input
+    digitList = []
+    while copyOfInput > 0:
+        digit = copyOfInput % 10
+        copyOfInput = copyOfInput // 10 # remainder
+        digitList = [digit] + digitList # prepend
     if shouldPrint:
-        print("firstDigit:", firstDigit)
-        print("lastDigit:", lastDigit)
+        print(digitList)
 
-    if firstDigit == lastDigit:
-        middlePartOfNumber = (input % highestPowerOfTen) // 10
-
-        # attention: doing this for 10201 results in: 20 and not 020. 20 is not palindrome, therefore follow-up error
-        # workaround: separate into chunks of one digit and then check the array from each side ..
-
+    isValid = True
+    while len(digitList) > 1 and isValid:
+        firstItem = digitList[0]
+        lastItem = digitList[-1]
         if shouldPrint:
-            print("middlePartOfNumber:", middlePartOfNumber)
-        return isPalindrome(middlePartOfNumber)
-    else:
-        return False
+            print("first vs last:", firstItem, lastItem)
+        if firstItem != lastItem:
+            isValid = False # will break
+        else:
+            # create inner list (without first and last)
+            digitList.pop() # remove last
+            digitList.pop(0) #= digitList[1:] # just the rest without first # or use pop(0)
+            if shouldPrint:
+                print("inner part after removal:", digitList)
 
-    # we should never reach here ...
-    return False
+    if shouldPrint:
+        print("isValid=", isValid)
+
+    return isValid
 
 # ------------------------------------------------------------------------------
 
@@ -100,16 +128,21 @@ class Testcase(unittest.TestCase):
         self.assertEqual(False, isPalindrome(42))
         self.assertEqual(True, isPalindrome(99))
 
-        # # three or more
+        # three or more
         self.assertEqual(True, isPalindrome(101))
         self.assertEqual(True, isPalindrome(232))
         self.assertEqual(True, isPalindrome(41514))
-        self.assertEqual(True, isPalindrome(40504, True)) # problematic because of the zeroes
+        self.assertEqual(True, isPalindrome(40504, False)) # problematic because of the zeroes
 
         self.assertEqual(False, isPalindrome(102))
         self.assertEqual(False, isPalindrome(543))
         self.assertEqual(False, isPalindrome(12345))
-        #self.assertEqual(False, isPalindrome(12345678900987654321)) # problematic because of the zeroes
+        self.assertEqual(True, isPalindrome(12345678900987654321, False)) # problematic because of the zeroes
+
+    def test_Palantir(self):
+        self.assertEqual(True, isPalindrome(121))
+        self.assertEqual(True, isPalindrome(888))
+        self.assertEqual(False, isPalindrome(678))
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
