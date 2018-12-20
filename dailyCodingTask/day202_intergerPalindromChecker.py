@@ -11,7 +11,7 @@ import math
 
 # ------------------------------------------------------------------------------
 
-def isPalindrome(input):
+def isPalindrome(input, shouldPrint=False):
     # if the number is negative, then never a palindrome
     if input < 0:
         return False
@@ -27,7 +27,8 @@ def isPalindrome(input):
         return True
 
     # means: now we got a call with at least two digits!
-    print("at least two digits?", input, "has log", power)
+    if shouldPrint:
+        print("at least two digits?", input, "has log", power)
 
     # now check for those bigger (10 and upwards)
     # if the first digit has the same value like the last one
@@ -43,8 +44,9 @@ def isPalindrome(input):
     lastDigit = input % 10
     highestPowerOfTen = 10**int(power)
     firstDigit = input // highestPowerOfTen # attention: use integer division with //
-    print("firstDigit:", firstDigit)
-    print("lastDigit:", lastDigit)
+    if shouldPrint:
+        print("firstDigit:", firstDigit)
+        print("lastDigit:", lastDigit)
 
     if firstDigit == lastDigit:
         middlePartOfNumber = (input % highestPowerOfTen) // 10
@@ -52,8 +54,8 @@ def isPalindrome(input):
         # attention: doing this for 10201 results in: 20 and not 020. 20 is not palindrome, therefore follow-up error
         # workaround: separate into chunks of one digit and then check the array from each side ..
 
-
-        print("middlePartOfNumber:", middlePartOfNumber)
+        if shouldPrint:
+            print("middlePartOfNumber:", middlePartOfNumber)
         return isPalindrome(middlePartOfNumber)
     else:
         return False
@@ -102,7 +104,7 @@ class Testcase(unittest.TestCase):
         self.assertEqual(True, isPalindrome(101))
         self.assertEqual(True, isPalindrome(232))
         self.assertEqual(True, isPalindrome(41514))
-        #self.assertEqual(True, isPalindrome(40504)) # problematic because of the zeroes
+        self.assertEqual(True, isPalindrome(40504, True)) # problematic because of the zeroes
 
         self.assertEqual(False, isPalindrome(102))
         self.assertEqual(False, isPalindrome(543))
