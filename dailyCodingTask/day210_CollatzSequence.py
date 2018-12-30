@@ -20,7 +20,7 @@ import unittest
 # ------------------------------------------------------------------------------
 
 def collatz(n):
-    print(n)
+    #print(n)
 
     if n < 1:
         return  -1 # should be an error!
@@ -46,8 +46,27 @@ def driver(n):
 
 # ------------------------------------------------------------------------------
 
+def findlongestSequenceForNumbersBelow(n):
+    mostSteps = -1
+    bestCandidate = -1
+
+    for elem in range(1, n): # because last should not be included
+        steps = collatz(elem)
+        print(elem, "->", steps)
+        if steps > mostSteps:
+            bestCandidate = elem
+            mostSteps = steps
+
+    return (bestCandidate, mostSteps)
+
+# ------------------------------------------------------------------------------
+
 driver(0)
 driver(1)
 driver(2)
 driver(3)
 driver(33)
+
+print(findlongestSequenceForNumbersBelow(100))
+print(findlongestSequenceForNumbersBelow(1000000))
+
