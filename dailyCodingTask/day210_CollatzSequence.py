@@ -19,20 +19,30 @@
 import unittest
 # ------------------------------------------------------------------------------
 
+cache = {}
+
 def collatz(n):
     #print(n)
 
     if n < 1:
         return  -1 # should be an error!
 
-    steps = 1 # because it was called once
+    # check if in cache
+    if n in cache:
+        #print("cache hit! :)")
+        return cache[n]
 
+    # looks like we have to compute ourselves
+    steps = 1 # because it was called once
     if n == 1:
         pass # do nothing, because we found the end result
     elif n % 2 == 0: # even
         steps += collatz(n // 2)
     else: #odd
         steps += collatz(3 * n + 1)
+
+    # put into the cache
+    cache[n] = steps
 
     return steps
 
@@ -52,7 +62,7 @@ def findlongestSequenceForNumbersBelow(n):
 
     for elem in range(1, n): # because last should not be included
         steps = collatz(elem)
-        print(elem, "->", steps)
+        #print(elem, "->", steps)
         if steps > mostSteps:
             bestCandidate = elem
             mostSteps = steps
@@ -67,6 +77,6 @@ driver(2)
 driver(3)
 driver(33)
 
-print(findlongestSequenceForNumbersBelow(100))
-print(findlongestSequenceForNumbersBelow(1000000))
+print(findlongestSequenceForNumbersBelow(100)) # result is (97, 119)
+print(findlongestSequenceForNumbersBelow(10000000)) # result is: (837799, 525)
 
