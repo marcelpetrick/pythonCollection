@@ -20,10 +20,34 @@ import unittest
 # ------------------------------------------------------------------------------
 
 def collatz(n):
-    pass
+    print(n)
+
+    if n < 1:
+        return  -1 # should be an error!
+
+    steps = 1 # because it was called once
+
+    if n == 1:
+        pass # do nothing, because we found the end result
+    elif n % 2 == 0: # even
+        steps += collatz(n // 2)
+    else: #odd
+        steps += collatz(3 * n + 1)
+
+    return steps
 
 # ------------------------------------------------------------------------------
 
-collatz(1)
-collatz(2)
-collatz(3)
+def driver(n):
+    print("collatz sequence of n =", n)
+    steps = collatz(n)
+    print("--> finished after", steps, "steps")
+    print("-------------------------------------------")
+
+# ------------------------------------------------------------------------------
+
+driver(0)
+driver(1)
+driver(2)
+driver(3)
+driver(33)
