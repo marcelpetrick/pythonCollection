@@ -22,6 +22,7 @@
 
 import unittest
 
+
 # ------------------------------------------------------------------------------
 
 conversionTable = {
@@ -46,9 +47,17 @@ def convertRomantToDecimal(input):
 
     # convert the given input
     decimalValue = 0
+    previousNumber = 1001
     for digit in romanNumber:
-        print("\t", conversionTable[digit])
-        decimalValue += conversionTable[digit]
+        valueForCurrentDigit = conversionTable[digit]
+        print("\t", valueForCurrentDigit)
+        decimalValue += valueForCurrentDigit
+
+        if previousNumber < valueForCurrentDigit:
+            # remove the previousNumberTwice (because it has to be removed and it was added once too much)
+            decimalValue -= 2* previousNumber
+
+        previousNumber = valueForCurrentDigit
 
     return decimalValue
 
@@ -63,8 +72,16 @@ class Testcase(unittest.TestCase):
         self.assertEqual(2, convertRomantToDecimal("ii"))
         self.assertEqual(3, convertRomantToDecimal("iii"))
 
+        self.assertEqual(8, convertRomantToDecimal("viii"))
+
         self.assertEqual(1666, convertRomantToDecimal("MDCLXVI"))
 
+    def test_subtractionRule(self):
+        # see: https://www.roemische-zahlen.net/
+            # 1. Regel: I steht nur vor V und X
+            # 2. Regel: X steht nur vor L und C
+            # 3. Regel: C steht nur vor D und M
+        self.assertEqual(9, convertRomantToDecimal("IX"))
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
