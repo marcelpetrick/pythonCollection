@@ -17,6 +17,7 @@
 
 # ------------------------------------------------------------------------------
 import unittest
+import time
 # ------------------------------------------------------------------------------
 
 cache = {}
@@ -71,21 +72,23 @@ def findlongestSequenceForNumbersBelow(n):
 
 # ------------------------------------------------------------------------------
 
-driver(0)
-driver(1)
-driver(2)
-driver(3)
-driver(33)
+# driver(0)
+# driver(1)
+# driver(2)
+# driver(3)
+# driver(33)
 
 #print(findlongestSequenceForNumbersBelow(100)) # result is (97, 119)
 #print(findlongestSequenceForNumbersBelow(10000000)) # result is: (837799, 525)
 
-for digits in range(0,10):
+for digits in range(1,10):
+    startTime = time.time()
     #print("digits:",digits)
     number = 10 ** digits
     #print("number:", number)
 
     print("for range up to ", number, "the result is", findlongestSequenceForNumbersBelow(number))
+    print("\t computation time:", time.time() - startTime)
 
 # for range up to  1 the result is (-1, -1)
 # for range up to  10 the result is (9, 20)
