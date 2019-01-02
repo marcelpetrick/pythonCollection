@@ -77,6 +77,23 @@ driver(2)
 driver(3)
 driver(33)
 
-print(findlongestSequenceForNumbersBelow(100)) # result is (97, 119)
-print(findlongestSequenceForNumbersBelow(10000000)) # result is: (837799, 525)
+#print(findlongestSequenceForNumbersBelow(100)) # result is (97, 119)
+#print(findlongestSequenceForNumbersBelow(10000000)) # result is: (837799, 525)
+
+for digits in range(0,10):
+    #print("digits:",digits)
+    number = 10 ** digits
+    #print("number:", number)
+
+    print("for range up to ", number, "the result is", findlongestSequenceForNumbersBelow(number))
+
+# for range up to  1 the result is (-1, -1)
+# for range up to  10 the result is (9, 20)
+# for range up to  100 the result is (97, 119)
+# for range up to  1000 the result is (871, 179)
+# for range up to  10000 the result is (6171, 262)
+# for range up to  100000 the result is (77031, 351)
+# for range up to  1000000 the result is (837799, 525)
+# for range up to  10000000 the result is (8400511, 686)
+
 
