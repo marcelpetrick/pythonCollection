@@ -21,7 +21,7 @@
 # ------------------------------------------------------------------------------
 
 import unittest
-
+import re # for regular expression checking
 
 # ------------------------------------------------------------------------------
 
@@ -37,20 +37,24 @@ conversionTable = {
 
 # ------------------------------------------------------------------------------
 
-def convertRomantToDecimal(input):
+def convertRomanToDecimal(input):
     # first: convert to upp-case
     romanNumber = str(input).upper()
-    print("romanNumber: ", romanNumber)
+    #print("romanNumber: ", romanNumber)
 
-    # check if it only consists of the allowed letters
-    # TODO
+    # check if it consists only of the allowed letters
+    pattern = re.compile("[MDCLXVI]+")
+    for elem in romanNumber:
+        if not pattern.match(elem):
+            print(input, "is not a valid input! Only digits from [MDCLXVI] allowed.")
+            return -1
 
     # convert the given input
     decimalValue = 0
     previousNumber = 1001
     for digit in romanNumber:
         valueForCurrentDigit = conversionTable[digit]
-        print("\t", valueForCurrentDigit)
+        #print("\t", valueForCurrentDigit)
         decimalValue += valueForCurrentDigit
 
         if previousNumber < valueForCurrentDigit:
@@ -64,24 +68,29 @@ def convertRomantToDecimal(input):
 # ------------------------------------------------------------------------------
 # proper unit-test
 class Testcase(unittest.TestCase):
+    def test_wrongInput(self):
+        self.assertEqual(-1, convertRomanToDecimal("A"))
+        self.assertEqual(-1, convertRomanToDecimal("IQ"))
+
     def test_simpleNumbers(self):
-        self.assertEqual(1, convertRomantToDecimal("I"))
-        self.assertEqual(2, convertRomantToDecimal("II"))
-        self.assertEqual(3, convertRomantToDecimal("III"))
-        self.assertEqual(1, convertRomantToDecimal("i"))
-        self.assertEqual(2, convertRomantToDecimal("ii"))
-        self.assertEqual(3, convertRomantToDecimal("iii"))
+        self.assertEqual(1, convertRomanToDecimal("I"))
+        self.assertEqual(2, convertRomanToDecimal("II"))
+        self.assertEqual(3, convertRomanToDecimal("III"))
+        self.assertEqual(1, convertRomanToDecimal("i"))
+        self.assertEqual(2, convertRomanToDecimal("ii"))
+        self.assertEqual(3, convertRomanToDecimal("iii"))
 
-        self.assertEqual(8, convertRomantToDecimal("viii"))
+        self.assertEqual(8, convertRomanToDecimal("viii"))
 
-        self.assertEqual(1666, convertRomantToDecimal("MDCLXVI"))
+        self.assertEqual(1666, convertRomanToDecimal("MDCLXVI"))
 
     def test_subtractionRule(self):
         # see: https://www.roemische-zahlen.net/
             # 1. Regel: I steht nur vor V und X
             # 2. Regel: X steht nur vor L und C
             # 3. Regel: C steht nur vor D und M
-        self.assertEqual(9, convertRomantToDecimal("IX"))
+        self.assertEqual(9, convertRomanToDecimal("IX"))
+        self.assertEqual(1984, convertRomanToDecimal("MCMLXXXIV"))
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
