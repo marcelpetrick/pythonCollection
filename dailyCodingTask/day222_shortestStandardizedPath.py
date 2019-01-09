@@ -17,9 +17,36 @@
 # The root of the path depends on the type of path. It is the drive (C:\) for DOS paths,
 # the server/share for UNCs (\\Server\Share), and the device path prefix for device paths (\\?\ or \\.\).
 
+# Also check: https://www.geeksforgeeks.org/simplify-directory-path-unix-like/
+
 # ------------------------------------------------------------------------------
 
 import unittest
-import re # for regular expression checking
 
 # ------------------------------------------------------------------------------
+
+# *** idea ***
+# todo prevent that the root is removed by too much ..
+# todo implement tokenization
+# todo put elements to a stack by consuming the tokens
+# in case of . do nothing
+# in case of .. remove last element
+# else: add the element
+#
+# finally: reverse the stack-content, put delimiters (/() between the items, done :)
+
+def getShortestStandardizedPath(inputPath):
+    # todo implement this
+    pass
+
+# ------------------------------------------------------------------------------
+# proper unit-test
+class Testcase(unittest.TestCase):
+    def test_QuoraExample(self):
+        input  = "/usr/bin/../bin/./scripts/../"
+        expectedOutput = "/usr/bin/"
+        self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
