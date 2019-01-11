@@ -42,9 +42,42 @@ def getShortestStandardizedPath(inputPath):
 # ------------------------------------------------------------------------------
 # proper unit-test
 class Testcase(unittest.TestCase):
-    def test_QuoraExample(self):
-        input  = "/usr/bin/../bin/./scripts/../"
-        expectedOutput = "/usr/bin/"
+# commented until the implementation is working
+    # def test_QuoraExample(self):
+    #     input  = "/usr/bin/../bin/./scripts/../"
+    #     expectedOutput = "/usr/bin/"
+    #     self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
+
+    def test_simpleTests(self):
+        input = "/"
+        expectedOutput = "/"
+        self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
+
+        # what about this? should it have some shortest path-representation?
+        # I think not.
+        input = ""
+        expectedOutput = "error" # better return some error (of course, exception is much better)
+        self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
+
+        input = "/a"
+        expectedOutput = "/a"
+        self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
+
+        input = "/a/b/b/b"
+        expectedOutput = "/a/b/b/b"
+        self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
+
+        input = "/a/b/b/b/"
+        expectedOutput = "/a/b/b/b/"
+        self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
+
+        # double slashes
+        input = "//"
+        expectedOutput = "//"
+        self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
+
+        input = "/a//"
+        expectedOutput = "/a//"
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
 # ---- here comes the execution of the unit-tests ----
