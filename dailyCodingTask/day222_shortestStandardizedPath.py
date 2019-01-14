@@ -37,12 +37,12 @@ from dailyCodingTask.Stack import Stack
 # finally: reverse the stack-content, put delimiters (/() between the items, done :)
 
 def getShortestStandardizedPath(inputPath):
-    print("\n")
-    print("############ getShortestStandardizedPath:", inputPath," ############")
+    #print("\n")
+    #print("############ getShortestStandardizedPath:", inputPath," ############")
 
     # split into tokens
     splittedString = inputPath.split("/")
-    print("splittedString:", splittedString)
+    #print("splittedString:", splittedString)
 
     # if no tokens are left, return some error
     if len(splittedString) == 0:
@@ -53,34 +53,39 @@ def getShortestStandardizedPath(inputPath):
 
     # handle each token
     for elem in splittedString:
-        print("elem is:", elem)
+        #print("elem is:", elem)
 
         if elem == ".":
             # do nothing
-            print(" -> do nothing")
+            pass
+            #print(" -> do nothing")
         elif elem == "..":
-            print(" -> stack pop")
+            #print(" -> stack pop")
             stack.pop()
         elif elem == "":
-            print(" -> empty string -> do nothing!")
+            #print(" -> empty string -> do nothing!")
             pass
         else:
-            print(" -> do something else; like push")
+            #print(" -> do something else; like push")
             stack.push(elem)
 
     # puzzle all pieces together
     currentStack = stack.__repr__()
-    print("\n before puzzling: stack content is:", currentStack, "size:", stack.currentSize())
+    #print("\n before puzzling: stack content is:", currentStack, "size:", stack.currentSize())
     result = ""
 
     if currentStack == "":
-        result = "/"
+        # result = "/"
+        pass
     else:
         for elem in currentStack.split(";"):
             if elem is not "":
                 result += "/" + elem
 
-    print("result:", result) # todom remove
+    # add one final slash
+    result += "/"
+
+    #print("result:", result) # todom remove
 
     return result
 
@@ -88,10 +93,10 @@ def getShortestStandardizedPath(inputPath):
 # proper unit-test
 class Testcase(unittest.TestCase):
 # commented until the implementation is working
-    # def test_QuoraExample(self):
-    #     input  = "/usr/bin/../bin/./scripts/../"
-    #     expectedOutput = "/usr/bin/"
-    #     self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
+    def test_QuoraExample(self):
+        input  = "/usr/bin/../bin/./scripts/../"
+        expectedOutput = "/usr/bin/"
+        self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
     def test_simpleTests(self):
         input = "/"
@@ -105,15 +110,15 @@ class Testcase(unittest.TestCase):
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
         input = "/a"
-        expectedOutput = "/a"
+        expectedOutput = "/a/"
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
         input = "/a/b/b/b"
-        expectedOutput = "/a/b/b/b"
+        expectedOutput = "/a/b/b/b/"
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
         input = "/a/b/b/b/"
-        expectedOutput = "/a/b/b/b"
+        expectedOutput = "/a/b/b/b/"
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
         # double slashes
@@ -122,7 +127,7 @@ class Testcase(unittest.TestCase):
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
         input = "/a//"
-        expectedOutput = "/a"
+        expectedOutput = "/a/"
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
 # ---- here comes the execution of the unit-tests ----
