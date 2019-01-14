@@ -22,6 +22,7 @@
 # ------------------------------------------------------------------------------
 
 import unittest
+from dailyCodingTask.Stack import Stack
 
 # ------------------------------------------------------------------------------
 
@@ -37,6 +38,19 @@ import unittest
 
 def getShortestStandardizedPath(inputPath):
     # todo implement this
+
+    splittedString = inputPath.split("/")
+    print("splittedString:", splittedString)
+
+    for elem in splittedString:
+        if elem == ".":
+            # do nothing
+            print(" -> do nothing")
+        elif elem == "..":
+            print(" -> stack pop")
+            pass # todo
+        else:
+            print(" -> do something else; like push")
     pass
 
 # ------------------------------------------------------------------------------
