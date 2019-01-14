@@ -37,21 +37,48 @@ from dailyCodingTask.Stack import Stack
 # finally: reverse the stack-content, put delimiters (/() between the items, done :)
 
 def getShortestStandardizedPath(inputPath):
-    # todo implement this
 
+    # split into tokens
     splittedString = inputPath.split("/")
     print("splittedString:", splittedString)
 
+    # if no tokens are left, return some error
+    if len(splittedString) == 0:
+        return "error"
+
+    # smol helper-stack
+    stack = Stack()
+
+    # handle each token
     for elem in splittedString:
+        print("elem is:", elem)
+
         if elem == ".":
             # do nothing
             print(" -> do nothing")
         elif elem == "..":
             print(" -> stack pop")
-            pass # todo
+            stack.pop()
+        elif elem == "":
+            print(" -> empty string -> do nothing!")
+            pass
         else:
             print(" -> do something else; like push")
-    pass
+            stack.push(elem)
+
+    # puzzle all pieces together
+    currentStack = stack.__repr__()
+    result = ""
+
+    if currentStack == "":
+        result = "/"
+    else:
+        for elem in currentStack.split(";"):
+            result += "/" + elem
+
+    print("result:", result) # todom remove
+
+    return result
 
 # ------------------------------------------------------------------------------
 # proper unit-test
