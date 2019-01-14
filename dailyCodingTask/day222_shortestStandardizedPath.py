@@ -37,6 +37,8 @@ from dailyCodingTask.Stack import Stack
 # finally: reverse the stack-content, put delimiters (/() between the items, done :)
 
 def getShortestStandardizedPath(inputPath):
+    print("\n")
+    print("############ getShortestStandardizedPath:", inputPath," ############")
 
     # split into tokens
     splittedString = inputPath.split("/")
@@ -68,13 +70,15 @@ def getShortestStandardizedPath(inputPath):
 
     # puzzle all pieces together
     currentStack = stack.__repr__()
+    print("\n before puzzling: stack content is:", currentStack, "size:", stack.currentSize())
     result = ""
 
     if currentStack == "":
         result = "/"
     else:
         for elem in currentStack.split(";"):
-            result += "/" + elem
+            if elem is not "":
+                result += "/" + elem
 
     print("result:", result) # todom remove
 
@@ -97,7 +101,7 @@ class Testcase(unittest.TestCase):
         # what about this? should it have some shortest path-representation?
         # I think not.
         input = ""
-        expectedOutput = "error" # better return some error (of course, exception is much better)
+        expectedOutput = "/" # better return some error (of course, exception is much better)
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
         input = "/a"
@@ -109,16 +113,16 @@ class Testcase(unittest.TestCase):
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
         input = "/a/b/b/b/"
-        expectedOutput = "/a/b/b/b/"
+        expectedOutput = "/a/b/b/b"
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
         # double slashes
         input = "//"
-        expectedOutput = "//"
+        expectedOutput = "/"
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
         input = "/a//"
-        expectedOutput = "/a//"
+        expectedOutput = "/a"
         self.assertEqual(expectedOutput, getShortestStandardizedPath(input))
 
 # ---- here comes the execution of the unit-tests ----
