@@ -19,14 +19,63 @@ import unittest
 
 # ------------------------------------------------------------------------------
 
+class SpecialArray(object):
+
+    def __init__(self, n, k):
+        #print("Stack: ctor :)")
+        self.__n__ = n
+        self.__k__ = k
+        # init the array
+        self.__array__ = ["alive"] * self.__n__
+        self.__position__ = -1
+
+    # ------------------------------------------------
+
+    def getNumberOfPeopleAlive(self):
+        amount = 0
+        for elem in self.__array__:
+            if elem == "alive":
+                amount += 1
+
+        return amount
+
+    #------------------------------------------------
+
+    # representation: empty Stack -> ""; else "elem0;elem1;elem2;.."
+    def __repr__(self):
+        result = ""
+
+        for elem in self.__array__:
+            result += elem + ";"
+
+        return result
+
+
+# ------------------------------------------------------------------------------
+
 # attention: k-th Person, so [1,2,3,4,5]. Not starting with 0!
-def bestStandingPosition(N, k):
+def bestStandingPosition(n, k):
+    ''' Will return -1 for "error". '''
+
+    # add some checks for valid n and k
+    if n <= 0:
+        return -1
+
+    if k <= 0:
+        return -1
+
+    # prepare an array
+    array = SpecialArray(n, k)
+
+    print("array:", array)
+
+
     return 3 # ideally: pass - but just fake for now
 
 # ------------------------------------------------------------------------------
 # proper unit-test
 class Testcase(unittest.TestCase):
-    def test_QuoraExample(self):
+    def test_givenChallengeExample(self):
         n, k  = 5, 2
         expectedOutput = 3
         computedOutput = bestStandingPosition(n, k)
