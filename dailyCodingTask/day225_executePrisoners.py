@@ -43,28 +43,41 @@ class SpecialArray(object):
 
     # attention: can run into infinite looping! check before if getNUmberOfPeopleAlive >= 1!
     def executeNext(self):
-        print("executeNext:")
-        print("self.__k__:", self.__k__)
-        print("range[0, self.__k__]:", range[0, self.__k__])
+        #print("executeNext:")
+        #print("self.__k__:", self.__k__)
+        #print("range(self.__k__):", range(self.__k__))
 
-        for step in range[0, self.__k__]:
-            print("\t", step)
-            self.__position__ += 1
+        length = len(self.__array__)
+
+        for step in range(self.__k__):
+            #print("\t", step)
+            self.__position__ = (self.__position__ + 1) % length
 
             # continue to move if the current one is already dead
             while self.__array__[self.__position__] == "dead":
-                self.__position__ += 1
+                self.__position__ = (self.__position__ + 1) %  length
 
-            print("\tfound one at", self.__position__)
-            # execute him
-            self.__array__[self.__position__] = "dead"
+            #print("\tfound one at", self.__position__)
 
-        print("-- end of executeNext --")
+        # execute him
+        self.__array__[self.__position__] = "dead"
+
+        #print("-- end of executeNext --")
 
     # ------------------------------------------------
 
     def getCurrentPosition(self):
         return 1 + self.__position__
+
+    # ------------------------------------------------
+
+    def getNextManStandingPosition(self):
+        length = len(self.__array__)
+        position = self.__position__
+        while self.__array__[position] == "dead":
+            position = (position + 1) % length
+
+        return position
 
     # ------------------------------------------------
 
@@ -94,12 +107,18 @@ def bestStandingPosition(n, k):
     # prepare an array
     array = SpecialArray(n, k)
 
-    print("array:", array, array.getNumberOfPeopleAlive())
-    array.executeNext()
+    #print("array:", array, array.getNumberOfPeopleAlive())
+    #array.executeNext()
+    #print("array:", array, array.getNumberOfPeopleAlive())
 
+    while array.getNumberOfPeopleAlive() > 1:
+        array.executeNext()
+        print("array:", array, "|| people left:", array.getNumberOfPeopleAlive(), "|| killed:", array.getCurrentPosition())
 
+    #print("--->")
+    #print("array:", array, array.getCurrentPosition())
 
-    return 3 # ideally: pass - but just fake for now
+    return array.getNextManStandingPosition() + 1 # plus one to have proper "index"
 
 # ------------------------------------------------------------------------------
 # proper unit-test
