@@ -41,6 +41,33 @@ class SpecialArray(object):
 
     #------------------------------------------------
 
+    # attention: can run into infinite looping! check before if getNUmberOfPeopleAlive >= 1!
+    def executeNext(self):
+        print("executeNext:")
+        print("self.__k__:", self.__k__)
+        print("range[0, self.__k__]:", range[0, self.__k__])
+
+        for step in range[0, self.__k__]:
+            print("\t", step)
+            self.__position__ += 1
+
+            # continue to move if the current one is already dead
+            while self.__array__[self.__position__] == "dead":
+                self.__position__ += 1
+
+            print("\tfound one at", self.__position__)
+            # execute him
+            self.__array__[self.__position__] = "dead"
+
+        print("-- end of executeNext --")
+
+    # ------------------------------------------------
+
+    def getCurrentPosition(self):
+        return 1 + self.__position__
+
+    # ------------------------------------------------
+
     # representation: empty Stack -> ""; else "elem0;elem1;elem2;.."
     def __repr__(self):
         result = ""
@@ -67,7 +94,9 @@ def bestStandingPosition(n, k):
     # prepare an array
     array = SpecialArray(n, k)
 
-    print("array:", array)
+    print("array:", array, array.getNumberOfPeopleAlive())
+    array.executeNext()
+
 
 
     return 3 # ideally: pass - but just fake for now
