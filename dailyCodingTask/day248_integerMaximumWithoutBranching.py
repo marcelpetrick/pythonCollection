@@ -13,13 +13,27 @@ import unittest
 # ------------------------------------------------------------------------------
 
 def maximum(a, b):
-    pass
+    result = b ^ ((a ^ b) & -(a < b))
+
+    return result
 
 # ------------------------------------------------------------------------------
 # proper unit-test
 class Testcase(unittest.TestCase):
-    def test_maximum(self):
+    def test_maximum0(self):
         a, b = 0, 0
         expectedOutput = 0
+        computedOutput = maximum(0,0)
+        self.assertEqual(expectedOutput, computedOutput)
+
+    def test_maximum1(self):
+        a, b = 2, 3
+        expectedOutput = 3
+        computedOutput = maximum(0,0)
+        self.assertEqual(expectedOutput, computedOutput)
+
+    def test_maximum2(self):
+        a, b = 3, 2
+        expectedOutput = 3
         computedOutput = maximum(0,0)
         self.assertEqual(expectedOutput, computedOutput)
