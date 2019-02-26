@@ -26,5 +26,6 @@ for line in sys.stdin:
     lastLine = currentLine
 
 # print the last buffered line
-sys.stdout.write(currentLine)
-sys.stdout.write("\n")
+if(len(currentLine) != 0 or len(lastLine) != 0):
+    sys.stdout.write(currentLine)
+    sys.stdout.write("\n")
