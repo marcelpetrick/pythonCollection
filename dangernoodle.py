@@ -1,13 +1,13 @@
 import sys
 
 for line in sys.stdin:
-	stringi = line + " --> " + str(len(line))
-	stringi = stringi.replace("\n", "")
-	stringi = stringi.replace("\r", "")
-	stringi += "\n"
-	sys.stdout.write(stringi)
+    stringi = line + " --> " + str(len(line))
+    stringi = stringi.replace("\n", "")
+    stringi = stringi.replace("\r", "")
+    stringi += "\n"
+    sys.stdout.write(stringi)
 
-	
+
 # invoke with:
 
 #$ cd /c/Repos && cat buildStats_LumiSuite.txt | cut -c 1-8 | uniq -c | python dangernoodle.py
