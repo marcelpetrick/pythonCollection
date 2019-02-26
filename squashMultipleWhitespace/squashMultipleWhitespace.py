@@ -5,6 +5,8 @@ import sys
 
 lastLine = ""
 currentLine = ""
+# determine if this is the very first line - then suppress the output
+firstLine = True
 
 for line in sys.stdin:
     #print("-----------------------------")
@@ -15,8 +17,11 @@ for line in sys.stdin:
     #print("currentLine:", currentLine)  # todom remove
 
     if(len(currentLine) != 0 or len(lastLine) != 0):
-        sys.stdout.write(lastLine)
-        sys.stdout.write("\n")
+        if(firstLine):
+            firstLine = False
+        else:
+            sys.stdout.write(lastLine)
+            sys.stdout.write("\n")
 
     lastLine = currentLine
 
