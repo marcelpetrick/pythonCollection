@@ -11,7 +11,7 @@ import unittest
 # ------------------------------------------------------------------------------
 
 def lookAndSay(n):
-    # todo return the nth term of the sequence
+    # todo description of the method
 
     if(n == 1):
         return 1
@@ -29,3 +29,9 @@ class Testcase(unittest.TestCase):
 
     def test_expectFail(self):
         self.assertFalse(1 < 0, "hell has frozen over")
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
+
+# ------------------------------------------------------------------------------
