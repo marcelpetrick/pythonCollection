@@ -79,10 +79,13 @@ class Testcase(unittest.TestCase):
         self.assertEqual(expectedOutput, computedOutput)
 
     # TODO add a test which checks for the thrown exception
+    def test_exceptionThrowing(self):
+        self.assertRaises(ValueError, getPascalsTriangleRow, -1337)
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
-getPascalsTriangleRow(2)
+# direct call:
+print("pascal's row " + str(20) + ": " + str(getPascalsTriangleRow(20)))
