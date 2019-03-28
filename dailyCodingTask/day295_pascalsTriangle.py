@@ -35,24 +35,54 @@ import unittest
 # ------------------------------------------------------------------------------
 
 def getPascalsTriangleRow(n):
-    # todo return the nth term of the sequence
+    # Return the n-th row of the Pascal's Triangle
 
-    if(n == 1):
-        return [1]
+    if n <= 0:
+        raise ValueError("Pascal's Triangle only defined for integer values bigger 0")
 
-    pass
+    # create the array
+    pascalsRow = [0] * n
+
+    # fill last item with 1
+    pascalsRow[n - 1] = 1
+    #print("current state:")
+    #print(pascalsRow)
+
+    while pascalsRow[0] == 0:
+        #print("current state - in loop:")
+        #print(pascalsRow)
+        for index in range(0, n - 1): # exclusive last!
+            #print("index:" + str(index))
+            pascalsRow[index] = pascalsRow[index] + pascalsRow[index + 1]
+
+    return pascalsRow
 
 # ------------------------------------------------------------------------------
 # proper unit-test
 class Testcase(unittest.TestCase):
-    def test_givenExample0(self):
+    def test_givenExample1(self):
         n = 1
         expectedOutput = [1]
         computedOutput = getPascalsTriangleRow(n)
         self.assertEqual(expectedOutput, computedOutput)
 
-    def test_givenExample0(self):
+    def test_givenExample2(self):
         n = 2
         expectedOutput = [1, 1]
         computedOutput = getPascalsTriangleRow(n)
         self.assertEqual(expectedOutput, computedOutput)
+
+    def test_givenExample5(self):
+        n = 5
+        expectedOutput = [1, 4, 6, 4, 1]
+        computedOutput = getPascalsTriangleRow(n)
+        self.assertEqual(expectedOutput, computedOutput)
+
+    # TODO add a test which checks for the thrown exception
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
+
+# ------------------------------------------------------------------------------
+getPascalsTriangleRow(2)
