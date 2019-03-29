@@ -32,11 +32,14 @@ def lookAndSay(n):
     if n <= 0:
         raise ValueError("Pascal's Triangle only defined for integer values bigger 0")
 
-    if(n == 1):
-        return 1
+    counter = 1
+    currentState = "1"
+    while counter < n:
+        counter += 1
+        currentState = createNextStage(currentState)
+        #print("counter:" + str(counter) + " | currentState:" + currentState)
 
-
-    pass
+    return currentState
 
 # ------------------------------------------------------------------------------
 
@@ -61,11 +64,38 @@ def createBlockList(input):
     return blockList
 
 # ------------------------------------------------------------------------------
+
+def createBlockResult(input):
+    # todo maybe check if the type of the input is uniform
+
+    type = input[0]
+    length = len(input)
+    result = str(length) + str(type)
+
+    return result
+
+# ------------------------------------------------------------------------------
+
+def createNextStage(input):
+    result = ""
+    for elem in createBlockList(input):
+        result += createBlockResult(elem)
+
+    return result
+
+# ------------------------------------------------------------------------------
 # proper unit-test
 class Testcase(unittest.TestCase):
+    # tests for lookAndSay
     def test_givenExample0(self):
         n = 1
-        expectedOutput = 1
+        expectedOutput = "1"
+        computedOutput = lookAndSay(n)
+        self.assertEqual(expectedOutput, computedOutput)
+
+    def test_givenExample1(self):
+        n = 5
+        expectedOutput = "111221"
         computedOutput = lookAndSay(n)
         self.assertEqual(expectedOutput, computedOutput)
 
@@ -101,9 +131,35 @@ class Testcase(unittest.TestCase):
         computedOutput = createBlockList(input)
         self.assertEqual(expectedOutput, computedOutput)
 
+    # tests for createBlockResult
+    def test_createBlockResult0(self):
+        input = "1"
+        expectedOutput = "11"
+        computedOutput = createBlockResult(input)
+        self.assertEqual(expectedOutput, computedOutput)
+
+    def test_createBlockResult1(self):
+        input = "444"
+        expectedOutput = "34"
+        computedOutput = createBlockResult(input)
+        self.assertEqual(expectedOutput, computedOutput)
+
+    # tests for createNextStage
+    def test_createBlockResult0(self):
+        input = "1211"
+        expectedOutput = "111221"
+        computedOutput = createNextStage(input)
+        self.assertEqual(expectedOutput, computedOutput)
+
+
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
     unittest.main()
 
+# ------------------------------------------------------------------------------
 
-createBlockList("1223334112351")
+print(lookAndSay(20))
+
+# result:
+#11131221131211132221232112111312111213111213211231132132211211131221131211221321123113213221123113112221131112311332211211131221131211132211121312211231131112311211232221121321132132211331121321231231121113112221121321133112132112312321123113112221121113122113121113123112112322111213211322211312113211
+#Ran 10 tests in 0.016s
