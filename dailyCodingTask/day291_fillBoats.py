@@ -20,13 +20,30 @@ import unittest
 def fillBoats(givenList, maxAllowedWeight):
     # todo description of the method
 
-    pass
+    currentFilling = []
+
+    #while len(givenList) > 0 and sum(currentFilling <=)
+
+    return 2
+
+
+def findBestFittingElement(valueNeeded, list):
+    returnValue = 0
+    for elem in list:
+        if elem <= valueNeeded and elem > returnValue:
+            returnValue = elem
+    # break early in case of "found"
+
+    if returnValue == 0:
+        raise ValueError("no fitting candidate") # if this is the result, because the list contained 0, then ... bad luck
+
+    return returnValue
 
 # ------------------------------------------------------------------------------
 # proper unit-test
 class Testcase(unittest.TestCase):
     def test_givenExample0(self):
-        list = {1, 1, 2}
+        list = [1, 1, 2]
         maxWeight = 2
         expectedOutput = 2
         computedOutput = fillBoats(list, maxWeight)
@@ -40,3 +57,9 @@ if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
+
+
+list1 = [1, 2, 3, 4, 5, 6]
+
+# Pops and removes the last element from the list
+print(list1.pop())
