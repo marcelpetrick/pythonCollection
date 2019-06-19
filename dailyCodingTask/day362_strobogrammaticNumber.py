@@ -40,7 +40,7 @@ class Testcase(unittest.TestCase):
         self.assertFalse(1 < 0, "hell has frozen over")
 
 # ---- here comes the execution of the unit-tests ----
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
 
 # ------------------------------------------------------------------------------
