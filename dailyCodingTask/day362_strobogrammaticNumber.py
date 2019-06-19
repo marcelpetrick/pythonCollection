@@ -22,7 +22,7 @@ import unittest
 
 # ------------------------------------------------------------------------------
 
-# added also the switched case to this list
+# added also the switched case to this list, so the code is simpler
 fittingPairs = [(1, 1),
                 (2, 5),
                 (5, 2), # remove if 5 =/= 2
@@ -37,7 +37,7 @@ def isStroboGrammmatic(number):
 
     strNumber = str(number)
 
-    if len(strNumber)  < 2:
+    if len(strNumber) < 2:
         # strings of length 0 or 1 are always strobo
         return True
 
@@ -55,6 +55,26 @@ def isStroboGrammmatic(number):
 
 
     return headAndTailAreStrobo
+
+# ------------------------------------------------------------------------------
+
+def getAllStroboNumbersWithNDigits(n):
+    # sanity check
+    if n < 1:
+        return []
+
+    # generate the range
+    start = 10 ** (n-1)
+    end = 10 ** n
+    print("range:", start, end) # todo remove
+
+    resultList = []
+    for number in range(start, end):
+        if isStroboGrammmatic(number):
+            print("number", number, "is strobogrammatic ..")
+            resultList.append(number)
+
+    return resultList
 
 # ------------------------------------------------------------------------------
 # proper unit-test
@@ -86,3 +106,5 @@ if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
+
+print(getAllStroboNumbersWithNDigits(4))
