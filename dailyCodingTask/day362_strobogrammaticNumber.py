@@ -32,10 +32,12 @@ fittingPairs = [(1, 1),
                 ]
 
 def isStroboGrammmatic(number):
-    # todo description of the method
-    # number should be an integer
+    # check if first and last as pair are inside the fitting pairs-LUT; if yes,
+    # then apply the function to the inner part (without head and tail) and use that return-value for return.
+    # Attention: number should be an integer
 
     strNumber = str(number)
+    #print(f"#### isStroboGrammmatic for {strNumber} ####") # the new f-string :)
 
     if len(strNumber) < 2:
         # strings of length 0 or 1 are always strobo
@@ -45,14 +47,14 @@ def isStroboGrammmatic(number):
     first = int(strNumber[:1])
     last = int(strNumber[-1:])
     #print(first, last) # todo remove
+
     middle = strNumber[1:-1]
     #print("middle:", middle) # todo remove
 
     headAndTailAreStrobo = False
     for a,b in fittingPairs:
         if a == first and b == last:
-            headAndTailAreStrobo = True
-
+            headAndTailAreStrobo = isStroboGrammmatic(int(middle))
 
     return headAndTailAreStrobo
 
@@ -97,9 +99,11 @@ class Testcase(unittest.TestCase):
         computedOutput = isStroboGrammmatic(number)
         self.assertEqual(expectedOutput, computedOutput)
 
-    def test_expectFail(self):
-        self.assertFalse(1 < 0, "hell has frozen over")
-
+    def test_givenExample3(self):
+        number = 1531
+        expectedOutput = False
+        computedOutput = isStroboGrammmatic(number)
+        self.assertEqual(expectedOutput, computedOutput)
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
@@ -107,4 +111,4 @@ if __name__ == '__main__':
 
 # ------------------------------------------------------------------------------
 
-print(getAllStroboNumbersWithNDigits(4))
+#print(getAllStroboNumbersWithNDigits(4))
