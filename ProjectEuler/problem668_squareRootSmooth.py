@@ -31,7 +31,7 @@ def getPrimeFactors(number):
         else:
             divisor += 1
 
-    print(primeFactors)
+    #print(primeFactors)
     return primeFactors
 
 # ------------------------------------------------------------------------------
@@ -45,6 +45,7 @@ def isSquareRootSmooth(n):
     pass
 
 # ------------------------------------------------------------------------------
+
 # proper unit-test
 class Testcase(unittest.TestCase):
     def test_givenExample0(self):
@@ -54,11 +55,12 @@ class Testcase(unittest.TestCase):
         self.assertEqual(expectedOutput, computedOutput)
 
     def test_getPrimeFactors(self):
-        #self.assertSetEqual([], getPrimeFactors(-1))
-        #self.assertSetEqual([], getPrimeFactors(1))
-        #self.assertSetEqual([2], getPrimeFactors(2))
-        #self.assertSetEqual([2, 2], getPrimeFactors(4))
-        pass
+        self.assertEqual([], getPrimeFactors(-1))
+        self.assertEqual([], getPrimeFactors(1))
+        self.assertEqual([2], getPrimeFactors(2))
+        self.assertEqual([2, 2], getPrimeFactors(4))
+        self.assertEqual([2, 2, 2, 2, 2, 2, 2], getPrimeFactors(128))
+        self.assertEqual([2, 3, 5, 7], getPrimeFactors(210))
 
 # todo add more tests
 
@@ -68,5 +70,7 @@ if __name__ == '__main__':
 
 # ------------------------------------------------------------------------------
 
-print("result of 2:", getPrimeFactors(2))
-print("result of 20:", getPrimeFactors(20))
+# print("result of 2:", getPrimeFactors(2))
+# print("result of 20:", getPrimeFactors(20))
+# print("result of 1337:", getPrimeFactors(1337))
+# print("result of 32:", getPrimeFactors(32))
