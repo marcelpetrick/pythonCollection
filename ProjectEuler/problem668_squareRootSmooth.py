@@ -23,13 +23,29 @@ import math # for square root
 
 # ------------------------------------------------------------------------------
 
+def getNumberOfSRSBelow(number):
+    amount = 0
+    for i in range(2, number):
+        if(isSquareRootSmooth(i)):
+            amount += 1
+
+    print(f"below {number} are {amount} square-root-smooth")
+    return amount
+
+# ------------------------------------------------------------------------------
+
 def isSquareRootSmooth(number):
     ''' check if get sadfasdf is smaller than the square root'''
 
     squareRoot = math.sqrt(number)
-    biggestPrime = getBiggestPrimeFactor(number) # add some dictionary LUT for preformance
+    biggestPrime = getBiggestPrimeFactor(number) # add some dictionary LUT for performance
 
-    return biggestPrime < squareRoot
+    result = biggestPrime < squareRoot
+
+    if(result):
+        print(f"{number} is SRS :)")
+
+    return
 
 # ------------------------------------------------------------------------------
 
@@ -88,6 +104,16 @@ class Testcase(unittest.TestCase):
         self.assertEqual(False, isSquareRootSmooth(191));
         self.assertEqual(True, isSquareRootSmooth(192));
         self.assertEqual(True, isSquareRootSmooth(195));
+
+    def test_getNumberOfSRSBelow(self):
+        '''
+        1, 4, 8, 9, 12, 16, 18, 24, 25, 27, 30, 32, 36, 40, 45, 48, 49, 50, 54, 56, 60, 63, 64, 70, 72, 75, 80, 81, 84,
+        90, 96, 98, 100, 105, 108, 112, 120, 121, 125, 126, 128, 132, 135, 140, 144, 147, 150,
+        154, 160, 162, 165, 168, 169, 175, 176, 180, 182, 189, 192, 195
+        '''
+
+        amount = getNumberOfSRSBelow(10)
+        #self.assertEqual(4, amount)
 
 # todo add more tests
 
