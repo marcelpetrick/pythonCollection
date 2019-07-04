@@ -25,14 +25,18 @@ import math # for square root
 
 def getNumberOfSRSBelow(number):
     amount = 0
-    for i in range(1, number):
-        isSRS = isSquareRootSmooth(i)
-        print(f"number {i} is", ("" if isSRS else "not"), "square root smooth")
+    resultList = []
+    for currentN in range(1, number):
+        isSRS = isSquareRootSmooth(currentN)
+        print(f"number {currentN} is", ("" if isSRS else "not"), "square root smooth")
         if(isSRS):
             amount += 1
+            resultList.append(currentN)
 
     print("------------------------------------")
     print(f"below {number} are {amount} numbers square-root-smooth")
+    print("result list: ", resultList)
+
     return amount
 
 # ------------------------------------------------------------------------------
@@ -122,15 +126,18 @@ class Testcase(unittest.TestCase):
 
     def test_getNumberOfSRSBelow(self):
         '''
-        1, 4, 8, 9, 12, 16, 18, 24, 25, 27, 30, 32, 36, 40, 45, 48, 49, 50, 54, 56, 60, 63, 64, 70, 72, 75, 80, 81, 84,
-        90, 96, 98, 100, 105, 108, 112, 120, 121, 125, 126, 128, 132, 135, 140, 144, 147, 150,
+        Although I am not fully convinced this is the real
+        1, 4, 8, 9, 12, 16, 18, 24, 25, 27, 30, 32, 36, 40, 45, 48, 49, 50, 54, 56,
+        60, 63, 64, 70, 72, 75, 80, 81, 84, 90,
+        96, 98, 100, 105, 108, 112, 120, 121, 125, 126, 128, 132, 135, 140, 144, 147, 150,
         154, 160, 162, 165, 168, 169, 175, 176, 180, 182, 189, 192, 195
         '''
 
-        amount = getNumberOfSRSBelow(10)
-        #self.assertEqual(4, amount)
+        amount = getNumberOfSRSBelow(100)
+        print("below 100:", amount)
+        self.assertEqual(27, amount) # TODO should be 29!
 
-# todo add more tests
+        # todo add output for the real task
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
