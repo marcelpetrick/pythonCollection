@@ -8,12 +8,12 @@
 
 # ------------------------------------------------------------------------------
 
-# examples: https://oeis.org/A048098
+# examples: https://oeis.org/A048098 - not sure if this is the same sequence, because of rhte "strictly less" here in
+# task and "<=" in the page
 
 # ------------------------------------------------------------------------------
 
 # idea: simplest version: loop for the whole range, check for each if SRS. if yes, then add up
-#
 
 # ------------------------------------------------------------------------------
 
@@ -25,27 +25,36 @@ import math # for square root
 
 def getNumberOfSRSBelow(number):
     amount = 0
-    for i in range(2, number):
-        if(isSquareRootSmooth(i)):
+    for i in range(1, number):
+        isSRS = isSquareRootSmooth(i)
+        print(f"number {i} is", ("" if isSRS else "not"), "square root smooth")
+        if(isSRS):
             amount += 1
 
-    print(f"below {number} are {amount} square-root-smooth")
+    print("------------------------------------")
+    print(f"below {number} are {amount} numbers square-root-smooth")
     return amount
 
 # ------------------------------------------------------------------------------
 
 def isSquareRootSmooth(number):
-    ''' check if get sadfasdf is smaller than the square root'''
+    ''' check if getBiggestPrimeFactor is smaller than the square root '''
 
     squareRoot = math.sqrt(number)
     biggestPrime = getBiggestPrimeFactor(number) # add some dictionary LUT for performance
 
     result = biggestPrime < squareRoot
 
-    if(result):
-        print(f"{number} is SRS :)")
+    print(f"{number} has primes {getPrimeFactors(number)} and the biggest is {biggestPrime} and the square-root "
+          f"is {squareRoot} which is",
+          "" if result else "NOT",
+          "square root smooth"
+          )
 
-    return
+#    if(result):
+#        print(f"{number} is SRS :)")
+
+    return result
 
 # ------------------------------------------------------------------------------
 
@@ -64,6 +73,10 @@ def getPrimeFactors(number):
     # check invalid values
     if(number < 1):
         return []
+
+    # just for the sake of the algorithm ..
+    if(number == 1):
+        return [1]
 
     primeFactors = []
     divisor = 2
@@ -84,15 +97,17 @@ class Testcase(unittest.TestCase):
 
     def test_getPrimeFactors(self):
         self.assertEqual([], getPrimeFactors(-1))
-        self.assertEqual([], getPrimeFactors(1))
+        self.assertEqual([1], getPrimeFactors(1))
         self.assertEqual([2], getPrimeFactors(2))
         self.assertEqual([2, 2], getPrimeFactors(4))
         self.assertEqual([2, 2, 2, 2, 2, 2, 2], getPrimeFactors(128))
         self.assertEqual([2, 3, 5, 7], getPrimeFactors(210))
+        self.assertEqual([2, 2, 2, 5], getPrimeFactors(40))
 
     def test_getBiggestPrimeFactor(self):
         self.assertEqual(2, getBiggestPrimeFactor(2))
         self.assertEqual(5, getBiggestPrimeFactor(5))
+        self.assertEqual(5, getBiggestPrimeFactor(40))
         self.assertEqual(7, getBiggestPrimeFactor(210))
 
     def test_isSquareRootSmooth(self):
