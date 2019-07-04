@@ -8,7 +8,7 @@
 
 # ------------------------------------------------------------------------------
 
-# examples: https://oeis.org/A048098 - not sure if this is the same sequence, because of rhte "strictly less" here in
+# examples: https://oeis.org/A048098 - not sure if this is the same sequence, because of the "strictly less" here in
 # task and "<=" in the page
 
 # ------------------------------------------------------------------------------
@@ -25,17 +25,17 @@ import math # for square root
 
 def getNumberOfSRSBelow(number):
     amount = 0
-    resultList = []
+    #resultList = []
     for currentN in range(1, number):
         isSRS = isSquareRootSmooth(currentN)
-        print(f"number {currentN} is", ("" if isSRS else "not"), "square root smooth")
+        #print(f"number {currentN} is", ("" if isSRS else "not"), "square root smooth")
         if(isSRS):
             amount += 1
-            resultList.append(currentN)
+            #resultList.append(currentN)
 
-    print("------------------------------------")
-    print(f"below {number} are {amount} numbers square-root-smooth")
-    print("result list: ", resultList)
+    #print("------------------------------------")
+    #print(f"below {number} are {amount} numbers square-root-smooth")
+    #print("result list: ", resultList)
 
     return amount
 
@@ -49,14 +49,14 @@ def isSquareRootSmooth(number):
 
     result = biggestPrime < squareRoot
 
-    print(f"{number} has primes {getPrimeFactors(number)} and the biggest is {biggestPrime} and the square-root "
-          f"is {squareRoot} which is",
-          "" if result else "NOT",
-          "square root smooth"
-          )
+    #print(f"{number} has primes {getPrimeFactors(number)} and the biggest is {biggestPrime} and the square-root "
+          # f"is {squareRoot} which is",
+          # "" if result else "NOT",
+          # "square root smooth"
+          # )
 
-#    if(result):
-#        print(f"{number} is SRS :)")
+    if result:
+        print(number)
 
     return result
 
@@ -91,7 +91,6 @@ def getPrimeFactors(number):
         else:
             divisor += 1
 
-    #print(primeFactors)
     return primeFactors
 
 # ------------------------------------------------------------------------------
@@ -134,10 +133,8 @@ class Testcase(unittest.TestCase):
         '''
 
         amount = getNumberOfSRSBelow(100)
-        print("below 100:", amount)
+        #print("below 100:", amount)
         self.assertEqual(27, amount) # TODO should be 29!
-
-        # todo add output for the real task
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
@@ -145,7 +142,6 @@ if __name__ == '__main__':
 
 # ------------------------------------------------------------------------------
 
-# print("result of 2:", getPrimeFactors(2))
-# print("result of 20:", getPrimeFactors(20))
-# print("result of 1337:", getPrimeFactors(1337))
-# print("result of 32:", getPrimeFactors(32))
+# real task
+answer = getNumberOfSRSBelow(10000000000)
+print("below 10000000000:", answer)
