@@ -97,8 +97,36 @@ def getPrimeFactors(number):
 
 # ------------------------------------------------------------------------------
 
+# Should replace the "full" prime-factorization, which is wasting the cpu-cycles
+biggestPrimeFactorCache = {}
+def getChonkiestPrimeFactor(number):
+
+    if number < 1:
+        raise Exception("negative numbers have in my world no prime factors")
+
+    # check if in cache
+    if number in biggestPrimeFactorCache:
+        #print("cache hit! :)")
+        return biggestPrimeFactorCache[number]
+
+    # else divide by first fitting prime and call with quotient recursively
+    # TODO
+
+    return "not implemented yet!"
+
+# ------------------------------------------------------------------------------
+
 # proper unit-test
 class Testcase(unittest.TestCase):
+
+    def test_getChonkiestPrimeFactor(self):
+        self.assertEqual(2, getChonkiestPrimeFactor(2))
+        self.assertEqual(5, getChonkiestPrimeFactor(5))
+        self.assertEqual(5, getChonkiestPrimeFactor(40))
+        self.assertEqual(7, getChonkiestPrimeFactor(210))
+
+        # for loop for the first thousand numbers
+        self.assertEqual(max(getPrimeFactors(1234567890)), getChonkiestPrimeFactor(1234567890))
 
     def test_getPrimeFactors(self):
         self.assertEqual([], getPrimeFactors(-1))
@@ -151,12 +179,12 @@ if __name__ == '__main__':
 
 #print(f"is SRS? 10.000.000.000 - {isSquareRootSmooth(10000000000)}")
 
-# benchmark for different ranges the computation a bit. Rises quite fast: first 0s, 0s, 0s, 1s, 122s .. without optimization
-for digits in range(1, 4):
-    startTime = time.time()
-    #print("digits:",digits)
-    number = 10 ** digits
-    #print("number:", number)
-
-    print("for range up to ", number, "the amount of SRS is:", getNumberOfSRSBelow(number))
-    print(f"\t computation time: {time.time() - startTime} s" )
+# # benchmark for different ranges the computation a bit. Rises quite fast: first 0s, 0s, 0s, 1s, 122s .. without optimization
+# for digits in range(1, 4):
+#     startTime = time.time()
+#     #print("digits:",digits)
+#     number = 10 ** digits
+#     #print("number:", number)
+#
+#     print("for range up to ", number, "the amount of SRS is:", getNumberOfSRSBelow(number))
+#     print(f"\t computation time: {time.time() - startTime} s" )
