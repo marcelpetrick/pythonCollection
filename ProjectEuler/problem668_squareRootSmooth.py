@@ -89,6 +89,7 @@ def getNumberOfSRSBelow_NEW(number):
                     # if we ran out of new primes for factoriziation, then this won't be an SRS anyway!
                     if not currentPrimeList:
                         isPrimeItself = True
+                        maxFactorDict[currentN] = tempNumber # insert itself to dict for caching
                         print("\t\t must be prime - break")
                         break
                     else:
@@ -275,8 +276,9 @@ if __name__ == '__main__':
 #     print(f"\t computation time: {time.time() - startTime} s" )
 
 # new approach
-limit = 27
+limit = 100
 #limit = 10000000000 # init with primes: 0.14s
 print(getNumberOfSRSBelow_NEW(limit))
 
-#getNumberOfSRSBelow(limit) # old impl.
+# old impl for comparison
+#getNumberOfSRSBelow(limit)
