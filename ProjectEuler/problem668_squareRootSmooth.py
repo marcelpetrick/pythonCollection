@@ -15,13 +15,43 @@
 
 # idea: simplest version: loop for the whole range, check for each if SRS. if yes, then add up
 
+# improved idea:
+# 0. pre-calculate the list of all primes up to sqrt(givenlimit), because we have to check against square root.
+#       no full factorization needed - just check if already bigger then sqrt for SRS-ness
+# 1. for given number do loop until one condition is met:
+#       a. either in list with "biggest factors"
+#       b. else start to factor by calling getBiggestFactor(number): and factorize with help of the prime List
+#           after each step check against the existing biggestFactorList
+# do this for all numbers in the range ..
+
 # ------------------------------------------------------------------------------
 
 import unittest
 
-import math # for square root
+import math # for square root - TODO replace with ** 0.5 an cast to int ..
 
 import time
+
+# import from the current directory
+#from . import PrimeClass - would not work, because is not naming a project
+from ProjectEuler import PrimeClass # import from "our" project "ProjectEuler"
+
+# ------------------------------------------------------------------------------
+
+def getNumberOfSRSBelow_NEW(number):
+    # 0. prepare the primes list
+    rootLimit = int(number ** 0.5) + 1
+    print("root limit:", rootLimit)
+
+    primeContainer = PrimeClass.PrimeClass(rootLimit) # don't use directly PrimeClass(rootLimit)! because this is seen as call
+    startTime = time.time()
+    primeContainer.runInitialization()
+    print(f"\t computation time: {time.time() - startTime} s")
+
+    # is the later result
+    amount = 0
+
+    return amount # TODO maybe do the +1 trick
 
 # ------------------------------------------------------------------------------
 
@@ -119,14 +149,14 @@ def getChonkiestPrimeFactor(number):
 # proper unit-test
 class Testcase(unittest.TestCase):
 
-    def test_getChonkiestPrimeFactor(self):
-        self.assertEqual(2, getChonkiestPrimeFactor(2))
-        self.assertEqual(5, getChonkiestPrimeFactor(5))
-        self.assertEqual(5, getChonkiestPrimeFactor(40))
-        self.assertEqual(7, getChonkiestPrimeFactor(210))
-
-        # for loop for the first thousand numbers
-        self.assertEqual(max(getPrimeFactors(1234567890)), getChonkiestPrimeFactor(1234567890))
+    # def test_getChonkiestPrimeFactor(self):
+    #     self.assertEqual(2, getChonkiestPrimeFactor(2))
+    #     self.assertEqual(5, getChonkiestPrimeFactor(5))
+    #     self.assertEqual(5, getChonkiestPrimeFactor(40))
+    #     self.assertEqual(7, getChonkiestPrimeFactor(210))
+    #
+    #     # for loop for the first thousand numbers
+    #     self.assertEqual(max(getPrimeFactors(1234567890)), getChonkiestPrimeFactor(1234567890))
 
     def test_getPrimeFactors(self):
         self.assertEqual([], getPrimeFactors(-1))
@@ -188,3 +218,7 @@ if __name__ == '__main__':
 #
 #     print("for range up to ", number, "the amount of SRS is:", getNumberOfSRSBelow(number))
 #     print(f"\t computation time: {time.time() - startTime} s" )
+
+# new approach
+limit = 10000000000 # init with primes: 0.14s
+print(getNumberOfSRSBelow_NEW(limit))

@@ -37,9 +37,10 @@ class PrimeClass:
 
     #------------------------------------------------------------------------
 
-    def getNextPrime(self):
+    def getList(self):
+        ''' attention: as copy! '''
 
-        return "to implement"
+        return self.primeList.copy()
 
 #------------------------------------------------------------------------
 
@@ -47,9 +48,12 @@ pc = PrimeClass(100000) # 1000 000 : 78498 is correct; 1000:168 --> fits with: h
 startTime = time.time()
 pc.runInitialization()
 print(f"\t computation time: {time.time() - startTime} s" )
-result = pc.primeList
+result = pc.getList() # acquire once, use multiple times
 print("primes:", result)
 print("amount:", len(result))
 
 # precompute: 1 mio -> 3 s
 # precompute 100000 (is sqrt(10 000 000 000)) -> computation time: 0.14261794090270996 s
+
+# print the last five primes .. and they are correct: 99929 99961 99971 99989 99991 [100003]
+print(result[-5:])
