@@ -53,13 +53,50 @@ def getNumberOfSRSBelow_NEW(number):
     # 2. prepare a maxFactor-dictionary
     maxFactorDict = {}
 
-    for currentN in range(1, number + 1):
-        pass # do something
-
     # is the later result
-    amount = 0
+    amountOfSRS = 0
 
-    return amount # TODO maybe do the +1 trick
+    # todo do something like: loop in 1% ranges, so that there can be some printout of each "1% turn"
+    for currentN in range(1, number + 1):
+        # determine the sqrt
+        squareRoot = math.sqrt(currentN)
+        print(f"handle {currentN} with root {squareRoot}")
+
+        biggestPrimeFactor = 1
+        # get the biggest prime factor
+        tempNumber = currentN
+        currentMaxPrime = 1
+        isPrimeItself = False
+
+        currentPrimeList = primeContainer.primeList.copy()
+        tempDividend = currentPrimeList.pop(0) # pop the first element
+        while tempNumber > 1: # no other check for the size of the primeFactorList needed
+            # check if the current number exists already precomputed
+            if tempNumber in maxFactorDict:
+                currentMaxPrime = maxFactorDict[tempNumber]
+                break
+            else: # do the traditional factoring
+                if currentN % tempDividend == 0:
+                    currentMaxPrime = tempDividend # increase not needed, because monotonous: max(tempDividend, currentMaxPrime)
+                    currentN = currentN / tempDividend
+                else:
+                    # if we ran out of new primes for factoriziation, then this won't be an SRS anyway!
+                    if not currentPrimeList:
+                        isPrimeItself = True
+                        break
+                    else:
+                        tempDividend = currentPrimeList.pop(0)  # pop the next element
+
+        if not isPrimeItself:
+            # insert the current finding into the dictionary
+            maxFactorDict[currentN] = currentMaxPrime
+
+            # do now the check if SRS
+            isSquareRootSmooth = currentMaxPrime < squareRoot
+            if isSquareRootSmooth:
+                amountOfSRS += 1
+
+    return amountOfSRS # TODO maybe do the +1 trick
 
 # ------------------------------------------------------------------------------
 
@@ -228,6 +265,6 @@ if __name__ == '__main__':
 #     print(f"\t computation time: {time.time() - startTime} s" )
 
 # new approach
-limit = 100
+limit = 10
 #limit = 10000000000 # init with primes: 0.14s
 print(getNumberOfSRSBelow_NEW(limit))
