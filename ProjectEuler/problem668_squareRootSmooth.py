@@ -39,14 +39,22 @@ from ProjectEuler import PrimeClass # import from "our" project "ProjectEuler"
 # ------------------------------------------------------------------------------
 
 def getNumberOfSRSBelow_NEW(number):
-    # 0. prepare the primes list
+
+    # 0. determine the root limit
     rootLimit = int(number ** 0.5) + 1
     print("root limit:", rootLimit)
 
+    # 1. prepare the primes list
     primeContainer = PrimeClass.PrimeClass(rootLimit) # don't use directly PrimeClass(rootLimit)! because this is seen as call
     startTime = time.time()
     primeContainer.runInitialization()
     print(f"\t computation time: {time.time() - startTime} s")
+
+    # 2. prepare a maxFactor-dictionary
+    maxFactorDict = {}
+
+    for currentN in range(1, number + 1):
+        pass # do something
 
     # is the later result
     amount = 0
@@ -220,5 +228,6 @@ if __name__ == '__main__':
 #     print(f"\t computation time: {time.time() - startTime} s" )
 
 # new approach
-limit = 10000000000 # init with primes: 0.14s
+limit = 100
+#limit = 10000000000 # init with primes: 0.14s
 print(getNumberOfSRSBelow_NEW(limit))
