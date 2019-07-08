@@ -42,26 +42,27 @@ def getNumberOfSRSBelow_NEW(number):
 
     # 0. determine the root limit
     rootLimit = int(number ** 0.5) + 1
-    print("root limit:", rootLimit)
+    #print("root limit:", rootLimit)
 
     # 1. prepare the primes list
     primeContainer = PrimeClass.PrimeClass(rootLimit) # don't use directly PrimeClass(rootLimit)! because this is seen as call
-    startTime = time.time()
+    startTimePrime = time.time()
     primeContainer.runInitialization()
-    print(f"\t computation time: {time.time() - startTime} s")
+    print(f"\t computation time primes: {time.time() - startTimePrime} s")
 
     # 2. prepare a maxFactor-dictionary
     maxFactorDict = {}
 
     # is the later result
     amountOfSRS = 0
-    resultList = [] # todo remove this
+    #resultList = [] # todo remove this
 
+    startTimeSRS = time.time()
     # todo do something like: loop in 1% ranges, so that there can be some printout of each "1% turn"
     for currentN in range(2, number + 1):
         # determine the sqrt
         squareRoot = math.sqrt(currentN)
-        print(f"handle {currentN} with root {squareRoot}")
+        #print(f"handle {currentN} with root {squareRoot}")
 
         # get the biggest prime factor
         tempNumber = currentN
@@ -69,17 +70,17 @@ def getNumberOfSRSBelow_NEW(number):
         isPrimeItself = False
 
         currentPrimeList = primeContainer.primeList.copy()
-        print("currentPrimeList:", currentPrimeList)
+        #print("currentPrimeList:", currentPrimeList)
         tempDividend = currentPrimeList.pop(0) # pop the first element
 
         # start the finding of the biggest prime factor
         while tempNumber > 1: # no other check for the size of the primeFactorList needed
-            print("\t inner: handling now:", tempNumber, "dictionary is:", maxFactorDict)
+            #print("\t inner: handling now:", tempNumber, "dictionary is:", maxFactorDict)
             # check if the current number exists already precomputed
             if tempNumber in maxFactorDict:
                 fromDict = maxFactorDict[tempNumber]
                 currentMaxPrime = max(fromDict, currentMaxPrime)
-                print("\t\t found in dict - break")
+                #print("\t\t found in dict - break")
                 break
             else: # do the traditional factoring
                 if currentN % tempDividend == 0:
@@ -90,7 +91,7 @@ def getNumberOfSRSBelow_NEW(number):
                     if not currentPrimeList:
                         isPrimeItself = True
                         maxFactorDict[currentN] = tempNumber # insert itself to dict for caching
-                        print("\t\t must be prime - break")
+                        #print("\t\t must be prime - break")
                         break
                     else:
                         tempDividend = currentPrimeList.pop(0)  # pop the next element
@@ -100,30 +101,31 @@ def getNumberOfSRSBelow_NEW(number):
             maxFactorDict[currentN] = currentMaxPrime
 
             # do now the check if SRS
-            print("\tcurrentN:", currentN, "currentMaxPrime:", currentMaxPrime, "squareRoot:", squareRoot)
+            #print("\tcurrentN:", currentN, "currentMaxPrime:", currentMaxPrime, "squareRoot:", squareRoot)
             isSquareRootSmooth = currentMaxPrime < squareRoot
             if isSquareRootSmooth:
                 amountOfSRS += 1
-                resultList.append(currentN)
+               # resultList.append(currentN)
 
-    print("resultList: ", resultList)
-    return amountOfSRS # TODO maybe do the +1 trick
+#    print("resultList: ", resultList)
+    print(f"\t computation time SRS: {time.time() - startTimeSRS} s")
+    return amountOfSRS + 1 # TODO maybe do the +1 trick
 
 # ------------------------------------------------------------------------------
 
 def getNumberOfSRSBelow(number):
     amount = 0
-    resultList = []
+    #resultList = []
     for currentN in range(1, number + 1):
         isSRS = isSquareRootSmooth(currentN)
         #print(f"number {currentN} is", ("" if isSRS else "not"), "square root smooth")
         if(isSRS):
             amount += 1
-            resultList.append(currentN)
+            #resultList.append(currentN)
 
-    print("------------------------------------")
-    print(f"below {number} are {amount} numbers square-root-smooth")
-    print("result list: ", resultList)
+    #print("------------------------------------")
+    #print(f"below {number} are {amount} numbers square-root-smooth")
+    #print("result list: ", resultList)
 
     return amount + 1 # plus one for the number "1" itself, because the task-description is including it
 
@@ -276,9 +278,15 @@ if __name__ == '__main__':
 #     print(f"\t computation time: {time.time() - startTime} s" )
 
 # new approach
-limit = 100
+#limit = 100 # leads to 29 - just like the old impl
 #limit = 10000000000 # init with primes: 0.14s
-print(getNumberOfSRSBelow_NEW(limit))
+#print(getNumberOfSRSBelow_NEW(limit))
 
 # old impl for comparison
 #getNumberOfSRSBelow(limit)
+
+# ascending test:
+for power in range(1, 10 + 1):
+    print("------------")
+    limit = 10 ** power
+    print("limit:", limit, " -> ", getNumberOfSRSBelow_NEW(limit), "square root smooth numbers")
