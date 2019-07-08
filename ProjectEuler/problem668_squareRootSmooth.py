@@ -55,64 +55,74 @@ def getNumberOfSRSBelow_NEW(number):
 
     # is the later result
     amountOfSRS = 0
+    resultList = [] # todo remove this
 
     # todo do something like: loop in 1% ranges, so that there can be some printout of each "1% turn"
-    for currentN in range(1, number + 1):
+    for currentN in range(2, number + 1):
         # determine the sqrt
         squareRoot = math.sqrt(currentN)
         print(f"handle {currentN} with root {squareRoot}")
 
-        biggestPrimeFactor = 1
         # get the biggest prime factor
         tempNumber = currentN
         currentMaxPrime = 1
         isPrimeItself = False
 
         currentPrimeList = primeContainer.primeList.copy()
+        print("currentPrimeList:", currentPrimeList)
         tempDividend = currentPrimeList.pop(0) # pop the first element
+
+        # start the finding of the biggest prime factor
         while tempNumber > 1: # no other check for the size of the primeFactorList needed
+            print("\t inner: handling now:", tempNumber, "dictionary is:", maxFactorDict)
             # check if the current number exists already precomputed
             if tempNumber in maxFactorDict:
-                currentMaxPrime = maxFactorDict[tempNumber]
+                fromDict = maxFactorDict[tempNumber]
+                currentMaxPrime = max(fromDict, currentMaxPrime)
+                print("\t\t found in dict - break")
                 break
             else: # do the traditional factoring
                 if currentN % tempDividend == 0:
                     currentMaxPrime = tempDividend # increase not needed, because monotonous: max(tempDividend, currentMaxPrime)
-                    currentN = currentN / tempDividend
+                    tempNumber = tempNumber // tempDividend
                 else:
                     # if we ran out of new primes for factoriziation, then this won't be an SRS anyway!
                     if not currentPrimeList:
                         isPrimeItself = True
+                        print("\t\t must be prime - break")
                         break
                     else:
                         tempDividend = currentPrimeList.pop(0)  # pop the next element
 
         if not isPrimeItself:
-            # insert the current finding into the dictionary
+            # insert the current finding into the dictionary: means also "overwrite" in lots of cases; possible optimization
             maxFactorDict[currentN] = currentMaxPrime
 
             # do now the check if SRS
+            print("\tcurrentN:", currentN, "currentMaxPrime:", currentMaxPrime, "squareRoot:", squareRoot)
             isSquareRootSmooth = currentMaxPrime < squareRoot
             if isSquareRootSmooth:
                 amountOfSRS += 1
+                resultList.append(currentN)
 
+    print("resultList: ", resultList)
     return amountOfSRS # TODO maybe do the +1 trick
 
 # ------------------------------------------------------------------------------
 
 def getNumberOfSRSBelow(number):
     amount = 0
-    #resultList = []
+    resultList = []
     for currentN in range(1, number + 1):
         isSRS = isSquareRootSmooth(currentN)
         #print(f"number {currentN} is", ("" if isSRS else "not"), "square root smooth")
         if(isSRS):
             amount += 1
-            #resultList.append(currentN)
+            resultList.append(currentN)
 
-    #print("------------------------------------")
-    #print(f"below {number} are {amount} numbers square-root-smooth")
-    #print("result list: ", resultList)
+    print("------------------------------------")
+    print(f"below {number} are {amount} numbers square-root-smooth")
+    print("result list: ", resultList)
 
     return amount + 1 # plus one for the number "1" itself, because the task-description is including it
 
@@ -265,6 +275,8 @@ if __name__ == '__main__':
 #     print(f"\t computation time: {time.time() - startTime} s" )
 
 # new approach
-limit = 10
+limit = 27
 #limit = 10000000000 # init with primes: 0.14s
 print(getNumberOfSRSBelow_NEW(limit))
+
+#getNumberOfSRSBelow(limit) # old impl.
