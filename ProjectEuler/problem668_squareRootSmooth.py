@@ -115,17 +115,17 @@ def getNumberOfSRSBelow_NEW(number):
 
 def getNumberOfSRSBelow(number):
     amount = 0
-    #resultList = []
+    resultList = []
     for currentN in range(1, number + 1):
         isSRS = isSquareRootSmooth(currentN)
         #print(f"number {currentN} is", ("" if isSRS else "not"), "square root smooth")
         if(isSRS):
             amount += 1
-            #resultList.append(currentN)
+            resultList.append(currentN)
 
-    #print("------------------------------------")
-    #print(f"below {number} are {amount} numbers square-root-smooth")
-    #print("result list: ", resultList)
+    print("------------------------------------")
+    print(f"below {number} are {amount} numbers square-root-smooth")
+    print("result list: ", resultList)
 
     return amount + 1 # plus one for the number "1" itself, because the task-description is including it
 
@@ -283,10 +283,10 @@ if __name__ == '__main__':
 #print(getNumberOfSRSBelow_NEW(limit))
 
 # old impl for comparison
-#getNumberOfSRSBelow(limit)
+getNumberOfSRSBelow(100)
 
 # ascending test:
-for power in range(1, 10 + 1):
+for power in range(1, 1 + 1):
     print("------------")
     limit = 10 ** power
     print("limit:", limit, " -> ", getNumberOfSRSBelow_NEW(limit), "square root smooth numbers")
