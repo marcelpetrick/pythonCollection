@@ -290,3 +290,35 @@ for power in range(1, 10 + 1):
     print("------------")
     limit = 10 ** power
     print("limit:", limit, " -> ", getNumberOfSRSBelow_NEW(limit), "square root smooth numbers")
+
+# ------------
+# 	 computation time primes: 0.0 s
+# 	 computation time SRS: 0.0 s
+# limit: 10  ->  2 square root smooth numbers
+# ------------
+# 	 computation time primes: 0.0 s
+# 	 computation time SRS: 0.0009951591491699219 s
+# limit: 100  ->  29 square root smooth numbers
+# ------------
+# 	 computation time primes: 0.0 s
+# 	 computation time SRS: 0.0019948482513427734 s
+# limit: 1000  ->  274 square root smooth numbers
+# ------------
+# 	 computation time primes: 0.0 s
+# 	 computation time SRS: 0.02293848991394043 s
+# limit: 10000  ->  2656 square root smooth numbers
+# ------------
+# 	 computation time primes: 0.0 s
+# 	 computation time SRS: 0.37200188636779785 s
+# limit: 100000  ->  26613 square root smooth numbers
+# ------------
+# 	 computation time primes: 0.0009970664978027344 s
+# 	 computation time SRS: 6.19291353225708 s
+# limit: 1000000  ->  268172 square root smooth numbers
+# ------------
+# 	 computation time primes: 0.0019948482513427734 s
+# 	 computation time SRS: 126.43314504623413 s
+# limit: 10000000  ->  2719288 square root smooth numbers
+# ------------
+# 	 computation time primes: 0.004986763000488281 s
+# .. MemoryError :/
