@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pythonCollection.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonCollection.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py" afterDir="false" />
-    </list>
+    <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,14 +12,35 @@
     <splitter split-orientation="horizontal" split-proportion="0.65019506">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="629">
-                  <caret line="326" column="29" selection-start-line="326" selection-start-column="29" selection-end-line="326" selection-end-column="29" />
+                <state relative-caret-position="34">
+                  <caret line="288" column="29" selection-start-line="288" selection-start-column="29" selection-end-line="288" selection-end-column="29" />
                   <folding>
                     <element signature="e#1274#1289#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="34">
+                  <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/README.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="51">
+                    <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+                  </first_editor>
+                  <second_editor />
                 </state>
               </provider>
             </entry>
@@ -102,6 +117,7 @@
         <option value="$PROJECT_DIR$/dailyCodingTask/day362_strobogrammaticNumber.py" />
         <option value="$PROJECT_DIR$/ProjectEuler/PrimeClass.py" />
         <option value="$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -275,9 +291,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 10h 25m 05s.xml">
-      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 10h 25m 26s.xml">
       <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
@@ -303,6 +316,9 @@
       <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 14h 19m 15s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 14h 19m 32s.xml">
       <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -646,11 +662,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="326" column="29" selection-start-line="326" selection-start-column="29" selection-end-line="326" selection-end-column="29" />
+        <state relative-caret-position="34">
+          <caret line="288" column="29" selection-start-line="288" selection-start-column="29" selection-end-line="288" selection-end-column="29" />
           <folding>
             <element signature="e#1274#1289#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="51">
+            <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
