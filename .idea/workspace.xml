@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py" beforeDir="false" afterPath="$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pythonCollection.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonCollection.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,26 +15,40 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.65019506">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="629">
+                  <caret line="326" column="29" selection-start-line="326" selection-start-column="29" selection-end-line="326" selection-end-column="29" />
+                  <folding>
+                    <element signature="e#1274#1289#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/dailyCodingTask/day210_CollatzSequence.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="250">
+                  <caret line="65" selection-start-line="65" selection-end-line="65" />
+                  <folding>
+                    <element signature="e#776#791#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,7 +62,14 @@
       <find>Given n numbers, find the greatest common denominator between them.</find>
       <find>denomi</find>
       <find>testcase</find>
+      <find>range</find>
+      <find>time</find>
+      <find>print</find>
+      <find>resultList</find>
     </findStrings>
+    <replaceStrings>
+      <replace>#print</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,14 +81,34 @@
         <option value="$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py" />
         <option value="$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py" />
         <option value="$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day186_divideSets.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day186_divideSet.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day197_rotateArrayByN.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day201_maxWeightSum.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day202_intergerPalindromChecker.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day210_CollatzSequence.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day216_romanNumbers.py" />
+        <option value="$PROJECT_DIR$/ProjectEuler/Stack.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/Stack.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day222_shortestStandardizedPath.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day225_executePrisoners.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day248_integerMaximumWithoutBranching.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day246_wordChain.py" />
+        <option value="$PROJECT_DIR$/squashMultipleWhitespace/squashMultipleWhitespace.py" />
+        <option value="$PROJECT_DIR$/unitTestHunk.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day295_pascalsTriangle.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day275_lookAndSay.py" />
+        <option value="$PROJECT_DIR$/simpleEncodedGreeting.py" />
+        <option value="$PROJECT_DIR$/dailyCodingTask/day362_strobogrammaticNumber.py" />
+        <option value="$PROJECT_DIR$/ProjectEuler/PrimeClass.py" />
+        <option value="$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="327" />
-    <option name="y" value="24" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1167" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -87,6 +132,11 @@
               <item name="pythonCollection" type="462c0819:PsiDirectoryNode" />
               <item name="ProjectEuler" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="pythonCollection" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pythonCollection" type="462c0819:PsiDirectoryNode" />
+              <item name="squashMultipleWhitespace" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -95,8 +145,14 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv1" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mpe\Desktop\MarcelsFolder\coding\pythonCollection\dailyCodingTask" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -110,8 +166,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.day188_pythonFuncDef">
-    <configuration name="day188_pythonFuncDef" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python tests.Unittests in problem668_squareRootSmooth.py">
+    <configuration name="PrimeClass" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -119,11 +175,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProjectEuler/PrimeClass.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -132,76 +188,76 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for problem668_squareRootSmooth.Testcase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;day184_largestCommonDenominator.Testcase.test_getDivisors&quot;" />
+      <option name="_new_target" value="&quot;problem668_squareRootSmooth.Testcase&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for problem668_squareRootSmooth.Testcase.test_getChonkiestPrimeFactor" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;day192_advanceLists.Testcase.test_canAdvanceList1&quot;" />
+      <option name="_new_target" value="&quot;problem668_squareRootSmooth.Testcase.test_getChonkiestPrimeFactor&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in day184_largestCommonDenominator.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for problem668_squareRootSmooth.Testcase.test_getNumberOfSRSBelow" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/dailyCodingTask/day184_largestCommonDenominator.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;problem668_squareRootSmooth.Testcase.test_getNumberOfSRSBelow&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in day192_advanceLists.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in problem668_squareRootSmooth.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dailyCodingTask" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.day188_pythonFuncDef" />
-      <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
-      <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" />
-      <item itemvalue="Python tests.Unittests in day192_advanceLists.py" />
-      <item itemvalue="Python tests.Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" />
+      <item itemvalue="Python.PrimeClass" />
+      <item itemvalue="Python tests.Unittests in problem668_squareRootSmooth.py" />
+      <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase" />
+      <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getNumberOfSRSBelow" />
+      <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getChonkiestPrimeFactor" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.day188_pythonFuncDef" />
-        <item itemvalue="Python tests.Unittests in day192_advanceLists.py" />
-        <item itemvalue="Python tests.Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" />
-        <item itemvalue="Python tests.Unittests in day184_largestCommonDenominator.py" />
-        <item itemvalue="Python tests.Unittests for day184_largestCommonDenominator.Testcase.test_getDivisors" />
+        <item itemvalue="Python tests.Unittests in problem668_squareRootSmooth.py" />
+        <item itemvalue="Python.PrimeClass" />
+        <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getChonkiestPrimeFactor" />
+        <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getNumberOfSRSBelow" />
+        <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase" />
       </list>
     </recent_temporary>
   </component>
@@ -219,96 +275,116 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 25m 33s.xml">
-      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 10h 25m 05s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 26m 09s.xml">
-      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 10h 25m 26s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 26m 11s.xml">
-      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 10h 26m 30s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 28m 04s.xml">
-      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 10h 26m 57s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 28m 16s.xml">
-      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 12h 57m 35s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_day192_advanceLists_Testcase_test_canAdvanceList1 - 2018.12.09 at 23h 31m 16s.xml">
-      <configuration name="Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" configurationId="tests" />
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 12h 58m 08s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 31m 18s.xml">
-      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 12h 58m 29s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_day192_advanceLists_Testcase_test_canAdvanceList1 - 2018.12.09 at 23h 31m 35s.xml">
-      <configuration name="Unittests for day192_advanceLists.Testcase.test_canAdvanceList1" configurationId="tests" />
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 12h 58m 44s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 34m 03s.xml">
-      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 14h 14m 10s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_day192_advanceLists_py - 2018.12.09 at 23h 34m 16s.xml">
-      <configuration name="Unittests in day192_advanceLists.py" configurationId="tests" />
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 14h 19m 15s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18967333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3279743" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39871383" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3279003" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23681687" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3978907" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32981783" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3290993" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32885906" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32981783" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17913593" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30911064" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py</url>
-          <line>42</line>
+          <line>52</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py</url>
-          <line>36</line>
+          <line>46</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+        <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py</url>
           <line>91</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dailyCodingTask/day201_maxWeightSum.py</url>
+          <line>51</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dailyCodingTask/day201_maxWeightSum.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dailyCodingTask/day202_intergerPalindromChecker.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dailyCodingTask/day222_shortestStandardizedPath.py</url>
+          <line>87</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dailyCodingTask/day222_shortestStandardizedPath.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dailyCodingTask/day362_strobogrammaticNumber.py</url>
+          <line>56</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -317,20 +393,10 @@
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day105_debouncedFunction.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day071_rand5Fromrand7.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day062_movingPatterns.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
           <caret line="47" column="48" lean-forward="true" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem060_primePairSets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="135" column="54" selection-start-line="135" selection-start-column="54" selection-end-line="135" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -341,13 +407,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem007_1001prime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-227">
-          <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -362,20 +421,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
           <caret line="43" selection-start-line="43" selection-end-line="67" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day002_productList.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day001_checkPairSum.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="68" lean-forward="true" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -405,17 +450,207 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py">
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+        <state relative-caret-position="161">
+          <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day188_pythonFuncDef.py">
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day202_intergerPalindromChecker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+        <state relative-caret-position="213">
+          <caret line="109" selection-start-line="109" selection-end-line="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day201_maxWeightSum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day197_rotateArrayByN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" selection-start-line="36" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day186_divideSet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="112" selection-start-line="11" selection-start-column="112" selection-end-line="11" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day192_advanceLists.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="20" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day216_romanNumbers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="73" selection-start-line="69" selection-end-line="73" />
+          <folding>
+            <element signature="e#521#536#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day222_shortestStandardizedPath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="95" selection-start-line="95" selection-end-line="98" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day225_executePrisoners.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2074">
+          <caret line="122" selection-start-line="122" selection-end-line="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day248_integerMaximumWithoutBranching.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="38" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day246_wordChain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/squashMultipleWhitespace/squashMultipleWhitespace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simpleEncodedGreeting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day295_pascalsTriangle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" selection-start-line="39" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day275_lookAndSay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day001_checkPairSum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="68" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day002_productList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="74" selection-start-line="74" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dangernoodle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="4" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day071_rand5Fromrand7.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/Stack.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" selection-start-line="30" selection-end-line="37" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day362_strobogrammaticNumber.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="101" column="33" lean-forward="true" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem007_1001prime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="41" lean-forward="true" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unitTestHunk.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="34" lean-forward="true" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectEuler/PrimeClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem060_primePairSets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" selection-start-line="31" selection-end-line="32" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectEuler/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/squashMultipleWhitespace/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day210_CollatzSequence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="e#776#791#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="326" column="29" selection-start-line="326" selection-start-column="29" selection-end-line="326" selection-end-column="29" />
+          <folding>
+            <element signature="e#1274#1289#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

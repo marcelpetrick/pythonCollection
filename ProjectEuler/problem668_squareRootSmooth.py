@@ -322,3 +322,6 @@ for power in range(1, 1 + 1):
 # ------------
 # 	 computation time primes: 0.004986763000488281 s
 # .. MemoryError :/
+
+import sys
+print("max container size:", sys.maxsize)
