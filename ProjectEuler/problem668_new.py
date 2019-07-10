@@ -31,49 +31,53 @@
 
 import unittest
 import time
-from ProjectEuler import PrimeClass # import from "our" project "ProjectEuler"
+#from ProjectEuler import PrimeClass # import from "our" project "ProjectEuler"
 
 # ------------------------------------------------------------------------------
 
 def getNumberOfSRSBelow(limit):
     amount = 0
-    resultList = []
+    #resultList = []
 
     # 0. determine the root limit
-    rootLimit = int(limit ** 0.5) + 1
-    print("root limit:", rootLimit)
+    #rootLimit = int(limit ** 0.5) + 1
+    #print("root limit:", rootLimit)
 
     # 1. prepare the primes list
-    #startTimePrime = time.time()
-    #primeContainer = PrimeClass.PrimeClass(limit)
-    #print(f"\t computation time primes: {time.time() - startTimePrime} s")
+    startTimePrime = time.time()
     primesList = [True] * limit # create a list with 10 times True
     primesList[0] = False  # 0 is not a prime!
     primesList[1] = False # 1 is not a prime!
-    print("primesList:", primesList)
+    #print("primesList:", primesList)
 
     # sieve of Erastothenes
-    # TODOD build in to do the sieving only if the current pos is True
-    for number in range(2, limit + 1):
+    # TODO build in to do the sieving only if the current pos is True
+    for number in range(2, limit + 1): # question: could it be that this has to be run only up to half of the limit?1? because the remaining part is already sieved?
         #print("handling number:", number)
         multiple = 2
         pos = multiple * number
+        #if pos < limit and primesList[pos] == True: # just do it if this number was not handled as part of a previous loop
+
         while pos < limit:
             #print("\thandling multiple:", pos)
+            #if primesList[pos] == False:
+            #    break
             primesList[pos] = False
             multiple += 1
             pos = multiple * number
+
         #print("primesList after priming:", primesList, " => ", sum(primesList))
 
     #print("primesList after priming:", primesList, " => ", sum(primesList))
     print("number of primes below", limit, " => ", sum(primesList))
     # output: number of primes below 10000  =>  1229
+    print(f"\t computation time primes: {time.time() - startTimePrime} s")
 
     # TODO implement this
 
-    print("------------------------------------")
-    print(f"below {limit} are {amount} (true) numbers square-root-smooth")
-    print("result list: ", resultList)
+#    print("------------------------------------")
+#    print(f"below {limit} are {amount} (true) numbers square-root-smooth")
+#    print("result list: ", resultList)
 
     return amount + 1 # plus one for the number "1" itself, because the task-description is including it
 
@@ -90,10 +94,12 @@ class Testcase(unittest.TestCase):
         96, 98, 100, 105, 108, 112, 120, 121, 125, 126, 128, 132, 135, 140, 144, 147, 150,
         154, 160, 162, 165, 168, 169, 175, 176, 180, 182, 189, 192, 195
         '''
-        pass
-        limit = 10000 # 10000000000
-        amount = getNumberOfSRSBelow(limit)
-        #self.assertEqual(29, amount) # TODO should be 29! 28 SRS and +1 (because we don't know ..)
+
+        return
+
+        #limit = 100 # 10000000000
+        #amount = getNumberOfSRSBelow(limit)
+        ##self.assertEqual(29, amount) # TODO should be 29! 28 SRS and +1
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
@@ -102,10 +108,10 @@ if __name__ == '__main__':
 # ------------------------------------------------------------------------------
 
 # # ascending test:
-# for power in range(1, 4 + 1): # change the second to 10
-#     print("------------")
-#     limit = 10 ** power
-#     print("limit:", limit, " -> ", getNumberOfSRSBelow(limit), "square root smooth numbers")
+for power in range(1, 10 + 1): # change the second limit to 10
+    print("--------------------------------")
+    limit = 10 ** power
+    print("limit:", limit, " -> ", getNumberOfSRSBelow(limit), "square root smooth numbers")
 #
 # # just to check if there is a 64 bit Python running
 # import sys
