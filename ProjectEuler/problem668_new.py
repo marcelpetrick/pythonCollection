@@ -81,11 +81,19 @@ if __name__ == '__main__':
 # ------------------------------------------------------------------------------
 
 # ascending test:
-for power in range(1, 10 + 1): # change the second to 10
+for power in range(1, 4 + 1): # change the second to 10
     print("------------")
     limit = 10 ** power
     print("limit:", limit, " -> ", getNumberOfSRSBelow(limit), "square root smooth numbers")
 
 # just to check if there is a 64 bit Python running
-#import sys
-#print("max container size:", sys.maxsize)
+import sys
+print("max container size:", sys.maxsize)
+
+
+# test multiprocessing
+# from: https://www.machinelearningplus.com/python/parallel-processing-python/
+# also check this: https://medium.com/@mjschillawski/quick-and-easy-parallelization-in-python-32cb9027e490
+# or this: http://www.nickstricks.net/wp/2016/03/01/quick-parallelism-in-python/
+import multiprocessing as mp
+print("cpu count:", mp.cpu_count())
