@@ -52,16 +52,15 @@ def getNumberOfSRSBelow(limit):
 
     # sieve of Erastothenes
     # TODO build in to do the sieving only if the current pos is True
-    for number in range(2, limit + 1): # question: could it be that this has to be run only up to half of the limit?1? because the remaining part is already sieved?
+    for number in range(2, limit): # question: could it be that this has to be run only up to half of the limit?1? because the remaining part is already sieved?
+        if primesList[number] == False:
+            continue
         #print("handling number:", number)
         multiple = 2
         pos = multiple * number
-        #if pos < limit and primesList[pos] == True: # just do it if this number was not handled as part of a previous loop
 
         while pos < limit:
             #print("\thandling multiple:", pos)
-            #if primesList[pos] == False:
-            #    break
             primesList[pos] = False
             multiple += 1
             pos = multiple * number
