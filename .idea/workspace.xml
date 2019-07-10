@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectEuler/PrimeClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectEuler/PrimeClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectEuler/problem668_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectEuler/problem668_new.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +19,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="961">
-                  <caret line="140" selection-start-line="140" selection-end-line="140" />
+                <state relative-caret-position="290">
+                  <caret line="32" column="11" lean-forward="true" selection-start-line="32" selection-end-line="32" selection-end-column="11" />
                 </state>
               </provider>
             </entry>
@@ -43,8 +44,20 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_new.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="305">
-                  <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+                <state relative-caret-position="527">
+                  <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#1394#1409#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ProjectEuler/PrimeClass.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="459">
+                  <caret line="37" column="100" selection-start-line="37" selection-start-column="100" selection-end-line="37" selection-end-column="100" />
                 </state>
               </provider>
             </entry>
@@ -69,6 +82,7 @@
       <find>time</find>
       <find>print</find>
       <find>resultList</find>
+      <find>PrimeClass</find>
     </findStrings>
     <replaceStrings>
       <replace>#print</replace>
@@ -103,15 +117,16 @@
         <option value="$PROJECT_DIR$/dailyCodingTask/day275_lookAndSay.py" />
         <option value="$PROJECT_DIR$/simpleEncodedGreeting.py" />
         <option value="$PROJECT_DIR$/dailyCodingTask/day362_strobogrammaticNumber.py" />
-        <option value="$PROJECT_DIR$/ProjectEuler/PrimeClass.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py" />
+        <option value="$PROJECT_DIR$/ProjectEuler/PrimeClass.py" />
         <option value="$PROJECT_DIR$/ProjectEuler/problem668_new.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
+    <option name="x" value="229" />
+    <option name="y" value="312" />
     <option name="width" value="974" />
     <option name="height" value="1167" />
   </component>
@@ -171,7 +186,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in problem668_squareRootSmooth.py">
+  <component name="RunManager" selected="Python tests.Unittests in problem668_new.py">
     <configuration name="PrimeClass" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -193,7 +208,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for problem668_squareRootSmooth.Testcase" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for problem668_new.Testcase.test_getNumberOfSRSBelow" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -203,7 +218,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;problem668_squareRootSmooth.Testcase&quot;" />
+      <option name="_new_target" value="&quot;problem668_new.Testcase.test_getNumberOfSRSBelow&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -221,7 +236,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for problem668_squareRootSmooth.Testcase.test_getNumberOfSRSBelow" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in problem668_new.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -231,8 +246,8 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;problem668_squareRootSmooth.Testcase.test_getNumberOfSRSBelow&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/ProjectEuler/problem668_new.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Unittests in problem668_squareRootSmooth.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
@@ -251,18 +266,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.PrimeClass" />
-      <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase" />
-      <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getChonkiestPrimeFactor" />
-      <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getNumberOfSRSBelow" />
       <item itemvalue="Python tests.Unittests in problem668_squareRootSmooth.py" />
+      <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getChonkiestPrimeFactor" />
+      <item itemvalue="Python tests.Unittests in problem668_new.py" />
+      <item itemvalue="Python tests.Unittests for problem668_new.Testcase.test_getNumberOfSRSBelow" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests in problem668_squareRootSmooth.py" />
+        <item itemvalue="Python tests.Unittests in problem668_new.py" />
+        <item itemvalue="Python tests.Unittests for problem668_new.Testcase.test_getNumberOfSRSBelow" />
         <item itemvalue="Python.PrimeClass" />
+        <item itemvalue="Python tests.Unittests in problem668_squareRootSmooth.py" />
         <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getChonkiestPrimeFactor" />
-        <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getNumberOfSRSBelow" />
-        <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase" />
       </list>
     </recent_temporary>
   </component>
@@ -280,35 +295,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 10h 26m 30s.xml">
-      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 10h 26m 57s.xml">
-      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 12h 57m 35s.xml">
-      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 12h 58m 08s.xml">
-      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 12h 58m 29s.xml">
-      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 12h 58m 44s.xml">
-      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 14h 14m 10s.xml">
-      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 14h 19m 15s.xml">
-      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 14h 19m 32s.xml">
       <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.10 at 09h 21m 38s.xml">
       <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_problem668_new_py - 2019.07.10 at 17h 32m 17s.xml">
+      <configuration name="Unittests in problem668_new.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_problem668_new_Testcase_test_getNumberOfSRSBelow - 2019.07.10 at 17h 38m 53s.xml">
+      <configuration name="Unittests for problem668_new.Testcase.test_getNumberOfSRSBelow" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_problem668_new_Testcase_test_getNumberOfSRSBelow - 2019.07.10 at 17h 39m 12s.xml">
+      <configuration name="Unittests for problem668_new.Testcase.test_getNumberOfSRSBelow" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_problem668_new_py - 2019.07.10 at 17h 40m 07s.xml">
+      <configuration name="Unittests in problem668_new.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_problem668_new_py - 2019.07.10 at 17h 40m 10s.xml">
+      <configuration name="Unittests in problem668_new.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_problem668_new_py - 2019.07.10 at 17h 40m 19s.xml">
+      <configuration name="Unittests in problem668_new.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_problem668_new_py - 2019.07.10 at 17h 41m 07s.xml">
+      <configuration name="Unittests in problem668_new.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_problem668_new_Testcase_test_getNumberOfSRSBelow - 2019.07.10 at 17h 41m 26s.xml">
+      <configuration name="Unittests for problem668_new.Testcase.test_getNumberOfSRSBelow" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -324,12 +339,12 @@
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18967333" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18967333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3279003" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23681687" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23681687" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3978907" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -619,13 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectEuler/PrimeClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProjectEuler/problem060_primePairSets.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -656,13 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="961">
-          <caret line="140" selection-start-line="140" selection-end-line="140" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dailyCodingTask/day210_CollatzSequence.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
@@ -673,10 +674,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="32" column="11" lean-forward="true" selection-start-line="32" selection-end-line="32" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectEuler/PrimeClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="37" column="100" selection-start-line="37" selection-start-column="100" selection-end-line="37" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        <state relative-caret-position="527">
+          <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
+          <folding>
+            <element signature="e#1394#1409#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

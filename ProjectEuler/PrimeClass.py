@@ -1,4 +1,4 @@
-import time
+#import time
 
 #------------------------------------------------------------------------
 
@@ -14,10 +14,12 @@ class PrimeClass:
         # contains (in as ascending order) all found primes
         self.primeList = [2]
 
+        self.runInitialization()
+
     # ------------------------------------------------------------------------
 
     def runInitialization(self):
-        ''' Just compute all the primes up to the given limit. '''
+        ''' Just: compute all the primes up to the given limit. '''
 
         # two is initially already included, if the limit is just two, the 'nothing' happens here
         # stride length is two to avoid checks against "div 2" ..
@@ -33,7 +35,7 @@ class PrimeClass:
             if isPrime:
                 self.primeList.append(primeCandidate)
 
-        return "to implement"
+        print("runInitialization: determined ", len(self.primeList), "primes below", self.upperLimit)
 
     #------------------------------------------------------------------------
 
