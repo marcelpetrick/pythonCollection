@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="" />
+    <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectEuler/problem668_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectEuler/problem668_new.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,38 +12,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.65019506">
+    <splitter split-orientation="horizontal" split-proportion="0.37516254">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="288" column="29" selection-start-line="288" selection-start-column="29" selection-end-line="288" selection-end-column="29" />
-                  <folding>
-                    <element signature="e#1274#1289#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/README.md">
-              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-                <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="51">
-                    <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
-                  </first_editor>
-                  <second_editor />
+                <state relative-caret-position="961">
+                  <caret line="140" selection-start-line="140" selection-end-line="140" />
                 </state>
               </provider>
             </entry>
@@ -49,14 +28,23 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/dailyCodingTask/day210_CollatzSequence.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="250">
+                <state relative-caret-position="1088">
                   <caret line="65" selection-start-line="65" selection-end-line="65" />
                   <folding>
                     <element signature="e#776#791#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_new.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="305">
+                  <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -116,8 +104,9 @@
         <option value="$PROJECT_DIR$/simpleEncodedGreeting.py" />
         <option value="$PROJECT_DIR$/dailyCodingTask/day362_strobogrammaticNumber.py" />
         <option value="$PROJECT_DIR$/ProjectEuler/PrimeClass.py" />
-        <option value="$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py" />
+        <option value="$PROJECT_DIR$/ProjectEuler/problem668_new.py" />
       </list>
     </option>
   </component>
@@ -131,6 +120,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -157,7 +147,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -262,10 +251,10 @@
     </configuration>
     <list>
       <item itemvalue="Python.PrimeClass" />
-      <item itemvalue="Python tests.Unittests in problem668_squareRootSmooth.py" />
       <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase" />
-      <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getNumberOfSRSBelow" />
       <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getChonkiestPrimeFactor" />
+      <item itemvalue="Python tests.Unittests for problem668_squareRootSmooth.Testcase.test_getNumberOfSRSBelow" />
+      <item itemvalue="Python tests.Unittests in problem668_squareRootSmooth.py" />
     </list>
     <recent_temporary>
       <list>
@@ -291,9 +280,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 10h 25m 26s.xml">
-      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 10h 26m 30s.xml">
       <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
@@ -321,6 +307,9 @@
     <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.09 at 14h 19m 32s.xml">
       <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_problem668_squareRootSmooth_py - 2019.07.10 at 09h 21m 38s.xml">
+      <configuration name="Unittests in problem668_squareRootSmooth.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -335,12 +324,12 @@
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18967333" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18967333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3279003" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23681687" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23681687" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3978907" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -650,23 +639,13 @@
     <entry file="file://$PROJECT_DIR$/squashMultipleWhitespace/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day210_CollatzSequence.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="e#776#791#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="288" column="29" selection-start-line="288" selection-start-column="29" selection-end-line="288" selection-end-column="29" />
-          <folding>
-            <element signature="e#1274#1289#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="51">
+            <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -677,13 +656,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="51">
-            <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_squareRootSmooth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="961">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dailyCodingTask/day210_CollatzSequence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="e#776#791#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectEuler/problem668_new.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
         </state>
       </provider>
     </entry>
