@@ -2,7 +2,7 @@
 # Problem 668
 #
 # A positive integer is called square root smooth if all of its prime factors are strictly less than its square root.
-# ah
+# Including the number 1, there are 29 square root smooth numbers not exceeding 100.
 #
 # How many square root smooth numbers are there not exceeding 10000000000?
 
@@ -286,7 +286,7 @@ if __name__ == '__main__':
 getNumberOfSRSBelow(100)
 
 # ascending test:
-for power in range(1, 1 + 1):
+for power in range(1, 1 + 1): # change the second to 10
     print("------------")
     limit = 10 ** power
     print("limit:", limit, " -> ", getNumberOfSRSBelow_NEW(limit), "square root smooth numbers")
