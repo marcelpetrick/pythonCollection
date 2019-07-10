@@ -44,9 +44,30 @@ def getNumberOfSRSBelow(limit):
     print("root limit:", rootLimit)
 
     # 1. prepare the primes list
-    startTimePrime = time.time()
-    primeContainer = PrimeClass.PrimeClass(limit)
-    print(f"\t computation time primes: {time.time() - startTimePrime} s")
+    #startTimePrime = time.time()
+    #primeContainer = PrimeClass.PrimeClass(limit)
+    #print(f"\t computation time primes: {time.time() - startTimePrime} s")
+    primesList = [True] * limit # create a list with 10 times True
+    primesList[0] = False  # 0 is not a prime!
+    primesList[1] = False # 1 is not a prime!
+    print("primesList:", primesList)
+
+    # sieve of Erastothenes
+    # TODOD build in to do the sieving only if the current pos is True
+    for number in range(2, limit + 1):
+        #print("handling number:", number)
+        multiple = 2
+        pos = multiple * number
+        while pos < limit:
+            #print("\thandling multiple:", pos)
+            primesList[pos] = False
+            multiple += 1
+            pos = multiple * number
+        #print("primesList after priming:", primesList, " => ", sum(primesList))
+
+    #print("primesList after priming:", primesList, " => ", sum(primesList))
+    print("number of primes below", limit, " => ", sum(primesList))
+    # output: number of primes below 10000  =>  1229
 
     # TODO implement this
 
@@ -70,7 +91,7 @@ class Testcase(unittest.TestCase):
         154, 160, 162, 165, 168, 169, 175, 176, 180, 182, 189, 192, 195
         '''
         pass
-        limit = 100 # 10000000000
+        limit = 10000 # 10000000000
         amount = getNumberOfSRSBelow(limit)
         #self.assertEqual(29, amount) # TODO should be 29! 28 SRS and +1 (because we don't know ..)
 
@@ -80,20 +101,20 @@ if __name__ == '__main__':
 
 # ------------------------------------------------------------------------------
 
-# ascending test:
-for power in range(1, 4 + 1): # change the second to 10
-    print("------------")
-    limit = 10 ** power
-    print("limit:", limit, " -> ", getNumberOfSRSBelow(limit), "square root smooth numbers")
-
-# just to check if there is a 64 bit Python running
-import sys
-print("max container size:", sys.maxsize)
-
-
-# test multiprocessing
-# from: https://www.machinelearningplus.com/python/parallel-processing-python/
-# also check this: https://medium.com/@mjschillawski/quick-and-easy-parallelization-in-python-32cb9027e490
-# or this: http://www.nickstricks.net/wp/2016/03/01/quick-parallelism-in-python/
-import multiprocessing as mp
-print("cpu count:", mp.cpu_count())
+# # ascending test:
+# for power in range(1, 4 + 1): # change the second to 10
+#     print("------------")
+#     limit = 10 ** power
+#     print("limit:", limit, " -> ", getNumberOfSRSBelow(limit), "square root smooth numbers")
+#
+# # just to check if there is a 64 bit Python running
+# import sys
+# print("max container size:", sys.maxsize)
+#
+#
+# # test multiprocessing
+# # from: https://www.machinelearningplus.com/python/parallel-processing-python/
+# # also check this: https://medium.com/@mjschillawski/quick-and-easy-parallelization-in-python-32cb9027e490
+# # or this: http://www.nickstricks.net/wp/2016/03/01/quick-parallelism-in-python/
+# import multiprocessing as mp
+# print("cpu count:", mp.cpu_count())
