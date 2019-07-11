@@ -192,11 +192,19 @@ for power in range(1, upperLimit + 1):
 
 # https://pypi.org/project/bitarray/
 from bitarray import bitarray
-a = bitarray(10 ** 11) # one dimension too much, but also ok :)
+startTimePoint = time.time()
+a = bitarray(10 ** 10) # one dimension too much, but also ok :)
+print(f"creation in {time.time() - startTimePoint} s")
+startTimePoint = time.time()
+a.setall(True)
+print(f"setting in {time.time() - startTimePoint} s")
+
 print("bit array:", a[-5:], "\n-->", sys.getsizeof(a)) # somehow always just 104 byte, but taskmanager shows otherwise
-while True:
-    print(".")
-    a.append(True)
+print("trues:", a.count(True))
+print("falses:", a.count(False))
+#while True:
+#    print(".")
+#   a.append(True)
 
 # read this about virtualenv/venv:
 # https://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/
