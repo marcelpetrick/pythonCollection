@@ -107,14 +107,14 @@ if __name__ == '__main__':
 # ------------------------------------------------------------------------------
 
 # # ascending test:
-for power in range(1, 10 + 1): # change the second limit to 10
+for power in range(1, 3 + 1): # change the second limit to 10
     print("--------------------------------")
     limit = 10 ** power
     print("limit:", limit, " -> ", getNumberOfSRSBelow(limit), "square root smooth numbers")
 #
 # # just to check if there is a 64 bit Python running
-# import sys
-# print("max container size:", sys.maxsize)
+import sys
+print("max container size:", sys.maxsize)
 #
 #
 # # test multiprocessing
@@ -158,3 +158,33 @@ for power in range(1, 10 + 1): # change the second limit to 10
 #number of primes below 1000000000  =>  50847534
 #	 computation time primes: 594.089750289917 s
 # then: MemoryError
+
+print("------------------- create fat list ----------------")
+upperLimit = 5
+for power in range(1, upperLimit + 1):
+    amountOfElements = 10 ** power
+    startTimePoint = time.time()
+    # create the chonky thing
+    boolList = [True] * amountOfElements
+    #boolList1 = [True] * amountOfElements
+    print("amountOfElements:", amountOfElements, "( 10 **", power,") -> ", sys.getsizeof(boolList),
+          #"and", sys.getsizeof(boolList1),
+          "byte :", f"worked in {time.time() - startTimePoint} s")
+#
+# ------------------- create fat list ----------------
+# amountOfElements: 10 ( 10 ** 1 ) ->  144 byte : worked in 0.0 s
+# amountOfElements: 100 ( 10 ** 2 ) ->  864 byte : worked in 0.0 s
+# amountOfElements: 1000 ( 10 ** 3 ) ->  8064 byte : worked in 0.0 s
+# amountOfElements: 10000 ( 10 ** 4 ) ->  80064 byte : worked in 0.0 s
+# amountOfElements: 100000 ( 10 ** 5 ) ->  800064 byte : worked in 0.0 s
+# amountOfElements: 1000000 ( 10 ** 6 ) ->  8000064 byte : worked in 0.002013683319091797 s
+# amountOfElements: 10000000 ( 10 ** 7 ) ->  80000064 byte : worked in 0.04020428657531738 s
+# amountOfElements: 100000000 ( 10 ** 8 ) ->  800000064 byte : worked in 0.39153599739074707 s
+# amountOfElements: 1000000000 ( 10 ** 9 ) ->  8000000064 byte : worked in 3.78338885307312 s
+# --> crash MemoryError at 10**10 with 32 GiByte Ram and 32 GiByte pagefile/swap
+
+# increased the pagefile to 102.400 MiByte ;)
+# amountOfElements: 1000000000 ( 10 ** 9 ) ->  8000000064 byte : worked in 3.52264666557312 s
+# amountOfElements: 10000000000 ( 10 ** 10 ) ->  80000000064 byte : worked in 125.34299063682556 s <-- visible that paging took more time than just the expected 30s
+
+
