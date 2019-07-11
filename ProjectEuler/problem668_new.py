@@ -123,3 +123,38 @@ for power in range(1, 10 + 1): # change the second limit to 10
 # # or this: http://www.nickstricks.net/wp/2016/03/01/quick-parallelism-in-python/
 # import multiprocessing as mp
 # print("cpu count:", mp.cpu_count())
+
+# for verification: -> 5761455
+# https://www.wolframalpha.com/input/?i=number+of+primes+below+100000000&wal=header
+#number of primes below 100000000  =>  5761455
+#	 computation time primes: 50.28856682777405 s
+
+# scaling
+#100.000.000 50s
+#1.000.000.000 500 -> 8 min 20 seconds
+#10.000.000.000 5000s -> 1h 23 min 20 seconds
+
+# memory: 10 * 10**9 * 24 byte for [Boolean] -> 30 GiByte -> not fitting,
+# will run into MemoryError on the current system with 32 GiByte RAM
+
+# unchanged runtimes:
+# number of primes below 10  =>  4
+# 	 computation time primes: 0.0 s
+# number of primes below 100  =>  25
+# 	 computation time primes: 0.0 s
+# number of primes below 1000  =>  168
+# 	 computation time primes: 0.0 s
+# number of primes below 10000  =>  1229
+# 	 computation time primes: 0.0 s
+# number of primes below 100000  =>  9592
+# 	 computation time primes: 0.031247615814208984 s
+# number of primes below 1000000  =>  78498
+# 	 computation time primes: 0.3917055130004883 s
+# number of primes below 10000000  =>  664579
+# 	 computation time primes: 4.938384294509888 s
+# number of primes below 100000000  =>  5761455
+# 	 computation time primes: 50.28856682777405 s
+#just as expected it grows with factor 10
+#number of primes below 1000000000  =>  50847534
+#	 computation time primes: 594.089750289917 s
+# then: MemoryError
