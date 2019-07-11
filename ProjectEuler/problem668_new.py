@@ -187,4 +187,16 @@ for power in range(1, upperLimit + 1):
 # amountOfElements: 1000000000 ( 10 ** 9 ) ->  8000000064 byte : worked in 3.52264666557312 s
 # amountOfElements: 10000000000 ( 10 ** 10 ) ->  80000000064 byte : worked in 125.34299063682556 s <-- visible that paging took more time than just the expected 30s
 
+# install VisualStudio2019 DevTools for cl.exe ... else just failures with pip on Win10 ..
+# pip install bitarray
 
+# https://pypi.org/project/bitarray/
+from bitarray import bitarray
+a = bitarray(10 ** 11) # one dimension too much, but also ok :)
+print("bit array:", a[-5:], "\n-->", sys.getsizeof(a)) # somehow always just 104 byte, but taskmanager shows otherwise
+while True:
+    print(".")
+    a.append(True)
+
+# read this about virtualenv/venv:
+# https://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/
