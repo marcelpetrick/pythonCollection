@@ -86,13 +86,9 @@ def getNumberOfSRSBelow(limit):
 class Testcase(unittest.TestCase):
 
     def test_getNumberOfSRSBelow(self):
-        '''
-        Although I am not fully convinced this is the real, because of the diverting comparators
-        1, 4, 8, 9, 12, 16, 18, 24, 25, 27, 30, 32, 36, 40, 45, 48, 49, 50, 54, 56,
-        60, 63, 64, 70, 72, 75, 80, 81, 84, 90,
-        96, 98, 100, 105, 108, 112, 120, 121, 125, 126, 128, 132, 135, 140, 144, 147, 150,
-        154, 160, 162, 165, 168, 169, 175, 176, 180, 182, 189, 192, 195
-        '''
+        # as result from the previous implementation
+        # assumption if the first 100 are identical, then the rest too, haha ..
+        srsBelow100 [8, 12, 16, 18, 24, 27, 30, 32, 36, 40, 45, 48, 50, 54, 56, 60, 63, 64, 70, 72, 75, 80, 81, 84, 90, 96, 98, 100]
 
         return
 
@@ -190,21 +186,21 @@ for power in range(1, upperLimit + 1):
 # install VisualStudio2019 DevTools for cl.exe ... else just failures with pip on Win10 ..
 # pip install bitarray
 
-# https://pypi.org/project/bitarray/
-from bitarray import bitarray
-startTimePoint = time.time()
-a = bitarray(10 ** 10) # one dimension too much, but also ok :)
-print(f"creation in {time.time() - startTimePoint} s")
-startTimePoint = time.time()
-a.setall(True)
-print(f"setting in {time.time() - startTimePoint} s")
-
-print("bit array:", a[-5:], "\n-->", sys.getsizeof(a)) # somehow always just 104 byte, but taskmanager shows otherwise
-print("trues:", a.count(True))
-print("falses:", a.count(False))
-#while True:
-#    print(".")
-#   a.append(True)
+# # https://pypi.org/project/bitarray/
+# from bitarray import bitarray
+# startTimePoint = time.time()
+# a = bitarray(10 ** 10) # one dimension too much, but also ok :)
+# print(f"creation in {time.time() - startTimePoint} s")
+# startTimePoint = time.time()
+# a.setall(True)
+# print(f"setting in {time.time() - startTimePoint} s")
+#
+# print("bit array:", a[-5:], "\n-->", sys.getsizeof(a)) # somehow always just 104 byte, but taskmanager shows otherwise
+# print("trues:", a.count(True))
+# print("falses:", a.count(False))
+# #while True:
+# #    print(".")
+# #   a.append(True)
 
 # read this about virtualenv/venv:
 # https://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/

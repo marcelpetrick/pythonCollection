@@ -55,7 +55,7 @@ def getNumberOfSRSBelow_NEW(number):
 
     # is the later result
     amountOfSRS = 0
-    #resultList = [] # todo remove this
+    resultList = [] # todo remove this
 
     startTimeSRS = time.time()
     # todo do something like: loop in 1% ranges, so that there can be some printout of each "1% turn"
@@ -105,9 +105,9 @@ def getNumberOfSRSBelow_NEW(number):
             isSquareRootSmooth = currentMaxPrime < squareRoot
             if isSquareRootSmooth:
                 amountOfSRS += 1
-               # resultList.append(currentN)
+                resultList.append(currentN)
 
-#    print("resultList: ", resultList)
+    print("resultList: ", resultList)
     print(f"\t computation time SRS: {time.time() - startTimeSRS} s")
     return amountOfSRS + 1 # TODO maybe do the +1 trick
 
@@ -325,3 +325,6 @@ for power in range(1, 1 + 1): # change the second to 10
 
 import sys
 print("max container size:", sys.maxsize)
+
+# just to create input for the new implementation for comparison
+getNumberOfSRSBelow_NEW(100)
