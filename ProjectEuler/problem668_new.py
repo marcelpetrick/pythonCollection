@@ -31,6 +31,7 @@
 
 import unittest
 import time
+import numpy as np
 #from ProjectEuler import PrimeClass # import from "our" project "ProjectEuler"
 
 # ------------------------------------------------------------------------------
@@ -87,14 +88,12 @@ class Testcase(unittest.TestCase):
 
     def test_getNumberOfSRSBelow(self):
         # as result from the previous implementation
-        # assumption if the first 100 are identical, then the rest too, haha ..
-        srsBelow100 [8, 12, 16, 18, 24, 27, 30, 32, 36, 40, 45, 48, 50, 54, 56, 60, 63, 64, 70, 72, 75, 80, 81, 84, 90, 96, 98, 100]
-
-        return
-
+        # assumption if the first 100 are identical, then the rest too
+        srsBelow100 = [8, 12, 16, 18, 24, 27, 30, 32, 36, 40, 45, 48, 50, 54, 56, 60, 63, 64, 70, 72, 75, 80, 81, 84, 90, 96, 98, 100]
+        # own function
         #limit = 100 # 10000000000
         #amount = getNumberOfSRSBelow(limit)
-        ##self.assertEqual(29, amount) # TODO should be 29! 28 SRS and +1
+        #self.assertEqual(srsBelow100, amount) # just compare both result lists
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
@@ -103,10 +102,10 @@ if __name__ == '__main__':
 # ------------------------------------------------------------------------------
 
 # # ascending test:
-for power in range(1, 3 + 1): # change the second limit to 10
-    print("--------------------------------")
-    limit = 10 ** power
-    print("limit:", limit, " -> ", getNumberOfSRSBelow(limit), "square root smooth numbers")
+# for power in range(1, 3 + 1): # change the second limit to 10
+#     print("--------------------------------")
+#     limit = 10 ** power
+#     print("limit:", limit, " -> ", getNumberOfSRSBelow(limit), "square root smooth numbers")
 #
 # # just to check if there is a 64 bit Python running
 import sys
@@ -155,17 +154,17 @@ print("max container size:", sys.maxsize)
 #	 computation time primes: 594.089750289917 s
 # then: MemoryError
 
-print("------------------- create fat list ----------------")
-upperLimit = 5
-for power in range(1, upperLimit + 1):
-    amountOfElements = 10 ** power
-    startTimePoint = time.time()
-    # create the chonky thing
-    boolList = [True] * amountOfElements
-    #boolList1 = [True] * amountOfElements
-    print("amountOfElements:", amountOfElements, "( 10 **", power,") -> ", sys.getsizeof(boolList),
-          #"and", sys.getsizeof(boolList1),
-          "byte :", f"worked in {time.time() - startTimePoint} s")
+# print("------------------- create fat list ----------------")
+# upperLimit = 5
+# for power in range(1, upperLimit + 1):
+#     amountOfElements = 10 ** power
+#     startTimePoint = time.time()
+#     # create the chonky thing
+#     boolList = [True] * amountOfElements
+#     #boolList1 = [True] * amountOfElements
+#     print("amountOfElements:", amountOfElements, "( 10 **", power,") -> ", sys.getsizeof(boolList),
+#           #"and", sys.getsizeof(boolList1),
+#           "byte :", f"worked in {time.time() - startTimePoint} s")
 #
 # ------------------- create fat list ----------------
 # amountOfElements: 10 ( 10 ** 1 ) ->  144 byte : worked in 0.0 s
@@ -204,3 +203,13 @@ for power in range(1, upperLimit + 1):
 
 # read this about virtualenv/venv:
 # https://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/
+
+
+# testing the numpy boolean array
+print("###############")
+for i in range(10 + 1):
+    bitArray = np.full((10 ** i), True)#, dtype=bool)
+    print(i,
+          #"bitarray:", bitArray,
+            " -> size:", sys.getsizeof(bitArray))
+    #print(bitArray.dtype)
