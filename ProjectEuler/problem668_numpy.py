@@ -132,52 +132,75 @@ def getNumberOfSqureRootSmoothNumbersBelow(inputLimit):
 # proper unit-test
 class Testcase(unittest.TestCase):
 
-    # yeah, whatever ... getting this to work would be more effort than the task; so we say: not now!
-    # def test_sieveEras10Boolean(self):
-    #     limit = 10
-    #     result = sieveEras(limit)
-    #
-    #     expectedPrimes = [False, False, True, True, False, True, False, True, False, False]
-    #     hasMismatch = [i for i, j in zip(result, expectedPrimes) if i != j]
-    #     print(expectedPrimes)
-    #     print(result)
-    #     self.assertTrue(len(hasMismatch) > 0)
-# just for implementation
-    # def test_sieveEras10(self):
-    #     limit = 10
-    #     result = sieveEras(limit, False)
-    #     #print("computed primes until", limit, " --> ", result)
-    #
-    #     expectedPrimes = [2,3,5,7]
-    #     self.assertEqual(expectedPrimes, result)
-    #
-    # def test_sieveEras100(self):
-    #     limit = 100
-    #     result = sieveEras(limit, False)
-    #     #print("computed primes until", limit, " --> ", result)
-    #
-    #     expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
-    #     self.assertEqual(expectedPrimes, result)
-    #
-    # def test_sieveEras1000(self):
-    #     limit = 1000
-    #     result = sieveEras(limit, False)
-    #     #print("computed primes until", limit, " --> ", result)
-    #
-    #     expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997]
-    #     self.assertEqual(expectedPrimes, result)
+    def test_sieveEras10(self):
+        limit = 10
+        result = sieveEras(limit, False)
+        #print("computed primes until", limit, " --> ", result)
+
+        expectedPrimes = [2,3,5,7]
+        self.assertEqual(expectedPrimes, result)
+
+    def test_sieveEras100(self):
+        limit = 100
+        result = sieveEras(limit, False)
+        #print("computed primes until", limit, " --> ", result)
+
+        expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+        self.assertEqual(expectedPrimes, result)
+
+    def test_sieveEras1000(self):
+        limit = 1000
+        result = sieveEras(limit, False)
+        #print("computed primes until", limit, " --> ", result)
+
+        expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997]
+        self.assertEqual(expectedPrimes, result)
 
     def test_getSRS(self):
-        result = getNumberOfSqureRootSmoothNumbersBelow(100) # 100000 --> 9592primes
-        print("--->", result)
+        result = getNumberOfSqureRootSmoothNumbersBelow(100) # 100000 --> 9592 primes
+        self.assertEqual(29, result)
 
 # ---- here comes the execution of the unit-tests ----
 
-if __name__ == '__main__':
-    unittest.main()
+#if __name__ == '__main__':
+#    unittest.main()
 
 # ------------------------------------------------------------------------------
 print("###############")
-for i in range(1, 8 + 1):
+for i in range(1, 5 + 1):
     startTime = time.time()
     print("--> amount of square-root-smooth numbers in 10 ^", i, "?", getNumberOfSqureRootSmoothNumbersBelow(10 ** i), "; computed in in", time.time() - startTime, "s")
+
+# ###############
+# ### start computation of number of SRS up to 11 now ###
+# * determined 4 primes
+# * determined 2 square-root-smooth numbers
+# --> amount of square-root-smooth numbers in 10 ^ 1 ? 2 ; computed in in 0.0 s
+# ### start computation of number of SRS up to 101 now ###
+# * determined 25 primes
+# * determined 29 square-root-smooth numbers
+# --> amount of square-root-smooth numbers in 10 ^ 2 ? 29 ; computed in in 0.004001140594482422 s
+# ### start computation of number of SRS up to 1001 now ###
+# * determined 168 primes
+# * determined 274 square-root-smooth numbers
+# --> amount of square-root-smooth numbers in 10 ^ 3 ? 274 ; computed in in 0.01600480079650879 s
+# ### start computation of number of SRS up to 10001 now ###
+# * determined 1229 primes
+# * determined 2656 square-root-smooth numbers
+# --> amount of square-root-smooth numbers in 10 ^ 4 ? 2656 ; computed in in 0.09087777137756348 s
+# ### start computation of number of SRS up to 100001 now ###
+# * determined 9592 primes
+# * determined 26613 square-root-smooth numbers
+# --> amount of square-root-smooth numbers in 10 ^ 5 ? 26613 ; computed in in 0.8811788558959961 s
+# ### start computation of number of SRS up to 1000001 now ###
+# * determined 78498 primes
+# * determined 268172 square-root-smooth numbers
+# --> amount of square-root-smooth numbers in 10 ^ 6 ? 268172 ; computed in in 9.929276704788208 s
+# ### start computation of number of SRS up to 10000001 now ###
+# * determined 664579 primes
+# * determined 2719288 square-root-smooth numbers
+# --> amount of square-root-smooth numbers in 10 ^ 7 ? 2719288 ; computed in in 97.90842008590698 s
+# ### start computation of number of SRS up to 100000001 now ###
+# * determined 5761455 primes
+# * determined 27531694 square-root-smooth numbers
+# --> amount of square-root-smooth numbers in 10 ^ 8 ? 27531694 ; computed in in 918.1870756149292 s
