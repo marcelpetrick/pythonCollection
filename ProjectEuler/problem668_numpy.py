@@ -131,7 +131,7 @@ class Testcase(unittest.TestCase):
         result = sieveEras(limit)
         #print("computed primes until", limit, " --> ", result)
 
-        expectedPrimes = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
+        expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
         self.assertEqual(expectedPrimes, result)
 
     def test_sieveEras1000(self):
@@ -143,12 +143,13 @@ class Testcase(unittest.TestCase):
         self.assertEqual(expectedPrimes, result)
 
 # ---- here comes the execution of the unit-tests ----
+
 if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
-import time
-print("###############")
-for i in range(2, 8 + 1):
-    startTime = time.time()
-    print("how many primes in 10 ^", i, "?", len(sieveEras(10 ** i)), "in", time.time() - startTime, "s")
+# import time
+# print("###############")
+# for i in range(2, 6 + 1):
+#     startTime = time.time()
+#     print("how many primes in 10 ^", i, "?", len(sieveEras(10 ** i)), "in", time.time() - startTime, "s")
