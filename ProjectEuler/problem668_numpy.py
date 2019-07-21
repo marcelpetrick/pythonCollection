@@ -84,26 +84,32 @@ def sieveEras(limit, returnPrimeListBoolInsteadOfNumbers = True):
 
 # ------------------------------------------------------------------------------
 
-def getNumberOfSqureRootSmoothNumbersBelow(limit):
+def getNumberOfSqureRootSmoothNumbersBelow(inputLimit):
+    limit = inputLimit + 1
     print("### start computation of number of SRS up to", limit, "now ###")
     primeArray = sieveEras(limit)
     print("* determined", sum(primeArray), "primes")
 
     # new array for the SRS
     srsArray = np.full(limit, True, dtype=bool)
+    # zero and one are by definition no prime
+    srsArray[0] = False
+    srsArray[1] = False
 
     #   // 2. filter out all non srs by: take every prim p until limit. and filter out all numbers pm for m lesser equal p.
     #currentPrime = 0 # just some initValue
-    for indexPrime in range(limit):
+    for indexPrime in range(1, limit):
         # find the next prime by skipping over non-primes
         if primeArray[indexPrime] == False:
             continue
         #else:
             #currentPrime = indexPrime
 
+        print("current prime to handle is:", indexPrime)
         # now remove all multiples m < p
-        for multiple in range(indexPrime - 1):
+        for multiple in range(1, indexPrime + 1): # prime included
             index = multiple * indexPrime
+            print("\ttackling multiple:", index)
             if index >= limit:
                 break
             srsArray[index] = False
