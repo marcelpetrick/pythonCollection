@@ -32,54 +32,6 @@
 import unittest
 import time
 import numpy as np
-#from ProjectEuler import PrimeClass # import from "our" project "ProjectEuler"
-
-# ------------------------------------------------------------------------------
-
-def getNumberOfSRSBelow(limit):
-    amount = 0
-    #resultList = []
-
-    # 0. determine the root limit
-    #rootLimit = int(limit ** 0.5) + 1
-    #print("root limit:", rootLimit)
-
-    # 1. prepare the primes list
-    startTimePrime = time.time()
-    primesList = [True] * limit # create a list with 10 times True
-    primesList[0] = False  # 0 is not a prime!
-    primesList[1] = False # 1 is not a prime!
-    #print("primesList:", primesList)
-
-    # sieve of Erastothenes
-    # TODO build in to do the sieving only if the current pos is True
-    for number in range(2, limit): # question: could it be that this has to be run only up to half of the limit?1? because the remaining part is already sieved?
-        if primesList[number] == False:
-            continue
-        #print("handling number:", number)
-        multiple = 2
-        pos = multiple * number
-
-        while pos < limit:
-            #print("\thandling multiple:", pos)
-            primesList[pos] = False
-            multiple += 1
-            pos = multiple * number
-
-        #print("primesList after priming:", primesList, " => ", sum(primesList))
-
-    #print("primesList after priming:", primesList, " => ", sum(primesList))
-    print("number of primes below", limit, " => ", sum(primesList))
-    # output: number of primes below 10000  =>  1229
-    print(f"\t computation time primes: {time.time() - startTimePrime} s")
-
-    # TODO implement this
-
-#    print("------------------------------------")
-#    print(f"below {limit} are {amount} (true) numbers square-root-smooth")
-#    print("result list: ", resultList)
-
-    return amount + 1 # plus one for the number "1" itself, because the task-description is including it
 
 # ------------------------------------------------------------------------------
 
@@ -91,9 +43,12 @@ def sieveEras(limit):
     isPrimeArray[0] = False
     isPrimeArray[1] = False
 
-    index = 0
-    #print("going up to:", range(int(limit ** 0.5)))
-    for index in range(int(limit ** 0.5) + 1):
+    steps = 10 # number of expected feedback steps
+
+    # compute primes
+    print("### computing primes now ###")
+    upperLimit = int(limit ** 0.5) + 1
+    for index in range(upperLimit):
         #print("handling:", index)
         if isPrimeArray[index] == False:
             continue
@@ -106,6 +61,7 @@ def sieveEras(limit):
         #print("\tnow:", isPrimeArray)
 
     # map to numbers
+    print("### mapping bool to numbers now ###")
     resultList = []
     for i in range(limit):
         if isPrimeArray[i] == True:
@@ -148,8 +104,8 @@ if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
-# import time
-# print("###############")
-# for i in range(2, 6 + 1):
-#     startTime = time.time()
-#     print("how many primes in 10 ^", i, "?", len(sieveEras(10 ** i)), "in", time.time() - startTime, "s")
+import time
+print("###############")
+for i in range(5, 7 + 1):
+    startTime = time.time()
+    print("how many primes in 10 ^", i, "?", len(sieveEras(10 ** i)), "in", time.time() - startTime, "s")
