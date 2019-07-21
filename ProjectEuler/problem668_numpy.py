@@ -36,7 +36,10 @@ import numpy as np
 # ------------------------------------------------------------------------------
 
 def sieveEras(limit):
-    isPrimeArray = np.full(limit, True, dtype = bool)
+    print("################################")
+    print("compute up to", limit)
+    print("### creating prime-array now ###")
+    isPrimeArray = np.full(limit, True, dtype=bool)
     #print("before:", isPrimeArray)
 
     # zero and one are by definition no prime
@@ -48,7 +51,14 @@ def sieveEras(limit):
     # compute primes
     print("### computing primes now ###")
     upperLimit = int(limit ** 0.5) + 1
+    stepSize = upperLimit // steps
+    nextStep = 1
     for index in range(upperLimit):
+        # print some percentage
+        if index >= nextStep * stepSize:
+            print(nextStep * 100 // steps, "%")
+            nextStep += 1
+
         #print("handling:", index)
         if isPrimeArray[index] == False:
             continue
@@ -106,6 +116,6 @@ if __name__ == '__main__':
 # ------------------------------------------------------------------------------
 import time
 print("###############")
-for i in range(5, 7 + 1):
+for i in range(5, 8 + 1):
     startTime = time.time()
     print("how many primes in 10 ^", i, "?", len(sieveEras(10 ** i)), "in", time.time() - startTime, "s")
