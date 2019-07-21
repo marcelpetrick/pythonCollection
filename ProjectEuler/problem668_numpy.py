@@ -36,9 +36,9 @@ import numpy as np
 # ------------------------------------------------------------------------------
 
 def sieveEras(limit, returnPrimeListBoolInsteadOfNumbers = True):
-    print("################################")
-    print("compute primes up to", limit)
-    print("### creating prime-array now ###")
+    # print("################################")
+    # print("compute primes up to", limit)
+    # print("### creating prime-array now ###")
     isPrimeArray = np.full(limit, True, dtype=bool)
     #print("before:", isPrimeArray)
 
@@ -46,18 +46,17 @@ def sieveEras(limit, returnPrimeListBoolInsteadOfNumbers = True):
     isPrimeArray[0] = False
     isPrimeArray[1] = False
 
-    steps = 10 # number of expected feedback steps
-
     # compute primes
-    print("### computing primes now ###")
+    # print("### computing primes now ###")
     upperLimit = int(limit ** 0.5) + 1
-    stepSize = upperLimit // steps
-    nextStep = 1
+    # steps = 10 # number of expected feedback steps
+    # stepSize = upperLimit // steps
+    # nextStep = 1
     for index in range(upperLimit):
-        # print some percentage
-        if index >= nextStep * stepSize:
-            print(nextStep * 100 // steps, "%")
-            nextStep += 1
+        # # print some percentage
+        # if index >= nextStep * stepSize:
+        #     print(nextStep * 100 // steps, "%")
+        #     nextStep += 1
 
         #print("handling:", index)
         if isPrimeArray[index] == False:
@@ -74,7 +73,7 @@ def sieveEras(limit, returnPrimeListBoolInsteadOfNumbers = True):
         return isPrimeArray
 
     # map to numbers
-    print("### mapping bool to numbers now ###")
+    # print("### mapping bool to numbers now ###")
     resultList = []
     for i in range(limit):
         if isPrimeArray[i] == True:
@@ -97,35 +96,32 @@ def getNumberOfSqureRootSmoothNumbersBelow(inputLimit):
     srsArray[1] = False
 
     #   // 2. filter out all non srs by: take every prim p until limit. and filter out all numbers pm for m lesser equal p.
-    #currentPrime = 0 # just some initValue
     for indexPrime in range(1, limit):
         # find the next prime by skipping over non-primes
         if primeArray[indexPrime] == False:
             continue
-        #else:
-            #currentPrime = indexPrime
 
-        print("current prime to handle is:", indexPrime)
+        #print("current prime to handle is:", indexPrime)
         # now remove all multiples m < p
         for multiple in range(1, indexPrime + 1): # prime included
             index = multiple * indexPrime
-            print("\ttackling multiple:", index)
+            #print("\ttackling multiple:", index)
             if index >= limit:
                 break
             srsArray[index] = False
 
-    # SRS below 100: [8, 12, 16, 18, 24, 27, 30, 32, 36, 40, 45, 48, 50, 54, 56, 60, 63, 64, 70, 72, 75, 80, 81, 84, 90, 96, 98, 100]
-    # map to numbers
-    resultList = []
-    for i in range(limit):
-        if primeArray[i] == True:
-            resultList.append(i)
-    print("primes", resultList)
-    resultList = []
-    for i in range(limit):
-        if srsArray[i] == True:
-            resultList.append(i)
-    print("srs:", resultList)
+    # # SRS below 100: [8, 12, 16, 18, 24, 27, 30, 32, 36, 40, 45, 48, 50, 54, 56, 60, 63, 64, 70, 72, 75, 80, 81, 84, 90, 96, 98, 100]
+    # # map to numbers
+    # resultList = []
+    # for i in range(limit):
+    #     if primeArray[i] == True:
+    #         resultList.append(i)
+    # print("primes", resultList)
+    # resultList = []
+    # for i in range(limit):
+    #     if srsArray[i] == True:
+    #         resultList.append(i)
+    # print("srs:", resultList)
 
     resultAmount = sum(srsArray) + 1 # with the famous +1
     print("* determined", resultAmount, "square-root-smooth numbers")
@@ -181,8 +177,7 @@ if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
-# import time
-# print("###############")
-# for i in range(5, 8 + 1):
-#     startTime = time.time()
-#     print("how many primes in 10 ^", i, "?", len(sieveEras(10 ** i)), "in", time.time() - startTime, "s")
+print("###############")
+for i in range(1, 8 + 1):
+    startTime = time.time()
+    print("--> amount of square-root-smooth numbers in 10 ^", i, "?", getNumberOfSqureRootSmoothNumbersBelow(10 ** i), "; computed in in", time.time() - startTime, "s")
