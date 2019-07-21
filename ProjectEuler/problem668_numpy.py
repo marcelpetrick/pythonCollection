@@ -84,15 +84,30 @@ def getNumberOfSRSBelow(limit):
 # ------------------------------------------------------------------------------
 
 def sieveEras(limit):
-    bitArray = np.full(limit, True, dtype = bool)
-    print("before:", bitArray)
+    isPrimeArray = np.full(limit, True, dtype = bool)
+    print("before:", isPrimeArray)
 
     # zero and one are by definition no prime
-    bitArray[0] = False
-    bitArray[1] = False
-    
+    isPrimeArray[0] = False
+    isPrimeArray[1] = False
 
-    return bitArray
+    index = 0
+    for index in range(int(limit ** 0.5)):
+        if isPrimeArray[index] == False:
+            continue
+        else:
+            multiple = 2
+            while index * multiple < limit:
+                isPrimeArray[index * multiple] = False
+                multiple += 1
+
+    # map to numbers
+    resultList = []
+    for i in range(limit):
+        if isPrimeArray[i] == True:
+            resultList.append(i)
+
+    return resultList
 
 # ------------------------------------------------------------------------------
 
