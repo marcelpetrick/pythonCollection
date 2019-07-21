@@ -17,7 +17,7 @@
 #   * for each prime p: remove all multiples of p (up to p) from the list of possible numbers
 #   * summarize the remaining amount of SRS
 #
-#   // according https://github.com/ScytheMax -- the idea is:
+#   // according https://github.com/ScytheMax -- the idea is (unedited quote):
 #   // let p be a prim number. then follows p is not srs.
 #   // because pp bigger p.
 #   // the it follows for every natural number m with m lesser or equal p:
@@ -25,7 +25,7 @@
 
 #   // with this knowledge.
 #   // 1. calc all primes until limit.
-#   // 2. filter out all non srs. take every prim p until limit. and filter out all numbers pm for m lesser equal p.
+#   // 2. filter out all non srs by: take every prim p until limit. and filter out all numbers pm for m lesser equal p.
 #
 # ------------------------------------------------------------------------------
 
@@ -84,6 +84,36 @@ def sieveEras(limit, returnPrimeListBoolInsteadOfNumbers = True):
 
 # ------------------------------------------------------------------------------
 
+def getNumberOfSqureRootSmoothNumbersBelow(limit):
+    print("### start computation of number of SRS up to", limit, "now ###")
+    primeArray = sieveEras(limit)
+    print("* determined", sum(primeArray), "primes")
+
+    # new array for the SRS
+    srsArray = np.full(limit, True, dtype=bool)
+
+    #   // 2. filter out all non srs by: take every prim p until limit. and filter out all numbers pm for m lesser equal p.
+    #currentPrime = 0 # just some initValue
+    for indexPrime in range(limit):
+        # find the next prime by skipping over non-primes
+        if primeArray[indexPrime] == False:
+            continue
+        #else:
+            #currentPrime = indexPrime
+
+        # now remove all multiples m < p
+        for multiple in range(indexPrime - 1):
+            index = multiple * indexPrime
+            if index > limit:
+                break
+            srsArray[index] = False
+
+    resultAmount = sum(srsArray) + 1 # with the famous +1
+    print("* determined", resultAmount, "square-root-smooth numbers")
+    return resultAmount
+
+# ------------------------------------------------------------------------------
+
 # proper unit-test
 class Testcase(unittest.TestCase):
 
@@ -121,6 +151,10 @@ class Testcase(unittest.TestCase):
 
         expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997]
         self.assertEqual(expectedPrimes, result)
+
+    def test_getSRS(self):
+        result = getNumberOfSqureRootSmoothNumbersBelow(100) # 100000 --> 9592primes
+        print("--->", result)
 
 # ---- here comes the execution of the unit-tests ----
 
