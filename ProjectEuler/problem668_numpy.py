@@ -104,9 +104,22 @@ def getNumberOfSqureRootSmoothNumbersBelow(limit):
         # now remove all multiples m < p
         for multiple in range(indexPrime - 1):
             index = multiple * indexPrime
-            if index > limit:
+            if index >= limit:
                 break
             srsArray[index] = False
+
+    # SRS below 100: [8, 12, 16, 18, 24, 27, 30, 32, 36, 40, 45, 48, 50, 54, 56, 60, 63, 64, 70, 72, 75, 80, 81, 84, 90, 96, 98, 100]
+    # map to numbers
+    resultList = []
+    for i in range(limit):
+        if primeArray[i] == True:
+            resultList.append(i)
+    print("primes", resultList)
+    resultList = []
+    for i in range(limit):
+        if srsArray[i] == True:
+            resultList.append(i)
+    print("srs:", resultList)
 
     resultAmount = sum(srsArray) + 1 # with the famous +1
     print("* determined", resultAmount, "square-root-smooth numbers")
@@ -127,30 +140,30 @@ class Testcase(unittest.TestCase):
     #     print(expectedPrimes)
     #     print(result)
     #     self.assertTrue(len(hasMismatch) > 0)
-
-    def test_sieveEras10(self):
-        limit = 10
-        result = sieveEras(limit, False)
-        #print("computed primes until", limit, " --> ", result)
-
-        expectedPrimes = [2,3,5,7]
-        self.assertEqual(expectedPrimes, result)
-
-    def test_sieveEras100(self):
-        limit = 100
-        result = sieveEras(limit, False)
-        #print("computed primes until", limit, " --> ", result)
-
-        expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
-        self.assertEqual(expectedPrimes, result)
-
-    def test_sieveEras1000(self):
-        limit = 1000
-        result = sieveEras(limit, False)
-        #print("computed primes until", limit, " --> ", result)
-
-        expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997]
-        self.assertEqual(expectedPrimes, result)
+# just for implementation
+    # def test_sieveEras10(self):
+    #     limit = 10
+    #     result = sieveEras(limit, False)
+    #     #print("computed primes until", limit, " --> ", result)
+    #
+    #     expectedPrimes = [2,3,5,7]
+    #     self.assertEqual(expectedPrimes, result)
+    #
+    # def test_sieveEras100(self):
+    #     limit = 100
+    #     result = sieveEras(limit, False)
+    #     #print("computed primes until", limit, " --> ", result)
+    #
+    #     expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+    #     self.assertEqual(expectedPrimes, result)
+    #
+    # def test_sieveEras1000(self):
+    #     limit = 1000
+    #     result = sieveEras(limit, False)
+    #     #print("computed primes until", limit, " --> ", result)
+    #
+    #     expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997]
+    #     self.assertEqual(expectedPrimes, result)
 
     def test_getSRS(self):
         result = getNumberOfSqureRootSmoothNumbersBelow(100) # 100000 --> 9592primes
