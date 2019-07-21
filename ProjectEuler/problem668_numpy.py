@@ -35,9 +35,9 @@ import numpy as np
 
 # ------------------------------------------------------------------------------
 
-def sieveEras(limit):
+def sieveEras(limit, returnPrimeListBoolInsteadOfNumbers = True):
     print("################################")
-    print("compute up to", limit)
+    print("compute primes up to", limit)
     print("### creating prime-array now ###")
     isPrimeArray = np.full(limit, True, dtype=bool)
     #print("before:", isPrimeArray)
@@ -70,6 +70,9 @@ def sieveEras(limit):
 
         #print("\tnow:", isPrimeArray)
 
+    if returnPrimeListBoolInsteadOfNumbers:
+        return isPrimeArray
+
     # map to numbers
     print("### mapping bool to numbers now ###")
     resultList = []
@@ -84,9 +87,20 @@ def sieveEras(limit):
 # proper unit-test
 class Testcase(unittest.TestCase):
 
+    # yeah, whatever ... getting this to work would be more effort than the task; so we say: not now!
+    # def test_sieveEras10Boolean(self):
+    #     limit = 10
+    #     result = sieveEras(limit)
+    #
+    #     expectedPrimes = [False, False, True, True, False, True, False, True, False, False]
+    #     hasMismatch = [i for i, j in zip(result, expectedPrimes) if i != j]
+    #     print(expectedPrimes)
+    #     print(result)
+    #     self.assertTrue(len(hasMismatch) > 0)
+
     def test_sieveEras10(self):
         limit = 10
-        result = sieveEras(limit)
+        result = sieveEras(limit, False)
         #print("computed primes until", limit, " --> ", result)
 
         expectedPrimes = [2,3,5,7]
@@ -94,7 +108,7 @@ class Testcase(unittest.TestCase):
 
     def test_sieveEras100(self):
         limit = 100
-        result = sieveEras(limit)
+        result = sieveEras(limit, False)
         #print("computed primes until", limit, " --> ", result)
 
         expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
@@ -102,7 +116,7 @@ class Testcase(unittest.TestCase):
 
     def test_sieveEras1000(self):
         limit = 1000
-        result = sieveEras(limit)
+        result = sieveEras(limit, False)
         #print("computed primes until", limit, " --> ", result)
 
         expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983, 991, 997]
@@ -114,8 +128,8 @@ if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
-import time
-print("###############")
-for i in range(5, 8 + 1):
-    startTime = time.time()
-    print("how many primes in 10 ^", i, "?", len(sieveEras(10 ** i)), "in", time.time() - startTime, "s")
+# import time
+# print("###############")
+# for i in range(5, 8 + 1):
+#     startTime = time.time()
+#     print("how many primes in 10 ^", i, "?", len(sieveEras(10 ** i)), "in", time.time() - startTime, "s")
