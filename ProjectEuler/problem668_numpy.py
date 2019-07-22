@@ -167,7 +167,7 @@ class Testcase(unittest.TestCase):
 
 # ------------------------------------------------------------------------------
 print("###############")
-for i in range(1, 5 + 1):
+for i in range(1, 10 + 1):
     startTime = time.time()
     print("--> amount of square-root-smooth numbers in 10 ^", i, "?", getNumberOfSqureRootSmoothNumbersBelow(10 ** i), "; computed in in", time.time() - startTime, "s")
 
