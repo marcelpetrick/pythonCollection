@@ -226,3 +226,20 @@ for i in range(1, 10 + 1):
 
 # ugh .. what is this? -1483889523 -> -1.483.889.523
 #(1 << 31) -1 = 2.147.483.649
+
+#np.int32	int32_t	Integer (-2147483648 to 2147483647)
+#np.int64	int64_t	Integer (-9223372036854775808 to 9223372036854775807)
+
+# -1483889523
+#  2147483647 max
+# -2147483648 max+1
+#
+# difference -1483889523 and -2147483648? is 663594125
+#
+#2147483647 + 1 + 663594125
+#Out[10]: 2811077773
+
+
+# Congratulations, the answer you gave to problem 668 is correct.
+#
+# You are the 438th person to have solved this problem.
