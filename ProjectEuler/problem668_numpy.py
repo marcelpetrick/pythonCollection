@@ -123,7 +123,18 @@ def getNumberOfSqureRootSmoothNumbersBelow(inputLimit):
     #         resultList.append(i)
     # print("srs:", resultList)
 
-    resultAmount = sum(srsArray) + 1 # with the famous +1
+    resultAmountSum = sum(srsArray) + 1 # with the famous +1
+    print("\tsum gives result of", resultAmountSum, "SRS")
+    # sum up manually, because of the overflow
+    resultAmount = 1
+    for elem in srsArray:
+        if elem == True:
+            resultAmount += 1
+    print("\tcounting manually gives result of", resultAmount, "SRS")
+
+    numpySum = srsArray.sum(dtype=np.int64, initial=1) # important, else it looks like int32 is taken: https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html
+    print("\tnumpy.sum gives result: ", numpySum, "SRS")
+
     print("* determined", resultAmount, "square-root-smooth numbers")
     return resultAmount
 
@@ -179,28 +190,39 @@ for i in range(1, 10 + 1):
 # ### start computation of number of SRS up to 101 now ###
 # * determined 25 primes
 # * determined 29 square-root-smooth numbers
-# --> amount of square-root-smooth numbers in 10 ^ 2 ? 29 ; computed in in 0.004001140594482422 s
+# --> amount of square-root-smooth numbers in 10 ^ 2 ? 29 ; computed in in 0.0 s
 # ### start computation of number of SRS up to 1001 now ###
 # * determined 168 primes
 # * determined 274 square-root-smooth numbers
-# --> amount of square-root-smooth numbers in 10 ^ 3 ? 274 ; computed in in 0.01600480079650879 s
+# --> amount of square-root-smooth numbers in 10 ^ 3 ? 274 ; computed in in 0.015622138977050781 s
 # ### start computation of number of SRS up to 10001 now ###
 # * determined 1229 primes
 # * determined 2656 square-root-smooth numbers
-# --> amount of square-root-smooth numbers in 10 ^ 4 ? 2656 ; computed in in 0.09087777137756348 s
+# --> amount of square-root-smooth numbers in 10 ^ 4 ? 2656 ; computed in in 0.04686141014099121 s
 # ### start computation of number of SRS up to 100001 now ###
 # * determined 9592 primes
 # * determined 26613 square-root-smooth numbers
-# --> amount of square-root-smooth numbers in 10 ^ 5 ? 26613 ; computed in in 0.8811788558959961 s
+# --> amount of square-root-smooth numbers in 10 ^ 5 ? 26613 ; computed in in 0.4998812675476074 s
 # ### start computation of number of SRS up to 1000001 now ###
 # * determined 78498 primes
 # * determined 268172 square-root-smooth numbers
-# --> amount of square-root-smooth numbers in 10 ^ 6 ? 268172 ; computed in in 9.929276704788208 s
+# --> amount of square-root-smooth numbers in 10 ^ 6 ? 268172 ; computed in in 5.098489284515381 s
 # ### start computation of number of SRS up to 10000001 now ###
 # * determined 664579 primes
 # * determined 2719288 square-root-smooth numbers
-# --> amount of square-root-smooth numbers in 10 ^ 7 ? 2719288 ; computed in in 97.90842008590698 s
+# --> amount of square-root-smooth numbers in 10 ^ 7 ? 2719288 ; computed in in 50.67194867134094 s
 # ### start computation of number of SRS up to 100000001 now ###
 # * determined 5761455 primes
 # * determined 27531694 square-root-smooth numbers
-# --> amount of square-root-smooth numbers in 10 ^ 8 ? 27531694 ; computed in in 918.1870756149292 s
+# --> amount of square-root-smooth numbers in 10 ^ 8 ? 27531694 ; computed in in 472.49259877204895 s
+# ### start computation of number of SRS up to 1000000001 now ###
+# * determined 50847534 primes
+# * determined 278418003 square-root-smooth numbers
+# --> amount of square-root-smooth numbers in 10 ^ 9 ? 278418003 ; computed in in 4675.5832278728485 s
+# ### start computation of number of SRS up to 10000000001 now ###
+# * determined 455052511 primes
+# * determined -1483889523 square-root-smooth numbers
+# --> amount of square-root-smooth numbers in 10 ^ 10 ? -1483889523 ; computed in in 48464.38842749596 s
+
+# ugh .. what is this? -1483889523 -> -1.483.889.523
+#(1 << 31) -1 = 2.147.483.649
