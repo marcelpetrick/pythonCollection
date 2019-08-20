@@ -32,3 +32,13 @@ print("fakedTime:", fakedTime)
 print("ticks:", ticks)
 
 # question: how to jump by "one day"?
+# http://www.pressthered.com/adding_dates_and_times_in_python/
+from datetime import datetime
+from datetime import timedelta
+#Pass multiple parameters (1 day and 5 minutes)
+print("added 1 d 5 min:", datetime.now() + timedelta(days=1, minutes=5))
+
+# algo:
+# read file as input
+# determine the "lowest timepoint as start" (eg. current state); maybe sort before the fixed dates
+# step with 1 day setting over the time and trigger the actions
