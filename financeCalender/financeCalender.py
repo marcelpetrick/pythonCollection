@@ -42,3 +42,32 @@ print("added 1 d 5 min:", datetime.now() + timedelta(days=1, minutes=5))
 # read file as input
 # determine the "lowest timepoint as start" (eg. current state); maybe sort before the fixed dates
 # step with 1 day setting over the time and trigger the actions
+
+# 20190821:
+# just implement the prototype-algo to see if this is working
+
+class TransactionItem:
+    triggerType = "once" # once, monthly, yearly
+    amount = 0
+    date = "02.03.2020"
+
+    # bullshit, or?
+    def __init__(self, triggerType, amount, date):
+        self.triggerType = triggerType
+        self.amount = amount
+        self.date = date
+
+    def willTriggerToday(self, today):
+        if True: # TODO add check based on type and date and input "today"
+            return True
+
+        return False
+
+
+entry0 = TransactionItem("once", 100, "22.08.2019")
+entry1 = TransactionItem("daily", -5, "21.08.2019") # starting from today; every day 5 kuan loss
+transactions = [entry0, entry1]
+
+#check
+for entry in transactions:
+    print("entry:", entry)
