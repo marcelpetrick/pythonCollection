@@ -83,3 +83,13 @@ print("---current state----")
 # print with enumeration
 for entry in range(len(transactions)):
     print(entry, transactions[entry])
+
+#------
+startDate = datetime.fromisoformat("2019-08-21")
+currentDateTime = startDate
+print("starting with:", currentDateTime)
+
+# "walks" over the next ten days :)
+for i in range(10):
+    print(currentDateTime)
+    currentDateTime += timedelta(days=1)
