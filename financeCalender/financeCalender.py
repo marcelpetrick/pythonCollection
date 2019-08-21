@@ -47,15 +47,21 @@ print("added 1 d 5 min:", datetime.now() + timedelta(days=1, minutes=5))
 # just implement the prototype-algo to see if this is working
 
 class TransactionItem:
+    name = "uninitialized item"
     triggerType = "once" # once, monthly, yearly
     amount = 0
     date = "02.03.2020"
 
-    # bullshit, or?
-    def __init__(self, triggerType, amount, date):
+    # default ctor
+    def __init__(self, name, triggerType, amount, date):
+        self.name = name
         self.triggerType = triggerType
         self.amount = amount
         self.date = date
+
+    # self representation
+    def __repr__(self):
+        return self.name + "|" + self.triggerType + "|" + str(self.amount) + "|" + self.date
 
     def willTriggerToday(self, today):
         if True: # TODO add check based on type and date and input "today"
@@ -64,10 +70,16 @@ class TransactionItem:
         return False
 
 
-entry0 = TransactionItem("once", 100, "22.08.2019")
-entry1 = TransactionItem("daily", -5, "21.08.2019") # starting from today; every day 5 kuan loss
-transactions = [entry0, entry1]
+entry0 = TransactionItem("current state", "once", 100, "22.08.2019")
+entry1 = TransactionItem("consumed food", "daily", -5, "21.08.2019") # starting from today; every day 5 kuan loss
+entry2 = TransactionItem("salary", "monthly", +666, "01.09.2019") # question: how to represent the monthly stuff? just use the day from date?
+transactions = [entry0, entry1, entry2]
 
-#check
-for entry in transactions:
-    print("entry:", entry)
+# check
+print("---current state----")
+#for entry in transactions:
+#    print("entry:", entry)
+
+# print with enumeration
+for entry in range(len(transactions)):
+    print(entry, transactions[entry])
