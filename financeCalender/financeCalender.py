@@ -84,7 +84,7 @@ class TransactionItem:
 
         if ["daily", "monthly", "yearly", "once"].__contains__(self.triggerType):
             return False
-        
+
         raise Exception("not handle-able triggerType!")
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -119,10 +119,12 @@ currentCash = 0
 print("---------------------------------------")
 for i in range(20):
     # check for all transactions if they trigger; and if, then evaluate
+    appliedTransactions = ""  # also print what has happened
     for item in transactions:
         if item.willTriggerToday(currentDateTime):
             currentCash += item.amount
+            appliedTransactions += item.name + ";"
 
-    # print the current state
-    print(i,":", currentDateTime, "cash=", currentCash)
+    # print the current state (datetime just as date)
+    print(i,": date=", currentDateTime.strftime('%Y-%m-%d'), "cash=", currentCash, "triggers=", appliedTransactions)
     currentDateTime += timedelta(days=1)
