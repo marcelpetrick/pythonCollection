@@ -48,37 +48,59 @@ print("added 1 d 5 min:", datetime.now() + timedelta(days=1, minutes=5))
 
 class TransactionItem:
     name = "uninitialized item"
-    triggerType = "once" # once, monthly, yearly
+    triggerType = "not set" # once, daily, monthly, yearly
     amount = 0
-    date = "02.03.2020"
+    date = datetime.today()
 
     # default ctor
     def __init__(self, name, triggerType, amount, date):
         self.name = name
         self.triggerType = triggerType
         self.amount = amount
-        self.date = date
+        # convert the date to a real type
+        self.date = datetime.fromisoformat(date)
 
     # self representation
     def __repr__(self):
-        return self.name + "|" + self.triggerType + "|" + str(self.amount) + "|" + self.date
+        return self.name + "|" + self.triggerType + "|" + str(self.amount) + "|" + str(self.date)
 
+    # quite simple function to check depending on the set type if the transaction-item will trigger today
     def willTriggerToday(self, today):
-        if True: # TODO add check based on type and date and input "today"
+        if self.triggerType == "daily":
+            # no further checks needed
             return True
 
-        return False
+        if self.triggerType == "monthly":
+            if today.day == self.date.day:
+                return True
 
-    # really needed, because all access is public?
-    def getAmount(self):
-        return self.amount
+        if self.triggerType == "yearly":
+            if today.day == self.date.day and today.month == self.date.month:
+                return True
+
+        if self.triggerType == "once":
+            if today.day == self.date.day and today.month == self.date.month and today.year == self.date.year:
+                return True
+
+        if ["daily", "monthly", "yearly", "once"].__contains__(self.triggerType):
+            return False
+        
+        raise Exception("not handle-able triggerType!")
+
+# ----------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
+
+# about the datetime.fromisoformat throws on year 0000 and out of range error
+# https://www.techatbloomberg.com/blog/work-dates-time-python/
 
 # example transactions
 # idea for the type-info inside the date is: if a column is zero, then this means "recurring"
-entry0 = TransactionItem("current state", "once", 100, "22.08.2019")
-entry1 = TransactionItem("consumed food", "daily", -5, "00.00.0000") # starting from today; every day 5 kuan loss
-entry2 = TransactionItem("salary", "monthly", +666, "01.00.0000")
-entry3 = TransactionItem("birthday", "yearly", +123, "01.10.0000")
+# hint: this idea did not work out: because then the datetime-parsing complains about invalid format; therefore replace with the first valid one: the 1.
+# but this leads to issues with "1" for real date and "1" as placeholder. So the type-information is really needed.
+entry1 = TransactionItem("consumed food", "daily", -5, "0001-01-01") # starting from today; every day 5 kuan loss
+entry2 = TransactionItem("salary", "monthly", +666, "0001-01-02") # test for the second of the month
+entry3 = TransactionItem("birthday", "yearly", +123, "0001-09-05")
+entry0 = TransactionItem("current state", "once", 1000, "2019-08-24")
 transactions = [entry0, entry1, entry2, entry3]
 
 # print with enumeration
@@ -87,7 +109,7 @@ for entry in range(len(transactions)):
     print(entry, transactions[entry])
 
 #-------- test run of the "program" --------
-startDate = datetime.fromisoformat("2019-08-21")
+startDate = datetime.fromisoformat("2019-08-22")
 currentDateTime = startDate
 print("starting with:", currentDateTime)
 
@@ -99,7 +121,7 @@ for i in range(20):
     # check for all transactions if they trigger; and if, then evaluate
     for item in transactions:
         if item.willTriggerToday(currentDateTime):
-            currentCash += item.getAmount()
+            currentCash += item.amount
 
     # print the current state
     print(i,":", currentDateTime, "cash=", currentCash)
