@@ -74,10 +74,12 @@ class TransactionItem:
         return self.amount
 
 # example transactions
+# idea for the type-info inside the date is: if a column is zero, then this means "recurring"
 entry0 = TransactionItem("current state", "once", 100, "22.08.2019")
-entry1 = TransactionItem("consumed food", "daily", -5, "21.08.2019") # starting from today; every day 5 kuan loss
-entry2 = TransactionItem("salary", "monthly", +666, "01.09.2019") # question: how to represent the monthly stuff? just use the day from date?
-transactions = [entry0, entry1, entry2]
+entry1 = TransactionItem("consumed food", "daily", -5, "00.00.0000") # starting from today; every day 5 kuan loss
+entry2 = TransactionItem("salary", "monthly", +666, "01.00.0000")
+entry3 = TransactionItem("birthday", "yearly", +123, "01.10.0000")
+transactions = [entry0, entry1, entry2, entry3]
 
 # print with enumeration
 print("--- transactions ----")
@@ -89,10 +91,11 @@ startDate = datetime.fromisoformat("2019-08-21")
 currentDateTime = startDate
 print("starting with:", currentDateTime)
 
-currentCash = 2000
+currentCash = 0
 
-# "walks" over the next ten days :)
-for i in range(10):
+# "walks" over the next twenty days :)
+print("---------------------------------------")
+for i in range(20):
     # check for all transactions if they trigger; and if, then evaluate
     for item in transactions:
         if item.willTriggerToday(currentDateTime):
