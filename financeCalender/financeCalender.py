@@ -120,11 +120,14 @@ print("---------------------------------------")
 for i in range(20):
     # check for all transactions if they trigger; and if, then evaluate
     appliedTransactions = ""  # also print what has happened
+    change = 0 # track the daily change
     for item in transactions:
         if item.willTriggerToday(currentDateTime):
             currentCash += item.amount
             appliedTransactions += item.name + ";"
+            change += item.amount
 
     # print the current state (datetime just as date)
-    print(i,": date=", currentDateTime.strftime('%Y-%m-%d'), "cash=", currentCash, "triggers=", appliedTransactions)
+    print(i,": date=", currentDateTime.strftime('%Y-%m-%d'), "budget=", currentCash, "triggers=", appliedTransactions,
+          "change=", change)
     currentDateTime += timedelta(days=1)
