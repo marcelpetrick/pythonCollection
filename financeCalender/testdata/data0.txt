@@ -1,7 +1,10 @@
+# attention: structure and naming are part of the implementation process and can and will be changed without further notice
+
 # name; amount; type; trigger based on type (once: day as dd.mm.yyyy; weekly: day as dd; monthly: day as dd; yearly: day as dd.mm)
+current state; 2000; once; 19.08.2019
+
 salary; 1666; monthly; 21
 rent; -666; monthly; 01
-christmas money; 100; 24.12
-current state: 19.08.2019
 
-# structure and naming are part of the implementation process and can be changed without further notice
+christmas money; 100; 24.12
+birthday; 100; 1970-10-10
