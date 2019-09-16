@@ -68,5 +68,27 @@ def prepareInput():
 
     return listOfDigits
 
+#-------------------------------
+
+def checkAllPossibleTupleProducts():
+    ''' Simple and straightforward and with no padding of neutral elements of both ends of the list:
+        create sliding window of 13 digits; compute the product; compare against the saved maximum
+    '''
+
+    # init the comparing values
+    biggestTuple = []
+    biggestTupleProduct = 0
+
+    # get the list
+    listOfDigits = prepareInput()
+
+    # go over the whole list:
+    tupleRange = 13
+    for startIndex in range(0, 1000 -tupleRange):
+        selectedTuple = listOfDigits[startIndex:(startIndex + tupleRange)]
+        print("selection:", selectedTuple)
+
+#-------------------------------
 
 print(prepareInput())
+checkAllPossibleTupleProducts()
