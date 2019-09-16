@@ -97,10 +97,11 @@ class TransactionItem:
 # idea for the type-info inside the date is: if a column is zero, then this means "recurring"
 # hint: this idea did not work out: because then the datetime-parsing complains about invalid format; therefore replace with the first valid one: the 1.
 # but this leads to issues with "1" for real date and "1" as placeholder. So the type-information is really needed.
+entry0 = TransactionItem("current state", "once", 1000, "2019-08-24")
 entry1 = TransactionItem("consumed food", "daily", -5, "0001-01-01") # starting from today; every day 5 kuan loss
 entry2 = TransactionItem("salary", "monthly", +666, "0001-01-02") # test for the second of the month
 entry3 = TransactionItem("birthday", "yearly", +123, "0001-09-05")
-entry0 = TransactionItem("current state", "once", 1000, "2019-08-24")
+
 transactions = [entry0, entry1, entry2, entry3]
 
 # print with enumeration
