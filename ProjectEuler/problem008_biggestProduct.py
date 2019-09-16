@@ -75,6 +75,10 @@ def checkAllPossibleTupleProducts():
         create sliding window of 13 digits; compute the product; compare against the saved maximum
     '''
 
+    # for the product of list
+    from functools import reduce
+    import operator
+
     # init the comparing values
     biggestTuple = []
     biggestTupleProduct = 0
@@ -88,7 +92,20 @@ def checkAllPossibleTupleProducts():
         selectedTuple = listOfDigits[startIndex:(startIndex + tupleRange)]
         print("selection:", selectedTuple)
 
+        currentProduct = reduce(operator.mul, selectedTuple, 1)
+        print(currentProduct)
+
+        if currentProduct > biggestTupleProduct:
+            biggestTupleProduct = currentProduct
+            biggestTuple = selectedTuple.copy()
+            print("Bäm, update:", biggestTupleProduct)
+
+    print("final state:", biggestTupleProduct,"with", biggestTuple)
+
 #-------------------------------
 
 print(prepareInput())
 checkAllPossibleTupleProducts()
+
+# result? needs to be checked against the euler-page
+# final state: 23514624000 with [5, 5, 7, 6, 6, 8, 9, 6, 6, 4, 8, 9, 5]
