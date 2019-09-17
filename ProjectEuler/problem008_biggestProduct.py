@@ -28,11 +28,10 @@ import unittest
 # ------------------------------------------------------------------------------
 
 # idea:
-# * convert the input to a list with 100 entries (simple)
-# either check for all 13-tuples the product, then print the final one
-# speed-up: shifting window: div by the front-number; multiply by the new follow-up-number
-# another trick: if one of the factors is zero, then just "skip"
-
+# * convert the input to a list with 1000 entries (simple) [done]
+# either check for all 13-tuples the product, then print the final one [done]
+# speed-up: shifting window: div by the front-number; multiply by the new follow-up-number [note done]
+# another trick: if one of the factors is zero, then just "skip" [not done]
 
 # ------------------------------------------------------------------------------
 # implementation
@@ -62,9 +61,10 @@ def prepareInput():
         "71636269561882670428252483600823257530420752963450"
     )
 
+    # convert all characters to integer-digits for the list
     listOfDigits = [int(character) for character in inputString]
 
-    print("elem in listOfDigits:", len(listOfDigits))
+    # print("elem in listOfDigits:", len(listOfDigits))
 
     return listOfDigits
 
@@ -75,7 +75,7 @@ def checkAllPossibleTupleProducts():
         create sliding window of 13 digits; compute the product; compare against the saved maximum
     '''
 
-    # for the product of list
+    # for the product of sub-lists
     from functools import reduce
     import operator
 
@@ -90,10 +90,10 @@ def checkAllPossibleTupleProducts():
     tupleRange = 13
     for startIndex in range(0, 1000 -tupleRange):
         selectedTuple = listOfDigits[startIndex:(startIndex + tupleRange)]
-        print("selection:", selectedTuple)
+        # print("selection:", selectedTuple)
 
         currentProduct = reduce(operator.mul, selectedTuple, 1)
-        print(currentProduct)
+        # print(currentProduct)
 
         if currentProduct > biggestTupleProduct:
             biggestTupleProduct = currentProduct
@@ -104,8 +104,16 @@ def checkAllPossibleTupleProducts():
 
 #-------------------------------
 
-print(prepareInput())
+# call the functionality
+# print(prepareInput())
 checkAllPossibleTupleProducts()
 
 # result? needs to be checked against the euler-page
 # final state: 23514624000 with [5, 5, 7, 6, 6, 8, 9, 6, 6, 4, 8, 9, 5]
+
+# Result fom Euler-Homepage with 23514624000:
+# Congratulations, the answer you gave to problem 8 is correct.
+#
+# You are the 323831st person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%.
