@@ -60,6 +60,13 @@ class TransactionItem:
         # convert the date to a real type
         self.date = datetime.fromisoformat(date)
 
+    # "overload" of the ctor in the pythonic way
+    @classmethod
+    def from_string(cls, transaction_item_as_string: str) -> 'TransactionItem':
+        #item = TransactionItem("name", "daily", 1, "2019-09-01")
+        # TODO of course, parse the string and fill the parameters!
+        return cls("name", "daily", 1, "2019-09-01")
+
     # self representation
     def __repr__(self):
         return self.name + "|" + self.triggerType + "|" + str(self.amount) + "|" + str(self.date)
@@ -90,12 +97,13 @@ class TransactionItem:
 # ----------------------------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
 
-# about the datetime.fromisoformat throws on year 0000 and out of range error
+# about the datetime.fromisoformat throws on year 0000 an "out of range"-exception
 # https://www.techatbloomberg.com/blog/work-dates-time-python/
 
 # example transactions
 # idea for the type-info inside the date is: if a column is zero, then this means "recurring"
-# hint: this idea did not work out: because then the datetime-parsing complains about invalid format; therefore replace with the first valid one: the 1.
+# hint: this idea did not work out: because then the datetime-parsing complains about invalid format;
+# therefore replace with the first valid one: the 1.
 # but this leads to issues with "1" for real date and "1" as placeholder. So the type-information is really needed.
 entry0 = TransactionItem("current state", "once", 1000, "2019-08-24")
 entry1 = TransactionItem("consumed food", "daily", -5, "0001-01-01") # starting from today; every day 5 kuan loss
@@ -132,3 +140,7 @@ for i in range(20):
     print(i,": date=", currentDateTime.strftime('%Y-%m-%d'), "budget=", currentCash, "triggers=", appliedTransactions,
           "change=", change)
     currentDateTime += timedelta(days=1)
+
+# --- test for operator overload ---
+foo = TransactionItem.from_string("abcd")
+print("foo:", foo)
