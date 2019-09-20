@@ -28,13 +28,11 @@
 # implementation
 # ------------------------------------------------------------------------------
 
-import unittest
-
-def isPythagoreanTriplet(a, b, c):
-    leftSide = a * a + b * b
-    rightSide = c * c
-    isPythagoreanTriplet = (leftSide == rightSide)
-    return isPythagoreanTriplet
+# def isPythagoreanTriplet(a, b, c):
+#     leftSide = a * a + b * b
+#     rightSide = c * c
+#     isPythagoreanTriplet = (leftSide == rightSide)
+#     return isPythagoreanTriplet
 
 # --------------------
 
