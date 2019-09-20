@@ -75,3 +75,20 @@ def __main__():
 
 # run it
 __main__()
+
+# gives:
+# m, n: 20 12 a,b,c: 256 480 544 is Hit: False 1280
+# m, n: 20 11 a,b,c: 279 440 521 is Hit: False 1240
+# m, n: 20 10 a,b,c: 300 400 500 is Hit: False 1200
+# m, n: 20 9 a,b,c: 319 360 481 is Hit: False 1160
+# m, n: 20 8 a,b,c: 336 320 464 is Hit: False 1120
+# m, n: 20 7 a,b,c: 351 280 449 is Hit: False 1080
+# m, n: 20 6 a,b,c: 364 240 436 is Hit: False 1040
+# m, n: 20 5 a,b,c: 375 200 425 is Hit: True 1000
+# product for the solution is: 31875000
+
+# Congratulations, the answer you gave to problem 9 is correct.
+#
+# You are the 329039th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%.
