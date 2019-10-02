@@ -9,7 +9,10 @@
 # idea:
 # how to generate them efficiently?
 # memoization and then checking each iterated one?
-
+#
+# what would be more or less the range to check (sieve) for primes by calculation?
+# https://primes.utm.edu/howmany.html
+#
 # ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
