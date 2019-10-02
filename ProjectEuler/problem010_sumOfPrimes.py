@@ -82,3 +82,12 @@ print("sum:", sum(primes))
 
 # output:
 # sum: 142913828922
+
+# ---- after entering to the page: -----------
+# Congratulations, the answer you gave to problem 10 is correct.
+#
+# You are the 301932nd person to have solved this problem.
+#
+# You have earned 1 new award:
+#
+#     Decathlete: Solve ten consecutive problems
