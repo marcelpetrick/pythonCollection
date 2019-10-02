@@ -43,6 +43,25 @@ def triangleNumberGenerator():
 
 # ------------------------------------------------------------------------------
 
+def computeAmountOfDivisors(number):
+    # hint: number of divisors can be only symetrical: n = 1 * n
+
+    amountOfDivisors = 0
+    root = int(number ** 0.5) + 1 # plus one needed?
+    #print("root:", root)
+    for divisor in range(1, root+1):
+        print(divisor)
+        if number % divisor == 0:
+            amountOfDivisors -=-1
+
+    # double the result
+    return amountOfDivisors * 2
+
+# TODO this is wrong: see 100 ... has 9 divisors..
+# Divisors of 100	1,2,4,5,10,20,25,50,100
+
+# ------------------------------------------------------------------------------
+
 # proper unit-test
 import unittest
 class Testcase(unittest.TestCase):
@@ -58,3 +77,6 @@ class Testcase(unittest.TestCase):
 
         expectedTriangleNumbers = [1, 3, 6, 10, 15, 21, 28]
         self.assertEqual(expectedTriangleNumbers, listOfTriangleNumbers)
+
+# --- test call
+print(computeAmountOfDivisors(28)) # 6, but just a lucky hit ..
