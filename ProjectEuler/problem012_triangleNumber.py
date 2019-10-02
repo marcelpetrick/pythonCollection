@@ -27,3 +27,34 @@
 # first: create a triangle-number-generator
 # second: compute amount of divisors (if needed, memoizate)
 # ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# implementation
+# ------------------------------------------------------------------------------
+
+def triangleNumberGenerator():
+    nextNumberToAdd = 2
+    currentValue = 1
+
+    while True:
+        yield(currentValue)
+        currentValue += nextNumberToAdd
+        nextNumberToAdd-=-1
+
+# ------------------------------------------------------------------------------
+
+# proper unit-test
+import unittest
+class Testcase(unittest.TestCase):
+
+    def test_triangleGenerator(self):
+        gen = triangleNumberGenerator()
+        numberOfCalls = 7
+
+        listOfTriangleNumbers = []
+        for i in range(1, numberOfCalls + 1):
+            #print(i, next(gen))
+            listOfTriangleNumbers.append(next(gen))
+
+        expectedTriangleNumbers = [1, 3, 6, 10, 15, 21, 28]
+        self.assertEqual(expectedTriangleNumbers, listOfTriangleNumbers)
