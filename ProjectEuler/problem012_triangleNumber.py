@@ -39,26 +39,22 @@ def triangleNumberGenerator():
     while True:
         yield(currentValue)
         currentValue += nextNumberToAdd
-        nextNumberToAdd-=-1
+        nextNumberToAdd -=- 1
 
 # ------------------------------------------------------------------------------
 
 def computeAmountOfDivisors(number):
-    # hint: number of divisors can be only symetrical: n = 1 * n
+    # hint: number of divisors is not symetrical - so do not do some weird "optimizations"
+    # see: 100 with 10 divisor and quotient
 
+    print("computeAmountOfDiv#isors for ", number)
     amountOfDivisors = 0
-    root = int(number ** 0.5) + 1 # plus one needed?
-    #print("root:", root)
-    for divisor in range(1, root+1):
-        print(divisor)
+    for divisor in range(1, number+1):
         if number % divisor == 0:
-            amountOfDivisors -=-1
+            amountOfDivisors -=- 1
+            #print(divisor, amountOfDivisors)
 
-    # double the result
-    return amountOfDivisors * 2
-
-# TODO this is wrong: see 100 ... has 9 divisors..
-# Divisors of 100	1,2,4,5,10,20,25,50,100
+    return amountOfDivisors
 
 # ------------------------------------------------------------------------------
 
@@ -78,5 +74,12 @@ class Testcase(unittest.TestCase):
         expectedTriangleNumbers = [1, 3, 6, 10, 15, 21, 28]
         self.assertEqual(expectedTriangleNumbers, listOfTriangleNumbers)
 
+    def test_computeAmountOfDivisors(self):
+        self.assertEqual(2, computeAmountOfDivisors(2))
+        self.assertEqual(6, computeAmountOfDivisors(28))
+        self.assertEqual(9, computeAmountOfDivisors(100))
+        self.assertEqual(11, computeAmountOfDivisors(1024))
+        self.assertEqual(36, computeAmountOfDivisors(3658732))
+
 # --- test call
-print(computeAmountOfDivisors(28)) # 6, but just a lucky hit ..
+#print(computeAmountOfDivisors(28)) # 6, but just a lucky hit ..
