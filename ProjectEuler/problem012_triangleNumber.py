@@ -72,8 +72,16 @@ def getFirstTriangleNumberWithMoreThanXDivisors(in_divisors):
         numberOfCalls += 1
 
         triangleNumber = next(gen)
+
+        # skip the divisions to save time
+        # see "The smallest number with at least 500 divisors is 26×32×52×7×11×13=14414400"
+        if triangleNumber < 14414400:
+            continue
+
         divisors = computeAmountOfDivisors(triangleNumber)
         #print(triangleNumber, divisors)
+
+        print(numberOfCalls, ":", triangleNumber, "has", divisors, "divisors - biggest has", lastMostDivisors)
 
         # just for tracking
         if divisors > lastMostDivisors:
