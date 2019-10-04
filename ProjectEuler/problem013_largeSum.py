@@ -226,7 +226,13 @@ def prepareInput():
 #-------------------------------
 
 # gives: 5537376230390876637302048746832985971773659831892672
-print(sum(prepareInput()))
+#print(sum(prepareInput()))
 
 asString = str(sum(prepareInput()))
 print(asString[:10])
+# result: 5537376230
+
+# ### for the handing in ###
+# Congratulations, the answer you gave to problem 13 is correct.
+#
+# You are the 208884th person to have solved this problem.
