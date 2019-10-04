@@ -43,32 +43,17 @@ def triangleNumberGenerator():
 
 # ------------------------------------------------------------------------------
 
-knownDivNumbers = dict()
-#knownDivNumbers[31501953] = 30
-
 def computeAmountOfDivisors(number):
     # hint: number of divisors is not symmetrical - so do not do some weird "optimizations"
     # see: 100 with 10 divisor and quotient
 
     #print("computeAmountOfDivisors for:", number)
-
-    if number in knownDivNumbers:
-        return knownDivNumbers[number]
-
     amountOfDivisors = 0
-    for divisor in range(2, number + 1):
+    for divisor in range(1, number+1):
         if number % divisor == 0:
-            amountOfDivisors += 1
+            amountOfDivisors -=- 1
             #print(divisor, amountOfDivisors)
 
-            # ask
-            howMuchKnown = computeAmountOfDivisors(number // divisor)
-            amountOfDivisors = amountOfDivisors + howMuchKnown
-            # insert
-            knownDivNumbers[number] = amountOfDivisors
-            return amountOfDivisors
-
-    # should never reach here
     return amountOfDivisors
 
 # ------------------------------------------------------------------------------
@@ -92,14 +77,11 @@ def getFirstTriangleNumberWithMoreThanXDivisors(in_divisors):
 
         # skip the divisions to save time
         # see "The smallest number with at least 500 divisors is 26×32×52×7×11×13=14414400"
-        # if triangleNumber < 14414400:
-        #     continue
-        #
-        # # form previous run: 17907120 has 480
-        # if triangleNumber < 17907120:
-        #     continue
+        if triangleNumber < 14414400:
+            continue
 
-        if triangleNumber < 31486080:
+        # form previous run: 17907120 has 480
+        if triangleNumber < 17907120:
             continue
 
         startTime = time.time()
