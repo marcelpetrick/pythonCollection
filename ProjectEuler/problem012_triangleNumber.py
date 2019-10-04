@@ -59,6 +59,8 @@ def computeAmountOfDivisors(number):
 # ------------------------------------------------------------------------------
 
 def getFirstTriangleNumberWithMoreThanXDivisors(in_divisors):
+    import time
+
     gen = triangleNumberGenerator()
     numberOfCalls = 0
     triangleNumber = -1
@@ -78,10 +80,14 @@ def getFirstTriangleNumberWithMoreThanXDivisors(in_divisors):
         if triangleNumber < 14414400:
             continue
 
-        divisors = computeAmountOfDivisors(triangleNumber)
-        #print(triangleNumber, divisors)
+        # form previous run: 17907120 has 480
+        if triangleNumber < 17907120:
+            continue
 
-        print(numberOfCalls, ":", triangleNumber, "has", divisors, "divisors - biggest has", lastMostDivisors)
+        startTime = time.time()
+        divisors = computeAmountOfDivisors(triangleNumber)
+
+        print(numberOfCalls, ":", triangleNumber, "has", divisors, "divisors", "took", time.time() - startTime, "s /", "biggest has", lastMostDivisors)
 
         # just for tracking
         if divisors > lastMostDivisors:
