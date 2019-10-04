@@ -120,3 +120,8 @@ processTriangle()
 # [999]
 # [1074]
 # final state: [1074]
+
+# -- web page --
+# Congratulations, the answer you gave to problem 18 is correct.
+#
+# You are the 133556th person to have solved this problem.
