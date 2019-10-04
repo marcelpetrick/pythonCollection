@@ -149,3 +149,10 @@ getFirstTriangleNumberWithMoreThanXDivisors(500)
 # 12375 : 76576500 has 576 divisors
 # ###############################
 # final: 76576500 has 576 divisors
+
+#--------------------------
+# Congratulations, the answer you gave to problem 12 is correct.
+#
+# You are the 203380th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%.
