@@ -47,7 +47,7 @@ def computeAmountOfDivisors(number):
     # hint: number of divisors is not symetrical - so do not do some weird "optimizations"
     # see: 100 with 10 divisor and quotient
 
-    print("computeAmountOfDiv#isors for ", number)
+    #print("computeAmountOfDivisors for:", number)
     amountOfDivisors = 0
     for divisor in range(1, number+1):
         if number % divisor == 0:
@@ -55,6 +55,24 @@ def computeAmountOfDivisors(number):
             #print(divisor, amountOfDivisors)
 
     return amountOfDivisors
+
+# ------------------------------------------------------------------------------
+
+def getFirstTriangleNumberWithMoreThanXDivisors(in_divisors):
+    gen = triangleNumberGenerator()
+    numberOfCalls = 0
+    triangleNumber = -1
+    divisors = -1
+
+    while divisors <= in_divisors:
+        numberOfCalls += 1
+
+        triangleNumber = next(gen)
+        divisors = computeAmountOfDivisors(triangleNumber)
+        #print(triangleNumber, divisors)
+
+    print("###############################")
+    print("final:", triangleNumber, "has", divisors)
 
 # ------------------------------------------------------------------------------
 
@@ -83,3 +101,7 @@ class Testcase(unittest.TestCase):
 
 # --- test call
 #print(computeAmountOfDivisors(28)) # 6, but just a lucky hit ..
+
+#getFirstTriangleNumberWithMoreThanXDivisors(10)
+getFirstTriangleNumberWithMoreThanXDivisors(500)
+#getFirstTriangleNumberWithMoreThanXDivisors(200)
