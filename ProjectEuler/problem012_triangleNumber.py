@@ -44,15 +44,24 @@ def triangleNumberGenerator():
 # ------------------------------------------------------------------------------
 
 def computeAmountOfDivisors(number):
-    # hint: number of divisors is not symmetrical - so do not do some weird "optimizations"
-    # see: 100 with 10 divisor and quotient
+    # hint 0: number of divisors is not symmetrical - so do not do some weird "optimizations"
+    # see: 100 with 10: is divisor and quotient
+    # remove 1 in case of a true square-number
+    # hint 1: memoization looked like an idea, but is wrong, because of permutations
+    # (just doing 1 + computeAmountOfDivisors(number // firstDiv) is fast, but wrong!)
 
     #print("computeAmountOfDivisors for:", number)
     amountOfDivisors = 0
-    for divisor in range(1, number+1):
+    squareRoot = int(number ** 0.5)
+    for divisor in range(1, squareRoot+1):
         if number % divisor == 0:
-            amountOfDivisors -=- 1
+            amountOfDivisors -=- 2
             #print(divisor, amountOfDivisors)
+
+    # remove one, if it is a perfect square
+    # https://www.mathblog.dk/triangle-number-with-more-than-500-divisors/
+    if squareRoot * squareRoot == number:
+        amountOfDivisors -= 1
 
     return amountOfDivisors
 
@@ -77,17 +86,20 @@ def getFirstTriangleNumberWithMoreThanXDivisors(in_divisors):
 
         # skip the divisions to save time
         # see "The smallest number with at least 500 divisors is 26×32×52×7×11×13=14414400"
-        if triangleNumber < 14414400:
-            continue
+        # if triangleNumber < 14414400:
+        #     continue
+        #
+        # # form previous run: 17907120 has 480
+        # if triangleNumber < 17907120:
+        #     continue
 
-        # form previous run: 17907120 has 480
-        if triangleNumber < 17907120:
+        if triangleNumber < 31486080:
             continue
 
         startTime = time.time()
         divisors = computeAmountOfDivisors(triangleNumber)
 
-        print(numberOfCalls, ":", triangleNumber, "has", divisors, "divisors", "took", time.time() - startTime, "s /", "biggest has", lastMostDivisors)
+        print(numberOfCalls, ":", triangleNumber, "has", divisors, "divisors", "(took", time.time() - startTime, "s) /", "biggest has", lastMostDivisors)
 
         # just for tracking
         if divisors > lastMostDivisors:
@@ -126,3 +138,14 @@ class Testcase(unittest.TestCase):
 # --- test call
 
 getFirstTriangleNumberWithMoreThanXDivisors(500)
+
+# run:
+# ...
+# 12371 : 76527006 has 32 divisors (took 0.0 s) / biggest has 448
+# 12372 : 76539378 has 16 divisors (took 0.0 s) / biggest has 448
+# 12373 : 76551751 has 8 divisors (took 0.0 s) / biggest has 448
+# 12374 : 76564125 has 96 divisors (took 0.0 s) / biggest has 448
+# 12375 : 76576500 has 576 divisors (took 0.0 s) / biggest has 448
+# 12375 : 76576500 has 576 divisors
+# ###############################
+# final: 76576500 has 576 divisors
