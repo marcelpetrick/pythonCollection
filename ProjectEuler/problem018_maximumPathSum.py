@@ -72,4 +72,51 @@ def prepareInput():
 
 # ------------------------------------------------------------------------------
 
-print(prepareInput())
+#print(prepareInput())
+
+# algo: (loop from bottom-1 to top):
+# 0. take line, go from left to right: put for each pair the maximum as new elem (not in place!)
+# 1. add the line above to it
+
+def processTriangle():
+    # prearation: read input and reverse
+    original = prepareInput()
+    # reverse IN PLACE!
+    original.reverse()
+    print(original) # todo remove
+
+    # prepare a temporary line
+    initialLengthFirstRow = len(original[0])
+    print("initialLengthFirstRow:", initialLengthFirstRow)
+
+    lastLine = [0] * (initialLengthFirstRow + 1)
+    print(lastLine)
+
+    # sum up
+    for index in range(len(original)):
+        # create a new selected list out of the temporary
+        pickedMaxList = []
+        for listIndex in range(len(lastLine) - 1):
+            a = lastLine[listIndex + 0]
+            b = lastLine[listIndex + 1]
+            pickedMaxList.append(max(a, b))
+        print(pickedMaxList)
+
+        # sum with temporary line
+        lastLine = [x+y for x,y in zip(pickedMaxList, original[index])]
+        print(lastLine)
+
+    # first element should be now the result
+    print("final state:", lastLine)
+
+# -- test call --
+processTriangle()
+
+# -- run --
+# ...
+# [818, 900, 935]
+# [900, 935]
+# [995, 999]
+# [999]
+# [1074]
+# final state: [1074]
