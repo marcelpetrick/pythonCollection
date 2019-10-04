@@ -64,6 +64,10 @@ def getFirstTriangleNumberWithMoreThanXDivisors(in_divisors):
     triangleNumber = -1
     divisors = -1
 
+    # just for tracking the progress of the initial naive implementation
+    lastMostDivisorsTriangleNumber = -1
+    lastMostDivisors = -1
+
     while divisors <= in_divisors:
         numberOfCalls += 1
 
@@ -71,8 +75,14 @@ def getFirstTriangleNumberWithMoreThanXDivisors(in_divisors):
         divisors = computeAmountOfDivisors(triangleNumber)
         #print(triangleNumber, divisors)
 
+        # just for tracking
+        if divisors > lastMostDivisors:
+            lastMostDivisors = divisors
+            lastMostDivisorsTriangleNumber = triangleNumber
+            print(numberOfCalls, ":", lastMostDivisorsTriangleNumber, "has", lastMostDivisors, "divisors")
+
     print("###############################")
-    print("final:", triangleNumber, "has", divisors)
+    print("final:", triangleNumber, "has", divisors, "divisors")
 
 # ------------------------------------------------------------------------------
 
@@ -100,8 +110,5 @@ class Testcase(unittest.TestCase):
         self.assertEqual(36, computeAmountOfDivisors(3658732))
 
 # --- test call
-#print(computeAmountOfDivisors(28)) # 6, but just a lucky hit ..
 
-#getFirstTriangleNumberWithMoreThanXDivisors(10)
 getFirstTriangleNumberWithMoreThanXDivisors(500)
-#getFirstTriangleNumberWithMoreThanXDivisors(200)
