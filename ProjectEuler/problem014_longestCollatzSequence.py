@@ -33,6 +33,7 @@
 # ------------------------------------------------------------------------------
 import time
 
+collatzDic = dict()
 def collatzStepsUntil1(input):
     # todo: write unit-test against the first 30 entries of https://oeis.org/A006577
 
@@ -44,14 +45,35 @@ def collatzStepsUntil1(input):
     if input == 1:
         return 0
 
+    # check the dictionary for previous results (for 1 mio items: with memo: 1.2s; without 27s!)
+    if input in collatzDic:
+        return collatzDic[input]
+
     # check and apply the Collatz-rule
+    result = -1
     if input % 2 == 0:
-        return 1 + collatzStepsUntil1(input // 2)
+        result = 1 + collatzStepsUntil1(input // 2)
     else:
-        return 1 + collatzStepsUntil1(3 * input + 1)
+        result = 1 + collatzStepsUntil1(3 * input + 1)
+
+    collatzDic[input] = result
+
+    return result
 
 # --- test run ---
 startTime = time.time()
-for i in range(1, 1000000):
-    print(i, " -> ", collatzStepsUntil1(i))
+number, steps = -1, -1
+maxLimit = 1000000
+for i in range(1, maxLimit):
+    result = collatzStepsUntil1(i)
+    # print(i, " -> ", result)
+
+    if result > steps:
+        steps = result
+        number = i
+
 print("took", time.time() - startTime, "s")
+print("number %d has %d steps, which is the biggest amount of steps for numbers below %d" % (number, steps, maxLimit))
+
+# took 1.3609158992767334 s
+# number 837799 has 524 steps, which is the biggest amount of steps for numbers below 1000000
