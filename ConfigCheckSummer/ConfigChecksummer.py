@@ -127,7 +127,7 @@ def checksumConfigRewriteChecksumUpload(pathToCli, configFilePath):
 # ----------------- test run -----------------
 
 # adapt those two paths to your current situation
-configFilePath = "LumiTOP_00000003/LumiTOP_00000003.xml"
+configFilePath = "LumiTOP_00000004/LumiTOP_00000004.xml"
 pathToCli = "C:/Repos/LumiSuite/build/CMake/Debug/build/bin/lumi_comm_tqboard_cli.exe"
 
 checksumConfigRewriteChecksumUpload(pathToCli, configFilePath)
