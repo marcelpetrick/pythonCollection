@@ -31,6 +31,7 @@
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+import time
 
 def collatzStepsUntil1(input):
     # todo: write unit-test against the first 30 entries of https://oeis.org/A006577
@@ -50,5 +51,7 @@ def collatzStepsUntil1(input):
         return 1 + collatzStepsUntil1(3 * input + 1)
 
 # --- test run ---
-for i in range(1, 28):
+startTime = time.time()
+for i in range(1, 1000000):
     print(i, " -> ", collatzStepsUntil1(i))
+print("took", time.time() - startTime, "s")
