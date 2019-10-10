@@ -77,3 +77,10 @@ print("number %d has %d steps, which is the biggest amount of steps for numbers 
 
 # took 1.3609158992767334 s
 # number 837799 has 524 steps, which is the biggest amount of steps for numbers below 1000000
+
+# ---- euler page ---
+# Congratulations, the answer you gave to problem 14 is correct.
+#
+# You are the 209206th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%.
