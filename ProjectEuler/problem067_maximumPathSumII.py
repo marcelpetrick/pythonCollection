@@ -35,6 +35,7 @@
 # but there are some flaws, because no proper separation of functionality .... so let us just copy and modify the stuff
 
 # ------------------------------------------------------------------------------
+import time
 
 def prepareInput():
     listOfNumbers = [[int(v) for v in line.split()] for line in open('problem067_triangle.txt')]
@@ -42,14 +43,12 @@ def prepareInput():
 
 # ------------------------------------------------------------------------------
 
-#print(prepareInput())
-
 # algo: (loop from bottom-1 to top):
 # 0. take line, go from left to right: put for each pair the maximum as new elem (not in place!)
 # 1. add the line above to it
 
 def processTriangle():
-    # prearation: read input and reverse
+    # preparation: read input and reverse
     original = prepareInput()
     # reverse IN PLACE!
     original.reverse()
@@ -80,7 +79,9 @@ def processTriangle():
     print("final state:", lastLine)
 
 # -- test call --
+startTime = time.time()
 processTriangle()
+print("call to processTriangle() took", time.time() - startTime, "s")
 
 #------------------
 # ..
