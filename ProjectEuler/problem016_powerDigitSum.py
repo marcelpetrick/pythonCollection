@@ -44,3 +44,8 @@ print("sum of digits is:", result)
 print("computation took", time.time() - startTime, "s")
 # sum of digits is: 1366
 # computation took 0.0 s
+
+# --- project euler ---
+# Congratulations, the answer you gave to problem 16 is correct.
+#
+# You are the 211630th person to have solved this problem.
