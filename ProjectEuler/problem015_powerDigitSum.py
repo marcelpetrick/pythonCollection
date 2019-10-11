@@ -34,3 +34,13 @@ startTime = time.time()
 print(2 ** 1000000)
 print("call to 2 ** 1000000 took", time.time() - startTime, "s")
 # call to 2 ** 1000000 took 1.264249324798584 s
+
+# -------------
+
+startTime = time.time()
+asString = str(2 ** 1000)
+result = sum(int(x) for x in asString if x.isdigit())
+print("sum of digits is:", result)
+print("computation took", time.time() - startTime, "s")
+# sum of digits is: 1366
+# computation took 0.0 s
