@@ -48,17 +48,27 @@ def generateDigitFourthPowers(power, rangeExponent):
     resultList = []
     for number in range(10, 10 ** rangeExponent):
         if(numberIsDigitFourthPower(number, power)):
-            print("is digit fourth power", number)
+            print("is digit", power, "th power:", number)
             resultList.append(number)
 
     return sum(resultList)
 
 # --- test call ---
 startTime = time.time()
-powerSum = generateDigitFourthPowers(4, 6)
+powerSum = generateDigitFourthPowers(5, 6)
 print("computation took", time.time() - startTime, "s: powerSum = ", powerSum)
 
 # is digit fourth power 1634
 # is digit fourth power 8208
 # is digit fourth power 9474
 # computation took 5.894561290740967 s: powerSum =  19316
+
+# ---------------------
+# is digit fourth power 4150
+# is digit fourth power 4151
+# is digit fourth power 54748
+# is digit fourth power 92727
+# is digit fourth power 93084
+# is digit fourth power 194979
+# computation took 6.436579704284668 s: powerSum =  443839
+# ---------------------
