@@ -27,3 +27,27 @@
 # implementation
 # ------------------------------------------------------------------------------
 import time
+
+# --- first the naive implementation ---
+def numberIsDigitFourthPower(number):
+    # split into digits
+    digits = [int(d) for d in str(number)]
+
+    # power them
+    poweredDigits = [x ** 4 for x in digits]
+
+    return sum(poweredDigits) == number
+
+def generateDigitFourthPowers():
+
+    for number in range(1, 10 ** 4):
+        if(numberIsDigitFourthPower(number)):
+            print("is digit fourth power", number)
+
+# --- test call ---
+generateDigitFourthPowers()
+
+# is digit fourth power 1
+# is digit fourth power 1634
+# is digit fourth power 8208
+# is digit fourth power 9474
