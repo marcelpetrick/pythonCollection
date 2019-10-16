@@ -28,16 +28,30 @@
 # ------------------------------------------------------------------------------
 import time
 
-# --- first the naive implementation ---
-def numberIsDigitFourthPower(number, power):
+#--- speed up-look up table ---
+def precComputePowers(power):
     if power <= 1:
         raise ValueError("power too small, at least 1 expected!")
+
+    result = [0, 1]
+    for number in range(2,10):
+        result.append(number ** power)
+
+    print(result) # todo remove
+    return result
+
+precomputedLUT = precComputePowers(5)
+
+# --- first the naive implementation ---
+def numberIsDigitFourthPower(number, power):
+    # if power <= 1:
+    #     raise ValueError("power too small, at least 1 expected!")
 
     # split into digits
     digits = [int(d) for d in str(number)]
 
     # power them up
-    poweredDigits = [x ** power for x in digits]
+    poweredDigits = [precomputedLUT[x] for x in digits]
 
     return sum(poweredDigits) == number
 
@@ -75,3 +89,5 @@ print("computation took", time.time() - startTime, "s: powerSum = ", powerSum)
 # Congratulations, the answer you gave to problem 30 is correct.
 #
 # You are the 101338th person to have solved this problem.
+
+# with LUT for the powers: 3.5s ... just 50% gain, bad :/
