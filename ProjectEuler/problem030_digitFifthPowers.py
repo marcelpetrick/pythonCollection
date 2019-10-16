@@ -64,11 +64,14 @@ print("computation took", time.time() - startTime, "s: powerSum = ", powerSum)
 # computation took 5.894561290740967 s: powerSum =  19316
 
 # ---------------------
-# is digit fourth power 4150
-# is digit fourth power 4151
-# is digit fourth power 54748
-# is digit fourth power 92727
-# is digit fourth power 93084
-# is digit fourth power 194979
-# computation took 6.436579704284668 s: powerSum =  443839
+# is digit 5 th power: 4150
+# is digit 5 th power: 4151
+# is digit 5 th power: 54748
+# is digit 5 th power: 92727
+# is digit 5 th power: 93084
+# is digit 5 th power: 194979
+# computation took 5.940189361572266 s: powerSum =  443839
 # ---------------------
+# Congratulations, the answer you gave to problem 30 is correct.
+#
+# You are the 101338th person to have solved this problem.
