@@ -45,7 +45,9 @@ def generateDigitFourthPowers():
             print("is digit fourth power", number)
 
 # --- test call ---
+startTime = time.time()
 generateDigitFourthPowers()
+print("computation took", time.time() - startTime, "s")
 
 # is digit fourth power 1
 # is digit fourth power 1634
