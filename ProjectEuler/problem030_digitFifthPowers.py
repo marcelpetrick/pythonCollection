@@ -37,10 +37,8 @@ def precComputePowers(power):
     for number in range(2,10):
         result.append(number ** power)
 
-    print(result) # todo remove
+    print("LUT:", result) # todo remove
     return result
-
-precomputedLUT = precComputePowers(5)
 
 # --- first the naive implementation ---
 def numberIsDigitFourthPower(number, power):
@@ -52,6 +50,7 @@ def numberIsDigitFourthPower(number, power):
 
     # power them up
     poweredDigits = [precomputedLUT[x] for x in digits]
+    #poweredDigits = [x ** power for x in digits]
 
     return sum(poweredDigits) == number
 
@@ -69,7 +68,8 @@ def generateDigitFourthPowers(power, rangeExponent):
 
 # --- test call ---
 startTime = time.time()
-powerSum = generateDigitFourthPowers(5, 6)
+precomputedLUT = precComputePowers(5)
+powerSum = generateDigitFourthPowers(5, 7)
 print("computation took", time.time() - startTime, "s: powerSum = ", powerSum)
 
 # is digit fourth power 1634
