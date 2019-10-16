@@ -29,19 +29,25 @@
 import time
 
 # --- first the naive implementation ---
-def numberIsDigitFourthPower(number):
+def numberIsDigitFourthPower(number, power):
+    if power <= 1:
+        raise ValueError("power too small, at least 1 expected!")
+
     # split into digits
     digits = [int(d) for d in str(number)]
 
     # power them up
-    poweredDigits = [x ** 4 for x in digits]
+    poweredDigits = [x ** power for x in digits]
 
     return sum(poweredDigits) == number
 
-def generateDigitFourthPowers():
+def generateDigitFourthPowers(power, rangeExponent):
+    if rangeExponent < 1:
+        raise ValueError("exponent too small, at least 2 expected!")
+
     resultList = []
-    for number in range(10, 10 ** 6):
-        if(numberIsDigitFourthPower(number)):
+    for number in range(10, 10 ** rangeExponent):
+        if(numberIsDigitFourthPower(number, power)):
             print("is digit fourth power", number)
             resultList.append(number)
 
@@ -49,7 +55,7 @@ def generateDigitFourthPowers():
 
 # --- test call ---
 startTime = time.time()
-powerSum = generateDigitFourthPowers()
+powerSum = generateDigitFourthPowers(4, 6)
 print("computation took", time.time() - startTime, "s: powerSum = ", powerSum)
 
 # is digit fourth power 1634
