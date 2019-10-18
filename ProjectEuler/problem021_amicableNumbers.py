@@ -10,8 +10,9 @@
 # Evaluate the sum of all the amicable numbers under 10000.
 
 # idea:
-#
-#
+# * do for all numbers in the range: find all divisors (list) and compute sum
+# * then sort them into buckets where the sum is the key
+# * if one bucket has more than one entry, then that
 # ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
