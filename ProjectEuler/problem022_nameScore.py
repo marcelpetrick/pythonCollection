@@ -17,5 +17,15 @@
 #import time
 #import unitttest
 
+def prepareInput():
+    listOfNames = (line.split(",") for line in open('problem022_names.txt'))
+    listOfCleanedNames = list()
+    for item in listOfNames:
+        listOfCleanedNames.append(item.replace("'", "").replace("\"", ""))
+
+    #listOfCleanedName = [item.replace("'", "").replace("\"") for item in listOfNames]
+    return listOfCleanedNames
 
 #--- test call ---
+
+print(prepareInput())
