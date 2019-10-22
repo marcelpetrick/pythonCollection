@@ -2,10 +2,18 @@
 # * adapt the path to the config.xml and the lumi_comm_tqboard_cli tool in the footer of this file
 # * run the script
 #
+# Params to use (for instance):
+# configFilePath = "LumiTOP_00000003/LumiTOP_00000003.xml"
+# pathToCli = "C:/Repos/LumiSuite/build/CMake/Debug/build/bin/lumi_comm_tqboard_cli.exe"
+#
 # What does it do?
 # It md5-checkums the given configuration file and writes the hash into the corresponding checksum-file.
 # All TqBoard-based devices are then discovered and the output is parsed for IP and port (note: undefined behavior
 # if several results). Then the two aforementioned files are uploaded to the TqBoard.
+#
+# Params to use (for instance):
+# configFilePath = "LumiTOP_00000003/LumiTOP_00000003.xml"
+# pathToCli = "C:/Repos/LumiSuite/build/CMake/Debug/build/bin/lumi_comm_tqboard_cli.exe"
 
 # -------------------------------------------
 def md5(filename):
@@ -35,9 +43,9 @@ def getIpAndPort(pathToCli):
     # identify used board and find ip and port
     import subprocess
     cli = subprocess.Popen([pathToCli, "detect"],
-                     stdout=subprocess.PIPE,
-                     stderr=subprocess.PIPE,
-                     shell=True)
+                           stdout=subprocess.PIPE,
+                           stderr=subprocess.PIPE,
+                           shell=True)
     stdout, stderr = cli.communicate()
     # check the return code for errors
     if cli.returncode != 0:
@@ -61,9 +69,9 @@ def getIpAndPort(pathToCli):
     argString2 = "deviceInfo"
     print("argString:", argString0, argString1, argString2)
     cli = subprocess.Popen([pathToCli, argString0, argString1, argString2],
-                     stdout=subprocess.PIPE,
-                     stderr=subprocess.PIPE,
-                     shell=True)
+                           stdout=subprocess.PIPE,
+                           stderr=subprocess.PIPE,
+                           shell=True)
     stdout, stderr = cli.communicate()
     # check the return code for errors
     if cli.returncode != 0:
@@ -86,9 +94,9 @@ def uploadFileTo(pathToCli, ip, port, pathToFile):
 
     print("argString:", argString0, argString1, argString2, argString3RemoteName, argString4LocalPath)
     cli = subprocess.Popen([pathToCli, argString0, argString1, argString2, argString3RemoteName, argString4LocalPath],
-                     stdout=subprocess.PIPE,
-                     stderr=subprocess.PIPE,
-                     shell=True)
+                           stdout=subprocess.PIPE,
+                           stderr=subprocess.PIPE,
+                           shell=True)
     stdout, stderr = cli.communicate()
     # check the return code for errors
     if cli.returncode != 0:
@@ -109,8 +117,13 @@ def uploadToTqBoard(pathToCli, configFilePath):
     uploadFileTo(pathToCli, ip, port, checksumFilePath)
 
 # ----------------- main function -----------------
-def checksumConfigRewriteChecksumUpload(pathToCli, configFilePath):
-    ''' One function fits all! '''
+def main():
+    # get the parameters
+    if len(sys.argv) > 3:
+        configFilePath = sys.argv[1]
+        pathToCli = sys.argv[2]
+    else:
+        raise Exception("Not enough parameters specified: first must be PathToConfigFile, second PathToCLI-exectuable.")
 
     # checksum the configuration
     md5sum = md5(configFilePath)
@@ -124,10 +137,6 @@ def checksumConfigRewriteChecksumUpload(pathToCli, configFilePath):
     # discover device and upload the two files
     uploadToTqBoard(pathToCli, configFilePath)
 
-# ----------------- test run -----------------
-
-# adapt those two paths to your current situation
-configFilePath = "LumiTOP_00000004/LumiTOP_00000004.xml"
-pathToCli = "C:/Repos/LumiSuite/build/CMake/Debug/build/bin/lumi_comm_tqboard_cli.exe"
-
-checksumConfigRewriteChecksumUpload(pathToCli, configFilePath)
+# ----------------- execution -----------------
+if __name__ == "__main__":
+    main()
