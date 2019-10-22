@@ -18,12 +18,21 @@
 #import unitttest
 
 def prepareInput():
-    listOfNames = (line.split(",") for line in open('problem022_names.txt'))
-    listOfCleanedNames = list()
-    for item in listOfNames:
-        listOfCleanedNames.append(item.replace("'", "").replace("\"", ""))
 
-    #listOfCleanedName = [item.replace("'", "").replace("\"") for item in listOfNames]
+    # open
+    file = open('problem022_names.txt', 'r')
+
+    # result container
+    listOfCleanedNames = list()
+
+    # read content
+    for line in file.readlines():
+        splitLine = line.split(",")
+        for item in splitLine:
+            cleanItem = item.replace("\"", "")
+            print("cleanItem:", cleanItem)
+            listOfCleanedNames.append(cleanItem)
+
     return listOfCleanedNames
 
 #--- test call ---
