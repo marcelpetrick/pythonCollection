@@ -56,3 +56,6 @@ print("pos of the first component is:", pos)
 # found
 # pos of the first component is: 4782
 #----------------
+# Congratulations, the answer you gave to problem 25 is correct.
+#
+# You are the 143997th person to have solved this problem.
