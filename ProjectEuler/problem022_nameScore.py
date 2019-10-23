@@ -84,3 +84,9 @@ if __name__ == '__main__':
 #
 # second try with first position = 1:
 # 871198282
+#
+# Congratulations, the answer you gave to problem 22 is correct.
+#
+# You are the 124097th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%. 
