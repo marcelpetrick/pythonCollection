@@ -42,6 +42,24 @@ def calcValueOfName(name):
 
     characterValues = sum([(ord(c) - 64) for c in name])
     return characterValues
+#-------------------------------------------------------------------------------
+def calcNameScore():
+    inputList = prepareInput()
+    print("inputList:", inputList)
+    inputList.sort();
+    print("inputList:", inputList)
+
+    position = 0
+    fileResultSum = 0
+    for name in inputList:
+        calculatedValue = calcValueOfName(name)
+        finalValue = position * calculatedValue
+        print(name, ":", calculatedValue, " * ", position, " => ", finalValue)
+        position -=-1
+
+        fileResultSum += finalValue
+
+    return fileResultSum
 
 # ------------------------------------------------------------------------------
 class Testcase(unittest.TestCase):
@@ -49,21 +67,12 @@ class Testcase(unittest.TestCase):
         self.assertEqual(1, calcValueOfName("A"))
         self.assertEqual(53, calcValueOfName("COLIN"))
 
+    def test_finalRun(self):
+        print("final score is:", calcNameScore())
+        self.assertTrue(1337)
+
 # ------------------------------------------------------------------------------
 if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
-
-#--- test call ---
-
-inputList = prepareInput()
-print("inputList:", inputList)
-inputList.sort();
-print("inputList:", inputList)
-
-position = 0
-for name in inputList:
-    finalValue = 2 * 3 # todo
-    print(name, calcValueOfName(name), position, finalValue)
-    position -=-1
