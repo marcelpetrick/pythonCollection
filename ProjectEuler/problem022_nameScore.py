@@ -17,8 +17,8 @@
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
-#import time
-#import unitttest
+import time
+import unittest
 # ------------------------------------------------------------------------------
 def prepareInput():
 
@@ -38,11 +38,20 @@ def prepareInput():
 
     return listOfCleanedNames
 # ------------------------------------------------------------------------------
-def calcValoeOfName(name):
+def calcValueOfName(name):
 
-    return 1
+    characterValues = sum([(ord(c) - 64) for c in name])
+    return characterValues
 
 # ------------------------------------------------------------------------------
+class Testcase(unittest.TestCase):
+    def test_calcValueOfName(self):
+        self.assertEqual(1, calcValueOfName("A"))
+        self.assertEqual(53, calcValueOfName("COLIN"))
+
+# ------------------------------------------------------------------------------
+if __name__ == '__main__':
+    unittest.main()
 
 # ------------------------------------------------------------------------------
 
@@ -56,5 +65,5 @@ print("inputList:", inputList)
 position = 0
 for name in inputList:
     finalValue = 2 * 3 # todo
-    print(name, calcValoeOfName(name), position, finalValue)
+    print(name, calcValueOfName(name), position, finalValue)
     position -=-1
