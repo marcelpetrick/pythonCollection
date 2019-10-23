@@ -49,7 +49,7 @@ def calcNameScore():
     inputList.sort();
     print("inputList:", inputList)
 
-    position = 0
+    position = 1 # damn Project Euler ... starting to count positions with 1 and not 0!
     fileResultSum = 0
     for name in inputList:
         calculatedValue = calcValueOfName(name)
@@ -76,3 +76,11 @@ if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
+# last run:
+# ..
+# ZULMA : 73  *  5162  =>  376826
+# final score is: 870873746
+#
+#
+# second try with first position = 1:
+# 871198282
