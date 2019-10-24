@@ -12,8 +12,16 @@
 # Using words.txt (right click and 'Save Link/Target As...'), a 16K text file containing nearly two-thousand common
 # English words, how many are triangle words?
 
-# ----------------------------------
+# ------------------------------------------------------------------------------
 
+# idea:
+# 0. read the file, split the line, compute for each word the value and while going through the list, find the maximum.
+# 1. Then generate triangle numbers until you are bigger than that maximum. store the triangle numbers in a dictionary.
+# 2. check for each word-value if triangle number: if yes, then +1
+# 3. return the result -- profit
+# ------------------------------------------------------------------------------
+
+# can be thrown away, because overengineered
 class TriangleNumberChecker():
     def __init__(self):
         self.currentMax = 0
@@ -23,7 +31,4 @@ class TriangleNumberChecker():
         if self.currentMax < limit:
             for index in range(self.currentMax, limit + 1):
                 pass
-            
 
-
-def isTriangleNumber(input):
