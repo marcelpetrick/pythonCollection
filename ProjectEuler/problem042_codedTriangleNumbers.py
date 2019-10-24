@@ -13,3 +13,17 @@
 # English words, how many are triangle words?
 
 # ----------------------------------
+
+class TriangleNumberChecker():
+    def __init__(self):
+        self.currentMax = 0
+        self.dict = dict()
+
+    def generateNumbersUpTo(self, limit):
+        if self.currentMax < limit:
+            for index in range(self.currentMax, limit + 1):
+                pass
+            
+
+
+def isTriangleNumber(input):
