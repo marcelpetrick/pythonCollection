@@ -67,3 +67,10 @@ print("triangle words in list", sum([calcValueOfName(word) in triangles for word
 # triangles: [1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78, 91, 105, 120, 136, 153, 171, 190, 210]
 # names in list: 1786
 # triangle words in list 162
+
+# -------------------------
+# Congratulations, the answer you gave to problem 42 is correct.
+#
+# You are the 68601st person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%. 
