@@ -50,3 +50,20 @@ for word in prepareInput():
     resultDict[word] = calcValueOfName(word)
 
 print(resultDict)
+maximum = max(resultDict, key=resultDict.get)
+print(resultDict[maximum]) # 192
+
+# triangle numbers up to 200 ... because of (n(n+1)/2 .. 20 at least
+
+triangles = []
+for i in range(1, 21):
+    triangles.append(int(i * (i + 1) / 2))
+
+print("triangles:", triangles)
+print("names in list:", prepareInput().__len__())
+
+print("triangle words in list", sum([calcValueOfName(word) in triangles for word in prepareInput()]))
+
+# triangles: [1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78, 91, 105, 120, 136, 153, 171, 190, 210]
+# names in list: 1786
+# triangle words in list 162
