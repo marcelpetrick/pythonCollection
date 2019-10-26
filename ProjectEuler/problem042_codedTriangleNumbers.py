@@ -21,14 +21,32 @@
 # 3. return the result -- profit
 # ------------------------------------------------------------------------------
 
-# can be thrown away, because overengineered
-class TriangleNumberChecker():
-    def __init__(self):
-        self.currentMax = 0
-        self.dict = dict()
+def prepareInput():
 
-    def generateNumbersUpTo(self, limit):
-        if self.currentMax < limit:
-            for index in range(self.currentMax, limit + 1):
-                pass
+    # open
+    file = open('problem042_words.txt', 'r')
 
+    # prepare result container
+    listOfCleanedNames = list()
+
+    # read content
+    for line in file.readlines():
+        splitLine = line.split(",")
+        for item in splitLine:
+            cleanItem = item.replace("\"", "")
+            #print("cleanItem:", cleanItem)
+            listOfCleanedNames.append(cleanItem)
+
+    return listOfCleanedNames
+# ------------------------------------------------------------------------------
+def calcValueOfName(name):
+
+    characterValues = sum([(ord(c) - 64) for c in name])
+    return characterValues
+#-------------------------------------------------------------------------------
+
+resultDict = dict()
+for word in prepareInput():
+    resultDict[word] = calcValueOfName(word)
+
+print(resultDict)
