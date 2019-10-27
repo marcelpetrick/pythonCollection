@@ -23,8 +23,22 @@ for i in range(0,10):
 def isValidPermutation(number):
     asListOfChars = [x for x in str(number)]
     asListOfChars.sort()
-    print("as char:", asListOfChars)
+    #print("as char:", asListOfChars)
     return asListOfChars == comparisonList
 
-print(comparisonList)
-print("1234567890:", isValidPermutation(1234567890))
+#print(comparisonList)
+#print("1234567890:", isValidPermutation(1234567890))
+#print("1234567810:", isValidPermutation(1234567810))
+
+# the function
+currentNumber = 1023456789
+numberOfValidPermutations = 0 # is the x-th permutation in lexicographic order
+while True:
+    if isValidPermutation(currentNumber):
+        numberOfValidPermutations += 1
+        print(numberOfValidPermutations, ":", currentNumber)
+
+        if numberOfValidPermutations == 1000000:
+            break
+
+    currentNumber += 1
