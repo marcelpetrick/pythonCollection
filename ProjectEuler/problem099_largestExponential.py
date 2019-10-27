@@ -8,3 +8,5 @@
 # Using base_exp.txt (right click and 'Save Link/Target As...'), a 22K text file containing one thousand lines with a base/exponent pair on each line, determine which line number has the greatest numerical value.
 #
 # NOTE: The first two lines in the file represent the numbers in the example given above.
+
+# hint: https://www.quora.com/How-do-we-compare-numbers-with-big-exponents-and-different-bases-for-example-how-do-we-compare-3-210-and-17-140
