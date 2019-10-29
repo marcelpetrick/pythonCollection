@@ -15,23 +15,44 @@
 
 # ------------------------------------------------------------------------------
 import unittest
+
+
 # ------------------------------------------------------------------------------
 
 def letterCount(word):
     return len(word)
 
+
 # how to make this "static"?
-numberDict = dict[(1,"one"),
-                  (2,"two"),
-                  (3,"three")]
+# create a list of tuples, which is then converted to a dictionary
+numberDict = dict([
+    (0, "zero"),
+    (1, "one"),
+    (2, "two"),
+    (3, "three"),
+    (4, "two"),
+    (5, "two"),
+    (6, "two"),
+    (7, "two"),
+    (8, "two"),
+    (9, "two"),
+    (10, "ten"),
+    (11, "eleven"),
+    (12, "twelve"),
+    (13, "thirteen"),
+    (14, "fourteen"),
+    (15, "fifteen"),
+    (16, "fifteen"),
+    (17, "seventeen"),
+    (18, "eighteen"),
+    (19, "nineteen"),
+    (20, "twenty"),
+    (30, "thirty"),
+    (40, "forty"),
+    # to be continued
+])
 print("numberDict:", numberDict)
 
-wordFrequency = dict(Hello =  7,
-                     hi    = 10,
-                     there  = 45,
-                     at    = 23,
-                     this  = 77
-                     )
 
 def convertNumberToString(number):
     if number < 0:
