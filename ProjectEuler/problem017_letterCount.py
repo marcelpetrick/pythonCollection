@@ -17,4 +17,22 @@
 import unittest
 # ------------------------------------------------------------------------------
 
-# todo add the implementation
+def letterCount(word):
+    return len(word)
+
+# how to make this "static"?
+numberDict = dict[(1,"one"),
+                  (2,"two"),
+                  (3,"three")]
+print("numberDict:", numberDict)
+
+wordFrequency = dict(Hello =  7,
+                     hi    = 10,
+                     there  = 45,
+                     at    = 23,
+                     this  = 77
+                     )
+
+def convertNumberToString(number):
+    if number < 0:
+        raise Exception("Wrong input value.")
