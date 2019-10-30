@@ -49,3 +49,6 @@ print("computation took", time.time() - startTime, "s")
 # Congratulations, the answer you gave to problem 16 is correct.
 #
 # You are the 211630th person to have solved this problem.
+
+# shortest form:
+print("sum of digits is:", sum(int(x) for x in str(2 ** 1000) if x.isdigit()))
