@@ -55,7 +55,9 @@ class NumbersToWords:
         ])
         #print("numberDict:", self.numberDict)
 
-        self.stringHundredAnd = "hundred and"
+        self.stringHundred = "hundred"
+
+        self.stringAnd = "and"
 
     # ------------------------------------------------------------------------------
 
@@ -71,25 +73,30 @@ class NumbersToWords:
 
         stringLastTwoDigits = ""
         if rest > 0: # zero has no words ..
+
+            # add an "and" in case there were hundreds
+            if amountOfHundreds > 0:
+                stringLastTwoDigits += self.stringAnd
+
             if rest < 20:
-                stringLastTwoDigits = self.numberDict[rest]
+                stringLastTwoDigits += self.numberDict[rest]
             else:
                 #print("incoming remainder is:", rest)
                 amountOfOnes = rest % 10
                 amountOfTens = rest - amountOfOnes
                 #print("amountOfTens:", amountOfTens, "amountOfOnes:", amountOfOnes)
-                stringLastTwoDigits = self.numberDict[amountOfTens] + " " + self.numberDict[amountOfOnes]
+                stringLastTwoDigits += self.numberDict[amountOfTens] + " " + self.numberDict[amountOfOnes]
 
         # constructing the result: first the hundreds ..
         resultString = ""
         if amountOfHundreds > 0:
-            resultString += self.numberDict[amountOfHundreds] + " " + self.stringHundredAnd + " "
+            resultString += self.numberDict[amountOfHundreds] + " " + self.stringHundred + " "
         # .. then the last two digits
         resultString += stringLastTwoDigits
 
         # almost forgot to omit counting the spaces!
         resultString = resultString.replace(" ", "")
-        #print(number, "-->", resultString)
+        print(number, "-->", resultString)
 
         return resultString
 
@@ -103,7 +110,7 @@ class NumbersToWords:
     def driverMethod(self):
         amountOfCharsNeeded = 0
         for number in range(1, 1000 + 1):
-            print("loop:", number, "-->", self.convertNumberToString(number), "-->", self.lettersOfNumberAsWord(number))
+            #print("loop:", number, "-->", self.convertNumberToString(number), "-->", self.lettersOfNumberAsWord(number))
             amountOfCharsNeeded += self.lettersOfNumberAsWord(number)
         return amountOfCharsNeeded
 
