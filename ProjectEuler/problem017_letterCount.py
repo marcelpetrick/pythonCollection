@@ -53,7 +53,38 @@ numberDict = dict([
 ])
 print("numberDict:", numberDict)
 
+# ------------------------------------------------------------------------------
 
 def convertNumberToString(number):
     if number < 0:
         raise Exception("Wrong input value.")
+
+# ------------------------------------------------------------------------------
+
+def lettersOfNumberAsWord(number):
+    return 0
+
+# ------------------------------------------------------------------------------
+
+def driverMethod():
+    amountOfCharsNeeded = 0
+    for number in range(1, 1000 + 1):
+        print("loop:",number)
+        amountOfCharsNeeded += lettersOfNumberAsWord(number)
+    return amountOfCharsNeeded
+
+# ------------------------------------------------------------------------------
+
+class Testcase(unittest.TestCase):
+    def test_calcValueOfName(self):
+        self.assertEqual(151, lettersOfNumberAsWord(151))
+
+    def test_finalRun(self):
+        print("final score is:", driverMethod())
+        self.assertTrue(1337)
+
+# ------------------------------------------------------------------------------
+if __name__ == '__main__':
+    unittest.main()
+
+# ------------------------------------------------------------------------------
