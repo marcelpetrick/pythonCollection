@@ -17,81 +17,96 @@
 import unittest
 # ------------------------------------------------------------------------------
 
-# how to make this "static"?
-# create a list of tuples, which is then converted to a dictionary
-numberDict = dict([
-    #(0, "zero"),
-    (1, "one"),
-    (2, "two"),
-    (3, "three"),
-    (4, "two"),
-    (5, "two"),
-    (6, "two"),
-    (7, "two"),
-    (8, "two"),
-    (9, "two"),
-    (10, "ten"),
-    (11, "eleven"),
-    (12, "twelve"),
-    (13, "thirteen"),
-    (14, "fourteen"),
-    (15, "fifteen"),
-    (16, "fifteen"),
-    (17, "seventeen"),
-    (18, "eighteen"),
-    (19, "nineteen"),
-    (20, "twenty"),
-    (30, "thirty"),
-    (40, "forty"),
-    (50, "fifty"),
-    (60, "sixty"),
-    (70, "seventy"),
-    (80, "eighty"),
-    (90, "ninety")
-    # values more than hundred are determined by caclulation
-])
-print("numberDict:", numberDict)
+class NumbersToWords:
+    def __init__(self):
 
-stringHundredAnd = "hundred and"
+        # how to make this "static"?
+        # create a list of tuples, which is then converted to a dictionary
+        self.numberDict = dict([
+            #(0, "zero"),
+            (1, "one"),
+            (2, "two"),
+            (3, "three"),
+            (4, "four"),
+            (5, "five"),
+            (6, "six"),
+            (7, "seven"),
+            (8, "eight"),
+            (9, "nine"),
+            (10, "ten"),
+            (11, "eleven"),
+            (12, "twelve"),
+            (13, "thirteen"),
+            (14, "fourteen"),
+            (15, "fifteen"),
+            (16, "sixteen"),
+            (17, "seventeen"),
+            (18, "eighteen"),
+            (19, "nineteen"),
+            (20, "twenty"),
+            (30, "thirty"),
+            (40, "forty"),
+            (50, "fifty"),
+            (60, "sixty"),
+            (70, "seventy"),
+            (80, "eighty"),
+            (90, "ninety")
+            # values more than hundred are determined by calculation
+        ])
+        #print("numberDict:", self.numberDict)
 
-# ------------------------------------------------------------------------------
+        self.stringHundredAnd = "hundred and"
 
-def convertNumberToString(number):
-    if number < 0 or number > 1000:
-        raise Exception("Wrong input value.")
+    # ------------------------------------------------------------------------------
 
-    if number == 1000:
-        return "one thousand"
+    def convertNumberToString(self, number):
+        if number < 0 or number > 1000:
+            raise Exception("Wrong input value.")
 
-    amountOfHundreds = number // 100
+        if number == 1000:
+            return "one thousand"
 
-    resultString = numberDict[amountOfHundreds] + " " + stringHundredAnd + " " + numberDict[number % 100]
+        amountOfHundreds = number // 100
+        rest = amountOfHundreds % 100
 
-    return resultString
+        stringLastTwoDigits = ""
+        if rest > 0: # zero has no words ..
+            if rest < 20:
+                stringLastTwoDigits = self.numberDict[rest]
+            else:
+                amountOfTens = (rest // 10) * 10
+                rest = rest - amountOfTens
+                stringLastTwoDigits =  self.numberDict[amountOfTens] + " " + self.numberDict[amountOfTens]
 
-# ------------------------------------------------------------------------------
+        resultString = self.numberDict[amountOfHundreds] + " " + self.stringHundredAnd + " " + stringLastTwoDigits
 
-def lettersOfNumberAsWord(number):
-    return len(convertNumberToString(number))
+        return resultString
 
-# ------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
 
-def driverMethod():
-    amountOfCharsNeeded = 0
-    for number in range(1, 1000 + 1):
-        print("loop:",number)
-        amountOfCharsNeeded += lettersOfNumberAsWord(number)
-    return amountOfCharsNeeded
+    def lettersOfNumberAsWord(self, number):
+        return len(self.convertNumberToString(number))
 
-# ------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
+
+    def driverMethod(self):
+        amountOfCharsNeeded = 0
+        for number in range(1, 1000 + 1):
+            print("loop:", number, "-->", self.lettersOfNumberAsWord(number))
+            amountOfCharsNeeded += self.lettersOfNumberAsWord(number)
+        return amountOfCharsNeeded
+
+    # ------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
     def test_calcValueOfName(self):
-        self.assertEqual(23, lettersOfNumberAsWord(342))
-        self.assertEqual(20, lettersOfNumberAsWord(115))
+        instance = NumbersToWords()
+        self.assertEqual(23, instance.lettersOfNumberAsWord(342))
+        self.assertEqual(20, instance.lettersOfNumberAsWord(115))
 
     def test_finalRun(self):
-        print("final score is:", driverMethod())
+        instance = NumbersToWords()
+        print("final score is:", instance.driverMethod())
         self.assertTrue(1337)
 
 # ------------------------------------------------------------------------------
