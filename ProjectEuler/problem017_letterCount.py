@@ -15,18 +15,12 @@
 
 # ------------------------------------------------------------------------------
 import unittest
-
-
 # ------------------------------------------------------------------------------
-
-def letterCount(word):
-    return len(word)
-
 
 # how to make this "static"?
 # create a list of tuples, which is then converted to a dictionary
 numberDict = dict([
-    (0, "zero"),
+    #(0, "zero"),
     (1, "one"),
     (2, "two"),
     (3, "three"),
@@ -49,20 +43,36 @@ numberDict = dict([
     (20, "twenty"),
     (30, "thirty"),
     (40, "forty"),
-    # to be continued
+    (50, "fifty"),
+    (60, "sixty"),
+    (70, "seventy"),
+    (80, "eighty"),
+    (90, "ninety")
+    # values more than hundred are determined by caclulation
 ])
 print("numberDict:", numberDict)
+
+stringHundredAnd = "hundred and"
 
 # ------------------------------------------------------------------------------
 
 def convertNumberToString(number):
-    if number < 0:
+    if number < 0 or number > 1000:
         raise Exception("Wrong input value.")
+
+    if number == 1000:
+        return "one thousand"
+
+    amountOfHundreds = number // 100
+
+    resultString = numberDict[amountOfHundreds] + " " + stringHundredAnd + " " + numberDict[number % 100]
+
+    return resultString
 
 # ------------------------------------------------------------------------------
 
 def lettersOfNumberAsWord(number):
-    return 0
+    return len(convertNumberToString(number))
 
 # ------------------------------------------------------------------------------
 
@@ -77,7 +87,8 @@ def driverMethod():
 
 class Testcase(unittest.TestCase):
     def test_calcValueOfName(self):
-        self.assertEqual(151, lettersOfNumberAsWord(151))
+        self.assertEqual(23, lettersOfNumberAsWord(342))
+        self.assertEqual(20, lettersOfNumberAsWord(115))
 
     def test_finalRun(self):
         print("final score is:", driverMethod())
