@@ -138,52 +138,22 @@ if __name__ == '__main__':
 #print("final score is:", instance.driverMethod())
 
 # ------------------------------------------------------------------
-# loop: 960 --> ninehundredandsixty --> 19
-# loop: 961 --> ninehundredandsixtyone --> 22
-# loop: 962 --> ninehundredandsixtytwo --> 22
-# loop: 963 --> ninehundredandsixtythree --> 24
-# loop: 964 --> ninehundredandsixtyfour --> 23
-# loop: 965 --> ninehundredandsixtyfive --> 23
-# loop: 966 --> ninehundredandsixtysix --> 22
-# loop: 967 --> ninehundredandsixtyseven --> 24
-# loop: 968 --> ninehundredandsixtyeight --> 24
-# loop: 969 --> ninehundredandsixtynine --> 23
-# loop: 970 --> ninehundredandseventy --> 21
-# loop: 971 --> ninehundredandseventyone --> 24
-# loop: 972 --> ninehundredandseventytwo --> 24
-# loop: 973 --> ninehundredandseventythree --> 26
-# loop: 974 --> ninehundredandseventyfour --> 25
-# loop: 975 --> ninehundredandseventyfive --> 25
-# loop: 976 --> ninehundredandseventysix --> 24
-# loop: 977 --> ninehundredandseventyseven --> 26
-# loop: 978 --> ninehundredandseventyeight --> 26
-# loop: 979 --> ninehundredandseventynine --> 25
-# loop: 980 --> ninehundredandeighty --> 20
-# loop: 981 --> ninehundredandeightyone --> 23
-# loop: 982 --> ninehundredandeightytwo --> 23
-# loop: 983 --> ninehundredandeightythree --> 25
-# loop: 984 --> ninehundredandeightyfour --> 24
-# loop: 985 --> ninehundredandeightyfive --> 24
-# loop: 986 --> ninehundredandeightysix --> 23
-# loop: 987 --> ninehundredandeightyseven --> 25
-# loop: 988 --> ninehundredandeightyeight --> 25
-# loop: 989 --> ninehundredandeightynine --> 24
-# loop: 990 --> ninehundredandninety --> 20
-# loop: 991 --> ninehundredandninetyone --> 23
-# loop: 992 --> ninehundredandninetytwo --> 23
-# loop: 993 --> ninehundredandninetythree --> 25
-# loop: 994 --> ninehundredandninetyfour --> 24
-# loop: 995 --> ninehundredandninetyfive --> 24
-# loop: 996 --> ninehundredandninetysix --> 23
-# loop: 997 --> ninehundredandninetyseven --> 25
-# loop: 998 --> ninehundredandninetyeight --> 25
-# loop: 999 --> ninehundredandninetynine --> 24
-# loop: 1000 --> onethousand --> 11
-# final score is: 21151
+# ..
+# 995 --> ninehundredandninetyfive
+# 996 --> ninehundredandninetysix
+# 997 --> ninehundredandninetyseven
+# 998 --> ninehundredandninetyeight
+# 999 --> ninehundredandninetynine
+# final score is: 21124
 # .
 # ----------------------------------------------------------------------
-# Ran 2 tests in 0.054s
+# Ran 2 tests in 0.022s
+
+# ------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 17 is correct.
 #
-# OK
+# You are the 140179th person to have solved this problem.
 #
-# Process finished with exit code 0
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%
+
