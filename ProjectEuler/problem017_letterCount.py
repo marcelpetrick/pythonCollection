@@ -23,7 +23,7 @@ class NumbersToWords:
         # how to make this "static"?
         # create a list of tuples, which is then converted to a dictionary
         self.numberDict = dict([
-            #(0, "zero"),
+            (0, ""),
             (1, "one"),
             (2, "two"),
             (3, "three"),
@@ -67,21 +67,24 @@ class NumbersToWords:
             return "one thousand"
 
         amountOfHundreds = number // 100
-        rest = amountOfHundreds % 100
+        rest = number % 100
 
         stringLastTwoDigits = ""
         if rest > 0: # zero has no words ..
             if rest < 20:
                 stringLastTwoDigits = self.numberDict[rest]
             else:
-                amountOfTens = (rest // 10) * 10
-                rest = rest - amountOfTens
-                stringLastTwoDigits = self.numberDict[amountOfTens] + " " + self.numberDict[amountOfTens]
+                #print("incoming remainder is:", rest)
+                amountOfOnes = rest % 10
+                amountOfTens = rest - amountOfOnes
+                #print("amountOfTens:", amountOfTens, "amountOfOnes:", amountOfOnes)
+                stringLastTwoDigits = self.numberDict[amountOfTens] + " " + self.numberDict[amountOfOnes]
 
+        # constructing the result: first the hundreds ..
         resultString = ""
         if amountOfHundreds > 0:
             resultString += self.numberDict[amountOfHundreds] + " " + self.stringHundredAnd + " "
-
+        # .. then the last two digits
         resultString += stringLastTwoDigits
 
         return resultString
