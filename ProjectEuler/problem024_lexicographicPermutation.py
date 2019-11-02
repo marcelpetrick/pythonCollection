@@ -18,7 +18,27 @@
 # means: how many of the last digits have to be permutated to achieve the millionth permut?
 print(1*2*3*4*5*6*7*8*9*10)
 
+def generatePermut(inputString):
+    if len(inputString) == 0:
+        return []
 
+    if len(inputString) == 1:
+        return [inputString]
+
+    # take the first elem, permut the rest, apply the first to all of th rest
+    head = inputString[:1]
+    rest = inputString[1:]
+    print(inputString, ":", head, " - ", rest)
+    permuts = generatePermut(rest)
+    print("permuts:", permuts)
+
+    # put now the first elem to all possible positions of the permuts
+    results = []
+    for i in range(0, len)
+
+    return results
+
+generatePermut("abc")
 
 exit(0)
 #
