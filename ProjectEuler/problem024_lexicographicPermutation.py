@@ -12,7 +12,16 @@
 # ------------------------------------------------------------------------------
 
 # idea: brute force; just count upwards, check if the number would be a valid permutation ..
+#
+# since the first idea did not really work and was inefficient
+# 0. generate all permutations of 0123.456.789. since they should be lexicographic, the first digits wont have changed.
+# means: how many of the last digits have to be permutated to achieve the millionth permut?
+print(1*2*3*4*5*6*7*8*9*10)
 
+
+
+exit(0)
+#
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
