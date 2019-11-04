@@ -24,22 +24,29 @@ def sizeof_fmt(num, suffix='B'):
 
 # -------------------------------------------
 
-#import glob
 from pathlib import Path
 
 pathToCheck = "C:\LumiSuiteTestData"
-#pathToCheck = "C:/" # test your whole root .. lel
 
 # TODO make this a real function with time measurement!
 fileList = []
-for filename in Path(pathToCheck).rglob('*.lsimg'):
+for filename in Path(pathToCheck).rglob('*.*'): # TODO run this several times to catch different file types; concatenate the lists
     fileList.append(filename)
 
 import os
 import time
 # check the output
 for elem in fileList:
+    # Prevent that weird input files raise issues
+    #print("file to check:", elem)
+    if ".git" in str(elem.absolute()):
+        continue
+
     currentTime = time.time()
-    md5sum = md5(elem)
-    print(elem, ":", sizeof_fmt(os.path.getsize(elem)), ":", md5sum, " - ", time.time() - currentTime, "s")
+    try:
+        md5sum = md5(elem)
+        print(elem, ":", sizeof_fmt(os.path.getsize(elem)), ":", md5sum, " - ", time.time() - currentTime, "s")
+    except PermissionError:
+        print("permission-error with:", str(elem.absolute()))
+
 print("amount of found files:", len(fileList))
