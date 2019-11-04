@@ -57,9 +57,11 @@ for elem in fileList:
     except PermissionError:
         print("permission-error with:", str(elem.absolute()))
 
+# evaluation of the duplicate-evaluation
+print("###################################################")
 print("amount of found files:", len(fileList))
-print("amount of entries in the dictionary:", len(hashDict))
+print("amount of entries in the duplicate dictionary:", len(hashDict))
 # print the ducplicates
 for key in hashDict:
     if len(hashDict[key]) > 1:
-        print("duplo: ", len(hashDict[key]), key, hashDict[key])
+        print("duplo:", len(hashDict[key]), key, sizeof_fmt(os.path.getsize(hashDict[key][0])), hashDict[key])
