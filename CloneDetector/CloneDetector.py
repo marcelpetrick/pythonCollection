@@ -35,6 +35,8 @@ for filename in Path(pathToCheck).rglob('*.*'): # TODO run this several times to
 
 import os
 import time
+from collections import defaultdict, deque
+hashDict = defaultdict(list)
 # check the output
 for elem in fileList:
     # Prevent that weird input files raise issues
@@ -46,7 +48,18 @@ for elem in fileList:
     try:
         md5sum = md5(elem)
         print(elem, ":", sizeof_fmt(os.path.getsize(elem)), ":", md5sum, " - ", time.time() - currentTime, "s")
+        # insert into final structure
+        #if md5sum in hashDict:
+        hashDict[md5sum].append(str(elem.absolute()))
+        #else:
+#            hashDict[md5sum] = [str(elem.absolute())]
+        #print("current dict:", hashDict)
     except PermissionError:
         print("permission-error with:", str(elem.absolute()))
 
 print("amount of found files:", len(fileList))
+print("amount of entries in the dictionary:", len(hashDict))
+# print the ducplicates
+for key in hashDict:
+    if len(hashDict[key]) > 1:
+        print("duplo: ", len(hashDict[key]), key, hashDict[key])
