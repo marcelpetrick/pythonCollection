@@ -1,17 +1,13 @@
 # test using glob
 import glob
-pathToCheck = "C:\LumiSuiteTestData"
-fileList = glob.iglob(pathToCheck + '**/*', recursive=True)
+from pathlib import Path
 
-# test using os.walk
-#import os
-#fileList = next(os.walk('..'))[2]
-# just 9 files, not recursively
+pathToCheck = "C:\LumiSuiteTestData"
+fileList = []
+for filename in Path(pathToCheck).rglob('*.*'):
+    fileList.append(filename)
 
 # check the output
-amount = 0
 for elem in fileList:
     print(elem)
-    amount-=-1
-#print("found files:", len(fileList))
-print("found files:", amount)
+print("amount of found files:", len(fileList))
