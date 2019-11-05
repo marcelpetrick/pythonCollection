@@ -105,16 +105,17 @@ print("all permutations:")
 print(listOfAllPermuts[0])
 print(listOfAllPermuts[1])
 print(listOfAllPermuts[2])
-print(listOfAllPermuts[1000000])
+print(listOfAllPermuts[1000000 - 1]) # indexing issue!
 
-# permut creation took: 0.47617101669311523 s
+asString = ""
+for elem in listOfAllPermuts[1000000 - 1]:
+    asString += str(elem)
+print("result:", asString)
+
+# permut creation took: 0.5242722034454346 s
 # all permutations:
 # (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 # (0, 1, 2, 3, 4, 5, 6, 7, 9, 8)
 # (0, 1, 2, 3, 4, 5, 6, 8, 7, 9)
-# (2, 7, 8, 3, 9, 1, 5, 6, 0, 4)
-#
-# Process finished with exit code 0
-
-
-
+# (2, 7, 8, 3, 9, 1, 5, 4, 6, 0)
+# result: 2783915460
