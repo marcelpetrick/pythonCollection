@@ -16,6 +16,11 @@
 # since the first idea did not really work and was inefficient
 # 0. generate all permutations of 0123.456.789. since they should be lexicographic, the first digits wont have changed.
 # means: how many of the last digits have to be permutated to achieve the millionth permut?
+
+# ------------------------------------------------------------------------------
+# implementation
+# ------------------------------------------------------------------------------
+
 print(1*2*3*4*5*6*7*8*9*10)
 
 def generatePermut(inputString):
@@ -34,17 +39,15 @@ def generatePermut(inputString):
 
     # put now the first elem to all possible positions of the permuts
     results = []
-    for i in range(0, len)
+    # TODO
+    #for i in range(0, len)
 
     return results
 
 generatePermut("abc")
 
+# early exit
 exit(0)
-#
-# ------------------------------------------------------------------------------
-# implementation
-# ------------------------------------------------------------------------------
 
 # init
 comparisonList = []
