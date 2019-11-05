@@ -112,6 +112,7 @@ for elem in listOfAllPermuts[1000000 - 1]:
     asString += str(elem)
 print("result:", asString)
 
+# run:
 # permut creation took: 0.5242722034454346 s
 # all permutations:
 # (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
@@ -119,3 +120,9 @@ print("result:", asString)
 # (0, 1, 2, 3, 4, 5, 6, 8, 7, 9)
 # (2, 7, 8, 3, 9, 1, 5, 4, 6, 0)
 # result: 2783915460
+# # ------------------------------------------------------------------------------
+# Congratulations, the answer you gave to problem 24 is correct.
+#
+# You are the 106182nd person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%.
