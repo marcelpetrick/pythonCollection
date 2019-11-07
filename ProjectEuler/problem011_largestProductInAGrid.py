@@ -33,9 +33,14 @@
 # ------------------------------------------------------------------------------
 
 # idea:
-# from bottom line to top: create for each entry the maximum path sum (msp): save inside the node then the maximum
-# of both alternatives (except for the leaves, which are already "processed") plus the current node.
-# Do this from down to top .. should work.
+# * preprocessing: take the grid and make a real matrix 20x20 with int values out of it
+# * create a getter: get all possible 4-tuples (right, diagonal right-down, down --- so at maximum three!) from each
+#       position
+# * if current position (near edge or corner) does not allow a full 4-tuple, then don't return it there
+# compute for all tuples the product, then find the biggest (by continually updating the foundMax)
+# (performance improvement maybe some sliding window approach)
+# (possible performance improvement: if one of the factors is zero, then don't even compute the product)
+#
 
 # ------------------------------------------------------------------------------
 # implementation
