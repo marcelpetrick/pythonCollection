@@ -50,4 +50,47 @@ def prepareInput():
     fakeMatrix = [[int(item) for item in line.split()] for line in open('problem011_data.txt')]
     return fakeMatrix
 
-print(prepareInput())
+# ------------------------------------------------------------------------------
+
+def computeMaximum4Product(matrix):
+    sideLength = 20
+    numFactors = 4
+
+    biggest = -1
+    for x in range(0, sideLength - numFactors + 1):
+        for y in range(0, sideLength - numFactors + 1):
+            # check to the right
+            product = 1
+            for i in range(0, numFactors):
+                product *= matrix[x + i][y]
+
+            if product > biggest:
+                biggest = product
+                print("right: product starting from:[", x + i, ",", y, "] = ", product)
+
+            # check to the diagonal bottom
+            product = 1
+            for i in range(0, numFactors):
+                product *= matrix[x + i][y]
+
+            if product > biggest:
+                biggest = product
+                print("diagonal bottom: product starting from:[", x + i, ",", y, "] = ", product)
+
+            # check to the bottom
+            product = 1
+            for i in range(0, numFactors):
+                product *= matrix[x + i][y]
+
+            if product > biggest:
+                biggest = product
+                print("bottom: product starting from:[", x + i, ",", y, "] = ", product)
+
+    return biggest
+
+# ------------------------------------------------------------------------------
+
+# driver
+matrix = prepareInput()
+print("matrix:", matrix)
+print("biggest:", computeMaximum4Product(matrix))
