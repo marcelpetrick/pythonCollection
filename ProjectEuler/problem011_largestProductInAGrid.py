@@ -57,34 +57,37 @@ def computeMaximum4Product(matrix):
     numFactors = 4
 
     biggest = -1
-    for x in range(0, sideLength - numFactors + 1):
-        for y in range(0, sideLength - numFactors + 1):
+    for x in range(0, sideLength):
+        for y in range(0, sideLength):
             # check to the right
-            product = 1
-            for i in range(0, numFactors):
-                product *= matrix[x + i][y]
+            if x + numFactors < sideLength: # prevent out of bounds!
+                product = 1
+                for i in range(0, numFactors):
+                    product *= matrix[x + i][y]
 
-            if product > biggest:
-                biggest = product
-                print("right: product starting from:[", x + i, ",", y, "] = ", product)
+                if product > biggest:
+                    biggest = product
+                    print("right: product starting from:[", x, ",", y, "] = ", product)
 
             # check to the diagonal bottom
-            product = 1
-            for i in range(0, numFactors):
-                product *= matrix[x + i][y]
+            if x + numFactors < sideLength and y + numFactors < sideLength: # prevent out of bounds!
+                product = 1
+                for i in range(0, numFactors):
+                    product *= matrix[x + i][y + i]
 
-            if product > biggest:
-                biggest = product
-                print("diagonal bottom: product starting from:[", x + i, ",", y, "] = ", product)
+                if product > biggest:
+                    biggest = product
+                    print("diagonal bottom: product starting from:[", x, ",", y, "] = ", product)
 
             # check to the bottom
-            product = 1
-            for i in range(0, numFactors):
-                product *= matrix[x + i][y]
+            if y + numFactors < sideLength: # prevent out of bounds!
+                product = 1
+                for i in range(0, numFactors):
+                    product *= matrix[x][y + i]
 
-            if product > biggest:
-                biggest = product
-                print("bottom: product starting from:[", x + i, ",", y, "] = ", product)
+                if product > biggest:
+                    biggest = product
+                    print("bottom: product starting from:[", x, ",", y, "] = ", product)
 
     return biggest
 
