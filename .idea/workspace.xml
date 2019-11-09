@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoTestManager">
+    <enabled-run-configurations>
+      <run-configuration type="tests" name="Unittests for problem668_numpy.Testcase.test_sieveEras1000" />
+    </enabled-run-configurations>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bb630f12-6cdb-4b51-a5bf-35a97a1b3541" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
@@ -24,7 +29,7 @@
   <component name="ProjectId" id="1PmlxMMSlZ6JxvwRV609oAOCfPH" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv1" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -45,29 +50,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.problem016_powerDigitSum">
-    <configuration name="ConfigChecksummer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pythonCollection" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="C:/ProgramData/Instrument Systems/LumiSuite" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:/ProgramData/Instrument Systems/LumiSuite/ConfigChecksummer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="problem014_longestCollatzSequence" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.problem024_lexicographicPermutation">
+    <configuration name="problem017_letterCount" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -79,7 +63,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProjectEuler/problem014_longestCollatzSequence.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProjectEuler/problem017_letterCount.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -88,7 +72,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="problem015_powerDigitSum" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="problem022_nameScore" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -100,7 +84,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\mpe\Desktop\MarcelsFolder\coding\pythonCollection\ProjectEuler\problem016_powerDigitSum.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProjectEuler/problem022_nameScore.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -109,7 +93,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="problem016_powerDigitSum" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="problem024_lexicographicPermutation" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -121,7 +105,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProjectEuler/problem016_powerDigitSum.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProjectEuler/problem024_lexicographicPermutation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -130,7 +114,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="problem067_maximumPathSumII" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="problem025_1000digitFibonacci" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pythonCollection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -142,7 +126,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProjectEuler/problem067_maximumPathSumII.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProjectEuler/problem025_1000digitFibonacci.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="problem042_codedTriangleNumbers" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pythonCollection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ProjectEuler" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ProjectEuler/problem042_codedTriangleNumbers.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,19 +157,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.problem014_longestCollatzSequence" />
-      <item itemvalue="Python.ConfigChecksummer" />
-      <item itemvalue="Python.problem015_powerDigitSum" />
-      <item itemvalue="Python.problem067_maximumPathSumII" />
-      <item itemvalue="Python.problem016_powerDigitSum" />
+      <item itemvalue="Python.problem022_nameScore" />
+      <item itemvalue="Python.problem025_1000digitFibonacci" />
+      <item itemvalue="Python.problem042_codedTriangleNumbers" />
+      <item itemvalue="Python.problem024_lexicographicPermutation" />
+      <item itemvalue="Python.problem017_letterCount" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.problem016_powerDigitSum" />
-        <item itemvalue="Python.problem015_powerDigitSum" />
-        <item itemvalue="Python.problem067_maximumPathSumII" />
-        <item itemvalue="Python.ConfigChecksummer" />
-        <item itemvalue="Python.problem014_longestCollatzSequence" />
+        <item itemvalue="Python.problem024_lexicographicPermutation" />
+        <item itemvalue="Python.problem017_letterCount" />
+        <item itemvalue="Python.problem042_codedTriangleNumbers" />
+        <item itemvalue="Python.problem025_1000digitFibonacci" />
+        <item itemvalue="Python.problem022_nameScore" />
       </list>
     </recent_temporary>
   </component>
