@@ -45,3 +45,9 @@
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+
+def prepareInput():
+    fakeMatrix = [[int(item) for item in line.split()] for line in open('problem011_data.txt')]
+    return fakeMatrix
+
+print(prepareInput())
