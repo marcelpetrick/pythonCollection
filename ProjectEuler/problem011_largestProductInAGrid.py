@@ -59,18 +59,22 @@ def computeMaximum4Product(matrix):
     biggest = -1
     for x in range(0, sideLength):
         for y in range(0, sideLength):
-            # check to the right
-            if x + numFactors < sideLength: # prevent out of bounds!
+            print("handling now:", x, y)
+            # --- check to the right ---
+            if x + numFactors < sideLength:  # prevent out of bounds!
                 product = 1
+                nums = []
                 for i in range(0, numFactors):
                     product *= matrix[x + i][y]
+                    nums.append(matrix[x + i][y])
+                #print("nums:", nums)
 
                 if product > biggest:
                     biggest = product
                     print("right: product starting from:[", x, ",", y, "] = ", product)
 
-            # check to the diagonal bottom
-            if x + numFactors < sideLength and y + numFactors < sideLength: # prevent out of bounds!
+            # --- check to the diagonal bottom ---
+            if x + numFactors < sideLength and y + numFactors < sideLength:  # prevent out of bounds!
                 product = 1
                 for i in range(0, numFactors):
                     product *= matrix[x + i][y + i]
@@ -79,8 +83,8 @@ def computeMaximum4Product(matrix):
                     biggest = product
                     print("diagonal bottom: product starting from:[", x, ",", y, "] = ", product)
 
-            # check to the bottom
-            if y + numFactors < sideLength: # prevent out of bounds!
+            # --- check to the bottom ---
+            if y + numFactors < sideLength:  # prevent out of bounds!
                 product = 1
                 for i in range(0, numFactors):
                     product *= matrix[x][y + i]
@@ -97,3 +101,13 @@ def computeMaximum4Product(matrix):
 matrix = prepareInput()
 print("matrix:", matrix)
 print("biggest:", computeMaximum4Product(matrix))
+
+# ------------------------------------------------------------------------------
+# ..
+# handling now: 19 18
+# handling now: 19 19
+# biggest: 51267216
+
+# Sorry, but the answer you gave appears to be incorrect.
+
+# ??? confused
