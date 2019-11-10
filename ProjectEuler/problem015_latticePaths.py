@@ -19,3 +19,11 @@
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+
+import itertools as IT
+
+lattice = [char for char in 2 * "dr"]
+print(lattice)
+
+permuts = set(IT.permutations(lattice))
+print(len(permuts), permuts)
