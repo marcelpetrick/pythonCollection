@@ -22,8 +22,38 @@
 
 import itertools as IT
 
+# ------------------------------------------------------------------------------
+# the test value:
+# ------------------------------------------------------------------------------
 lattice = [char for char in 2 * "dr"]
-print(lattice)
+print("lattice:", lattice)
 
 permuts = set(IT.permutations(lattice))
-print(len(permuts), permuts)
+print(len(permuts), ":", permuts)
+
+# # ------------------------------------------------------------------------------
+# # the test value:
+# # ------------------------------------------------------------------------------
+# lattice = [char for char in 20 * "dr"]
+# print("lattice:", lattice)
+#
+# permuts = set(IT.permutations(lattice))
+# print(len(permuts), ":", permuts)
+# ... takes forever ...
+# # ------------------------------------------------------------------------------
+
+# next idea: why not compute directly ... and yes, this works:
+# wikipedia: permutations of mutli sets! :)
+
+# amount of unique permuts is:
+import math
+print(math.factorial(40) / (math.factorial(20) * math.factorial(20)))
+
+# ------------------------------------------------------------------------------
+# runtime: 137846528820.0
+
+# Congratulations, the answer you gave to problem 15 is correct.
+#
+# You are the 173608th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%.
