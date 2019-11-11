@@ -52,15 +52,27 @@ def computeProperDivisors(number):
 
 # proper unit-test
 class Testcase(unittest.TestCase):
-    def test_givenExampleOfProperDivisors(self):
+    def test_givenExampleOfProperDivisors0(self):
         n = 220
         expectedOutput = {1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110}
         computedOutput = computeProperDivisors(n)
         self.assertEqual(expectedOutput, computedOutput)
 
-    def test_sumOfProperDivisors(self):
+    def test_givenExampleOfProperDivisors1(self):
+        n = 284
+        expectedOutput = {1, 2, 4, 71, 142}
+        computedOutput = computeProperDivisors(n)
+        self.assertEqual(expectedOutput, computedOutput)
+
+    def test_sumOfProperDivisors0(self):
         n = 220
         expectedOutput = 284
+        computedOutput = sumOfProperDivisors(n)
+        self.assertEqual(expectedOutput, computedOutput)
+
+    def test_sumOfProperDivisors1(self):
+        n = 284
+        expectedOutput = 220
         computedOutput = sumOfProperDivisors(n)
         self.assertEqual(expectedOutput, computedOutput)
 
