@@ -19,11 +19,16 @@
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+
 #import time
-#import unitttest
+import unittest
+
+# ------------------------------------------------------------------------------
 
 def sumOfProperDivisors(number):
     return sum(computeProperDivisors(number))
+
+# ------------------------------------------------------------------------------
 
 def computeProperDivisors(number):
     if number <= 0:
@@ -37,7 +42,31 @@ def computeProperDivisors(number):
             properDivisors.add(divisor)
             properDivisors.add(dividend) # save one call
 
+        # since the task requires that the number itself is not part of the returned values, remove it
+        if number in properDivisors:
+            properDivisors.remove(number)
+
     return properDivisors
+
+# ------------------------------------------------------------------------------
+
+# proper unit-test
+class Testcase(unittest.TestCase):
+    def test_givenExampleOfProperDivisors(self):
+        n = 220
+        expectedOutput = {1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110}
+        computedOutput = computeProperDivisors(n)
+        self.assertEqual(expectedOutput, computedOutput)
+
+    def test_sumOfProperDivisors(self):
+        n = 220
+        expectedOutput = 284
+        computedOutput = sumOfProperDivisors(n)
+        self.assertEqual(expectedOutput, computedOutput)
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
 
 # --- test call ---
 def driver(number):
