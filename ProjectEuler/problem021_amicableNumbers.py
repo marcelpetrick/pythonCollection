@@ -92,12 +92,18 @@ print("###############################")
 def computeAmicableNumbersBelowN(limit):
     amis = set()
     for numberToTest in range(2, limit):
+
+        # prevent double checks
+        if numberToTest in amis:
+            continue
+
         ami = sumOfProperDivisors(numberToTest)
         #print(numberToTest, "-->", ami)
 
-        if sumOfProperDivisors(ami) == numberToTest:
+        if sumOfProperDivisors(ami) == numberToTest and ami != numberToTest:
             amis.add(numberToTest)
             amis.add(ami)
+            print("found:", numberToTest, "-->", ami, "(ami)")
 
     return amis
 
@@ -108,9 +114,20 @@ amis = computeAmicableNumbersBelowN(10000)
 print("amis:", amis, "sum of amis:", sum(amis))
 
 # ------------------------------------------------------------------------------
-# amis: {1184, 6368, 8128, 6, 5564, 5020, 2924, 28, 496, 284, 6232, 1210, 220, 2620} sum of amis: 40284
+# found: 220 --> 284 (ami)
+# found: 1184 --> 1210 (ami)
+# found: 2620 --> 2924 (ami)
+# found: 5020 --> 5564 (ami)
+# found: 6232 --> 6368 (ami)
+# amis: {1184, 6368, 5564, 5020, 2924, 284, 6232, 1210, 220, 2620} sum of amis: 31626
 #
 # Process finished with exit code 0
 # ------------------------------------------------------------------------------
 
-# ... incorrect ...
+# Congratulations, the answer you gave to problem 21 is correct.
+#
+# You are the 135617th person to have solved this problem.
+#
+# You have earned 1 new award:
+#
+#     Easy Prey: Solve twenty-five of the fifty easiest problems
