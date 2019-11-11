@@ -77,12 +77,40 @@ class Testcase(unittest.TestCase):
         self.assertEqual(expectedOutput, computedOutput)
 
 # ---- here comes the execution of the unit-tests ----
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
 
 # --- test call ---
-def driver(number):
-    print(number, "-->", computeProperDivisors(number), "-->", sumOfProperDivisors(number))
+# def driver(number):
+#     print(number, "-->", computeProperDivisors(number), "-->", sumOfProperDivisors(number))
+#
+# driver(220)
+# driver(284)
 
-driver(220)
-driver(1024)
+print("###############################")
+
+def computeAmicableNumbersBelowN(limit):
+    amis = set()
+    for numberToTest in range(2, limit):
+        ami = sumOfProperDivisors(numberToTest)
+        #print(numberToTest, "-->", ami)
+
+        if sumOfProperDivisors(ami) == numberToTest:
+            amis.add(numberToTest)
+            amis.add(ami)
+
+    return amis
+
+# amis = computeAmicableNumbersBelowN(100)
+# print("amis:", amis)
+
+amis = computeAmicableNumbersBelowN(10000)
+print("amis:", amis, "sum of amis:", sum(amis))
+
+# ------------------------------------------------------------------------------
+# amis: {1184, 6368, 8128, 6, 5564, 5020, 2924, 28, 496, 284, 6232, 1210, 220, 2620} sum of amis: 40284
+#
+# Process finished with exit code 0
+# ------------------------------------------------------------------------------
+
+# ... incorrect ...
