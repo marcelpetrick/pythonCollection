@@ -177,10 +177,11 @@ class Testcase(unittest.TestCase):
 #    unittest.main()
 
 # ------------------------------------------------------------------------------
-print("###############")
-for i in range(1, 10 + 1):
-    startTime = time.time()
-    print("--> amount of square-root-smooth numbers in 10 ^", i, "?", getNumberOfSqureRootSmoothNumbersBelow(10 ** i), "; computed in in", time.time() - startTime, "s")
+# commented to make it usable in other functions
+# print("###############")
+# for i in range(1, 10 + 1):
+#     startTime = time.time()
+#     print("--> amount of square-root-smooth numbers in 10 ^", i, "?", getNumberOfSqureRootSmoothNumbersBelow(10 ** i), "; computed in in", time.time() - startTime, "s")
 
 # ###############
 # ### start computation of number of SRS up to 11 now ###

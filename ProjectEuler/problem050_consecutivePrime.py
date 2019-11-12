@@ -13,12 +13,25 @@
 # ------------------------------------------------------------------------------
 
 # idea:
-# TODO
+# * implement function to compute all primes up to a certain limit
+#
 
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
 
+def lookAndSay(n):
+    return 0
+
+# ------------------------------------------------------------------------------
+
+# reuse code from previous solution
+def getPrimesUntilLimit(limit):
+    from ProjectEuler.problem668_numpy import sieveEras  # works, but just after commenting lots of code inside that file
+    primes = sieveEras(limit, False) # this is also a mistake in the second parameter
+    #print(len(primes), ":", primes)  # 78,498 for 10 ** 6 - which is correct
+
+    return primes
 
 # ------------------------------------------------------------------------------
 
@@ -26,17 +39,13 @@
 
 import unittest
 class Testcase(unittest.TestCase):
-    def test_givenExample0(self):
-        n = 1
-        expectedOutput = 1
-        computedOutput = lookAndSay(n)
+    def test_primeGen(self):
+        expectedOutput = 78498
+        computedOutput = len(getPrimesUntilLimit(10 ** 6))
         self.assertEqual(expectedOutput, computedOutput)
 
-    def test_expectFail(self):
-        self.assertFalse(1 < 0, "hell has frozen over")
-
 # ---- here comes the execution of the unit-tests ----
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
 
 # ------------------------------------------------------------------------------
