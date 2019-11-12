@@ -14,15 +14,12 @@
 
 # idea:
 # * implement function to compute all primes up to a certain limit
-#
+# * for each elem (prime) inside that list, check if a possible, consecutive sublist can be added up to that prime ->
+# return the longest chain for each prime; sometimes maybe empty list
+# check which prime has the longest list
 
 # ------------------------------------------------------------------------------
 # implementation
-# ------------------------------------------------------------------------------
-
-def lookAndSay(n):
-    return 0
-
 # ------------------------------------------------------------------------------
 
 # reuse code from previous solution
@@ -38,11 +35,15 @@ def getPrimesUntilLimit(limit):
 # proper unit-test
 
 import unittest
+import time
 class Testcase(unittest.TestCase):
     def test_primeGen(self):
         expectedOutput = 78498
+        startTime = time.time()
         computedOutput = len(getPrimesUntilLimit(10 ** 6))
+        timeTakenToCompute = time.time() - startTime
         self.assertEqual(expectedOutput, computedOutput)
+        print("computation of primes up to 10 ** 6 took", timeTakenToCompute, "s")
 
 # ---- here comes the execution of the unit-tests ----
 # if __name__ == '__main__':
