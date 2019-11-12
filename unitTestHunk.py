@@ -1,25 +1,27 @@
-# description: state the problem here
+# description:
+# TODO state the problem here
 
 # ------------------------------------------------------------------------------
 
-# idea: TODO
+# idea:
+# TODO describe the approach wanted to solve the task
 
 # ------------------------------------------------------------------------------
 
-import unittest
-
-# ------------------------------------------------------------------------------
-
+# dummy function
 def lookAndSay(n):
     # todo description of the method
 
-    if(n == 1):
+    if n == 1:
         return 1
 
     pass
 
 # ------------------------------------------------------------------------------
+
 # proper unit-test
+
+import unittest
 class Testcase(unittest.TestCase):
     def test_givenExample0(self):
         n = 1
