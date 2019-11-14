@@ -32,12 +32,22 @@ def getPrimesUntilLimit(limit):
 
 # ------------------------------------------------------------------------------
 
+def findLongestChainForPrime(target, primes):
+    resultSummands = []
+
+    return resultSummands
+
+# ------------------------------------------------------------------------------
+
 # proper unit-test
 
 import unittest
-import time
+
+@unittest.skip("unwanted for now")
 class Testcase(unittest.TestCase):
+
     def test_primeGen(self):
+        import time
         expectedOutput = 78498
         startTime = time.time()
         computedOutput = len(getPrimesUntilLimit(10 ** 6))
@@ -50,3 +60,11 @@ class Testcase(unittest.TestCase):
 #     unittest.main()
 
 # ------------------------------------------------------------------------------
+
+# test
+print("#############################################")
+limit = 10 ** 2
+primes = getPrimesUntilLimit(limit)
+print("primes until", limit, ":", primes)
+chain = findLongestChainForPrime(41, primes)
+print("chain for 41:", chain)
