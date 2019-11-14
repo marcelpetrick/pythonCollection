@@ -32,7 +32,18 @@ def getPrimesUntilLimit(limit):
 
 # ------------------------------------------------------------------------------
 
+#from itertools import takewhile
 def findLongestChainForPrime(target, primes):
+
+    # subList = takewhile(lambda k : k <= target, primes)
+    #
+    # for elem in subList:
+    #     print(elem)
+
+    # maybe move this outside to save additional computation
+    subList = [elem for elem in primes if elem <= target]
+    print(subList)
+
     resultSummands = []
 
     return resultSummands
