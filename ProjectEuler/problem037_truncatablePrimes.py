@@ -31,7 +31,7 @@ def getPrimesUntilLimit(limit):
 
 # ------------------------------------------------------------------------------
 
-primes = getPrimesUntilLimit(10 ** 4)
+primes = getPrimesUntilLimit(10 ** 5)
 def testPrimeTruncation(number):
     numberAsString = str(number)
 
@@ -48,18 +48,23 @@ def testStringTrunc(input):
 # ------------------------------------------------------------------------------
 
 def test(inputString, fromLeft):
-    print("test:", inputString, fromLeft)
+    #print("test:", inputString, fromLeft)
+
+    numberItselfIsPrime = int(inputString) in primes
+
+    if not numberItselfIsPrime:
+        return False
+
     length = len(inputString)
 
     if length == 1:
-        isPrime = int(inputString) in primes
-        return isPrime
+        return True
 
-    if length > 1:
-        if fromLeft:
-            inputString = inputString[1:length]
-        else:
-            inputString = inputString[0:length-1]
+    # de recursive check
+    if fromLeft:
+        inputString = inputString[1:length]
+    else:
+        inputString = inputString[0:length-1]
 
     return test(inputString, fromLeft)
 
@@ -72,7 +77,10 @@ for number in primes:
 
 print("truncatable primes:", listOfTruncatablePrimes)
 
-print(".........")
-test("277", True)
-print("........")
-test("277", False)
+noSingleDigit = [elem for elem in listOfTruncatablePrimes if elem > 9]
+print("len:", len(noSingleDigit),":", noSingleDigit)
+
+# print(".........")
+# print("result:", test("277", True))
+# print("........")
+# print("result:", test("277", False))
