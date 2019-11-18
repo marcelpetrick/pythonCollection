@@ -31,7 +31,7 @@ def getPrimesUntilLimit(limit):
 
 # ------------------------------------------------------------------------------
 
-primes = getPrimesUntilLimit(10 ** 5)
+primes = getPrimesUntilLimit(10 ** 6)
 def testPrimeTruncation(number):
     numberAsString = str(number)
 
@@ -41,9 +41,12 @@ def testPrimeTruncation(number):
 
 def testStringTrunc(input):
     fromLeft = test(input, True)
-    fromRight = test(input, False)
 
-    return fromLeft and fromRight
+    if fromLeft:
+        fromRight = test(input, False)
+        return fromRight
+    else:
+        return False
 
 # ------------------------------------------------------------------------------
 
@@ -69,6 +72,12 @@ def test(inputString, fromLeft):
     #     rightDict[inputString] = numberItselfIsPrime
 
     if not numberItselfIsPrime:
+
+        if fromLeft:
+            leftDict[inputString] = False
+        else:
+            rightDict[inputString] = False
+
         return False
 
     # check if single digit and therefore no recursion is needed
