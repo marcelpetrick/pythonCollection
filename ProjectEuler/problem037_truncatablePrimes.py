@@ -35,7 +35,9 @@ primes = getPrimesUntilLimit(10 ** 6)
 def testPrimeTruncation(number):
     numberAsString = str(number)
 
-    return testStringTrunc(numberAsString)
+    result = testStringTrunc(numberAsString)
+    print(number, ":", "OK" if result else "ne")
+    return result
 
 # ------------------------------------------------------------------------------
 
@@ -122,3 +124,12 @@ print("len:", len(noSingleDigit),":", noSingleDigit)
 # print("result:", test("277", True))
 # print("........")
 # print("result:", test("277", False))
+
+#------------------------------------------------
+# computation took 64.97186279296875 s
+# truncatable primes: [2, 3, 5, 7, 23, 37, 53, 73, 313, 317, 373, 797, 3137, 3797, 739397]
+# len: 11 : [23, 37, 53, 73, 313, 317, 373, 797, 3137, 3797, 739397]
+
+# with python console:
+# sum([23, 37, 53, 73, 313, 317, 373, 797, 3137, 3797, 739397])
+# Out[2]: 748317
