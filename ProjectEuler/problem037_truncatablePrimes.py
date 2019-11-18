@@ -49,6 +49,7 @@ def testStringTrunc(input):
 
 leftDict = dict()
 rightDict = dict()
+
 def test(inputString, fromLeft):
     #print("test:", inputString, fromLeft)
 
@@ -62,10 +63,10 @@ def test(inputString, fromLeft):
 
     # check the number itself
     numberItselfIsPrime = int(inputString) in primes
-    if fromLeft:
-        leftDict[inputString] = numberItselfIsPrime
-    else:
-        rightDict[inputString] = numberItselfIsPrime
+    # if fromLeft:
+    #     leftDict[inputString] = numberItselfIsPrime
+    # else:
+    #     rightDict[inputString] = numberItselfIsPrime
 
     if not numberItselfIsPrime:
         return False
