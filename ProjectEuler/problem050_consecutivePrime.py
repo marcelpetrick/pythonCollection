@@ -38,8 +38,30 @@ def findLongestChainForPrime(target, primes):
     subList = [elem for elem in primes if elem <= target]
     print(subList)
 
-# continue here TODO
-    resultSummands = []
+    # check all sublists of that list (starting with the first element)
+    for elem in subList:
+        currentList = [item for item in subList if item >= elem]
+
+        sum = 0
+        count = 0
+        resultSummands = []
+        for elem in currentList: #shadowing, but idc
+            sum += elem
+            count += 1
+            resultSummands.append(elem)
+            if sum >= target:
+                print("sum bigger-equal target")
+                break
+        if sum == target:
+            print("found one chain:", count)
+            break
+        if sum >= target:
+            print("just too big :/")
+            resultSummands = []
+            break
+
+    if len(resultSummands) > 0:
+        print("we have a chain:", resultSummands)
 
     return resultSummands
 
@@ -69,7 +91,7 @@ class Testcase(unittest.TestCase):
 
 # test
 print("#############################################")
-limit = 10 ** 2
+limit = 10 ** 3
 primes = getPrimesUntilLimit(limit)
 print("primes until", limit, ":", primes)
 chain = findLongestChainForPrime(41, primes)
