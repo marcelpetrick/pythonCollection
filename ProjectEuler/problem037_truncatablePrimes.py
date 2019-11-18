@@ -30,3 +30,49 @@ def getPrimesUntilLimit(limit):
     return primes
 
 # ------------------------------------------------------------------------------
+
+primes = getPrimesUntilLimit(10 ** 4)
+def testPrimeTruncation(number):
+    numberAsString = str(number)
+
+    return testStringTrunc(numberAsString)
+
+# ------------------------------------------------------------------------------
+
+def testStringTrunc(input):
+    fromLeft = test(input, True)
+    fromRight = test(input, False)
+
+    return fromLeft and fromRight
+
+# ------------------------------------------------------------------------------
+
+def test(inputString, fromLeft):
+    print("test:", inputString, fromLeft)
+    length = len(inputString)
+
+    if length == 1:
+        isPrime = int(inputString) in primes
+        return isPrime
+
+    if length > 1:
+        if fromLeft:
+            inputString = inputString[1:length]
+        else:
+            inputString = inputString[0:length-1]
+
+    return test(inputString, fromLeft)
+
+# ------------------------------------------------------------------------------
+
+listOfTruncatablePrimes = []
+for number in primes:
+    if testPrimeTruncation(number):
+        listOfTruncatablePrimes.append(number)
+
+print("truncatable primes:", listOfTruncatablePrimes)
+
+print(".........")
+test("277", True)
+print("........")
+test("277", False)
