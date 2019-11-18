@@ -47,33 +47,61 @@ def testStringTrunc(input):
 
 # ------------------------------------------------------------------------------
 
+leftDict = dict()
+rightDict = dict()
 def test(inputString, fromLeft):
     #print("test:", inputString, fromLeft)
 
+    # do dictionary lookup
+    if fromLeft:
+        if inputString in leftDict:
+            return leftDict[inputString]
+    else:
+        if inputString in rightDict:
+            return rightDict[inputString]
+
+    # check the number itself
     numberItselfIsPrime = int(inputString) in primes
+    if fromLeft:
+        leftDict[inputString] = numberItselfIsPrime
+    else:
+        rightDict[inputString] = numberItselfIsPrime
 
     if not numberItselfIsPrime:
         return False
 
+    # check if single digit and therefore no recursion is needed
     length = len(inputString)
 
+    #returnValue = False
     if length == 1:
-        return True
-
-    # de recursive check
-    if fromLeft:
-        inputString = inputString[1:length]
+        returnValue = True
     else:
-        inputString = inputString[0:length-1]
+        # de recursive check
+        if fromLeft:
+            inputString = inputString[1:length]
+        else:
+            inputString = inputString[0:length-1]
 
-    return test(inputString, fromLeft)
+        returnValue = test(inputString, fromLeft)
+
+    if fromLeft:
+        leftDict[inputString] = returnValue
+    else:
+        rightDict[inputString] = returnValue
+
+    return returnValue
 
 # ------------------------------------------------------------------------------
-
+import time
+startTime = time.time()
 listOfTruncatablePrimes = []
 for number in primes:
     if testPrimeTruncation(number):
         listOfTruncatablePrimes.append(number)
+print("computation took", time.time() - startTime, "s")
+# before 10**5: 2.4s
+# with memo 10**5:
 
 print("truncatable primes:", listOfTruncatablePrimes)
 
