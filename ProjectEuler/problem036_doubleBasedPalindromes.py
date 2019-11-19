@@ -11,7 +11,10 @@
 # ------------------------------------------------------------------------------
 
 # idea:
-# * TODO
+# * loop over all numbers up to a certain limit (maybe parallelized - this would be actually the big bang for that task!)
+# * create a function which tests a single number for palindromic (int and binary)
+# * if true, then add to the result list
+# * sum that result-list
 
 # ------------------------------------------------------------------------------
 # implementation
