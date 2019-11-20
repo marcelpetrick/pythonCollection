@@ -102,18 +102,40 @@ print("results:", results)
 # ---- end: not really working, just one thread .. ------------
 
 # -------------- concurrent.futures -----
-import concurrent.futures
+# import concurrent.futures
+#
+# # followed this tutorial: https://docs.python.org/3/library/concurrent.futures.html
+# with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+#     futureCollection = {executor.submit(palindromeCheck, number): number for number in list[range(1, 10 ** 6)]}
+#
+#     for future in concurrent.futures.as_completed(futureCollection):
+#         number = futureCollection[future]
+#         try:
+#             result = future.result()
+#         except Exception as ecx:
+#             print("whatever .. %s" % ecx)
+#         else:
+#             print(number, "->", result)
 
+# --------------- also did not really work: 'type' object is not subscriptable ... ?!? ----
 
-# followed this tutorial: https://docs.python.org/3/library/concurrent.futures.html
-with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-    futureCollection = {executor.submit(palindromeCheck, number): number for number in list[range(1, 10 ** 6)]}
+# another attempt ... start simple, start basic
+# take from https://pymotw.com/3/concurrent.futures/
 
-    for future in concurrent.futures.as_completed(futureCollection):
-        number = futureCollection[future]
-        try:
-            result = future.result()
-        except Exception as ecx:
-            print("whatever .. %s" % ecx)
-        else:
-            print(number, "->", result)
+from concurrent import futures
+#import threading
+
+ex = futures.ThreadPoolExecutor(max_workers=16)
+print("auf los geht's los")
+startTime = time.time()
+inputList = range(1, 10 ** 6)
+results = ex.map(palindromeCheck, inputList)
+print("unformatted results:", results)
+realResults = list(results)
+print("better? {}".format(realResults))
+
+from itertools import compress
+filteredList = list(compress(inputList, realResults))
+print("filtered results:", filteredList)
+print("Processing took", time.time() - startTime, "s") # 10 ** 6: 23s ... not really faster!
+# also not really using all cores ... something is wrong
