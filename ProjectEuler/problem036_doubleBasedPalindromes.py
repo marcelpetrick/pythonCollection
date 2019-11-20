@@ -172,5 +172,15 @@ if __name__ == '__main__': # see guidelines for multiprocessing: https://docs.py
     print("filteredList:", filteredList)
     print("### multiprocessing: END ###")
 
+# ------------------------------------------
 # results for a run with up to 10**9:
-# 
+#
+# ### multiprocessing: BEGIN ###
+# handle now numbers up to 1000000000
+# Creating the input-list took 0.0 s
+# Processing took 205.50690913200378 s
+# Compressing took 14.142150402069092 s
+# filteredList: [0, 1, 3, 5, 7, 9, 33, 99, 313, 585, 717, 7447, 9009, 15351, 32223, 39993, 53235, 53835, 73737, 585585, 1758571, 1934391, 1979791, 3129213, 5071705, 5259525, 5841485, 13500531, 719848917, 910373019, 939474939]
+# ### multiprocessing: END ###
+# ------------------------------------------
+
