@@ -52,20 +52,22 @@ def palindromeCheck(number):
 # ------------------------------------------------------------------------------
 # simple driver
 
-print(5, palindromeCheck(5))
-print(17, palindromeCheck(17))
-print(585, palindromeCheck(585))
+# print(5, palindromeCheck(5))
+# print(17, palindromeCheck(17))
+# print(585, palindromeCheck(585))
 
 def driver(number):
     isPalindromic = palindromeCheck(number)
     if isPalindromic:
-        print(number, "->", bin(number))
+        #print(number, "->", bin(number))
+        pass
 
 import time
 startTime = time.time()
 
-limit = 10 ** 6
-for number in range(1, limit, 2): # step width 2 decresed runtime for 10 ** 6 (with output) from 0.44s to 0.22s
+limit = 10 ** 7
+for number in range(1, limit, 2): # step width 2 decreased runtime for 10 ** 6 (with output) from 0.44s to 0.22s
     driver(number)
 
-print("computation took", time.time() - startTime, "s")
+print("Processing up to", limit, "took", time.time() - startTime, "s")
+# no multi processing: Processing up to 10 ** 7 took 1.8554871082305908 s
