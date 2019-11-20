@@ -39,8 +39,8 @@ def palindromeCheck(number):
         return False
 
     # do then the same check for the binary version
-    stringifiedBin = str(bin(number))
-    if stringifiedDec != stringifiedDec[::-1]:
+    stringifiedBin = format(number, 'b') # str(bin(number)) will return with leading "0b", which is crap
+    if stringifiedBin != stringifiedBin[::-1]:
         return False
 
     return True
@@ -65,9 +65,25 @@ def driver(number):
 import time
 startTime = time.time()
 
-limit = 10 ** 7
+limit = 10 ** 6
 for number in range(1, limit, 2): # step width 2 decreased runtime for 10 ** 6 (with output) from 0.44s to 0.22s
     driver(number)
 
 print("Processing up to", limit, "took", time.time() - startTime, "s")
 # no multi processing: Processing up to 10 ** 7 took 1.8554871082305908 s
+
+# ------------------------------------------------------------------------------
+
+# warning: also even number cans be palindromic
+def prepareList(excludedLimit):
+    return list(range(1, excludedLimit, 1))
+
+print("list to process:", prepareList(100))
+
+# call to process the whole list
+startTime = time.time()
+results = [elem for elem in prepareList(10 ** 8) if palindromeCheck(elem)]
+print("Processing up to", limit, "took", time.time() - startTime, "s") # 10 ** 8: 30s
+print("results:", results)
+
+# print(bin(88))
