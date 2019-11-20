@@ -57,36 +57,36 @@ def palindromeCheck(number):
 # print(5, palindromeCheck(5))
 # print(17, palindromeCheck(17))
 # print(585, palindromeCheck(585))
-
-def driver(number):
-    isPalindromic = palindromeCheck(number)
-    if isPalindromic:
-        #print(number, "->", bin(number))
-        pass
-
-import time
-startTime = time.time()
-
-limit = 10 ** 6
-for number in range(1, limit, 2): # step width 2 decreased runtime for 10 ** 6 (with output) from 0.44s to 0.22s
-    driver(number)
-
-print("Processing up to", limit, "took", time.time() - startTime, "s")
-# no multi processing: Processing up to 10 ** 7 took 1.8554871082305908 s
+#
+# def driver(number):
+#     isPalindromic = palindromeCheck(number)
+#     if isPalindromic:
+#         #print(number, "->", bin(number))
+#         pass
+#
+# import time
+# startTime = time.time()
+#
+# limit = 10 ** 6
+# for number in range(1, limit, 2): # step width 2 decreased runtime for 10 ** 6 (with output) from 0.44s to 0.22s
+#     driver(number)
+#
+# print("Processing up to", limit, "took", time.time() - startTime, "s")
+# # no multi processing: Processing up to 10 ** 7 took 1.8554871082305908 s
 
 # ------------------------------------------------------------------------------
 
-# warning: also even number cans be palindromic
-def prepareList(excludedLimit):
-    return list(range(1, excludedLimit, 1))
-
-print("list to process:", prepareList(100))
-
-# call to process the whole list
-startTime = time.time()
-results = [elem for elem in prepareList(10 ** 6) if palindromeCheck(elem)]
-print("Processing up to", limit, "took", time.time() - startTime, "s") # 10 ** 8: 30s
-print("results:", results)
+# # warning: also even number cans be palindromic
+# def prepareList(excludedLimit):
+#     return list(range(1, excludedLimit, 1))
+#
+# print("list to process:", prepareList(100))
+#
+# # call to process the whole list
+# startTime = time.time()
+# results = [elem for elem in prepareList(10 ** 6) if palindromeCheck(elem)]
+# print("Processing up to", limit, "took", time.time() - startTime, "s") # 10 ** 8: 30s
+# print("results:", results)
 
 # ------ multithreaded? -----------
 # from threading import Thread
@@ -122,20 +122,55 @@ print("results:", results)
 # another attempt ... start simple, start basic
 # take from https://pymotw.com/3/concurrent.futures/
 
-from concurrent import futures
-#import threading
+# from concurrent import futures
+# #import threading
+#
+# print("### ThreadPoolExecutor: BEGIN ###")
+# ex = futures.ThreadPoolExecutor(max_workers=16)
+# startTime = time.time()
+# inputList = range(1, 10 ** 4)
+# results = ex.map(palindromeCheck, inputList)
+# print("unformatted results:", results)
+# realResults = list(results)
+# print("better? {}".format(realResults))
+#
+# from itertools import compress
+# filteredList = list(compress(inputList, realResults))
+# print("filtered results:", filteredList)
+# print("Processing took", time.time() - startTime, "s") # 10 ** 6: 23s ... not really faster!
+# # also not really using all cores ... something is wrong
+# print("### ThreadPoolExecutor: END ###")
+# ---------------- multi processing now! -----------------
 
-ex = futures.ThreadPoolExecutor(max_workers=16)
-print("auf los geht's los")
-startTime = time.time()
-inputList = range(1, 10 ** 6)
-results = ex.map(palindromeCheck, inputList)
-print("unformatted results:", results)
-realResults = list(results)
-print("better? {}".format(realResults))
+if __name__ == '__main__': # see guidelines for multiprocessing: https://docs.python.org/3/library/multiprocessing.html#multiprocessing-programming
+    import multiprocessing
+    import time
+    from itertools import compress
 
-from itertools import compress
-filteredList = list(compress(inputList, realResults))
-print("filtered results:", filteredList)
-print("Processing took", time.time() - startTime, "s") # 10 ** 6: 23s ... not really faster!
-# also not really using all cores ... something is wrong
+    print("### multiprocessing: BEGIN ###")
+
+    limit = 10 ** 9
+    print("handle now numbers up to", limit)
+
+    # input preparation
+    startTime = time.time()
+    inputList = range(limit)
+    print("Creating the input-list took", time.time() - startTime, "s")
+
+    # multiprocessing via map onto the input
+    startTime = time.time()
+    with multiprocessing.Pool(32) as pool: # 64 or 32 does not matter ... compress takes the longest, or?
+        results = pool.map(palindromeCheck, inputList) # should result in a  list as well
+
+    print("Processing took", time.time() - startTime, "s")
+
+    # compressing (almost instantaneous)
+    startTime = time.time()
+    filteredList = list(compress(inputList, results))
+    print("Compressing took", time.time() - startTime, "s")
+
+    print("filteredList:", filteredList)
+    print("### multiprocessing: END ###")
+
+# results for a run with up to 10**9:
+# 
