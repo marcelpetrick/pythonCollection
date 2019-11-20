@@ -27,8 +27,45 @@
 # ------------------------------------------------------------------------------
 
 def palindromeCheck(number):
+    # no checks for odd-ness included, because the inputs are already filtered
+    # saves a check here, saves time for one function-call, or?
 
-    return false
+    # reverting a string in python: ten thousands of ways
+    # https://www.journaldev.com/23647/python-reverse-string#python-reverse-string-using-slicing
 
+    # check first if number itself is palindrome
+    stringifiedDec = str(number)
+    if stringifiedDec != stringifiedDec[::-1]:
+        return False
+
+    # do then the same check for the binary version
+    stringifiedBin = str(bin(number))
+    if stringifiedDec != stringifiedDec[::-1]:
+        return False
+
+    return True
+
+# ------------------------------------------------------------------------------
 
 # todo add unittest
+
+# ------------------------------------------------------------------------------
+# simple driver
+
+print(5, palindromeCheck(5))
+print(17, palindromeCheck(17))
+print(585, palindromeCheck(585))
+
+def driver(number):
+    isPalindromic = palindromeCheck(number)
+    if isPalindromic:
+        print(number, "->", bin(number))
+
+import time
+startTime = time.time()
+
+limit = 10 ** 6
+for number in range(1, limit, 2): # step width 2 decresed runtime for 10 ** 6 (with output) from 0.44s to 0.22s
+    driver(number)
+
+print("computation took", time.time() - startTime, "s")
