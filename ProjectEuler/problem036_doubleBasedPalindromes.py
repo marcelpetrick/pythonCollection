@@ -16,6 +16,19 @@
 # * if true, then add to the result list
 # * sum that result-list
 
+# hints:
+# * to do th palindrome check, just revert the stringified version and check against the original
+# * just odd numbers (dec) can be fitting, because even numbers converted to binary would have a 0 as last digit. and
+# for the first digit no numbers with 0 are allowed in the task (same applies for numbers divisible by ten in decimal, but
+# mod 10 == 0 is already included in mod 2 == 0)
+
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+
+def palindromeCheck(number):
+
+    return false
+
+
+# todo add unittest
