@@ -149,7 +149,7 @@ if __name__ == '__main__': # see guidelines for multiprocessing: https://docs.py
 
     print("### multiprocessing: BEGIN ###")
 
-    limit = 10 ** 9
+    limit = 10 ** 6
     print("handle now numbers up to", limit)
 
     # input preparation
@@ -170,9 +170,11 @@ if __name__ == '__main__': # see guidelines for multiprocessing: https://docs.py
     print("Compressing took", time.time() - startTime, "s")
 
     print("filteredList:", filteredList)
+    print("sum of the values:", sum(filteredList))
     print("### multiprocessing: END ###")
 
 # ------------------------------------------
+
 # results for a run with up to 10**9:
 #
 # ### multiprocessing: BEGIN ###
@@ -182,5 +184,24 @@ if __name__ == '__main__': # see guidelines for multiprocessing: https://docs.py
 # Compressing took 14.142150402069092 s
 # filteredList: [0, 1, 3, 5, 7, 9, 33, 99, 313, 585, 717, 7447, 9009, 15351, 32223, 39993, 53235, 53835, 73737, 585585, 1758571, 1934391, 1979791, 3129213, 5071705, 5259525, 5841485, 13500531, 719848917, 910373019, 939474939]
 # ### multiprocessing: END ###
+
 # ------------------------------------------
+# limit 10 ** 6 just like the task demanded
+
+# ### multiprocessing: BEGIN ###
+# handle now numbers up to 1000000
+# Creating the input-list took 0.0 s
+# Processing took 0.4377901554107666 s
+# Compressing took 0.02025580406188965 s
+# filteredList: [0, 1, 3, 5, 7, 9, 33, 99, 313, 585, 717, 7447, 9009, 15351, 32223, 39993, 53235, 53835, 73737, 585585]
+# sum of the values: 872187
+# ### multiprocessing: END ###
+
+# ------------------------------------------
+
+# Congratulations, the answer you gave to problem 36 is correct.
+#
+# You are the 82518th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%.
 
