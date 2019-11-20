@@ -27,6 +27,8 @@
 # ------------------------------------------------------------------------------
 
 def palindromeCheck(number):
+    #print("palindromeCheck:", number)
+
     # no checks for odd-ness included, because the inputs are already filtered
     # saves a check here, saves time for one function-call, or?
 
@@ -82,8 +84,36 @@ print("list to process:", prepareList(100))
 
 # call to process the whole list
 startTime = time.time()
-results = [elem for elem in prepareList(10 ** 8) if palindromeCheck(elem)]
+results = [elem for elem in prepareList(10 ** 6) if palindromeCheck(elem)]
 print("Processing up to", limit, "took", time.time() - startTime, "s") # 10 ** 8: 30s
 print("results:", results)
 
-# print(bin(88))
+# ------ multithreaded? -----------
+# from threading import Thread
+#
+# def process(data):
+#     print(f"processing {data}")
+#
+# l= ["data1", "data2", "data3"]
+#
+# for task in range(1, 10**6):
+#     t = Thread(target=palindromeCheck, args=(task,))
+#     t.start()
+# ---- end: not really working, just one thread .. ------------
+
+# -------------- concurrent.futures -----
+import concurrent.futures
+
+
+# followed this tutorial: https://docs.python.org/3/library/concurrent.futures.html
+with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+    futureCollection = {executor.submit(palindromeCheck, number): number for number in list[range(1, 10 ** 6)]}
+
+    for future in concurrent.futures.as_completed(futureCollection):
+        number = futureCollection[future]
+        try:
+            result = future.result()
+        except Exception as ecx:
+            print("whatever .. %s" % ecx)
+        else:
+            print(number, "->", result)
