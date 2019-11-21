@@ -28,17 +28,19 @@ def howManySundaysOnFirstOfMonthIn20thCentury():
     from datetime import datetime
     from datetime import timedelta
 
+    print("let's go!")
+
     amountOfSundaysOnFirstOfMonth = 0
 
     # start with the given date
-    currentDate = datetime.datetime(1901, 1, 1)
+    currentDate = datetime.fromisoformat('1901-01-01')
     # find the first sunday
     while currentDate.weekday() != 6:
-        currentDate + timedelta(days = 1)
+        currentDate += timedelta(days = 1)
     print("first sunday will be:", currentDate)
 
     # increase now the currentDate with 7 day-leaps, then check the day
-    while currentDate < datetime.datetime(2000, 12, 31):
+    while currentDate < datetime.fromisoformat('2000-12-31'):
         if currentDate.day == 1:
             amountOfSundaysOnFirstOfMonth -=- 1
             print("found one:", currentDate)
@@ -52,3 +54,15 @@ if __name__ == "__main__":
     print("How many sundays on first of month in the 20th century:", howManySundaysOnFirstOfMonthIn20thCentury())
 
 # ------------------------------------------------------------------------------
+
+# found one: 1999-08-01 00:00:00
+# found one: 2000-10-01 00:00:00
+# How many sundays on first of month in the 20th century: 171
+#
+# Process finished with exit code 0
+
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 19 is correct.
+#
+# You are the 125445th person to have solved this problem.
