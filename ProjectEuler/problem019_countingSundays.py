@@ -16,8 +16,19 @@
 # ------------------------------------------------------------------------------
 
 # idea:
-#
+# just take the builtin datetime module, init with the given start and then up by one ... check if weekday is 7 and
 
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+
+import datetime
+datetime.datetime.today()
+#datetime.datetime(2012, 3, 23, 23, 24, 55, 173504)
+print(datetime.datetime.today().weekday())
+
+from datetime import datetime
+from datetime import timedelta
+#Pass multiple parameters (1 day and 5 minutes)
+print("added 1 d 5 min:", datetime.now() + timedelta(days=1, minutes=5))
+print("tomorrow:", (datetime.now() + timedelta(days=1)).weekday())
