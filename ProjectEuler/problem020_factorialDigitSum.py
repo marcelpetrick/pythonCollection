@@ -26,9 +26,17 @@ def factorialDigitSum(number):
 # ------------------------------------------------------------------------------
 
 number = 100
-print("Fcatorial digit sum of", number, "is:", factorialDigitSum(number))
+print("Factorial digit sum of", number, "is:", factorialDigitSum(number))
 
 # ------------------------------------------------------------------------------
 # Fcatorial digit sum of 100 is: 648
 #
 # Process finished with exit code 0
+# ------------------------------------------------------------------------------
+# Congratulations, the answer you gave to problem 20 is correct.
+#
+# You are the 185298th person to have solved this problem.
+
+# simpler:
+import math
+print("Factorial digit sum of", number, "is:", sum([int(elem) for elem in str(math.factorial(number))]))
