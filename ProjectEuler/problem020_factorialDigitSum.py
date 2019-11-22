@@ -14,9 +14,21 @@ def factorialDigitSum(number):
     if number < 1:
         raise ValueError("Input must be greater 0")
 
-    return 1
+    # self implemented factorial
+    factorial = 1
+    while number > 1:
+        factorial *= number
+        number -= 1
+
+    # convert to string, then sum all digits
+    return sum([int(elem) for elem in str(factorial)])
 
 # ------------------------------------------------------------------------------
 
 number = 100
 print("Fcatorial digit sum of", number, "is:", factorialDigitSum(number))
+
+# ------------------------------------------------------------------------------
+# Fcatorial digit sum of 100 is: 648
+#
+# Process finished with exit code 0
