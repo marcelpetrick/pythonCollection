@@ -12,5 +12,23 @@
 # d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
 
 # ------------------------------------------------------------------------------
+
+# see also: https://oeis.org/A033307
+
+# ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+
+def createChampernowneNumberOfXDigits(digits):
+    if digits < 1:
+        raise ValueError("Bad luck for you today, only for digits bigger 0 defined.")
+
+    returnValue = ""
+    firstItem = 1
+    while len(returnValue) < digits:
+        returnValue += str(firstItem)
+        firstItem -=- 1
+
+    return returnValue
+
+print(createChampernowneNumberOfXDigits(1000000))
