@@ -19,6 +19,16 @@
 # Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
 
 # ------------------------------------------------------------------------------
+# idea:
+# * first idea was to convert each broken number (gebrochene zahl?) to a string and then trying to find the smallest
+# repeating pattern. search led to a quite short idea via regex. but this would have not been my solution. next were some
+# ideas about finding periodic strings (with python). nice ...
+#
+# and then i found this: https://www.arndt-bruenner.de/mathe/scripts/periodenlaenge.htm
+# "Die Periode eines Bruchs mit dem Nenner n kann höchstens n-1 Stellen haben, denn spätestens beim n-ten Rest muß
+# sich ein bereits dagewesener Rest wiederholen."
+
+# ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
 
