@@ -74,4 +74,6 @@ if __name__ == "__main__":
 # d =  983 with length of 982
 # result: 983
 # ------------------------------------------------------------------------------
-# 
+# Congratulations, the answer you gave to problem 26 is correct.
+#
+# You are the 77521st person to have solved this problem.
