@@ -27,14 +27,24 @@
 # and then i found this: https://www.arndt-bruenner.de/mathe/scripts/periodenlaenge.htm
 # "Die Periode eines Bruchs mit dem Nenner n kann höchstens n-1 Stellen haben, denn spätestens beim n-ten Rest muß
 # sich ein bereits dagewesener Rest wiederholen."
+# and "Die Anzahl der periodischen Kommastellen beim Nenner m wird gegeben durch die kleinste Zahl n,
+# bei der die Division von 10n durch m den Rest 1 ergibt."
 
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
 
-def driverForTask():
+def determinePeriodLength(divisor):
+    n = 1
+    while 10 ** n % divisor != 1:
+        n += 1
+    print("n=", n, "because 10 **",n, " mod", divisor, "is 1")
+    return n
 
-    result = 1
+def driverForTask():
+    # 43 -> 21
+    # 7 -> 6
+    result = determinePeriodLength(7)
 
     print("result:", result)
 
