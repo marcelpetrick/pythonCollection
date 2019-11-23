@@ -44,7 +44,16 @@ def determinePeriodLength(divisor):
 def driverForTask():
     # 43 -> 21
     # 7 -> 6
-    result = determinePeriodLength(7)
+    #result = determinePeriodLength(7)
+
+    result = -1
+    periodLength = -1
+    for number in range(2, 1000):
+        currentPeriodLength = determinePeriodLength(number)
+        if currentPeriodLength > periodLength:
+            print("d = ", number, "with length of", currentPeriodLength)
+            periodLength = currentPeriodLength
+            result = number
 
     print("result:", result)
 
