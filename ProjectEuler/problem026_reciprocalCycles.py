@@ -44,6 +44,8 @@ def determinePeriodLength(divisor):
     #print("n=", n, "because 10 **",n, " mod", divisor, "is 1")
     return n
 
+# ------------------------------------------------------------------------------
+
 def driverForTask():
     # 43 -> 21
     # 7 -> 6
