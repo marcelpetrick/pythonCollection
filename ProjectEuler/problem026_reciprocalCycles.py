@@ -38,7 +38,10 @@ def determinePeriodLength(divisor):
     n = 1
     while 10 ** n % divisor != 1:
         n += 1
-    print("n=", n, "because 10 **",n, " mod", divisor, "is 1")
+        if n == divisor:
+            return -1
+
+    #print("n=", n, "because 10 **",n, " mod", divisor, "is 1")
     return n
 
 def driverForTask():
@@ -62,3 +65,13 @@ if __name__ == "__main__":
     driverForTask()
 
 # ------------------------------------------------------------------------------
+# ..
+# d =  937 with length of 936
+# d =  941 with length of 940
+# d =  953 with length of 952
+# d =  971 with length of 970
+# d =  977 with length of 976
+# d =  983 with length of 982
+# result: 983
+# ------------------------------------------------------------------------------
+# 
