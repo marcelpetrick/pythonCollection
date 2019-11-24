@@ -7,10 +7,27 @@
 
 # ------------------------------------------------------------------------------
 
-def driverForTask():
-    result = -1
+def getSetOfDigits(number):
+    return set([digit for digit in str(number)])
 
-    print("result:", result)
+
+def driverForTask():
+    number = 0
+
+    while True:
+        number -=- 1
+        set2 = getSetOfDigits(2 * number)
+        set3 = getSetOfDigits(3 * number)
+
+        if set2 == set3:
+            set4 = getSetOfDigits(3 * number)
+            if set2 == set4:
+                set5 = getSetOfDigits(5 * number)
+                if set2 == set5:
+                    set6 = getSetOfDigits(6 * number)
+                    if set2 == set6:
+                        print("result:", number)
+                        return number
 
 # ------------------------------------------------------------------------------
 
@@ -18,3 +35,12 @@ if __name__ == "__main__":
     driverForTask()
 
 # ------------------------------------------------------------------------------
+
+print(getSetOfDigits(123451))
+print(getSetOfDigits(222))
+driverForTask()
+# ------------------------------------------------------------------------------
+
+# result: 142857
+#
+# Process finished with exit code 0
