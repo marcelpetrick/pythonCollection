@@ -39,7 +39,7 @@ def determineTypeOfNumber(number):
     if sumOfDivisors < number:
         return NumberType.Deficient
     if sumOfDivisors == number:
-        return NumberType.Deficient
+        return NumberType.Perfect
     if sumOfDivisors > number:
         return NumberType.Abundant
 
@@ -47,15 +47,38 @@ def determineTypeOfNumber(number):
 
 # ------------------------------------------------------------------------------
 
+# copied from euler021 (amicable numbers): import is always so crude
 def determineDivisorsForNumber(number):
-    # TODO
-    return {1, 2, 3}
+    if number <= 0:
+        raise ValueError("Only positive integers bigger than zero are allowed.")
+
+    properDivisors = set()
+    for divisor in range(1, number):
+        dividend, modulo = divmod(number, divisor)
+
+        if modulo == 0:
+            properDivisors.add(divisor)
+            properDivisors.add(dividend) # save one call
+
+        # since the task requires that the number itself is not part of the returned values, remove it
+        if number in properDivisors:
+            properDivisors.remove(number)
+
+    return properDivisors
 
 # ------------------------------------------------------------------------------
 
 def determineAllNumbersOfACertainTypeBelowALimit(type=NumberType.Abundant, limit=28124):
-    # TODO
-    return [1,2,3]
+    ''' Using two defaults ... just for the fun of it.'''
+    abundantNumbers = []
+    for number in range(2, limit):
+        #print(number)
+        if type == determineTypeOfNumber(number):
+            abundantNumbers.append(number)
+
+    print("abundantNumbers = ", abundantNumbers)
+
+    return abundantNumbers
 
 # ------------------------------------------------------------------------------
 
@@ -64,6 +87,14 @@ def driverForTask():
     computed list of abundant numbers (below-equal the limit). If yes, add them to the result-list.
     Sum that list and print it. Voila.
     '''
+
+    for number in range(1, 30):
+        print(number, ":", determineDivisorsForNumber(number), ":", determineTypeOfNumber(number))
+
+    abundantNumbers = determineAllNumbersOfACertainTypeBelowALimit()
+
+    # todo continue here
+
     result = -1
 
     print("result:", result)
