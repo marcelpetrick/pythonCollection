@@ -44,3 +44,8 @@ driverForTask()
 # result: 142857
 #
 # Process finished with exit code 0
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 52 is correct.
+#
+# You are the 60256th person to have solved this problem.
