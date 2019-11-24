@@ -24,10 +24,46 @@
 # implementation
 # ------------------------------------------------------------------------------
 
+import enum
+class NumberType(enum.Enum):
+    ''' Enum to determine which type a number is. '''
+    Deficient = 0
+    Perfect = 1
+    Abundant = 2
+
+# ------------------------------------------------------------------------------
+
+def determineTypeOfNumber(number):
+    sumOfDivisors = sum(determineDivisorsForNumber(number))
+
+    if sumOfDivisors < number:
+        return NumberType.Deficient
+    if sumOfDivisors == number:
+        return NumberType.Deficient
+    if sumOfDivisors > number:
+        return NumberType.Abundant
+
+    raise Exception("Something went wrong, because  if a was not smaller, equal or less than b, then what was it?!?")
+
+# ------------------------------------------------------------------------------
+
+def determineDivisorsForNumber(number):
+    # TODO
+    return {1, 2, 3}
+
+# ------------------------------------------------------------------------------
+
+def determineAllNumbersOfACertainTypeBelowALimit(type=NumberType.Abundant, limit=28124):
+    # TODO
+    return [1,2,3]
+
 # ------------------------------------------------------------------------------
 
 def driverForTask():
-
+    ''' Idea: check for all numbers below-equal the given limit if they can be presented as sum of two elements in afore-
+    computed list of abundant numbers (below-equal the limit). If yes, add them to the result-list.
+    Sum that list and print it. Voila.
+    '''
     result = -1
 
     print("result:", result)
