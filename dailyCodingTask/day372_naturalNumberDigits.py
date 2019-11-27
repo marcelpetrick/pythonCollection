@@ -49,6 +49,12 @@ class Testcase(unittest.TestCase):
             print(number, digitsOfInput(number))
             self.assertEqual(2, digitsOfInput(number))
 
+    def test_allNumbersUpTo10power10(self):
+        for exp in range(1,10+1):
+            print("exp:", exp)
+            for number in range(10 ** (exp-1), 10 ** exp):
+                #print(number, digitsOfInput(number))
+                self.assertEqual(exp, digitsOfInput(number))
 # ------------------------------------------------------------------------------
 
 # ---- here comes the execution of the unit-tests ----
