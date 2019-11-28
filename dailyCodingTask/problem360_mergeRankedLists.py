@@ -10,3 +10,6 @@
 # playlist could be [2, 1, 6, 7, 3, 9, 5].
 
 # ------------------------------------------------------------------------------
+
+# idea:
+# doing some research lead to https://en.wikipedia.org/wiki/Schulze_method#Ballot
