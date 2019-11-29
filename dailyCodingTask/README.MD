@@ -14,3 +14,8 @@ For k = 17 the list [10, 5, 3, 7, 12] yields True<br>
 For k = 16 the list [10, 5, 3, 7, 12] yields False<br>
 <br>
 Process finished with exit code 0<br>
+
+
+# collection of all tasks (because my dumb ass deleted accidentally the first batch of mails)
+
+https://github.com/vineetjohn/daily-coding-problem/blob/master/README.md

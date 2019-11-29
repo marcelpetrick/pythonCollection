@@ -13,3 +13,5 @@
 
 # idea:
 # doing some research lead to https://en.wikipedia.org/wiki/Schulze_method#Ballot
+#
+# check and understand this: https://github.com/vineetjohn/daily-coding-problem/blob/master/solutions/problem_360.py
