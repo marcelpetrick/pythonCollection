@@ -159,7 +159,7 @@ if __name__ == '__main__': # see guidelines for multiprocessing: https://docs.py
 
     # multiprocessing via map onto the input
     startTime = time.time()
-    with multiprocessing.Pool(32) as pool: # 64 or 32 does not matter ... compress takes the longest, or?
+    with multiprocessing.Pool() as pool: # 64 or 32 does not matter ... compress takes the longest, or?
         results = pool.map(palindromeCheck, inputList) # should result in a  list as well
 
     print("Processing took", time.time() - startTime, "s")
