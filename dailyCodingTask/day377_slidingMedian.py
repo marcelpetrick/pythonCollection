@@ -18,4 +18,33 @@
 # Recall that the median of an even-sized list is the average of the two middle numbers.
 
 # ------------------------------------------------------------------------------
+import unittest
+# ------------------------------------------------------------------------------
 
+def slidingMedian(inputList, k):
+    ''' will return a list of strings '''
+
+    return []
+
+# ------------------------------------------------------------------------------
+
+class Testcase(unittest.TestCase):
+    def test_givenExample(self):
+        givenInput = [-1, 5, 13, 8, 2, 3, 3, 1]
+        givenK = 3
+        expectedOutput = ["5 <- median of [-1, 5, 13]",
+"8 <- median of [5, 13, 8]",
+"8 <- median of [13, 8, 2]",
+"3 <- median of [8, 2, 3]",
+"3 <- median of [2, 3, 3]",
+"3 <- median of [3, 3, 1]"
+                          ]
+        self.assertEqual(expectedOutput, slidingMedian(givenInput, givenK))
+
+# ------------------------------------------------------------------------------
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
+
+# ------------------------------------------------------------------------------
