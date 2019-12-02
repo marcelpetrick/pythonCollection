@@ -33,40 +33,48 @@ def getMedian(inputList):
     elif length % 2 == 1:
         return inputList[length // 2]
     else:
-        firstPos = length // 2 - 1
-        a = inputList[firstPos]
-        b = inputList[firstPos + 1]
-
+        secondPos = length // 2
+        a = inputList[secondPos - 1]
+        b = inputList[secondPos]
         return (a + b) / 2
+
+# ------------------------------------------------------------------------------
+
+def slidingWindowToOutputString(slidingWindow):
+    resultString = str(getMedian(slidingWindow))
+    resultString += " <- median of " + str(slidingWindow)
+    return resultString
 
 # ------------------------------------------------------------------------------
 
 def slidingMedian(inputList, k):
     ''' will return a list of strings '''
 
-    slidingWindow = [] * k
-    print(slidingWindow)
-    # lastAddedItem
-    #
-    # for elem in inputList:
+    result = []
 
+    for startIndex in range(len(inputList) - k + 1):
+        slidingWindow = inputList[startIndex:startIndex+k] # start, stop, step
+        print(slidingWindow)
+        string = slidingWindowToOutputString(slidingWindow)
+        result.append(string)
 
-    return []
+    return result
 
 # ------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
-    # @unittest.SkipTest
-    # def test_givenExample(self):
-    #     givenInput = [-1, 5, 13, 8, 2, 3, 3, 1]
-    #     givenK = 3
-    #     expectedOutput = ["5 <- median of [-1, 5, 13]",
-    #                       "8 <- median of [5, 13, 8]",
-    #                       "8 <- median of [13, 8, 2]",
-    #                       "3 <- median of [8, 2, 3]",
-    #                       "3 <- median of [2, 3, 3]",
-    #                       "3 <- median of [3, 3, 1]"]
-    #     self.assertEqual(expectedOutput, slidingMedian(givenInput, givenK))
+
+    def test_givenExample(self):
+        givenInput = [-1, 5, 13, 8, 2, 3, 3, 1]
+        givenK = 3
+        expectedOutput = ["5 <- median of [-1, 5, 13]",
+                          "8 <- median of [5, 13, 8]",
+                          "8 <- median of [13, 8, 2]",
+                          "3 <- median of [8, 2, 3]",
+                          "3 <- median of [2, 3, 3]",
+                          "3 <- median of [3, 3, 1]"]
+        computedOutput = slidingMedian(givenInput, givenK)
+        self.assertEqual(expectedOutput, computedOutput)
 
     def test_getMedian(self):
         # TODO fix this
@@ -87,3 +95,7 @@ if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
+
+givenInput = [-1, 5, 13, 8, 2, 3, 3, 1]
+print(slidingMedian(givenInput, 3))
+
