@@ -41,8 +41,9 @@ def getMedian(inputList):
 # ------------------------------------------------------------------------------
 
 def slidingWindowToOutputString(slidingWindow):
+    listString = str(slidingWindow) # do this before the getMedian, because this sorts
     resultString = str(getMedian(slidingWindow))
-    resultString += " <- median of " + str(slidingWindow)
+    resultString += " <- median of " + listString
     return resultString
 
 # ------------------------------------------------------------------------------
@@ -53,8 +54,8 @@ def slidingMedian(inputList, k):
     result = []
 
     for startIndex in range(len(inputList) - k + 1):
-        slidingWindow = inputList[startIndex:startIndex+k] # start, stop, step
-        print(slidingWindow)
+        slidingWindow = inputList[startIndex:startIndex+k]  # start, stop, step
+        #print(slidingWindow)
         string = slidingWindowToOutputString(slidingWindow)
         result.append(string)
 
@@ -96,6 +97,24 @@ if __name__ == '__main__':
 
 # ------------------------------------------------------------------------------
 
-givenInput = [-1, 5, 13, 8, 2, 3, 3, 1]
-print(slidingMedian(givenInput, 3))
+print(30 * "-")
+output = slidingMedian([-1, 5, 13, 8, 2, 3, 3, 1], 3)
+for elem in output:
+    print(elem)
 
+# ------------ final output ------------------
+# Launching unittests with arguments python -m unittest C:/Users/husband-boy/Desktop/coding/pythonCollection/dailyCodingTask/day377_slidingMedian.py in C:\Users\husband-boy\Desktop\coding\pythonCollection\dailyCodingTask
+#
+# ------------------------------
+# 5 <- median of [-1, 5, 13]
+# 8 <- median of [5, 13, 8]
+# 8 <- median of [13, 8, 2]
+# 3 <- median of [8, 2, 3]
+# 3 <- median of [2, 3, 3]
+# 3 <- median of [3, 3, 1]
+#
+#
+# Ran 2 tests in 0.005s
+#
+# OK
+# Process finished with exit code 0
