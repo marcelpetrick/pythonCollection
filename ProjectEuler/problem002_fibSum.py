@@ -20,7 +20,7 @@ def getFibGen():
     b = 1
     while True:
         yield a # yay, my first generator! :)
-        a,b = b, a + b
+        a, b = b, a + b
 
 # ------------------------------------------------------------------------------
 
@@ -40,17 +40,6 @@ def getNextEvenValue():
 # ------------------------------------------------------------------------------
 
 def problem002():
-    print("problem002")
-
-    # generator = getFibGen()
-
-    # print(next(generator))
-    # print(next(generator))
-    # print(next(generator))
-    #
-    # for x in range(0, 5):
-    #     print(generator.__next__())
-
     genEven = getNextEvenValue()
     # for x in range(0, 5):
     #     print(genEven.__next__())
@@ -66,7 +55,10 @@ def problem002():
 
 # ------------------------------------------------------------------------------
 
+import time
+startTime = time.time()
 print(problem002())
+print("computation and print took:", time.time() - startTime, "s")
 #>> 4613732
 
 # ------------------------------------------------------------------------------
