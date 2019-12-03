@@ -17,10 +17,48 @@
 # ------------------------------------------------------------------------------
 
 # idea:
-# TODO
+# * first generate a function which creates a filled matrix.
+# * then just sum along the diagonals
+# * use the top-right (is always the last entry) with the highest value (is sidelength ** 2), then count down while
+# filling the matrix counterclockwise (and by decreasing)
+# if border or filled element is reached, then turn "left" (based on the current direction)
 
 # ------------------------------------------------------------------------------
 import unittest
+import numpy as np
+# ------------------------------------------------------------------------------
+
+def createMatrix(sidelength):
+    if sidelength <= 0 or sidelength % 2 == 0:
+        raise ValueError("Just odd values are allowed for the side length.")
+
+    # changed: take Fortran style
+    matrix = np.zeros((sidelength, sidelength), dtype=np.int64, order='F')  # shape s*s; no special data type or style
+    print("matrix = ", matrix)
+
+    # TODO continue
+    currentValue = sidelength * sidelength
+    currentX, currentY = sidelength - 1, 0
+    currentDirection = 0 # TODO to be defined -> see below for usage
+
+    while currentValue > 0:
+        # assign current value
+        matrix[currentY, currentX] = currentValue
+        # decrease current value
+        currentValue -= 1
+        # adjust the position
+        # direction 0: left; 1: down; 2: right; 3: up - by doing +1 and hen mod 4 it would cycle :)
+        # todo must be fully implemented: should have a method if the movement in the current direction would be a valid cell. if yes, then assign that ... else abort
+        currentX -= 1 # not proper!
+        currentY -= 0
+
+        print("matrix:")
+        print(matrix)
+
+        # make it halt before abort
+        if currentX < 0:
+            break
+
 # ------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
@@ -43,3 +81,10 @@ class Testcase(unittest.TestCase):
     #     print(" --> input", input, "yielded result:", output)
 
 # ------------------------------------------------------------------------------
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
+
+# ------------------------------------------------------------------------------
+createMatrix(5)
