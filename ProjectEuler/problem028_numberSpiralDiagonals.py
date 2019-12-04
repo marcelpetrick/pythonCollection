@@ -73,9 +73,11 @@ import unittest
 
 def computeDiagonalsSum(sidelength):
     if sidelength <= 0 or sidelength % 2 == 0:
-            raise ValueError("Just odd values are allowed for the side length.")
+        raise ValueError("Just odd values are allowed for the side length.")
 
-    return -1 # TODO implement
+    resultValue = -1  # TODO implement
+
+    return resultValue
 
 # ------------------------------------------------------------------------------
 
@@ -83,12 +85,23 @@ class Testcase(unittest.TestCase):
     def test_isPrime(self):
         self.assertEqual(True, True)
 
-    # def test_findLargestPrimeFactor(self):
-    #     input = 13195
-    #     expectedResult = 29
-    #     output = findLargestPrimeFactor(input)
-    #     self.assertEqual(output, expectedResult)
-    #     print(" --> input", input, "yielded result:", output)
+    def test_computeDiagonalsSum1(self):
+        sideLength = 1
+        expectedResult = 1
+        output = computeDiagonalsSum(input)
+        self.assertEqual(output, expectedResult)
+        print("sideLength", sideLength, " --> yielded result:", output)
+
+    def test_computeDiagonalsSum3(self):
+        sideLength = 3
+        expectedResult = 1 + 3 + 5 + 7 + 9
+        output = computeDiagonalsSum(input)
+        self.assertEqual(output, expectedResult)
+        print("sideLength", sideLength, " --> yielded result:", output)
+
+    # todo add one for 5
+
+    # todo add one for 1001 - as test-run
 
 # ------------------------------------------------------------------------------
 
