@@ -23,56 +23,66 @@
 # filling the matrix counterclockwise (and by decreasing)
 # if border or filled element is reached, then turn "left" (based on the current direction)
 
+# idea number 2: simplified ...
+# it is not necessary to create the spiral and then sum it up. the distance between the currentElem and nextElem
+# is (starting with value 1): +2 +2 +2 +2, then +4 +4 +4 +4, then +6 +6 +6 +6 ...
+# This happens four times, because of the four corners. The increase is by 2 because with each iteration the sidelength
+# is growing by two
+
 # ------------------------------------------------------------------------------
 import unittest
-import numpy as np
+# import numpy as np
 # ------------------------------------------------------------------------------
 
-def createMatrix(sidelength):
+# BIG QUESTION: what to do with halfway started implementations, which are superseeded by a more clever, simpler approach?
+# Of course the domain of the problem is shifted and reduced (and therefore easier to compute). But what if the
+# intermediate stages would have been a good building block for further issues?
+#
+# def createMatrix(sidelength):
+#     if sidelength <= 0 or sidelength % 2 == 0:
+#         raise ValueError("Just odd values are allowed for the side length.")
+#
+#     # changed: take Fortran style
+#     matrix = np.zeros((sidelength, sidelength), dtype=np.int64, order='F')  # shape s*s; no special data type or style
+#     print("matrix = ", matrix)
+#
+#     # TODO continue
+#     currentValue = sidelength * sidelength
+#     currentX, currentY = sidelength - 1, 0
+#     currentDirection = 0 # TODO to be defined -> see below for usage
+#
+#     while currentValue > 0:
+#         # assign current value
+#         matrix[currentY, currentX] = currentValue
+#         # decrease current value
+#         currentValue -= 1
+#         # adjust the position
+#         # direction 0: left; 1: down; 2: right; 3: up - by doing +1 and hen mod 4 it would cycle :)
+#         # todo must be fully implemented: should have a method if the movement in the current direction would be a valid cell. if yes, then assign that ... else abort
+#         currentX -= 1 # not proper!
+#         currentY -= 0
+#
+#         print("matrix:")
+#         print(matrix)
+#
+#         # make it halt before abort
+#         if currentX < 0:
+#             break
+
+# ------------------------------------------------------------------------------
+
+def computeDiagonalsSum(sidelength):
     if sidelength <= 0 or sidelength % 2 == 0:
-        raise ValueError("Just odd values are allowed for the side length.")
+            raise ValueError("Just odd values are allowed for the side length.")
 
-    # changed: take Fortran style
-    matrix = np.zeros((sidelength, sidelength), dtype=np.int64, order='F')  # shape s*s; no special data type or style
-    print("matrix = ", matrix)
-
-    # TODO continue
-    currentValue = sidelength * sidelength
-    currentX, currentY = sidelength - 1, 0
-    currentDirection = 0 # TODO to be defined -> see below for usage
-
-    while currentValue > 0:
-        # assign current value
-        matrix[currentY, currentX] = currentValue
-        # decrease current value
-        currentValue -= 1
-        # adjust the position
-        # direction 0: left; 1: down; 2: right; 3: up - by doing +1 and hen mod 4 it would cycle :)
-        # todo must be fully implemented: should have a method if the movement in the current direction would be a valid cell. if yes, then assign that ... else abort
-        currentX -= 1 # not proper!
-        currentY -= 0
-
-        print("matrix:")
-        print(matrix)
-
-        # make it halt before abort
-        if currentX < 0:
-            break
+    return -1 # TODO implement
 
 # ------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
     def test_isPrime(self):
         self.assertEqual(True, True)
-    #     self.assertEqual(True, isPrime(3))
-    #     self.assertEqual(False, isPrime(6))
-    #     self.assertEqual(True, isPrime(7))
-    #     self.assertEqual(False, isPrime(16))
-    #     self.assertEqual(False, isPrime(25))
-    #     self.assertEqual(True, isPrime(29))
-    #     self.assertEqual(False, isPrime(87))
-    #     self.assertEqual(True, isPrime(89))
-    #
+
     # def test_findLargestPrimeFactor(self):
     #     input = 13195
     #     expectedResult = 29
@@ -87,4 +97,4 @@ if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
-createMatrix(5)
+
