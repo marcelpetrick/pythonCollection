@@ -72,10 +72,25 @@ import unittest
 # ------------------------------------------------------------------------------
 
 def computeDiagonalsSum(sidelength):
-    if sidelength <= 0 or sidelength % 2 == 0:
+    if (sidelength <= 0) or (sidelength % 2 == 0):
         raise ValueError("Just odd values are allowed for the side length.")
 
-    resultValue = -1  # TODO implement
+    finalValue = sidelength * sidelength
+    #print("count up to", finalValue)
+    resultValue = 1  # TODO implement
+    currentItem = 1 #starts at the first position, which is the center with 1
+    stepSize = 2
+
+    while currentItem < finalValue:
+
+        # add four times the steps
+        for i in range(4):
+            currentItem += stepSize
+            resultValue += currentItem
+            #print("currentItem:", currentItem)
+
+        # adjust the stepSize
+        stepSize += 2
 
     return resultValue
 
@@ -88,20 +103,33 @@ class Testcase(unittest.TestCase):
     def test_computeDiagonalsSum1(self):
         sideLength = 1
         expectedResult = 1
-        output = computeDiagonalsSum(input)
+        output = computeDiagonalsSum(sideLength)
         self.assertEqual(output, expectedResult)
         print("sideLength", sideLength, " --> yielded result:", output)
 
     def test_computeDiagonalsSum3(self):
         sideLength = 3
         expectedResult = 1 + 3 + 5 + 7 + 9
-        output = computeDiagonalsSum(input)
+        output = computeDiagonalsSum(sideLength)
         self.assertEqual(output, expectedResult)
         print("sideLength", sideLength, " --> yielded result:", output)
 
-    # todo add one for 5
+    def test_computeDiagonalsSum5(self):
+        sideLength = 5
+        expectedResult = 101 # given by task itself
+        output = computeDiagonalsSum(sideLength)
+        self.assertEqual(output, expectedResult)
+        print("sideLength", sideLength, " --> yielded result:", output)
 
-    # todo add one for 1001 - as test-run
+    def test_computeDiagonalsSum1001(self):
+
+        # this is the final run!
+        sideLength = 1001
+        import time
+        startTime = time.time()
+        output = computeDiagonalsSum(sideLength)
+        print("sideLength", sideLength, " --> yielded result:", output)
+        print("computation took:", time.time() - startTime, "s")
 
 # ------------------------------------------------------------------------------
 
@@ -111,3 +139,17 @@ if __name__ == '__main__':
 
 # ------------------------------------------------------------------------------
 
+# Launching unittests with arguments python -m unittest C:/Users/mpe/Desktop/MarcelsFolder/coding/pythonCollection/ProjectEuler/problem028_numberSpiralDiagonals.py in C:\Users\mpe\Desktop\MarcelsFolder\coding\pythonCollection\ProjectEuler
+#
+# sideLength 1  --> yielded result: 1
+# sideLength 1001  --> yielded result: 669171001
+# computation took: 0.0 s
+# sideLength 3  --> yielded result: 25
+# sideLength 5  --> yielded result: 101
+#
+#
+# Ran 5 tests in 0.013s
+#
+# OK
+
+# ------------------------------------------------------------------------------
