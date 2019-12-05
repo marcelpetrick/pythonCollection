@@ -40,20 +40,73 @@
 
 # ------------------------------------------------------------------------------
 
+def quickDirtyPrimTest(number):
+    if number < 0:
+        return False
+        #raise ValueError("primes have to be > 1")
+
+    if number in {0, 1}:
+        return False  # no primes
+
+    # TODO replace with something proper and maybe with LUT
+    for divisor in range(2, number):
+        if number % divisor == 0:
+            return False
+
+    return True
+
+# ------------------------------------------------------------------------------
+
+# test run
+# for number in range(20):
+#     print(number, ":", quickDirtyPrimTest(number));
+
+# ------------------------------------------------------------------------------
+
 def computeLongestChainFor(a, b):
     # check the input
     hardcodedLimits = 1000
-    if a <= -hardcodedLimits or a >= hardcodedLimits:
-        raise ValueError("input error: |a|<1000")
-    if b < -hardcodedLimits or b > hardcodedLimits:
-        raise ValueError("input error: |b|≤1000")
+    # if a <= -hardcodedLimits or a >= hardcodedLimits:
+    #     raise ValueError("input error: |a|<1000")
+    # if b < -hardcodedLimits or b > hardcodedLimits:
+    #     raise ValueError("input error: |b|≤1000")
 
     # starting value
     n = 0
-    # TODO ad a loop
-    valueOfExpression = n * n + a * n + b
-    if valueOfExpression is in primes:
-        pass #TODO
+    isPrime = True
+
+    while isPrime:
+        valueOfExpression = n * n + a * n + b
+        isPrime = quickDirtyPrimTest(valueOfExpression)
+
+        # if valueOfExpression is in primes:
+        #     pass #TODO
+
+        if not isPrime:
+            break
+
+        n += 1
+
+    #print("broke for", a, b, "at n", n)
+    return n
+
+# ------------------------------------------------------------------------------
+computeLongestChainFor(1, 41)  # returns 40, which is exactly what was predicted
+computeLongestChainFor(-79, 1601)  # returns 80, which is exactly what was predicted
+
+# crude test run
+longestChain, longA, longB = -1, -1, -1
+for a in range(-999, 999 + 1):
+    for b in range(-1000, 1000 + 1):
+        #print("handling", a, b)
+        result = computeLongestChainFor(a, b)
+        if result > longestChain:
+            longestChain = result
+            longA, longB = a, b
+            print("new top: longestChain, longA, longB =", longestChain, longA, longB)
+
+print("final: longestChain, longA, longB =", longestChain, longA, longB)
+print("euler answer:", longA * longB)
 
 # ------------------------------------------------------------------------------
 
@@ -82,7 +135,7 @@ class Testcase(unittest.TestCase):
 # ------------------------------------------------------------------------------
 
 # ---- here comes the execution of the unit-tests ----
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
 
 # ------------------------------------------------------------------------------
