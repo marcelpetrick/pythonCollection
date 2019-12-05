@@ -139,3 +139,26 @@ class Testcase(unittest.TestCase):
 #     unittest.main()
 
 # ------------------------------------------------------------------------------
+
+# run:
+# ..
+# new top: longestChain, longA, longB = 9 -121 947
+# new top: longestChain, longA, longB = 11 -105 967
+# new top: longestChain, longA, longB = 71 -61 971
+#
+#
+# final: longestChain, longA, longB = 71 -61 971
+# Ran 1 test in 0.002s
+#
+# OK
+# euler answer: -59231
+#
+# Process finished with exit code 0
+
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 27 is correct.
+#
+# You are the 80960th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%.
