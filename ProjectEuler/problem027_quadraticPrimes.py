@@ -33,9 +33,30 @@
 # ------------------------------------------------------------------------------
 
 # idea:
-# TODO
+# * one task beforehand would be to produce a container of primes up to a certain number ... to do the check easier
+# * create a function which takes two params (a,b) and then tries to find the longest chain of generated primes
+# * would be the creation of a LUT for n and n**2 an improvement for computation?
+# * multiprocessing would be an option unless i notice a mathematical shortcut
 
 # ------------------------------------------------------------------------------
+
+def computeLongestChainFor(a, b):
+    # check the input
+    hardcodedLimits = 1000
+    if a <= -hardcodedLimits or a >= hardcodedLimits:
+        raise ValueError("input error: |a|<1000")
+    if b < -hardcodedLimits or b > hardcodedLimits:
+        raise ValueError("input error: |b|≤1000")
+
+    # starting value
+    n = 0
+    # TODO ad a loop
+    valueOfExpression = n * n + a * n + b
+    if valueOfExpression is in primes:
+        pass #TODO
+
+# ------------------------------------------------------------------------------
+
 import unittest
 class Testcase(unittest.TestCase):
     def test_isPrime(self):
