@@ -11,7 +11,7 @@
 # ------------------------------------------------------------------------------
 
 # idea:
-# TODO
+# create all possible compositions, use pythagorean theorem to check
 
 # ------------------------------------------------------------------------------
 # implementation
