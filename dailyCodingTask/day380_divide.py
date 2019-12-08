@@ -11,7 +11,51 @@
 
 # ------------------------------------------------------------------------------
 
+def divide(product, divisor):
+    if divisor == 0:
+        raise ValueError("div by zero not allowed")
 
+    # TODO handle negative input
+
+    dividend, remainder = 0, 0
+    while product > divisor:
+        product -= divisor
+        dividend += 1
+
+    remainder = product
+
+    return dividend, remainder
 
 
 # ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+import unittest
+class Testcase(unittest.TestCase):
+
+    def test_givenExample(self):
+        expectedDiv, expectedRemainder = 3, 1
+        computedDiv, computedRemainder = divide(10, 3)
+        self.assertEqual(expectedDiv, computedDiv)
+        self.assertEqual(expectedRemainder, computedRemainder)
+    #
+    # def test_getMedian(self):
+    #     # TODO fix this
+    #     # self.assertRaises(getMedian([]), ValueError)
+    #
+    #     self.assertEqual(getMedian([3]), 3)
+    #
+    #     self.assertEqual(getMedian([1, 2]), 1.5)
+    #
+    #     self.assertEqual(getMedian([1, 2, 3]), 2)
+    #
+    #     self.assertEqual(getMedian([10, 4, 3, 1]), 3.5)
+
+# ------------------------------------------------------------------------------
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
+
+# ------------------------------------------------------------------------------
+
