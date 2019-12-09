@@ -1,6 +1,7 @@
 # Stepping Numbers
 # Given two integers ‘n’ and ‘m’, find all the stepping numbers in range [n, m].
-# A number is called stepping number if all adjacent digits have an absolute difference of 1. 321 is a Stepping Number while 421 is not.
+# A number is called stepping number if all adjacent digits have an absolute difference of 1.
+# 321 is a Stepping Number while 421 is not.
 #
 # Examples :
 # Input : n = 0, m = 21
@@ -28,9 +29,6 @@ def printSteppingNumbersInRange(m, n):
 # ------------------------------------------------------------------------------
 
 def isSteppingNumber(number):
-    returnValue = False
-    originalNumber = number
-
     numberOfDigits = str(number).__len__()
     if (numberOfDigits == 1):
         returnValue = True

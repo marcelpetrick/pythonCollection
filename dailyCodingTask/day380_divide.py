@@ -16,6 +16,7 @@ def divide(product, divisor):
         raise ValueError("div by zero not allowed")
 
     # TODO handle negative input
+    # consider this: https://chortle.ccsu.edu/java5/Notes/chap09B/ch09B_17.html
 
     dividend, remainder = 0, 0
     while product > divisor:
