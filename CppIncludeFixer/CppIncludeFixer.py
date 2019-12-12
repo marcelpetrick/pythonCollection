@@ -10,6 +10,8 @@
 # 1. normalize the Qt includes to the fully qualified form (e.g. <QtCore/QDebug> instead of <QDebug>).
 # Maybe some input-lookup table has to be created
 #
+# 2. compare all "class" forward declarations if they are really used a second time within the same header-file.
+# Common issue is that they are not used for a type-ptr.
 
 # TODO implement
 # TODO unit-test (maybe with generated data)
