@@ -15,3 +15,21 @@
 
 # TODO implement
 # TODO unit-test (maybe with generated data)
+
+# ------------------------------------------------------------------------------
+import unittest
+class Testcase(unittest.TestCase):
+    def test_calcValueOfName(self):
+        # self.assertEqual(1, calcValueOfName("A"))
+        # self.assertEqual(53, calcValueOfName("COLIN"))
+        pass
+
+    def test_finalRun(self):
+        # print("final score is:", calcNameScore())
+        # self.assertTrue(1337)
+        pass
+
+# ------------------------------------------------------------------------------
+if __name__ == '__main__':
+    unittest.main()
+# ------------------------------------------------------------------------------
