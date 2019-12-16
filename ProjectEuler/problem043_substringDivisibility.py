@@ -74,6 +74,29 @@ def satisfiesRequiredDivisibilityAttributes(number):
     return True
 
 print("test:", satisfiesRequiredDivisibilityAttributes(1406357289))
+# TODO put this into a unit-test!
+
+# ------------------------------------------------------------------------------
+
+def driver():
+    import itertools
+    elementSet = "01234567890"
+    # create the permutations
+    permuts = itertools.permutations(elementSet)
+
+    # test them
+    resultSum = 0
+    for elem in permuts:
+        isValid = satisfiesRequiredDivisibilityAttributes(elem)
+        if isValid:
+            print("candidate:", elem)
+            resultSum += elem
+
+    print("resultSum:", resultSum)
+
+# ------------------------------------------------------------------------------
+
+driver()
 
 # ------------------------------------------------------------------------------
 # unit test
