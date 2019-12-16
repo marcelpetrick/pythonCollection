@@ -36,38 +36,37 @@ def tripleDivideableBy(numString, firstIndex, dividend):
 # ------------------------------------------------------------------------------
 
 def satisfiesRequiredDivisibilityAttributes(number):
-    numList = [char for char in str(number)]
     # to make indexing easier, I add a dummy in the beginning
     numString = "X" + str(number)
 
     # the tests for the required attribute
     # TODO make this less "DRY" by using a list of index and dividend
     if not tripleDivideableBy(numString, 2, 2):
-        print("2")
+        #print("2")
         return False # break early, save the rest of the evaluation
 
     if not tripleDivideableBy(numString, 3, 3):
-        print("3")
+        #print("3")
         return False
 
     if not tripleDivideableBy(numString, 4, 5):
-        print("5")
+        #print("5")
         return False
 
     if not tripleDivideableBy(numString, 5, 7):
-        print("7")
+        #print("7")
         return False
 
     if not tripleDivideableBy(numString, 6, 11):
-        print("11")
+        #print("11")
         return False
 
     if not tripleDivideableBy(numString, 7, 13):
-        print("13")
+        #print("13")
         return False
 
     if not tripleDivideableBy(numString, 8, 17):
-        print("17")
+        #print("17")
         return False
 
     # if the control flow came here, then we satisfy everything
@@ -87,10 +86,16 @@ def driver():
     # test them
     resultSum = 0
     for elem in permuts:
-        isValid = satisfiesRequiredDivisibilityAttributes(elem)
+        if elem[0] == "0":
+            #print("wrong candidate, leading zero")
+            continue
+
+        #print("handle now:", elem)
+        candidate = int(''.join(elem)) # convert the tuple to string; and this to int
+        isValid = satisfiesRequiredDivisibilityAttributes(candidate)
         if isValid:
-            print("candidate:", elem)
-            resultSum += elem
+            print("candidate:", candidate)
+            resultSum += candidate
 
     print("resultSum:", resultSum)
 
