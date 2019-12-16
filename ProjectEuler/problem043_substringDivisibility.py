@@ -17,16 +17,32 @@
 #
 # ------------------------------------------------------------------------------
 # idea:
-#
+# * a function to check if the required attributes are satisfied
+# * a function to create all permutations of 0..9: question is a leading zero a valid number?
 #
 # ------------------------------------------------------------------------------
-
 
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
 
+def tripleDivideableBy(numList, firstIndex, dividend):
+    subList = numList[firstIndex:firstIndex+3]
+    print("original:", numList, "firstIndex:", firstIndex, "subList:", subList)
 
+    return int(str(subList)) // dividend == 0
+
+print("check:", tripleDivideableBy([char for char in str(144)], 0, 12))
+
+def satisfiesRequiredDivisibilityAttributes(number):
+    numList = [char for char in str(number)]
+    # to make indexing easier, I add a dummy in the beginning
+    numList = ["dummy"] + numList
+    print("numlist now:", numList)
+
+
+
+satisfiesRequiredDivisibilityAttributes(123)
 # ------------------------------------------------------------------------------
 # unit test
 # ------------------------------------------------------------------------------
