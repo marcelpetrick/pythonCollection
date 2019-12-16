@@ -26,23 +26,55 @@
 # implementation
 # ------------------------------------------------------------------------------
 
-def tripleDivideableBy(numList, firstIndex, dividend):
-    subList = numList[firstIndex:firstIndex+3]
-    print("original:", numList, "firstIndex:", firstIndex, "subList:", subList)
+def tripleDivideableBy(numString, firstIndex, dividend):
+    subString = numString[firstIndex:firstIndex+3]
+    #print("original:", numString, "firstIndex:", firstIndex, "subString:", subString)
 
-    return int(str(subList)) // dividend == 0
+    query = int(subString) % dividend == 0
+    return query
 
-print("check:", tripleDivideableBy([char for char in str(144)], 0, 12))
+# ------------------------------------------------------------------------------
 
 def satisfiesRequiredDivisibilityAttributes(number):
     numList = [char for char in str(number)]
     # to make indexing easier, I add a dummy in the beginning
-    numList = ["dummy"] + numList
-    print("numlist now:", numList)
+    numString = "X" + str(number)
 
+    # the tests for the required attribute
+    # TODO make this less "DRY" by using a list of index and dividend
+    if not tripleDivideableBy(numString, 2, 2):
+        print("2")
+        return False # break early, save the rest of the evaluation
 
+    if not tripleDivideableBy(numString, 3, 3):
+        print("3")
+        return False
 
-satisfiesRequiredDivisibilityAttributes(123)
+    if not tripleDivideableBy(numString, 4, 5):
+        print("5")
+        return False
+
+    if not tripleDivideableBy(numString, 5, 7):
+        print("7")
+        return False
+
+    if not tripleDivideableBy(numString, 6, 11):
+        print("11")
+        return False
+
+    if not tripleDivideableBy(numString, 7, 13):
+        print("13")
+        return False
+
+    if not tripleDivideableBy(numString, 8, 17):
+        print("17")
+        return False
+
+    # if the control flow came here, then we satisfy everything
+    return True
+
+print("test:", satisfiesRequiredDivisibilityAttributes(1406357289))
+
 # ------------------------------------------------------------------------------
 # unit test
 # ------------------------------------------------------------------------------
