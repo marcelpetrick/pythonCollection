@@ -100,14 +100,6 @@ def driver():
     print("resultSum:", resultSum)
 
 # ------------------------------------------------------------------------------
-
-import time
-startTime = time.time()
-print("starting computation now:", startTime)
-driver()
-print("computation took:", time.time() - startTime, "s")
-
-# ------------------------------------------------------------------------------
 # unit test
 # ------------------------------------------------------------------------------
 # import unittest
@@ -118,4 +110,70 @@ print("computation took:", time.time() - startTime, "s")
 #         pass
 
 # --- test call
-#getFirstTriangleNumberWithMoreThanXDivisors(500)
+
+import time
+startTime = time.time()
+print("starting computation now:", startTime)
+driver()
+print("computation took:", time.time() - startTime, "s")
+
+# ------------------------------------------------------------------------------
+# starting computation now: 1577046626.7263896
+# candidate: 10309528674
+# candidate: 10603572894
+# candidate: 10063572894
+# candidate: 13009528674
+# candidate: 13009528674
+# candidate: 14063572890
+# candidate: 14003572896
+# candidate: 14009528673
+# candidate: 14309528670
+# candidate: 14309528670
+# candidate: 14603572890
+# candidate: 14603572890
+# candidate: 14003572896
+# candidate: 14009528673
+# candidate: 14063572890
+# candidate: 16003572894
+# candidate: 16003572894
+# candidate: 10063572894
+# candidate: 10309528674
+# candidate: 10603572894
+# candidate: 31009528674
+# candidate: 31009528674
+# candidate: 34009528671
+# candidate: 34009528671
+# candidate: 40309528671
+# candidate: 40603572891
+# candidate: 40063572891
+# candidate: 41063572890
+# candidate: 41003572896
+# candidate: 41009528673
+# candidate: 41309528670
+# candidate: 41309528670
+# candidate: 41603572890
+# candidate: 41603572890
+# candidate: 41003572896
+# candidate: 41009528673
+# candidate: 41063572890
+# candidate: 43009528671
+# candidate: 43009528671
+# candidate: 46003572891
+# candidate: 46003572891
+# candidate: 40063572891
+# candidate: 40309528671
+# candidate: 40603572891
+# candidate: 61003572894
+# candidate: 61003572894
+# candidate: 64003572891
+# candidate: 64003572891
+# resultSum: 1473970614426
+# computation took: 100.16895651817322 s
+#
+# Process finished with exit code 0
+
+# ------------------------------------------------------------------------------
+# lol ..
+# Sorry, but the answer you gave appears to be incorrect.
+#
+# Go back to Problem 43.
