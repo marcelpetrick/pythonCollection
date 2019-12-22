@@ -101,17 +101,21 @@ def driver():
 
 # ------------------------------------------------------------------------------
 
+import time
+startTime = time.time()
+print("starting computation now:", startTime)
 driver()
+print("computation took:", time.time() - startTime, "s")
 
 # ------------------------------------------------------------------------------
 # unit test
 # ------------------------------------------------------------------------------
-import unittest
-class Testcase(unittest.TestCase):
-
-    def test_whatever(self):
-        #self.assertEqual(36, computeAmountOfDivisors(3658732))
-        pass
+# import unittest
+# class Testcase(unittest.TestCase):
+#
+#     def test_whatever(self):
+#         #self.assertEqual(36, computeAmountOfDivisors(3658732))
+#         pass
 
 # --- test call
 #getFirstTriangleNumberWithMoreThanXDivisors(500)
