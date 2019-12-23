@@ -104,6 +104,7 @@ def driver():
             fittingPandigitals.append(candidate)
 
     print("checked", counter, "permutations")
+    print("found those candidates:", fittingPandigitals)
     print("sum of all fitting candidates:", sum(fittingPandigitals))
 
 # ------------------------------------------------------------------------------
@@ -125,57 +126,10 @@ driver()
 print("computation took:", time.time() - startTime, "s")
 
 # ------------------------------------------------------------------------------
-# starting computation now: 1577046626.7263896
-# candidate: 10309528674
-# candidate: 10603572894
-# candidate: 10063572894
-# candidate: 13009528674
-# candidate: 13009528674
-# candidate: 14063572890
-# candidate: 14003572896
-# candidate: 14009528673
-# candidate: 14309528670
-# candidate: 14309528670
-# candidate: 14603572890
-# candidate: 14603572890
-# candidate: 14003572896
-# candidate: 14009528673
-# candidate: 14063572890
-# candidate: 16003572894
-# candidate: 16003572894
-# candidate: 10063572894
-# candidate: 10309528674
-# candidate: 10603572894
-# candidate: 31009528674
-# candidate: 31009528674
-# candidate: 34009528671
-# candidate: 34009528671
-# candidate: 40309528671
-# candidate: 40603572891
-# candidate: 40063572891
-# candidate: 41063572890
-# candidate: 41003572896
-# candidate: 41009528673
-# candidate: 41309528670
-# candidate: 41309528670
-# candidate: 41603572890
-# candidate: 41603572890
-# candidate: 41003572896
-# candidate: 41009528673
-# candidate: 41063572890
-# candidate: 43009528671
-# candidate: 43009528671
-# candidate: 46003572891
-# candidate: 46003572891
-# candidate: 40063572891
-# candidate: 40309528671
-# candidate: 40603572891
-# candidate: 61003572894
-# candidate: 61003572894
-# candidate: 64003572891
-# candidate: 64003572891
-# resultSum: 1473970614426
-# computation took: 100.16895651817322 s
+# checked 39916800 permutations
+# found those candidates: [10309528674, 10603572894, 10063572894, 13009528674, 13009528674, 14063572890, 14003572896, 14009528673, 14309528670, 14309528670, 14603572890, 14603572890, 14003572896, 14009528673, 14063572890, 16003572894, 16003572894, 10063572894, 10309528674, 10603572894, 31009528674, 31009528674, 34009528671, 34009528671, 40309528671, 40603572891, 40063572891, 41063572890, 41003572896, 41009528673, 41309528670, 41309528670, 41603572890, 41603572890, 41003572896, 41009528673, 41063572890, 43009528671, 43009528671, 46003572891, 46003572891, 40063572891, 40309528671, 40603572891, 61003572894, 61003572894, 64003572891, 64003572891]
+# sum of all fitting candidates: 1473970614426
+# computation took: 39.9204626083374 s
 #
 # Process finished with exit code 0
 
