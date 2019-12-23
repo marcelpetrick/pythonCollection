@@ -19,6 +19,7 @@
 # idea:
 # * a function to check if the required attributes are satisfied
 # * a function to create all permutations of 0..9: question is a leading zero a valid number?
+# * then just check all permutations if they satisfy the earlier requirement and add them up
 #
 # ------------------------------------------------------------------------------
 
@@ -72,7 +73,9 @@ def satisfiesRequiredDivisibilityAttributes(number):
     # if the control flow came here, then we satisfy everything
     return True
 
-print("test:", satisfiesRequiredDivisibilityAttributes(1406357289))
+# ------------------------------------------------------------------------------
+
+print("1406357289 satisfies the requirement?:", satisfiesRequiredDivisibilityAttributes(1406357289))
 # TODO put this into a unit-test!
 
 # ------------------------------------------------------------------------------
@@ -84,8 +87,11 @@ def driver():
     permuts = itertools.permutations(elementSet)
 
     # test them
-    resultSum = 0
+    fittingPandigitals = []
+    counter = 0
+
     for elem in permuts:
+        counter += 1
         if elem[0] == "0":
             #print("wrong candidate, leading zero")
             continue
@@ -95,9 +101,10 @@ def driver():
         isValid = satisfiesRequiredDivisibilityAttributes(candidate)
         if isValid:
             print("candidate:", candidate)
-            resultSum += candidate
+            fittingPandigitals.append(candidate)
 
-    print("resultSum:", resultSum)
+    print("checked", counter, "permutations")
+    print("sum of all fitting candidates:", sum(fittingPandigitals))
 
 # ------------------------------------------------------------------------------
 # unit test
