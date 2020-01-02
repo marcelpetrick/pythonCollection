@@ -49,30 +49,36 @@ print("pand:", isStringPandigital("19234567811"))
 
 # ------------------------------------------------------------------------------
 
+def hasRequestedAttributes(currentFib, fibIndex):
+    currentFibStr = str(currentFib)
+
+    # check the begin for being pandigital
+    prefix = currentFibStr[:9]  # first nine digits
+    # print("prefix:", prefix)
+    if isStringPandigital(prefix):
+        print("Fib", fibIndex, ":", currentFib)
+        print("\tat least prefix is pandigital")
+        # check also the end for being pandigital
+        suffix = currentFibStr[-9:]  # last nine digits
+        # print("suffix:", suffix)
+        if isStringPandigital(suffix):
+            print("HIT! now also the suffix")
+            return True
+
+    return False
+
+# ------------------------------------------------------------------------------
+
 def driver():
     fibGen = getFibGen()
 
-    index = 0
-    currentFib = -1
-    while True: # currentFib < 10 ** 10:
+    fibIndex = 0
+    while True:
         currentFib = next(fibGen)
-        #print("Fib", index, ":", currentFib)
-        index += 1
+        fibIndex += 1
 
-        currentFibStr = str(currentFib)
-
-        # check the begin for being pandigital
-        prefix = currentFibStr[:9] # first nine digits
-        #print("prefix:", prefix)
-        if isStringPandigital(prefix):
-            print("Fib", index, ":", currentFib)
-            print("\tat least prefix is pandigital")
-            # check also the end for being pandigital
-            suffix = currentFibStr[-9:]  # last nine digits
-            #print("suffix:", suffix)
-            if isStringPandigital(suffix):
-                print("HIT! now also the suffix")
-                break
+        # TODO do this in a threaded way until we have a result
+        hasRequestedAttributes(currentFib, fibIndex)
 
 # ------------------------------------------------------------------------------
 
