@@ -27,6 +27,7 @@ class FactorialChecker:
     def __init__(self):
 
         # prepare the factorial dictionary
+        self.factDict[0] = 1 # by definition
         currentFact = 1
         for elem in range(1, 10):
             # compute the next fact
@@ -42,17 +43,25 @@ class FactorialChecker:
         ''' Used to run the check given by the task:
         is the sum of the factorial of the digits equal to the number itself?'''
 
+        print("check numbers from", lowerLimit, "to", upperLimit)
+        result = 0
         for number in range(lowerLimit, upperLimit + 1):
             if self.isDigitFactorialNumber(number):
                 print("hit:", number)
+                result += number
 
         print("... done ...")
+        print("result is:", result)
 
     # ----------------------------
 
     def isDigitFactorialNumber(self, number):
         # convert to digits
         digits = [int(digit) for digit in str(number)]
+        # excluded by definition of the task, because not a sum
+        if len(digits) < 2:
+            return False
+
         # compute the sum of the factorials of the digits
         summed = sum([self.factDict[digit] for digit in digits])
         # are the equal?
@@ -60,9 +69,9 @@ class FactorialChecker:
 
 # ------------------------------------------------------------------------------
 
-foo = FactorialChecker()
+factChecker = FactorialChecker()
 
-print("145?", foo.isDigitFactorialNumber(145))
-print("123?", foo.isDigitFactorialNumber(123))
+# print("145?", foo.isDigitFactorialNumber(145))
+# print("123?", foo.isDigitFactorialNumber(123))
 
-foo.computeResultsForRange(0, 1000)
+factChecker.computeResultsForRange(0, 10000000)
