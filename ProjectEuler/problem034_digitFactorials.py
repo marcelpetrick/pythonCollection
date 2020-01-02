@@ -20,18 +20,21 @@
 # ------------------------------------------------------------------------------
 
 class FactorialChecker:
+
+    # class attribute
+    factDict = {}
+
     def __init__(self):
 
         # prepare the factorial dictionary
-        factDict = {}
         currentFact = 1
         for elem in range(1, 10):
             # compute the next fact
             currentFact *= elem
             # insert into dict
-            factDict[elem] = currentFact
+            self.factDict[elem] = currentFact
 
-        print("current dictionary:", factDict) # todom remove
+        print("current dictionary:", self.factDict) # todom remove
 
     # ----------------------------
 
@@ -61,3 +64,5 @@ foo = FactorialChecker()
 
 print("145?", foo.isDigitFactorialNumber(145))
 print("123?", foo.isDigitFactorialNumber(123))
+
+foo.computeResultsForRange(0, 1000)
