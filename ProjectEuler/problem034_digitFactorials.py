@@ -75,3 +75,18 @@ factChecker = FactorialChecker()
 # print("123?", foo.isDigitFactorialNumber(123))
 
 factChecker.computeResultsForRange(0, 10000000)
+
+# ------------------------------------------------------------------------------
+# current dictionary: {0: 1, 1: 1, 2: 2, 3: 6, 4: 24, 5: 120, 6: 720, 7: 5040, 8: 40320, 9: 362880}
+# check numbers from 0 to 10000000
+# hit: 145
+# hit: 40585
+# ... done ...
+# result is: 40730
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 34 is correct.
+#
+# You are the 88179th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%.
