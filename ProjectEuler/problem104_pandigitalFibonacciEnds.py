@@ -28,6 +28,25 @@ def getFibGen():
 
 # ------------------------------------------------------------------------------
 
+def isStringPandigital(input):
+    ''' Contains all digits from 1 to 9? '''
+
+    if len(input) != 9:
+        return False
+
+    for elem in range(1,10):
+        if str(elem) not in input:
+            return False
+
+    return True
+
+# TODO convert this to unit-tests
+print("pand:", isStringPandigital("123"))
+print("pand:", isStringPandigital("1234567890"))
+print("pand:", isStringPandigital("123456789"))
+print("pand:", isStringPandigital("192345678"))
+print("pand:", isStringPandigital("19234567811"))
+
 # ------------------------------------------------------------------------------
 
 def driver():
@@ -35,10 +54,25 @@ def driver():
 
     index = 1
     currentFib = -1
-    while currentFib < 100:
+    while True: # currentFib < 10 ** 10:
         currentFib = next(fibGen)
-        print("index", index, ":", currentFib)
+        #print("Fib", index, ":", currentFib)
         index += 1
+
+        currentFibStr = str(currentFib)
+
+        # check the begin for being pandigital
+        prefix = currentFibStr[0:9] # first nine digits
+        #print("prefix:", prefix)
+        if isStringPandigital(prefix):
+            print("Fib", index, ":", currentFib)
+            print("\tat least prefix is pandigital")
+            # check also the end for being pandigital
+            suffix = currentFibStr[-9:]  #last  nine digits
+            #print("suffix:", suffix)
+            if isStringPandigital(suffix):
+                print("HIT! now also the suffix")
+                break
 
 # ------------------------------------------------------------------------------
 
