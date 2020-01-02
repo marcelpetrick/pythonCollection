@@ -33,4 +33,31 @@ class FactorialChecker:
 
         print("current dictionary:", factDict) # todom remove
 
+    # ----------------------------
+
+    def computeResultsForRange(self, lowerLimit, upperLimit):
+        ''' Used to run the check given by the task:
+        is the sum of the factorial of the digits equal to the number itself?'''
+
+        for number in range(lowerLimit, upperLimit + 1):
+            if self.isDigitFactorialNumber(number):
+                print("hit:", number)
+
+        print("... done ...")
+
+    # ----------------------------
+
+    def isDigitFactorialNumber(self, number):
+        # convert to digits
+        digits = [int(digit) for digit in str(number)]
+        # compute the sum of the factorials of the digits
+        summed = sum([self.factDict[digit] for digit in digits])
+        # are the equal?
+        return summed == number
+
+# ------------------------------------------------------------------------------
+
 foo = FactorialChecker()
+
+print("145?", foo.isDigitFactorialNumber(145))
+print("123?", foo.isDigitFactorialNumber(123))
