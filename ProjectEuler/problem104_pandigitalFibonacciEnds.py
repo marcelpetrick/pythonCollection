@@ -52,7 +52,7 @@ print("pand:", isStringPandigital("19234567811"))
 def driver():
     fibGen = getFibGen()
 
-    index = 1
+    index = 0
     currentFib = -1
     while True: # currentFib < 10 ** 10:
         currentFib = next(fibGen)
@@ -62,13 +62,13 @@ def driver():
         currentFibStr = str(currentFib)
 
         # check the begin for being pandigital
-        prefix = currentFibStr[0:9] # first nine digits
+        prefix = currentFibStr[:9] # first nine digits
         #print("prefix:", prefix)
         if isStringPandigital(prefix):
             print("Fib", index, ":", currentFib)
             print("\tat least prefix is pandigital")
             # check also the end for being pandigital
-            suffix = currentFibStr[-9:]  #last  nine digits
+            suffix = currentFibStr[-9:]  # last nine digits
             #print("suffix:", suffix)
             if isStringPandigital(suffix):
                 print("HIT! now also the suffix")
