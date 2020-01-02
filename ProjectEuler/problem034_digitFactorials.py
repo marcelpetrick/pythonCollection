@@ -90,3 +90,20 @@ factChecker.computeResultsForRange(0, 10000000)
 # You are the 88179th person to have solved this problem.
 #
 # This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 20%.
+
+# ------------------------------------------------------------------------------
+
+# interesting note: those numbers are called Factorion!
+#
+# see: http://mathworld.wolfram.com/Factorion.html
+#  A factorion is an integer which is equal to the sum of factorials of its digits. There are exactly four such numbers:
+# 1	=	1!
+# (1)
+# 2	=	2!
+# (2)
+# 145	=	1!+4!+5!
+# (3)
+# 40585	=	4!+0!+5!+8!+5!
+# (4)
+#
+# (OEIS A014080; Gardner 1978, Madachy 1979, Pickover 1995). Obviously, the factorion of an n-digit number cannot exceed n·9!.
