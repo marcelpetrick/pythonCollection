@@ -14,3 +14,33 @@
 # pandigital, find k.
 
 # ------------------------------------------------------------------------------
+# idea:
+# * iterate numbers until one fitting with the given attributes is found ... print this.
+# ------------------------------------------------------------------------------
+
+# taken from problem 002
+def getFibGen():
+    a = 1
+    b = 1
+    while True:
+        yield a # yay, my first generator! :)
+        a, b = b, a + b
+
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+
+def driver():
+    fibGen = getFibGen()
+
+    index = 1
+    currentFib = -1
+    while currentFib < 100:
+        currentFib = next(fibGen)
+        print("index", index, ":", currentFib)
+        index += 1
+
+# ------------------------------------------------------------------------------
+
+# test call
+driver()
