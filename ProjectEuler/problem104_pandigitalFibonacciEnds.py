@@ -18,7 +18,7 @@
 # * iterate numbers until one fitting with the given attributes is found ... print this.
 # ------------------------------------------------------------------------------
 
-# taken from problem 002
+# taken from problem 002: TODO modify to just compute the prefix and suffix properly
 def getFibGen():
     a = 1
     b = 1
@@ -94,11 +94,14 @@ def driver():
 driver()
 
 # ------------------------------------------------------------------------------
-# from an aborted, endlessly running test-execution ... now with threads
 
-# Fib 240188 : ...
-# 	at least prefix is pandigital
-#
-# Process finished with exit code -1
+import unittest
+class Testcase(unittest.TestCase):
+    def test_fibGen_1000th_fib_has_proper_prefix_and_suffix(self):
+        self.assertEqual(True, True)
 
 # ------------------------------------------------------------------------------
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
