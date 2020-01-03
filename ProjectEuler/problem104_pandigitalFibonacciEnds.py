@@ -40,13 +40,6 @@ def isStringPandigital(input):
 
     return True
 
-# TODO convert this to unit-tests
-print("pand:", isStringPandigital("123"))
-print("pand:", isStringPandigital("1234567890"))
-print("pand:", isStringPandigital("123456789"))
-print("pand:", isStringPandigital("192345678"))
-print("pand:", isStringPandigital("19234567811"))
-
 # ------------------------------------------------------------------------------
 
 # TODO have a look at this suggestion to omit the inner digits: https://euler.stephan-brumme.com/104/
@@ -91,7 +84,7 @@ def driver():
 # ------------------------------------------------------------------------------
 
 # test call
-driver()
+#driver()
 
 # ------------------------------------------------------------------------------
 
@@ -99,6 +92,18 @@ import unittest
 class Testcase(unittest.TestCase):
     def test_fibGen_1000th_fib_has_proper_prefix_and_suffix(self):
         self.assertEqual(True, True)
+
+    def test_isStringPandigital(self):
+        self.assertEqual(False, isStringPandigital(""))
+        self.assertEqual(False, isStringPandigital("1"))
+        self.assertEqual(False, isStringPandigital("123"))
+        self.assertEqual(False, isStringPandigital("12345678"))
+        self.assertEqual(True, isStringPandigital("123456789"))
+        self.assertEqual(False, isStringPandigital("1234567890"))
+        self.assertEqual(True, isStringPandigital("987654321"))
+        self.assertEqual(True, isStringPandigital("198765432"))
+        self.assertEqual(False, isStringPandigital("1987654321"))
+        self.assertEqual(False, isStringPandigital("aaa"))
 
 # ------------------------------------------------------------------------------
 
