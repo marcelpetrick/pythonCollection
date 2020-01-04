@@ -20,11 +20,15 @@
 
 # taken from problem 002: TODO modify to just compute the prefix and suffix properly
 def getFibGen():
+    ''' Returns a generator for the Fibonacci numbers as well as the "index". '''
     a = 1
-    b = 1
+    b = 0
+    counter = 1
     while True:
-        yield a
+        yield counter, a
         a, b = b, a + b
+        counter += 1
+    # TODO adapt the unit-test!
 
 # ------------------------------------------------------------------------------
 
