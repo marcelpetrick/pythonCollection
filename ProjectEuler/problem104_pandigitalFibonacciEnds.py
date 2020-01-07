@@ -26,7 +26,7 @@ def getFibGen():
     counter = 1
     while True:
         yield counter, a
-        a, b = b, (a + b) % 100000000000 # returns just as truncated form the last ten digits correctly :) big perfomance improvement: 10**6 with 0.5s versus 14s (for real implementation)
+        a, b = b, (a + b) % 10000000000 # returns just as truncated form the last ten digits correctly :) big perfomance improvement: 10**6 with 0.5s versus 14s (for real implementation)
         counter += 1
     # TODO adapt the unit-test!
 
@@ -133,7 +133,7 @@ def driver():
 import time
 def fibPerformanceTest():
     fibGen = getFibGen()
-    limit = 10 ** 7
+    limit = 10 ** 8
     startTime = time.time()
     index = -1
     while index < limit:
@@ -144,3 +144,7 @@ def fibPerformanceTest():
 fibPerformanceTest()
 # getting the first 1000000 fibonaccis took 14.699255466461182 s - unimproved
 # getting the first 1000000 fibonaccis took  0.5 s - improved
+#
+# improved really keeps the growth by factor 10 of numbers by factor 10 of time:
+# getting the first 100000000 fibonaccis took 25.411197900772095 s
+# last fib is: 6460156249
