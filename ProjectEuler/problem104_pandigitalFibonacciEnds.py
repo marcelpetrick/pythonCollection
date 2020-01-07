@@ -16,6 +16,10 @@
 # ------------------------------------------------------------------------------
 # idea:
 # * iterate numbers until one fitting with the given attributes is found ... print this.
+# * to say it bluntly: this idea ould work, but due to the handling of numbers with a lot of digits, this consumes more time to call functions than to do something
+#
+# inspiration taken from this suggestion to omit the inner digits: https://euler.stephan-brumme.com/104/
+# also used a closed formula to determine the first digits (Moivre-Binet)
 # ------------------------------------------------------------------------------
 
 def getFibGen():
@@ -50,17 +54,16 @@ def isStringPandigital(input):
 def hasRequestedAttributes(currentFib, fibIndex):
     currentFibStr = str(currentFib)
 
-    # check the begin for being pandigital
-    prefix = currentFibStr[:9]  # first nine digits
-    # print("prefix:", prefix)
-    if isStringPandigital(prefix):
+    # check the suffix for being pandigital
+    suffix = currentFibStr[-9:]
+    if isStringPandigital(suffix):
         print("Fib", fibIndex, ":", currentFib)
-        print("\tat least prefix is pandigital")
-        # check also the end for being pandigital
-        suffix = currentFibStr[-9:]  # last nine digits
-        # print("suffix:", suffix)
-        if isStringPandigital(suffix):
-            print("HIT! now also the suffix")
+        print("\tat least suffix is pandigital")
+        # check also the beginof the number for being pandigital
+        prefix = firstNineDigitsMoivreBinet_asString(fibIndex)
+        print("prefix:", prefix)
+        if isStringPandigital(prefix):
+            print("HIT! now also the prefix is fitting")
             return True
 
     return False
@@ -92,26 +95,25 @@ def firstNineDigitsMoivreBinet_asString(n):
 
 def driver():
     # now with threads ..
-    from threading import Thread
+    #from threading import Thread
 
     # the Fibonacci generator
     fibGen = getFibGen()
 
     # the driver itself which starts the threads
-    fibIndex = 0
     while True:
-        currentFib = next(fibGen)
-        fibIndex += 1
+        fibIndex, currentFib = next(fibGen)
 
         # TODO do this in a threaded way until we have a result
-        hasRequestedAttributes(currentFib, fibIndex)
-        thread = Thread(target=hasRequestedAttributes, args=(currentFib, fibIndex), daemon=True)
-        thread.start() # omitting .join for the threads ..
+        if hasRequestedAttributes(currentFib, fibIndex):
+            print("we have a hit!", fibIndex, ":", currentFib)
+        #thread = Thread(target=hasRequestedAttributes, args=(currentFib, fibIndex), daemon=True)
+        #thread.start() # omitting .join for the threads ..
 
 # ------------------------------------------------------------------------------
 
 # test call
-#driver()
+driver()
 
 # ------------------------------------------------------------------------------
 
