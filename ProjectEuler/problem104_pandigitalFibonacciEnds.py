@@ -18,9 +18,10 @@
 # * iterate numbers until one fitting with the given attributes is found ... print this.
 # ------------------------------------------------------------------------------
 
-# taken from problem 002: TODO modify to just compute the prefix and suffix properly
 def getFibGen():
-    ''' Returns a generator for the Fibonacci numbers as well as the "index". '''
+    ''' Returns a generator for the Fibonacci numbers as well as the "index".
+    @attention Fib is truncated to the last nine digits!'''
+
     a = 1
     b = 1
     counter = 1
@@ -28,7 +29,6 @@ def getFibGen():
         yield counter, a
         a, b = b, (a + b) % 1000000000 # returns just as truncated form the last nine digits correctly :) big perfomance improvement: 10**6 with 0.5s versus 14s (for real implementation)
         counter += 1
-    # TODO adapt the unit-test!
 
 # ------------------------------------------------------------------------------
 
@@ -93,6 +93,9 @@ def driver():
 # ------------------------------------------------------------------------------
 
 import unittest
+import logging  # needed for unit-test-logging
+import sys  # needed for unit-test-logging
+
 class Testcase(unittest.TestCase):
     def test_fibGen_1000th_fib_has_proper_prefix_and_suffix(self):
         self.assertEqual(True, True)
@@ -118,23 +121,26 @@ class Testcase(unittest.TestCase):
         # check the 1000th
         while index < 1000:
             index, fib = fibGen.__next__()
-        print("1000th:", fib, "index is:", index)
+
         # minor test: just check if the 1000th is correct: sample taken from: http://www.fullbooks.com/The-first-1001-Fibonacci-Numbers.html
         expectedResult = 43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875
         self.assertEqual(1000, index)
         self.assertEqual(expectedResult % 1000000000, fib)
+        log = logging.getLogger("TestLog")
+        log.debug(" 1000th fibonacci is %s, index is %s" % (fib, index)) # todo fix this
 
-    def performanceTestFibonaccis(self):
+    def test_performanceTestFibonaccis(self):
         '''  Quick test for the speed of the current fib-generator '''
         import time
         fibGen = getFibGen()
-        limit = 10 ** 7
+        limit = 10 ** 6
         startTime = time.time()
         index = -1
         while index < limit:
             index, fib = fibGen.__next__()
-        print("getting the first", limit, "fibonaccis took", time.time() - startTime, "s")
-        #print("last fib is:", fib)
+
+        log = logging.getLogger("TestLog")
+        log.debug(" getting the first %s fibonaccis took %s s" % (limit, time.time() - startTime)) # todo fix this
 
     def test_isStringPandigital(self):
         self.assertEqual(False, isStringPandigital(""))
@@ -152,25 +158,7 @@ class Testcase(unittest.TestCase):
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
+    logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
     unittest.main()
 
 # ------------------------------------------------------------------------------
-# quick test for the speed of the current fib-generator
-# import time
-# def fibPerformanceTest():
-#     fibGen = getFibGen()
-#     limit = 10 ** 8
-#     startTime = time.time()
-#     index = -1
-#     while index < limit:
-#         index, fib = fibGen.__next__()
-#     print("getting the first", limit, "fibonaccis took", time.time() - startTime, "s")
-#     print("last fib is:", fib)
-#
-# fibPerformanceTest()
-# getting the first 1000000 fibonaccis took 14.699255466461182 s - unimproved
-# getting the first 1000000 fibonaccis took  0.5 s - improved
-#
-# improved really keeps the growth by factor 10 of numbers by factor 10 of time:
-# getting the first 100000000 fibonaccis took 25.411197900772095 s
-# last fib is: 6460156249
