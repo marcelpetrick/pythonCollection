@@ -22,11 +22,11 @@
 def getFibGen():
     ''' Returns a generator for the Fibonacci numbers as well as the "index". '''
     a = 1
-    b = 0
+    b = 1
     counter = 1
     while True:
         yield counter, a
-        a, b = b, (a + b) % 10000000000 # returns just as truncated form the last ten digits correctly :) big perfomance improvement: 10**6 with 0.5s versus 14s (for real implementation)
+        a, b = b, (a + b) % 1000000000 # returns just as truncated form the last nine digits correctly :) big perfomance improvement: 10**6 with 0.5s versus 14s (for real implementation)
         counter += 1
     # TODO adapt the unit-test!
 
@@ -91,57 +91,83 @@ def driver():
 #driver()
 
 # ------------------------------------------------------------------------------
-#
-# import unittest
-# class Testcase(unittest.TestCase):
-#     def test_fibGen_1000th_fib_has_proper_prefix_and_suffix(self):
-#         self.assertEqual(True, True)
-#
-#     def test_fibGen(self):
-#         # minor test: just check if the 1000th is correct: sample taken from
-#         expectedResult = 43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875
-#         fibGen = getFibGen()
-#         count = 1
-#         fib = fibGen.__next__()
-#         self.assertEqual(1, fib)
-#         while count < 1000:
-#             fib = fibGen.__next__()
-#             count += 1
-#         print("1000th:", fib)
-#         self.assertEqual(expectedResult, fib)
-#
-#     def test_isStringPandigital(self):
-#         self.assertEqual(False, isStringPandigital(""))
-#         self.assertEqual(False, isStringPandigital("1"))
-#         self.assertEqual(False, isStringPandigital("123"))
-#         self.assertEqual(False, isStringPandigital("12345678"))
-#         self.assertEqual(True, isStringPandigital("123456789"))
-#         self.assertEqual(False, isStringPandigital("1234567890"))
-#         self.assertEqual(True, isStringPandigital("987654321"))
-#         self.assertEqual(True, isStringPandigital("198765432"))
-#         self.assertEqual(False, isStringPandigital("1987654321"))
-#         self.assertEqual(False, isStringPandigital("aaa"))
+
+import unittest
+class Testcase(unittest.TestCase):
+    def test_fibGen_1000th_fib_has_proper_prefix_and_suffix(self):
+        self.assertEqual(True, True)
+
+    def test_fibGen(self):
+        fibGen = getFibGen()
+
+        # first is one?
+        index, fib = fibGen.__next__()
+        self.assertEqual(1, index)
+        self.assertEqual(1, fib)
+
+        # second is one?
+        index, fib = fibGen.__next__()
+        self.assertEqual(2, index)
+        self.assertEqual(1, fib)
+
+        # third is two?
+        index, fib = fibGen.__next__()
+        self.assertEqual(3, index)
+        self.assertEqual(2, fib)
+
+        # check the 1000th
+        while index < 1000:
+            index, fib = fibGen.__next__()
+        print("1000th:", fib, "index is:", index)
+        # minor test: just check if the 1000th is correct: sample taken from: http://www.fullbooks.com/The-first-1001-Fibonacci-Numbers.html
+        expectedResult = 43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875
+        self.assertEqual(1000, index)
+        self.assertEqual(expectedResult % 1000000000, fib)
+
+    def performanceTestFibonaccis(self):
+        '''  Quick test for the speed of the current fib-generator '''
+        import time
+        fibGen = getFibGen()
+        limit = 10 ** 7
+        startTime = time.time()
+        index = -1
+        while index < limit:
+            index, fib = fibGen.__next__()
+        print("getting the first", limit, "fibonaccis took", time.time() - startTime, "s")
+        #print("last fib is:", fib)
+
+    def test_isStringPandigital(self):
+        self.assertEqual(False, isStringPandigital(""))
+        self.assertEqual(False, isStringPandigital("1"))
+        self.assertEqual(False, isStringPandigital("123"))
+        self.assertEqual(False, isStringPandigital("12345678"))
+        self.assertEqual(True, isStringPandigital("123456789"))
+        self.assertEqual(False, isStringPandigital("1234567890"))
+        self.assertEqual(True, isStringPandigital("987654321"))
+        self.assertEqual(True, isStringPandigital("198765432"))
+        self.assertEqual(False, isStringPandigital("1987654321"))
+        self.assertEqual(False, isStringPandigital("aaa"))
 
 # ------------------------------------------------------------------------------
 
 # ---- here comes the execution of the unit-tests ----
-# if __name__ == '__main__':
-#     unittest.main()
+if __name__ == '__main__':
+    unittest.main()
 
 # ------------------------------------------------------------------------------
 # quick test for the speed of the current fib-generator
-import time
-def fibPerformanceTest():
-    fibGen = getFibGen()
-    limit = 10 ** 8
-    startTime = time.time()
-    index = -1
-    while index < limit:
-        index, fib = fibGen.__next__()
-    print("getting the first", limit, "fibonaccis took", time.time() - startTime, "s")
-    print("last fib is:", fib)
-
-fibPerformanceTest()
+# import time
+# def fibPerformanceTest():
+#     fibGen = getFibGen()
+#     limit = 10 ** 8
+#     startTime = time.time()
+#     index = -1
+#     while index < limit:
+#         index, fib = fibGen.__next__()
+#     print("getting the first", limit, "fibonaccis took", time.time() - startTime, "s")
+#     print("last fib is:", fib)
+#
+# fibPerformanceTest()
 # getting the first 1000000 fibonaccis took 14.699255466461182 s - unimproved
 # getting the first 1000000 fibonaccis took  0.5 s - improved
 #
