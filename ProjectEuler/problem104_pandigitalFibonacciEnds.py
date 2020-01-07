@@ -72,24 +72,21 @@ invRoot5 = 1 / 5 ** 0.5
 firstTerm = (1 + 5 ** 0.5) / 2
 secondTerm = (1 - 5 ** 0.5) / 2
 
-def firstNineDigitsMoivreBinet(n):
+def firstNineDigitsMoivreBinet_asString(n):
     ''' Closed formula for the computation of the n-th fibonacci number:
     https://de.wikipedia.org/wiki/Fibonacci-Folge#Formel_von_Moivre-Binet
     '''
 
     fibo = invRoot5 * (firstTerm ** n - secondTerm ** n)
-    print("n:", n, "->", fibo)
-    print("remove: ", secondTerm ** n)
-    print("remove: ", (secondTerm ** n) ** n) # alomost zero with 100 ... can maybe removed ..
+    # print("n:", n, "->", fibo)
+    # print("remove: ", secondTerm ** n)
+    # print("remove: ", (secondTerm ** n) ** n) # almost zero with 100 ... can maybe removed ..
 
-    stringified = "%.0f" % fibo  # str(fibo)
-    print("stringified is:", stringified)
+    stringified = "%.0f" % fibo  # str(fibo) does give the exponential-form, which is not what is needed
+    # print("stringified is:", stringified)
     returnValue = stringified[:9+1] if len(stringified) > 9 else stringified
-    print("-->", returnValue)
-    return returnValue
-
-firstNineDigitsMoivreBinet(10) # expected: 55
-firstNineDigitsMoivreBinet(100) # expected: 3542248481_79261915075
+    # print("-->", returnValue)
+    return returnValue # keep as string, no conversion via int(..)
 
 # ------------------------------------------------------------------------------
 
@@ -153,7 +150,7 @@ class Testcase(unittest.TestCase):
         self.assertEqual(1000, index)
         self.assertEqual(expectedResult % 1000000000, fib)
         log = logging.getLogger("TestLog")
-        log.debug(" 1000th fibonacci is %s, index is %s" % (fib, index)) # todo fix this
+        log.debug(" 1000th fibonacci is %s, index is %s" % (fib, index))
 
     def test_performanceTestFibonaccis(self):
         '''  Quick test for the speed of the current fib-generator '''
@@ -166,7 +163,7 @@ class Testcase(unittest.TestCase):
             index, fib = fibGen.__next__()
 
         log = logging.getLogger("TestLog")
-        log.debug(" getting the first %s fibonaccis took %s s" % (limit, time.time() - startTime)) # todo fix this
+        log.debug(" getting the first %s fibonaccis took %s s" % (limit, time.time() - startTime))
 
     def test_isStringPandigital(self):
         self.assertEqual(False, isStringPandigital(""))
@@ -179,6 +176,16 @@ class Testcase(unittest.TestCase):
         self.assertEqual(True, isStringPandigital("198765432"))
         self.assertEqual(False, isStringPandigital("1987654321"))
         self.assertEqual(False, isStringPandigital("aaa"))
+
+    def test_moivreBinet(self):
+        import time
+        # expected: 55
+        self.assertEqual(firstNineDigitsMoivreBinet_asString(10), "55")
+        # expected: 3542248481_79261915075
+        startTime = time.time()
+        self.assertEqual(firstNineDigitsMoivreBinet_asString(100), "3542248481")
+        log = logging.getLogger("TestLog")
+        log.debug(" computing Moivre-Binet of 100th Fibo took %s s" % (time.time() - startTime))
 
 # ------------------------------------------------------------------------------
 
