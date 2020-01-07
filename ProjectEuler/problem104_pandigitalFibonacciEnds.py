@@ -67,6 +67,32 @@ def hasRequestedAttributes(currentFib, fibIndex):
 
 # ------------------------------------------------------------------------------
 
+# precomputed values
+invRoot5 = 1 / 5 ** 0.5
+firstTerm = (1 + 5 ** 0.5) / 2
+secondTerm = (1 - 5 ** 0.5) / 2
+
+def firstNineDigitsMoivreBinet(n):
+    ''' Closed formula for the computation of the n-th fibonacci number:
+    https://de.wikipedia.org/wiki/Fibonacci-Folge#Formel_von_Moivre-Binet
+    '''
+
+    fibo = invRoot5 * (firstTerm ** n - secondTerm ** n)
+    print("n:", n, "->", fibo)
+    print("remove: ", secondTerm ** n)
+    print("remove: ", (secondTerm ** n) ** n) # alomost zero with 100 ... can maybe removed ..
+
+    stringified = "%.0f" % fibo  # str(fibo)
+    print("stringified is:", stringified)
+    returnValue = stringified[:9+1] if len(stringified) > 9 else stringified
+    print("-->", returnValue)
+    return returnValue
+
+firstNineDigitsMoivreBinet(10) # expected: 55
+firstNineDigitsMoivreBinet(100) # expected: 3542248481_79261915075
+
+# ------------------------------------------------------------------------------
+
 def driver():
     # now with threads ..
     from threading import Thread
