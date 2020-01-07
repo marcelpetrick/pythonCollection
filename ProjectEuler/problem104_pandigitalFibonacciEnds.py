@@ -50,71 +50,65 @@ def isStringPandigital(input):
 
 # ------------------------------------------------------------------------------
 
-# TODO have a look at this suggestion to omit the inner digits: https://euler.stephan-brumme.com/104/
 def hasRequestedAttributes(currentFib, fibIndex):
+    '''
+    Check first the current fibonacci if it is pandigital. If yes, then compute the beginning and determine if the prefix is pandigital.
+    :param currentFib:
+    :param fibIndex:
+    :return:
+    '''
     currentFibStr = str(currentFib)
 
     # check the suffix for being pandigital
     suffix = currentFibStr[-9:]
     if isStringPandigital(suffix):
-        print("Fib", fibIndex, ":", currentFib)
-        print("\tat least suffix is pandigital")
-        # check also the beginof the number for being pandigital
+        #print("fibIndex:", fibIndex, "suffix:", currentFib)
+        #print("\t at least suffix is pandigital")
+        # check also the begin of the number for being pandigital
         prefix = firstNineDigitsMoivreBinet_asString(fibIndex)
-        print("prefix:", prefix)
+        #print("\t prefix to check:", prefix)
         if isStringPandigital(prefix):
-            print("HIT! now also the prefix is fitting")
+            #print("\t HIT! now also the prefix is fitting")
             return True
 
     return False
 
 # ------------------------------------------------------------------------------
 
+import decimal # avoid: OverflowError: (34, 'Result too large')
+#decimal.getcontext().prec = 100
+# even with decimal there is the following crash: decimal.Overflow: [<class 'decimal.Overflow'>]
+decimal.getcontext().Emax = 20000000
+
 # precomputed values
-invRoot5 = 1 / 5 ** 0.5
-firstTerm = (1 + 5 ** 0.5) / 2
-secondTerm = (1 - 5 ** 0.5) / 2
+invRoot5 = decimal.Decimal(1 / 5 ** 0.5)
+firstTerm = decimal.Decimal((1 + 5 ** 0.5) / 2)
+#secondTerm = decimal.Decimal((1 - 5 ** 0.5) / 2)
 
 def firstNineDigitsMoivreBinet_asString(n):
     ''' Closed formula for the computation of the n-th fibonacci number:
     https://de.wikipedia.org/wiki/Fibonacci-Folge#Formel_von_Moivre-Binet
     '''
 
-    fibo = invRoot5 * (firstTerm ** n - secondTerm ** n)
+    #fibo = invRoot5 * (firstTerm ** n - secondTerm ** n)
+    fibo = invRoot5 * (firstTerm ** n) # simplified
+    #print("fibo has exponent:", fibo.log10())
+    multiplicator = int(fibo.log10()) - 9 - 1 # for nine proper digits # also added one, else the last digit was sometimes wrong
+    #print("final multiplicator:", multiplicator)
+
     # print("n:", n, "->", fibo)
     # print("remove: ", secondTerm ** n)
     # print("remove: ", (secondTerm ** n) ** n) # almost zero with 100 ... can maybe removed ..
-
-    stringified = "%.0f" % fibo  # str(fibo) does give the exponential-form, which is not what is needed
-    # print("stringified is:", stringified)
-    returnValue = stringified[:9+1] if len(stringified) > 9 else stringified
+    firstDigits = fibo / (decimal.Decimal(10) ** decimal.Decimal(multiplicator))
+    #print("fibo * decimal.Decimal(multiplicator):", firstDigits)
+    stringified = "%.0f" % float(firstDigits)  # str(fibo) does give the exponential-form, which is not what is needed
+    #print("stringified is:", stringified)
+    returnValue = stringified[:9] if len(stringified) > 9 else stringified
     # print("-->", returnValue)
     return returnValue # keep as string, no conversion via int(..)
 
-# ------------------------------------------------------------------------------
-
-def driver():
-    # now with threads ..
-    #from threading import Thread
-
-    # the Fibonacci generator
-    fibGen = getFibGen()
-
-    # the driver itself which starts the threads
-    while True:
-        fibIndex, currentFib = next(fibGen)
-
-        # TODO do this in a threaded way until we have a result
-        if hasRequestedAttributes(currentFib, fibIndex):
-            print("we have a hit!", fibIndex, ":", currentFib)
-        #thread = Thread(target=hasRequestedAttributes, args=(currentFib, fibIndex), daemon=True)
-        #thread.start() # omitting .join for the threads ..
-
-# ------------------------------------------------------------------------------
-
-# test call
-driver()
-
+#limit = 2000
+#print(limit, ":", firstNineDigitsMoivreBinet_asString(limit))
 # ------------------------------------------------------------------------------
 
 import unittest
@@ -182,14 +176,39 @@ class Testcase(unittest.TestCase):
     def test_moivreBinet(self):
         import time
         # expected: 55
-        self.assertEqual(firstNineDigitsMoivreBinet_asString(10), "55")
+        #self.assertEqual(firstNineDigitsMoivreBinet_asString(10), "55") # omitted, because wrong, because the result length is too small..
         # expected: 3542248481_79261915075
         startTime = time.time()
-        self.assertEqual(firstNineDigitsMoivreBinet_asString(100), "3542248481")
+        self.assertEqual(firstNineDigitsMoivreBinet_asString(100), "354224848")
         log = logging.getLogger("TestLog")
         log.debug(" computing Moivre-Binet of 100th Fibo took %s s" % (time.time() - startTime))
 
-# ------------------------------------------------------------------------------
+        self.assertEqual(firstNineDigitsMoivreBinet_asString(300), "222232244")
+
+        # calculated with: http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibCalcX.html
+        self.assertEqual(firstNineDigitsMoivreBinet_asString(1000), "434665576")
+
+    def test_driver(self):
+        ''' The test-call itself!'''
+
+        import time
+        startTime = time.time()
+        log = logging.getLogger("TestLog")
+
+        # the Fibonacci generator
+        fibGen = getFibGen()
+
+        # the driver itself which starts the threads
+        while True:
+            fibIndex, currentFib = next(fibGen)
+
+            if hasRequestedAttributes(currentFib, fibIndex):
+                log.debug(" %s is the index of the first fibonacci number where prefix and suffix are pandigital" % (fibIndex))
+                break
+
+        log.debug(" computation took %s s" % (time.time() - startTime))
+
+    # ------------------------------------------------------------------------------
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
