@@ -216,3 +216,25 @@ if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
+
+# DEBUG:TestLog: 329468 is the index of the first fibonacci number where prefix and suffix are pandigital
+# DEBUG:TestLog: computation took 0.47820258140563965 s
+# .DEBUG:TestLog: 1000th fibonacci is 849228875, index is 1000
+# ...DEBUG:TestLog: computing Moivre-Binet of 100th Fibo took 0.0 s
+# .DEBUG:TestLog: getting the first 1000000 fibonaccis took 0.24993586540222168 s
+# .
+# ----------------------------------------------------------------------
+# Ran 6 tests in 0.725s
+#
+# OK
+#
+# Process finished with exit code 0
+
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 104 is correct.
+#
+# You are the 14762nd person to have solved this problem.
+#
+# This problem had a difficulty rating of 25%. The highest difficulty rating you had previously solved was 20%.
+# This is a new record. Well done!
