@@ -33,6 +33,17 @@ def isPandigital(number):
     return True
 
 # ------------------------------------------------------------------------------
+
+def checkAllPrimesWith9DigitsForPandigitalityDescending():
+    import sympy
+
+    primesWith9Digits = list(sympy.primerange(10 ** 8, 10 ** 9))
+    print(primesWith9Digits)
+
+# test call
+checkAllPrimesWith9DigitsForPandigitalityDescending()
+
+# ------------------------------------------------------------------------------
 import unittest
 import logging  # needed for unit-test-logging
 import sys  # needed for unit-test-logging
