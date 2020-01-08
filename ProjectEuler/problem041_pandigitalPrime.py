@@ -35,10 +35,26 @@ def isPandigital(number):
 # ------------------------------------------------------------------------------
 
 def checkAllPrimesWith9DigitsForPandigitalityDescending():
+    print("---------------")
+    # instead of relying again on another self-implementation of prime-generator, just try this library
     import sympy
+    import time
 
-    primesWith9Digits = list(sympy.primerange(10 ** 8, 10 ** 9))
-    print(primesWith9Digits)
+    startTime = time.time()
+    digits = 9
+    #primesWith9Digits = list(sympy.primerange(10 ** digits, 10 ** (digits + 1)))
+    #print(time.time() - startTime, "s:", "primesWith9Digits:", len(primesWith9Digits), primesWith9Digits)
+
+    number = 10 ** 10 - 1
+    while True:
+        if sympy.isprime(number):
+            #print(number,"is prime .. check now pandigitality")
+            if isPandigital(number):
+                print("is also pandigital! :)")
+                break
+        number -= 2
+
+    print(number," is the wanted one: computation took", time.time() - startTime, "s")
 
 # test call
 checkAllPrimesWith9DigitsForPandigitalityDescending()
@@ -62,8 +78,8 @@ class Testcase(unittest.TestCase):
         self.assertEqual(False, isPandigital(9876543210))
 
 # ---- here comes the execution of the unit-tests ----
-if __name__ == '__main__':
-    logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
-    unittest.main()
+# if __name__ == '__main__':
+#     logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
+#     unittest.main()
 
 # ------------------------------------------------------------------------------
