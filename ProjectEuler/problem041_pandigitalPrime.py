@@ -39,25 +39,36 @@ def checkAllPrimesWith9DigitsForPandigitalityDescending():
     # instead of relying again on another self-implementation of prime-generator, just try this library
     import sympy
     import time
+    import itertools
+    #list(itertools.permutations([1, 2, 3]))
 
     startTime = time.time()
     digits = 9
     #primesWith9Digits = list(sympy.primerange(10 ** digits, 10 ** (digits + 1)))
     #print(time.time() - startTime, "s:", "primesWith9Digits:", len(primesWith9Digits), primesWith9Digits)
 
-    number = 10 ** 10 - 1
+    #number = 10 ** 10 - 1 - 10 ** 9
+    perm = itertools.permutations(str(7654321))
     while True:
+        next = perm.__next__()
+        #print("next:", next)
+        number = int("".join(next))
+        print(number)
         if sympy.isprime(number):
-            #print(number,"is prime .. check now pandigitality")
+            print(number,"is prime .. check now pandigitality")
             if isPandigital(number):
                 print("is also pandigital! :)")
                 break
-        number -= 2
+        #number -= 2
 
     print(number," is the wanted one: computation took", time.time() - startTime, "s")
 
 # test call
 checkAllPrimesWith9DigitsForPandigitalityDescending()
+# 7652413
+# 7652413 is prime .. check now pandigitality
+# is also pandigital! :)
+# 7652413  is the wanted one: computation took 0.0 s
 
 # ------------------------------------------------------------------------------
 import unittest
@@ -83,3 +94,13 @@ class Testcase(unittest.TestCase):
 #     unittest.main()
 
 # ------------------------------------------------------------------------------
+
+# works, but needs manual run and try and error, because the ranges are not checked properly
+
+# Congratulations, the answer you gave to problem 41 is correct.
+#
+# You are the 63381st person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 25%.
+#
+# Return to Problems page.
