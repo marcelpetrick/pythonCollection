@@ -116,8 +116,6 @@ import logging  # needed for unit-test-logging
 import sys  # needed for unit-test-logging
 
 class Testcase(unittest.TestCase):
-    def test_fibGen_1000th_fib_has_proper_prefix_and_suffix(self):
-        self.assertEqual(True, True)
 
     def test_fibGen(self):
         fibGen = getFibGen()
