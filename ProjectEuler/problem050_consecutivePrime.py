@@ -16,13 +16,14 @@
 # * implement function to compute all primes up to a certain limit
 # * for each elem (prime) inside that list, check if a possible, consecutive sublist can be added up to that prime ->
 # return the longest chain for each prime; sometimes maybe empty list
-# check which prime has the longest list
+# * check which prime has the longest list
 
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
 
 # reuse code from previous solution
+# TODO maybe consider to use a prime-generator, which is proven and tested; see problem041
 def getPrimesUntilLimit(limit):
     from ProjectEuler.problem668_numpy import sieveEras  # works, but just after commenting lots of code inside that file
     primes = sieveEras(limit, False) # this is also a mistake in the second parameter
