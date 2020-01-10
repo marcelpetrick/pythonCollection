@@ -86,9 +86,24 @@ class Testcase(unittest.TestCase):
         print("computation of primes up to 10 ** 6 took", timeTakenToCompute, "s")
         print("last prime:", primes[-1])
 
+    def test_findLongestChain0(self):
+        ''' Test defined by task. '''
+        limit = 100
+        chain = findLongestChainForLimitWhereSumIsPrimeAndBelowLimit(limit)
+        expectedResult = [2, 3, 5, 7, 11, 13]
+        self.assertEqual(chain, expectedResult)
+
+    def test_findLongestChain1(self):
+        ''' Test defined by task. '''
+        limit = 1000
+        chain = findLongestChainForLimitWhereSumIsPrimeAndBelowLimit(limit)
+        #expectedResult = [2, 3, 5, 7, 11, 13]
+        self.assertEqual(len(chain), 21)
+        self.assertEqual(sum(chain), 953)
+
 # ---- here comes the execution of the unit-tests ----
-# if __name__ == '__main__':
-#     unittest.main()
+if __name__ == '__main__':
+    unittest.main()
 
 # ------------------------------------------------------------------------------
 
@@ -101,7 +116,3 @@ chain = findLongestChainForPrime(41, primes)
 print("chain for 41:", chain)
 
 # ------------------------------------------------------------------------------
-# TODO
-# add later as unit-tests - taken from the description
-# 6 terms: 41 as prime sum: below 100
-# 21 terms: 953 as prime sum: below 1000
