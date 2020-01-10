@@ -72,17 +72,19 @@ def findLongestChainForPrime(target, primes):
 
 import unittest
 
-@unittest.skip("unwanted for now")
+#@unittest.skip("unwanted for now")
 class Testcase(unittest.TestCase):
 
     def test_primeGen(self):
         import time
         expectedOutput = 78498
         startTime = time.time()
-        computedOutput = len(getPrimesUntilLimit(10 ** 6))
+        primes = getPrimesUntilLimit(10 ** 6)
+        computedOutput = len(primes)
         timeTakenToCompute = time.time() - startTime
         self.assertEqual(expectedOutput, computedOutput)
         print("computation of primes up to 10 ** 6 took", timeTakenToCompute, "s")
+        print("last prime:", primes[-1])
 
 # ---- here comes the execution of the unit-tests ----
 # if __name__ == '__main__':
