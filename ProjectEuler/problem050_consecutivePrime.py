@@ -99,3 +99,9 @@ primes = getPrimesUntilLimit(limit)
 print("primes until", limit, ":", primes)
 chain = findLongestChainForPrime(41, primes)
 print("chain for 41:", chain)
+
+# ------------------------------------------------------------------------------
+# TODO
+# add later as unit-tests - taken from the description
+# 6 terms: 41 as prime sum: below 100
+# 21 terms: 953 as prime sum: below 1000
