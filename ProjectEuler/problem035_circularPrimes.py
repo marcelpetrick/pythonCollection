@@ -29,16 +29,18 @@ def getPrimesUntilLimit(limit):
 
 # ------------------------------------------------------------------------------
 
-import itertools
+#import itertools
 def isGivenPrimeACircularPrime(prime, primeList):
     # checks if prime is really a prime or if primeList is not empty are omitted for performance reasons!
     primeString = str(prime)
-    for permutationTuple in itertools.permutations(primeString):
+    # create all rotations of the string
+    rotations = {primeString[x:]+primeString[:x] for x in range(len(primeString))}
+    for permutationTuple in rotations:
         permutAsNumber = int(''.join(permutationTuple))
         #print("current permut:", permutAsNumber)
         if permutAsNumber not in primeList:
-            if prime == 1193:
-                print("1193 will skip because of:", permutAsNumber)
+            # if prime == 1193:
+            #     print("1193 will skip because of:", permutAsNumber)
             return False
 
     return True
@@ -49,13 +51,13 @@ def createListOfCircularPrimesBelowLimit(limit):
     # generate the primes
     primesUpToLimit = getPrimesUntilLimit(limit)
     print("made primesUpToLimit")
-    primesForValidation = getPrimesUntilLimit(limit * 10) # have to be one magnitude bigger, else permutations of a number like 1193 could check against 9311, which is not in the first prime-list
-    print("made primesForValidation")
+    # primesForValidation = getPrimesUntilLimit(limit * 10) # have to be one magnitude bigger, else permutations of a number like 1193 could check against 9311, which is not in the first prime-list
+    # print("made primesForValidation")
 
     #print("found:", primes)
 
     # filter the prime list by the circular-function # note: somehow this only works until 1000?!?
-    circularPrimeList = [elem for elem in primesUpToLimit[:] if isGivenPrimeACircularPrime(elem, primesForValidation)]
+    circularPrimeList = [elem for elem in primesUpToLimit[:] if isGivenPrimeACircularPrime(elem, primesUpToLimit)]
 
     # # reimplementation
     # circularPrimeList = []
@@ -71,15 +73,17 @@ def createListOfCircularPrimesBelowLimit(limit):
 # expected: 100 -> 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
 #print(createListOfCircularPrimesBelowLimit(10 ** 6))
 
-# for i in range(1, 7):
-#     import time
-#     startTime = time.time()
-#     print("#### run for 10 **", i, "####")
-#     result = createListOfCircularPrimesBelowLimit(10 ** i)
-#     print(time.time() - startTime, "s; exp = ", i, "result = ", result)
-#     print("len:", len(result), "first prime is:", result[0], "sum is:", sum(result))
+for i in range(1, 7):
+    import time
+    startTime = time.time()
+    print("#### run for 10 **", i, "####")
+    result = createListOfCircularPrimesBelowLimit(10 ** i)
+    print(time.time() - startTime, "s; exp = ", i, "result = ", result)
+    print("len:", len(result), "first prime is:", result[0], "sum is:", sum(result))
 
 # ------------------------------------------------------------------------------
 
-result = createListOfCircularPrimesBelowLimit(10 ** 4)
-print("result 10.000:", result)
+# result = createListOfCircularPrimesBelowLimit(10 ** 4)
+# print("result 10.000:", result)
+
+# ------------------------------------------------------------------------------
