@@ -55,4 +55,14 @@ def createListOfCircularPrimesBelowLimit(limit):
 # ------------------------------------------------------------------------------
 
 # expected: 100 -> 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
-print(createListOfCircularPrimesBelowLimit(10 ** 6))
+#print(createListOfCircularPrimesBelowLimit(10 ** 6))
+
+for i in range(1, 7):
+    import time
+    startTime = time.time()
+    print("#### run for 10 **", i, "####")
+    result = createListOfCircularPrimesBelowLimit(10 ** i)
+    print(time.time() - startTime, "s; exp = ", i, "result = ", result)
+    print("len:", len(result), "first prime is:", result[0], "sum is:", sum(result))
+
+# ------------------------------------------------------------------------------
