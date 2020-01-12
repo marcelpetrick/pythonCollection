@@ -37,6 +37,8 @@ def isGivenPrimeACircularPrime(prime, primeList):
         permutAsNumber = int(''.join(permutationTuple))
         #print("current permut:", permutAsNumber)
         if permutAsNumber not in primeList:
+            if prime == 1193:
+                print("1193 will skip because of:", permutAsNumber)
             return False
 
     return True
@@ -45,10 +47,22 @@ def isGivenPrimeACircularPrime(prime, primeList):
 
 def createListOfCircularPrimesBelowLimit(limit):
     # generate the primes
-    primes = getPrimesUntilLimit(limit)
+    primesUpToLimit = getPrimesUntilLimit(limit)
+    print("made primesUpToLimit")
+    primesForValidation = getPrimesUntilLimit(limit * 10) # have to be one magnitude bigger, else permutations of a number like 1193 could check against 9311, which is not in the first prime-list
+    print("made primesForValidation")
 
-    # filter the prime list by the circular-function
-    circularPrimeList = [elem for elem in primes[:] if isGivenPrimeACircularPrime(elem, primes)]
+    #print("found:", primes)
+
+    # filter the prime list by the circular-function # note: somehow this only works until 1000?!?
+    circularPrimeList = [elem for elem in primesUpToLimit[:] if isGivenPrimeACircularPrime(elem, primesForValidation)]
+
+    # # reimplementation
+    # circularPrimeList = []
+    # for prime in primes:
+    #     if isGivenPrimeACircularPrime(prime, primes):
+    #         print("is circular:", prime)
+    #         circularPrimeList.append(prime)
 
     return circularPrimeList
 
@@ -57,12 +71,15 @@ def createListOfCircularPrimesBelowLimit(limit):
 # expected: 100 -> 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
 #print(createListOfCircularPrimesBelowLimit(10 ** 6))
 
-for i in range(1, 7):
-    import time
-    startTime = time.time()
-    print("#### run for 10 **", i, "####")
-    result = createListOfCircularPrimesBelowLimit(10 ** i)
-    print(time.time() - startTime, "s; exp = ", i, "result = ", result)
-    print("len:", len(result), "first prime is:", result[0], "sum is:", sum(result))
+# for i in range(1, 7):
+#     import time
+#     startTime = time.time()
+#     print("#### run for 10 **", i, "####")
+#     result = createListOfCircularPrimesBelowLimit(10 ** i)
+#     print(time.time() - startTime, "s; exp = ", i, "result = ", result)
+#     print("len:", len(result), "first prime is:", result[0], "sum is:", sum(result))
 
 # ------------------------------------------------------------------------------
+
+result = createListOfCircularPrimesBelowLimit(10 ** 4)
+print("result 10.000:", result)
