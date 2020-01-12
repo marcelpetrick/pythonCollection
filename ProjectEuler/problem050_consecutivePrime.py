@@ -76,6 +76,9 @@ def findLongestChainForLimitWhereSumIsPrimeAndBelowLimit(limit):
 
     print("primes:", primes)
 
+    # containers for the prime with the longest chain
+    longestChain = []
+
     # compute for each value the longest chain which can be formed which is as sum below the limit,
     # but has maximum summands
     for startValue in primes:
@@ -99,15 +102,18 @@ def findLongestChainForLimitWhereSumIsPrimeAndBelowLimit(limit):
                 break
 
             if sumCurrentList in primes:
-                currentBestChain = currentList[:]
+                currentBestChain = currentList[:] # deep copy!
                 # hint: since this is a check for each startValue, comparison for the length of older bestChain and new
                 # one is not needed, because automatically longer
 
-        print("for start value", startValue, "the best chain would be", currentBestChain, "with", len(currentBestChain), "items and sum", sum(currentBestChain))
+        #print("for start value", startValue, "the best chain would be", currentBestChain, "with", len(currentBestChain), "items and sum", sum(currentBestChain))
 
-        # todo continue
+        # check now if the current chain is longer than the last saved one, if yes, then save it :)
+        if len(currentBestChain) > len(longestChain):
+            #print("new hit with", currentBestChain[0])
+            longestChain = currentBestChain[:] # deep copy!
 
-    return []
+    return longestChain
 
 # ------------------------------------------------------------------------------
 
@@ -164,3 +170,15 @@ if __name__ == '__main__':
 # print("chain for 41:", chain)
 
 # ------------------------------------------------------------------------------
+
+# print("10", findLongestChainForLimitWhereSumIsPrimeAndBelowLimit(10))
+# print("100", findLongestChainForLimitWhereSumIsPrimeAndBelowLimit(100))
+# print("1000", findLongestChainForLimitWhereSumIsPrimeAndBelowLimit(1000), sum(findLongestChainForLimitWhereSumIsPrimeAndBelowLimit(1000)))
+
+for i in range(1, 7):
+    import time
+    startTime = time.time()
+    print("#### run for 10 **", i, "####")
+    result = findLongestChainForLimitWhereSumIsPrimeAndBelowLimit(10 ** i)
+    print(time.time() - startTime, "s; exp = ", i, "result = ", result)
+    print("len:", len(result), "first prime is:", result[0], "sum is:", sum(result))
