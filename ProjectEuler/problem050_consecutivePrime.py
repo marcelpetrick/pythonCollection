@@ -90,6 +90,7 @@ def findLongestChainForLimitWhereSumIsPrimeAndBelowLimit(limit):
         currentIndex = 0
         indexLimit = len(primeSubList)
         while sum(currentList) < limit and currentIndex < indexLimit:
+            # add the next item
             currentList.append(primeSubList[currentIndex])
             currentIndex += 1
             # now check if the summed currentList would be prime. if yes, then save this as current "best chain"
@@ -98,7 +99,7 @@ def findLongestChainForLimitWhereSumIsPrimeAndBelowLimit(limit):
                 break
 
             if sumCurrentList in primes:
-                currentBestChain = currentList
+                currentBestChain = currentList[:]
                 # hint: since this is a check for each startValue, comparison for the length of older bestChain and new
                 # one is not needed, because automatically longer
 
