@@ -19,8 +19,11 @@
 
 # ------------------------------------------------------------------------------
 # idea:
-# TODO
-
+# * it is clear that integer 987654321 * {1} is the lower limit, which has to be obeyed
+# * also the number has to be 9-pandigital with 9 digits
+# * brute force would be: count up from 1 to 10 ** 10 (max): then a second loop which goes from 1 to "concatenated result is longer than 9 digits"
+# ** do precheck if length is 9 digits, then check if pandigital
+#
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
