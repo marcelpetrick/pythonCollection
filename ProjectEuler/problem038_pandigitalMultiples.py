@@ -19,9 +19,10 @@
 
 # ------------------------------------------------------------------------------
 # idea:
-# * it is clear that integer 987654321 * {1} is the lower limit, which has to be obeyed
+# * it is clear that integer 987654321 * {1} is the lower limit, which has to be obeyed (edit: since n should be bigger 1, this is wrong)
 # * also the number has to be 9-pandigital with 9 digits
 # * brute force would be: count up from 1 to 10 ** 10 (max): then a second loop which goes from 1 to "concatenated result is longer than 9 digits"
+# * only check until 10 ** 6, because includes all 1,2,3,4,5 digit-numbers. which can be combined into a 9 digit number
 # ** do precheck if length is 9 digits, then check if pandigital
 #
 # ------------------------------------------------------------------------------
@@ -107,3 +108,11 @@ determine_largest9PandigitalNumber_bruteForce()
 # we have a hit ... now check if this is bigger than the saved one: 927318546 9273 2
 # we have a hit ... now check if this is bigger than the saved one: 932718654 9327 2
 # final result: 932718654
+
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 38 is correct.
+#
+# You are the 58714th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 25%.
