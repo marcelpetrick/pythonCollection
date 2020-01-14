@@ -27,3 +27,49 @@
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+
+# taken from euler041:
+def isPandigital(number):
+    ''' An n-digit number is pandigital if it makes use of all the digits 1 to n exactly once. '''
+    stringified = str(number)
+    length = len(stringified)
+
+    if length > 9:
+        return False
+
+    for i in range(1, length + 1):
+        # print(i)
+        if str(i) not in stringified:
+            return False
+
+    return True
+
+# ------------------------------------------------------------------------------
+
+# crude and brute ..
+def determine_largest9PandigitalNumber_bruteForce():
+
+    # loop over the possible numbers
+    integer = 0
+    while integer < 10 ** 10:
+        integer += 1
+
+        # find the proper multiplicator
+        multiplicator = 1
+        while True:
+            # generate the number
+            currentNumber = ""
+            for m in range(1, multiplicator+1):
+                currentNumber += str(m * integer)
+            # check if length fits
+            if len(currentNumber) != 9:
+                continue
+
+            # check if pandigital
+            currentNumberInt = int(currentNumber)
+            if isPandigital(currentNumberInt):
+                print("we have a hit ... no check if this is bigger than the saved one:", currentNumberInt)
+
+# ------------------------------------------------------------------------------
+
+determine_largest9PandigitalNumber_bruteForce()
