@@ -47,12 +47,21 @@ def isPandigital(number):
 # ------------------------------------------------------------------------------
 
 # crude and brute ..
+ten10 = 10 ** 10
+#ten9 = 10 ** 9
+ten8 = 10 ** 8
+
 def determine_largest9PandigitalNumber_bruteForce():
 
     # loop over the possible numbers
     integer = 0
-    while integer < 10 ** 10:
+    while integer < ten10:
         integer += 1
+        print(integer)
+
+        # "progress bar"
+        if integer % ten8 == 0:
+            print(integer // ten8, "% computed")
 
         # find the proper multiplicator
         multiplicator = 1
@@ -61,14 +70,21 @@ def determine_largest9PandigitalNumber_bruteForce():
             currentNumber = ""
             for m in range(1, multiplicator+1):
                 currentNumber += str(m * integer)
+            #print(currentNumber, "generated from", integer, "and", multiplicator)
             # check if length fits
-            if len(currentNumber) != 9:
+            if len(currentNumber) < 9:
+                multiplicator += 1
                 continue
+            if len(currentNumber) > 9:
+                break
 
             # check if pandigital
             currentNumberInt = int(currentNumber)
             if isPandigital(currentNumberInt):
-                print("we have a hit ... no check if this is bigger than the saved one:", currentNumberInt)
+                print("we have a hit ... now check if this is bigger than the saved one:", currentNumberInt, integer, multiplicator)
+
+            # if it was length of nine, then also break ... won't become better
+            break
 
 # ------------------------------------------------------------------------------
 
