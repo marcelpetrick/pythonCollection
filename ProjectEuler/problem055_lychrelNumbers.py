@@ -69,24 +69,38 @@ print("quick test:", computeNumberOfLychrelStepsNeeded(10677, 50)) # 53 iteratio
 
 def eulerDriver():
     amount = 0
-    lychrelIterationsLimit = 55
-    for number in range(1, 10 ** 4 + 1):
+    lychrelIterationsLimit = 100
+    longestCurrent = -1
+    for number in range(0, 10 ** 6 + 1):
         result = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
         if result > lychrelIterationsLimit:
-            print("number does not work:", number)
+            #print("number does not work:", number)
+            pass
         else:
-            print("lychrel:", number, "in", result, "iterations :)")
+            #print("lychrel:", number, "in", result, "iterations :)")
             amount -=- 1
+
+            if result > longestCurrent:
+                longestCurrent = result
+                print(number, "needs", longestCurrent, "iterations")
 
     print(amount, " Lychrel numbers below 10 **4 :)")
 
 # ------------------------------------------------------------------------------
 
 eulerDriver()
-# lychrel: 9997 in 13 iterations :)
 # lychrel: 9998 in 6 iterations :)
 # lychrel: 9999 in 0 iterations :)
 # lychrel: 10000 in 1 iterations :)
-# 9754  Lychrel numbers below 10 **4 :)
+# 9755  Lychrel numbers below 10 **4 :)
 
 # ------------------------------------------------------------------------------
+
+# Project Euler says: wrong ..
+
+# ------------------------------------------------------------------------------
+
+# 10833 needs 54 iterations
+# 10911 needs 55 iterations
+# 147996 needs 58 iterations
+# 150296 needs 64 iterations
