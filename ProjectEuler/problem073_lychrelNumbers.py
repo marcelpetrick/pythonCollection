@@ -40,4 +40,22 @@ def doLychrelIteration(number):
     returnValue = number + mirrorNumber
     return returnValue
 
+# TODO write a unit-test with the given numbers
 print(doLychrelIteration(349))
+
+def computeNumberOfLychrelStepsNeeded(number, limitOfIterations=50):
+    # check if given number is palindromic
+    numberString = str(number)
+    mirrorNumberStr = numberString[::-1]
+    if numberString == mirrorNumberStr:
+        return 0 # is already palindromic, so zero iterations needed
+    else:
+        # do lychrel iteration and therefore the "+1" for the iterations
+        # reduce the limit
+        return 1 + computeNumberOfLychrelStepsNeeded(doLychrelIteration(number), limitOfIterations - 1)
+
+    # TODO consider the limit, lol
+
+# TODO write unit-test
+print("quick test:", computeNumberOfLychrelStepsNeeded(349))
+
