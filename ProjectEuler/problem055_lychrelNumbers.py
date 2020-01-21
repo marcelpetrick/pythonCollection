@@ -83,3 +83,10 @@ def eulerDriver():
 # ------------------------------------------------------------------------------
 
 eulerDriver()
+# lychrel: 9997 in 13 iterations :)
+# lychrel: 9998 in 6 iterations :)
+# lychrel: 9999 in 0 iterations :)
+# lychrel: 10000 in 1 iterations :)
+# 9754  Lychrel numbers below 10 **4 :)
+
+# ------------------------------------------------------------------------------
