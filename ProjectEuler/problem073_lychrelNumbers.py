@@ -42,8 +42,13 @@ def doLychrelIteration(number):
 
 # TODO write a unit-test with the given numbers
 print(doLychrelIteration(349))
+# ------------------------------------------------------------------------------
 
 def computeNumberOfLychrelStepsNeeded(number, limitOfIterations=50):
+    if limitOfIterations == 0:
+        # abort mission!
+        return 666 # TODO replace with proper exception
+
     # check if given number is palindromic
     numberString = str(number)
     mirrorNumberStr = numberString[::-1]
@@ -57,5 +62,24 @@ def computeNumberOfLychrelStepsNeeded(number, limitOfIterations=50):
     # TODO consider the limit, lol
 
 # TODO write unit-test
-print("quick test:", computeNumberOfLychrelStepsNeeded(349))
+print("quick test:", computeNumberOfLychrelStepsNeeded(349, 50))
+print("quick test:", computeNumberOfLychrelStepsNeeded(10677, 50)) # 53 iterations? yes, lol
 
+# ------------------------------------------------------------------------------
+
+def eulerDriver():
+    amount = 0
+    lychrelIterationsLimit = 55
+    for number in range(1, 10 ** 4 + 1):
+        result = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
+        if result > lychrelIterationsLimit:
+            print("number does not work:", number)
+        else:
+            print("lychrel:", number, "in", result, "iterations :)")
+            amount -=- 1
+
+    print(amount, " Lychrel numbers below 10 **4 :)")
+
+# ------------------------------------------------------------------------------
+
+eulerDriver()
