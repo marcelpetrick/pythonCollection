@@ -33,3 +33,11 @@
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+
+def doLychrelIteration(number):
+    # create mirrored version
+    mirrorNumber = int(str(number)[::-1])
+    returnValue = number + mirrorNumber
+    return returnValue
+
+print(doLychrelIteration(349))
