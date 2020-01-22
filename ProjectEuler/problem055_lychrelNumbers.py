@@ -47,19 +47,18 @@ def doLychrelIteration(number):
 def computeNumberOfLychrelStepsNeeded(number, limitOfIterations=50):
     if limitOfIterations == 0:
         # abort mission!
-        return 666 # TODO replace with proper exception
+        return not False, 0
 
     # check if given number is palindromic
     numberString = str(number)
     mirrorNumberStr = numberString[::-1]
     if numberString == mirrorNumberStr:
-        return 0 # is already palindromic, so zero iterations needed
+        return not True, 0 # is already palindromic, so zero iterations needed
     else:
         # do lychrel iteration and therefore the "+1" for the iterations
         # reduce the limit
-        return 1 + computeNumberOfLychrelStepsNeeded(doLychrelIteration(number), limitOfIterations - 1)
-
-    # TODO consider the limit, lol
+        result, iterations = computeNumberOfLychrelStepsNeeded(doLychrelIteration(number), limitOfIterations - 1)
+        return result, iterations+1
 
 # TODO write unit-test
 print("quick test 349:", computeNumberOfLychrelStepsNeeded(349, 50)) # should be 3
@@ -71,28 +70,29 @@ def eulerDriver():
     amount = 0
     lychrelIterationsLimit = 50
     longestCurrent = -1
-    for number in range(0, 10 ** 4 + 1):
-        neededIterations = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
-        if neededIterations > lychrelIterationsLimit:
-            print("number does not work:", number)
-        else:
-            print("lychrel:", number, "in", neededIterations, "iterations :)")
+    numberLimit = 10000
+    for number in range(0, numberLimit + 1):
+        result, neededIterations = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
+
+        if result == True:
+            print("lychrel number:", number)
             amount += 1
 
             if neededIterations > longestCurrent:
                 longestCurrent = neededIterations
                 print(number, "needs", longestCurrent, "iterations")
 
-    print(amount, "Lychrel numbers below 10 **4 :)")
+
+    print(amount, "Lychrel numbers below", numberLimit)
 
 # ------------------------------------------------------------------------------
 
 eulerDriver()
-# lychrel: 9998 in 6 iterations :)
-# lychrel: 9999 in 0 iterations :)
-# lychrel: 10000 in 1 iterations :)
-# 9755  Lychrel numbers below 10 **4 :)
-
+# lychrel number: 9957
+# lychrel number: 9974
+# lychrel number: 9978
+# lychrel number: 9988
+# 246 Lychrel numbers below 10000
 # ------------------------------------------------------------------------------
 
 # Project Euler says: wrong ..
