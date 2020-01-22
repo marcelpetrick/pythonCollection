@@ -12,6 +12,7 @@ def computeDigitSum(a,b):
     # do it naively ... compute the power and then sum it
     power = a ** b
     result = sum([int(elem) for elem in str(power)])
+    return result
 
 #----------
 
@@ -22,12 +23,19 @@ for a in range(0, limit):
     for b in range(0, limit):
         digitSum = computeDigitSum(a, b)
         if digitSum > currentMax:
-            print(a,b, "with", digitSum)
+            print(a, b, "with", digitSum)
             currentMax = digitSum
+            maxA, maxB = a, b
 
-print("chonkiest", a,b, "with", computeDigitSum(a,b))
+print("chonkiest", maxA, maxB, "with", computeDigitSum(maxA, maxB))
 
 #----------
+# ..
+# 79 99 with 955
+# 94 98 with 970
+# 99 95 with 972
+# chonkiest 99 95 with 972
 #----------
+
 #----------
 #----------
