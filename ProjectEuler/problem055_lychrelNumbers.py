@@ -41,7 +41,7 @@ def doLychrelIteration(number):
     return returnValue
 
 # TODO write a unit-test with the given numbers
-print(doLychrelIteration(349))
+#print(doLychrelIteration(349))
 # ------------------------------------------------------------------------------
 
 def computeNumberOfLychrelStepsNeeded(number, limitOfIterations=50):
@@ -62,29 +62,28 @@ def computeNumberOfLychrelStepsNeeded(number, limitOfIterations=50):
     # TODO consider the limit, lol
 
 # TODO write unit-test
-print("quick test:", computeNumberOfLychrelStepsNeeded(349, 50))
-print("quick test:", computeNumberOfLychrelStepsNeeded(10677, 50)) # 53 iterations? yes, lol
+print("quick test 349:", computeNumberOfLychrelStepsNeeded(349, 50)) # should be 3
+print("quick test 10677:", computeNumberOfLychrelStepsNeeded(10677, 60)) # should be 53 iterations? yes
 
 # ------------------------------------------------------------------------------
 
 def eulerDriver():
     amount = 0
-    lychrelIterationsLimit = 100
+    lychrelIterationsLimit = 50
     longestCurrent = -1
-    for number in range(0, 10 ** 6 + 1):
-        result = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
-        if result > lychrelIterationsLimit:
-            #print("number does not work:", number)
-            pass
+    for number in range(0, 10 ** 4 + 1):
+        neededIterations = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
+        if neededIterations > lychrelIterationsLimit:
+            print("number does not work:", number)
         else:
-            #print("lychrel:", number, "in", result, "iterations :)")
-            amount -=- 1
+            print("lychrel:", number, "in", neededIterations, "iterations :)")
+            amount += 1
 
-            if result > longestCurrent:
-                longestCurrent = result
+            if neededIterations > longestCurrent:
+                longestCurrent = neededIterations
                 print(number, "needs", longestCurrent, "iterations")
 
-    print(amount, " Lychrel numbers below 10 **4 :)")
+    print(amount, "Lychrel numbers below 10 **4 :)")
 
 # ------------------------------------------------------------------------------
 
