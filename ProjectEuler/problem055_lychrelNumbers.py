@@ -44,16 +44,16 @@ def doLychrelIteration(number):
 #print(doLychrelIteration(349))
 # ------------------------------------------------------------------------------
 
-def computeNumberOfLychrelStepsNeeded(number, limitOfIterations=50):
+def computeNumberOfLychrelStepsNeeded(number, limitOfIterations):
     if limitOfIterations == 0:
         # abort mission!
-        return not False, 0
+        return True, 666
 
     # check if given number is palindromic
     numberString = str(number)
     mirrorNumberStr = numberString[::-1]
     if numberString == mirrorNumberStr:
-        return not True, 0 # is already palindromic, so zero iterations needed
+        return False, 0 # is already palindromic, so zero iterations needed
     else:
         # do lychrel iteration and therefore the "+1" for the iterations
         # reduce the limit
@@ -61,29 +61,26 @@ def computeNumberOfLychrelStepsNeeded(number, limitOfIterations=50):
         return result, iterations+1
 
 # TODO write unit-test
-print("quick test 349:", computeNumberOfLychrelStepsNeeded(349, 50)) # should be 3
-print("quick test 10677:", computeNumberOfLychrelStepsNeeded(10677, 60)) # should be 53 iterations? yes
+# print("quick test 349:", computeNumberOfLychrelStepsNeeded(349, 50)) # should be 3
+# print("quick test 10677:", computeNumberOfLychrelStepsNeeded(10677, 60)) # should be 53 iterations? yes
 
 # ------------------------------------------------------------------------------
 
 def eulerDriver():
     amount = 0
-    lychrelIterationsLimit = 50
-    longestCurrent = -1
+    lychrelIterationsLimit = 49
     numberLimit = 10000
-    for number in range(0, numberLimit + 1):
+    lychrels = []
+    for number in range(1, numberLimit + 1):
         result, neededIterations = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
 
         if result == True:
-            print("lychrel number:", number)
+            #print("lychrel number:", number)
             amount += 1
-
-            if neededIterations > longestCurrent:
-                longestCurrent = neededIterations
-                print(number, "needs", longestCurrent, "iterations")
-
+            lychrels.append(number)
 
     print(amount, "Lychrel numbers below", numberLimit)
+    print("lychrels:", lychrels)
 
 # ------------------------------------------------------------------------------
 
@@ -103,3 +100,4 @@ eulerDriver()
 # 10911 needs 55 iterations
 # 147996 needs 58 iterations
 # 150296 needs 64 iterations
+l
