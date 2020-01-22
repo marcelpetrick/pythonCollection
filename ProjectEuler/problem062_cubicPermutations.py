@@ -7,6 +7,10 @@
 # Find the smallest cube for which exactly five permutations of its digits are cube.
 
 #-------------------
+# idea:
+# * naively computing for each number (increasingly upwards) the cube. then checking all permutations if they are true
+# cubes would take ages, or? is the given hint with three digit cube-bases a lie?
+# * wha t about precomputing a LUT with given cubes for all numbers up to a certain limit (number of digits)?
 #-------------------
 #-------------------
 #-------------------
