@@ -12,5 +12,31 @@
 # cubes would take ages, or? is the given hint with three digit cube-bases a lie?
 # * wha t about precomputing a LUT with given cubes for all numbers up to a certain limit (number of digits)?
 #-------------------
+# init step for the LUT
+import time
+startTime = time.time()
+fatCubeDict = dict()
+for i in range(0, 10000):
+    fatCubeDict[i] = i ** 3
+print("creating cube LUT took:", time.time() - startTime, "s")
+print("cube LUT:", fatCubeDict)
 #-------------------
+import itertools
+def determineAmountOfFittingPermutations(number):
+    amountOfCubes = 0 # start with zero, because input itself will be also checked
+    cubes = {}
+    for tuple in itertools.permutations(str(number)):
+        permutNumberToCheck = "".join(tuple)
+        while permutNumberToCheck[0] == "0":
+            permutNumberToCheck = permutNumberToCheck[1:]
+
+        if int(permutNumberToCheck) in fatCubeDict.values():
+            print("hit:", permutNumberToCheck)
+            amountOfCubes += 1
+            #cubes.update(int(permutNumberToCheck))
+
+    return len(cubes)
+#-------------------
+print("41063625 has", determineAmountOfFittingPermutations(41063625))
+
 #-------------------
