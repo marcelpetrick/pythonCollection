@@ -24,19 +24,32 @@ print("cube LUT:", fatCubeDict)
 import itertools
 def determineAmountOfFittingPermutations(number):
     amountOfCubes = 0 # start with zero, because input itself will be also checked
-    cubes = {}
+    cubes = set()
     for tuple in itertools.permutations(str(number)):
         permutNumberToCheck = "".join(tuple)
         while permutNumberToCheck[0] == "0":
             permutNumberToCheck = permutNumberToCheck[1:]
 
         if int(permutNumberToCheck) in fatCubeDict.values():
-            print("hit:", permutNumberToCheck)
+            #print("hit:", permutNumberToCheck)
             amountOfCubes += 1
-            #cubes.update(int(permutNumberToCheck))
+            cubes.add(int(permutNumberToCheck))
 
     return len(cubes)
 #-------------------
-print("41063625 has", determineAmountOfFittingPermutations(41063625))
+#print("41063625 has", determineAmountOfFittingPermutations(41063625))
 
 #-------------------
+
+numberToCheck = 1
+while True:
+    # the number to check has to be a cube itself, so just count upwards from 0
+    # and cube-ify it
+    numbercube = numberToCheck ** 3
+    cubesAmount = determineAmountOfFittingPermutations(numbercube)
+
+    if cubesAmount > 1:
+        print(numberToCheck, "->", numbercube, "->", cubesAmount)
+
+    numberToCheck += 1
+
