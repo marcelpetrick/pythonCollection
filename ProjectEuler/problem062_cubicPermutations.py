@@ -1,7 +1,7 @@
 # Cubic permutations
 #
 # Problem 62
-# The cube, 41063625 (3453), can be permuted to produce two other cubes: 56623104 (3843) and 66430125 (4053).
+# The cube, 41063625 (345**3), can be permuted to produce two other cubes: 56623104 (384**3) and 66430125 (405**3).
 # In fact, 41063625 is the smallest cube which has exactly three permutations of its digits which are also cube.
 #
 # Find the smallest cube for which exactly five permutations of its digits are cube.
@@ -35,7 +35,7 @@ def determineAmountOfFittingPermutations(number):
             amountOfCubes += 1
             cubes.add(int(permutNumberToCheck))
 
-    return len(cubes)
+    return cubes
 #-------------------
 #print("41063625 has", determineAmountOfFittingPermutations(41063625))
 
@@ -46,10 +46,14 @@ while True:
     # the number to check has to be a cube itself, so just count upwards from 0
     # and cube-ify it
     numbercube = numberToCheck ** 3
-    cubesAmount = determineAmountOfFittingPermutations(numbercube)
+    cubes = determineAmountOfFittingPermutations(numbercube)
+    cubesAmount = len(cubes)
 
     if cubesAmount > 1:
-        print(numberToCheck, "->", numbercube, "->", cubesAmount)
+        print(numberToCheck, "->", numbercube, "->", cubesAmount, ":", cubes)
+
+        if cubesAmount == 5:
+            exit(1337)
 
     numberToCheck += 1
 
