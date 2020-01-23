@@ -40,17 +40,19 @@ def determineAmountOfFittingPermutations(number):
 #print("41063625 has", determineAmountOfFittingPermutations(41063625))
 
 #-------------------
-
-numberToCheck = 1
+import time
+numberToCheck = 345
 while True:
     # the number to check has to be a cube itself, so just count upwards from 0
     # and cube-ify it
     numbercube = numberToCheck ** 3
+    startTime = time.time()
     cubes = determineAmountOfFittingPermutations(numbercube)
+    endTime = time.time()
     cubesAmount = len(cubes)
 
     if cubesAmount > 1:
-        print(numberToCheck, "->", numbercube, "->", cubesAmount, ":", cubes)
+        print(numberToCheck, "->", numbercube, "->", cubesAmount, ":", cubes, "in", endTime - startTime, "s")
 
         if cubesAmount == 5:
             exit(1337)
