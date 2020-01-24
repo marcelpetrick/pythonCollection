@@ -41,7 +41,8 @@ def determineAmountOfFittingPermutations(number):
 
 #-------------------
 import time
-numberToCheck = 345
+numberToCheck = 1
+runStartTime = time.time()
 while True:
     # the number to check has to be a cube itself, so just count upwards from 0
     # and cube-ify it
@@ -52,7 +53,7 @@ while True:
     cubesAmount = len(cubes)
 
     if cubesAmount > 1:
-        print(numberToCheck, "->", numbercube, "->", cubesAmount, ":", cubes, "in", endTime - startTime, "s")
+        print(numberToCheck, "->", numbercube, "->", cubesAmount, ":", cubes, "in", endTime - startTime, "s, (whole run:", time.time() - runStartTime, "s)")
 
         if cubesAmount == 5:
             exit(1337)
