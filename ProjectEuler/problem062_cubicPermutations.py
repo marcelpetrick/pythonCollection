@@ -41,12 +41,13 @@ def determineAmountOfFittingPermutations(number):
 
 #-------------------
 import time
-numberToCheck = 1
+numberToCheck = 1 # 5027 would be the result; but even starting there takes ages; I think this algorithm and implementation can be discarded ..
 runStartTime = time.time()
 while True:
     # the number to check has to be a cube itself, so just count upwards from 0
     # and cube-ify it
     numbercube = numberToCheck ** 3
+    print("-- number to check", numberToCheck, "-->", numbercube, "--")
     startTime = time.time()
     cubes = determineAmountOfFittingPermutations(numbercube)
     endTime = time.time()
@@ -59,4 +60,3 @@ while True:
             exit(1337)
 
     numberToCheck += 1
-
