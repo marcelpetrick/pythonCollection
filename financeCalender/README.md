@@ -1,6 +1,6 @@
 # finance calender (calculator)
 
-Test program to take certain types of recurring transactions and apply them to a forecast of your financial situation.
+Prototype (program) to take certain types of recurring transactions and apply them to a forecast of your financial situation.
 
 Output will represent the "current day", "current budget", "applied transactions" and "actual change".
 
@@ -45,3 +45,7 @@ Process finished with exit code 0<br>
 * write unit-tests
 * remove the initial testing for calender- and datetime-code
 * done: also print the daily change of the budget<br>
+
+
+* add a GUI - as training for my own skills; based on Qt
+* move to a real class; add unit-tests; add one example input file
