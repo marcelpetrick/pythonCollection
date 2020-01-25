@@ -24,3 +24,49 @@
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+
+def isPandigital(stringified):
+    ''' An n-digit number is pandigital if it makes use of all the digits 1 to n exactly once. '''
+    length = len(stringified)
+
+    if length > 9:
+        return False
+
+    for i in range(1, length + 1):
+        # print(i)
+        if str(i) not in stringified:
+            return False
+
+    return True
+
+# ------------------------------------------------------------------------------
+
+wantedOnes = set()
+for a in range(1, 10 ** 5):
+    for b in range(1, 10 ** 5):
+
+        product = a * b
+        numberString = str(a) + str(b) + str(product)
+        if len(numberString) > 9:
+            #print(a, b, product, numberString, "too long -> break")
+            break
+
+        if len(numberString) < 9:
+            continue
+
+        if isPandigital(numberString):
+            print(a, b, product, numberString, "is pandigital")
+            wantedOnes.add(product)
+
+
+print("done:", wantedOnes)
+print("sum:", sum(wantedOnes))
+# ------------------------------------------------------------------------------
+# ..
+# 483 12 5796 483125796 is pandigital
+# 1738 4 6952 173846952 is pandigital
+# 1963 4 7852 196347852 is pandigital
+# done: {5346, 5796, 6952, 7852, 4396, 7632, 7254}
+# sum: 45228
+
+
