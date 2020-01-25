@@ -13,7 +13,13 @@
 
 # ------------------------------------------------------------------------------
 # idea:
-# TODO
+# * brute force, naive: two stacked loops from 1 to 10 ** 9: abort inner loop if length of the result would be bigger
+# than (9 - multiLength - multipliLength), which should be quite early
+# * then compute the result and check if the whole stringified addition would be pandigital: maybe check even first if
+# one of the digits in the second number ps art of the first (then abort)
+#
+# other way: draw digits from a sack: so if the first multiplicator takes those, then the second can just draw from the
+# remaining: and then the result could just consist of the other ones ..
 
 # ------------------------------------------------------------------------------
 # implementation
