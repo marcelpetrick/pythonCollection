@@ -13,7 +13,25 @@
 
 # ------------------------------------------------------------------------------
 
-# ------------------------------------------------------------------------------
+def isFakeRoundable(numA, numB):
+    strA = str(numA)
+    strB = str(numB)
+
+    for digit in strA:
+        if digit in strB and digit != "0":
+            print("found cancellable digit:", digit)
+            return True
+
+    return False
 
 # ------------------------------------------------------------------------------
+print(isFakeRoundable(21, 13))
+# ------------------------------------------------------------------------------
 
+results = []
+for numerator in range(10, 100):
+    for denominator in range(10, 100):
+        if isFakeRoundable(numerator, denominator):
+            results.append([numerator, denominator])
+
+print("results:", results)
