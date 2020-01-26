@@ -17,10 +17,14 @@ def isFakeRoundable(numA, numB):
     strA = str(numA)
     strB = str(numB)
 
-    for digit in strA:
-        if digit in strB and digit != "0":
-            print("found cancellable digit:", digit)
-            return True
+# still wrong, I guess the key is that the result after the "naive" cancelling would be equal to the real result
+    if strA[1] == strB[0] or strA[0] == strB[1]:
+        return True
+    #
+    # for digit in strA:
+    #     if digit in strB and digit != "0":
+    #         #print("found cancellable digit:", digit)
+    #         return True
 
     return False
 
@@ -29,8 +33,9 @@ print(isFakeRoundable(21, 13))
 # ------------------------------------------------------------------------------
 
 results = []
-for numerator in range(10, 100):
-    for denominator in range(10, 100):
+for denominator in range(10, 100): # since the resulting number shall be below 1
+    for numerator in range(10, denominator+1):
+        print("check now:", denominator, numerator)
         if isFakeRoundable(numerator, denominator):
             results.append([numerator, denominator])
 
