@@ -43,11 +43,20 @@ print("21/13:", isFakeRoundable(21, 13))
 print("49/98:", isFakeRoundable(49, 98))
 # ------------------------------------------------------------------------------
 
-# results = []
-# for denominator in range(10, 100): # since the resulting number shall be below 1
-#     for numerator in range(10, denominator+1):
-#         print("check now:", denominator, numerator)
-#         if isFakeRoundable(numerator, denominator):
-#             results.append([numerator, denominator])
-#
-# print("results:", results)
+results = []
+for denominator in range(10, 100): # since the resulting number shall be below 1
+    for numerator in range(10, denominator+1):
+        print("check now:", denominator, numerator)
+        if isFakeRoundable(numerator, denominator):
+            if numerator != denominator:
+                results.append([numerator, denominator])
+
+print("results:", results)
+# ------------------------------------------------------------------------------
+
+# ..
+# one cancellable: b
+# check now: 99 99
+# one cancellable: a
+# fake cancel is equal to real result! 1.0 == 1.0
+# results: [[16, 64], [26, 65], [19, 95], [49, 98]]
