@@ -17,26 +17,37 @@ def isFakeRoundable(numA, numB):
     strA = str(numA)
     strB = str(numB)
 
-# still wrong, I guess the key is that the result after the "naive" cancelling would be equal to the real result
-    if strA[1] == strB[0] or strA[0] == strB[1]:
-        return True
-    #
-    # for digit in strA:
-    #     if digit in strB and digit != "0":
-    #         #print("found cancellable digit:", digit)
-    #         return True
+    realResult = numA / numB
+
+    if strA[1] == strB[0]:
+        print("one cancellable: a")
+        if int(strB[1]) == 0:
+            print("would be DIV 0!")
+            return False
+        failCancel = int(strA[0]) / int(strB[1])
+        if failCancel == realResult:
+            print("fake cancel is equal to real result!", failCancel, "==", realResult)
+            return True
+
+    if strA[0] == strB[1]:
+        print("one cancellable: b")
+        failCancel = int(strA[1]) / int(strB[0])
+        if failCancel == realResult:
+            print("fake cancel is equal to real result!", failCancel, "==", realResult)
+            return True
 
     return False
 
 # ------------------------------------------------------------------------------
-print(isFakeRoundable(21, 13))
+print("21/13:", isFakeRoundable(21, 13))
+print("49/98:", isFakeRoundable(49, 98))
 # ------------------------------------------------------------------------------
 
-results = []
-for denominator in range(10, 100): # since the resulting number shall be below 1
-    for numerator in range(10, denominator+1):
-        print("check now:", denominator, numerator)
-        if isFakeRoundable(numerator, denominator):
-            results.append([numerator, denominator])
-
-print("results:", results)
+# results = []
+# for denominator in range(10, 100): # since the resulting number shall be below 1
+#     for numerator in range(10, denominator+1):
+#         print("check now:", denominator, numerator)
+#         if isFakeRoundable(numerator, denominator):
+#             results.append([numerator, denominator])
+#
+# print("results:", results)
