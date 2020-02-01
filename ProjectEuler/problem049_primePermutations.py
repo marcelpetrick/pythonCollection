@@ -12,13 +12,17 @@
 
 # ------------------------------------------------------------------------------
 # idea:
-# first naively implement the conjecture, then support it with a dictionary
-# process all start-values from 1..10^6; then find the biggest one
+# * hint: "An arithmetic sequence is a sequence of numbers such that the difference of any two successive members
+# of the sequence is a constant. Example. 2,4,6,8,10….is an arithmetic sequence with the common difference 2." (google)
+# * create all permutations of 4 (digits) (or just 4-tuple?) out of digits from 1..9 (by a generator, not in memory)
+# * compute all permuts of this 4-tuple, then check if prime, then store all primes for that: and determine of any
+# 3-set the arithm. difference (also called: offset)?
 
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
-import time
+
+#import time
 
 
 # ------------------------------------------------------------------------------
