@@ -24,7 +24,14 @@
 
 #import time
 
-
 # ------------------------------------------------------------------------------
+
+def createListOfPrimePermutationsOfInputNumber(number):
+    # todo maybe make the input a string
+
+    # todo maybe create some dictionary as backup: key will be the sorted digits of the number (normalization)
+
+
+
 # ------------------------------------------------------------------------------
 
