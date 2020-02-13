@@ -118,6 +118,8 @@ def uploadToTqBoard(pathToCli, configFilePath):
 
 # ----------------- main function -----------------
 def main():
+    import sys
+
     # get the parameters
     if len(sys.argv) > 3:
         configFilePath = sys.argv[1]

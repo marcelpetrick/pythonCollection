@@ -31,7 +31,7 @@ def createListOfPrimePermutationsOfInputNumber(number):
 
     # todo maybe create some dictionary as backup: key will be the sorted digits of the number (normalization)
 
-
+    pass
 
 # ------------------------------------------------------------------------------
 
