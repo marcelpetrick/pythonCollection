@@ -18,3 +18,18 @@
 #  git-commit.
 
 #------------------------
+
+
+# ----------------- main function -----------------
+def main():
+    import sys
+
+    # get the parameters
+    if len(sys.argv) == 2:
+        fileToProcessPath = sys.argv[1]
+    else:
+        raise Exception("Not enough parameters specified: first must be fileToProcessPath.")
+
+# ----------------- execution -----------------
+if __name__ == "__main__":
+    main()
