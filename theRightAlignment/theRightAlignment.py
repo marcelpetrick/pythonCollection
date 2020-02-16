@@ -14,11 +14,15 @@
 #  style.
 #
 #  of course, i doubt that i would pull this of (professionalism), but the idea sparked my interest. shouldn't be too
-#  hard to write a python-skript which can be used with xargs/parallel on bash on all the touched files in the last
+#  hard to write a python-script which can be used with xargs/parallel on bash on all the touched files in the last
 #  git-commit.
 
 #------------------------
 
+def processFile(filePath):
+    print("handle now:", filePath)
+
+    pass # todo add more code ..
 
 # ----------------- main function -----------------
 def main():
@@ -29,6 +33,9 @@ def main():
         fileToProcessPath = sys.argv[1]
     else:
         raise Exception("Not enough parameters specified: first must be fileToProcessPath.")
+
+    processFile(fileToProcessPath)
+    # todo add the real functionality
 
 # ----------------- execution -----------------
 if __name__ == "__main__":
