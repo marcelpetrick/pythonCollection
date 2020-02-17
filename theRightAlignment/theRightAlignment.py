@@ -21,7 +21,7 @@
 # implementation
 # ------------------------------------------------------------------------------
 
-def processFile(filePath):
+def determineMaxLineLength(filePath):
     print("handle now:", filePath)
 
     file = open(filePath, 'r')
@@ -49,13 +49,14 @@ def main():
     else:
         raise Exception("Not enough parameters specified: first must be fileToProcessPath.")
 
-    processFile(fileToProcessPath)
+    maxLength = determineMaxLineLength(fileToProcessPath)
+    print("maximum line length of", fileToProcessPath, "is", maxLength, "chars")
     # todo add the real functionality
 
 # ----------------- execution -----------------
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
 
 # todo: idea: to make unit-tests and the real usage work at the same time, parse the argument1 and then select the correct subsequent calls
 
@@ -68,11 +69,11 @@ class Testcase(unittest.TestCase):
         print("todo: implement")
 
         fileToCheck = "testFile0.txt"
-        maxLineLength = processFile(fileToCheck)
+        maxLineLength = determineMaxLineLength(fileToCheck)
         self.assertEqual(40, maxLineLength, "detected maximum line length is not fitting to the expectation")
 
 # ------------------------------------------------------------------------------
 
 # ---- here comes the execution of the unit-tests ----
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
