@@ -22,8 +22,9 @@
 # ------------------------------------------------------------------------------
 
 def determineMaxLineLength(filePath):
-    print("handle now:", filePath)
+    print("determineMaxLineLength: handle now:", filePath)
 
+    # todo rewrite with RAII-opening&closing ..
     file = open(filePath, 'r')
 
     maxLineLength = -1
@@ -35,9 +36,19 @@ def determineMaxLineLength(filePath):
         if currentLength > maxLineLength:
             maxLineLength = currentLength
 
-    file.close()
+    file.close() # needed, else complains about left-open file ..
 
     return maxLineLength
+
+# ------------------------------------------------------------------------------
+
+def padFile(filePath, maxLineLength):
+    # pad the file with ljust to the left ...
+    # Attention: maybe exclude lines like #include or other macros
+
+    print("padFile: handle now:", filePath)
+
+    # todo add code
 
 # ----------------- main function -----------------
 def main():
@@ -49,8 +60,13 @@ def main():
     else:
         raise Exception("Not enough parameters specified: first must be fileToProcessPath.")
 
+    # first determine the maximum
     maxLength = determineMaxLineLength(fileToProcessPath)
     print("maximum line length of", fileToProcessPath, "is", maxLength, "chars")
+
+    # then adjust the file
+    padFile(fileToProcessPath, maxLength)
+
     # todo add the real functionality
 
 # ----------------- execution -----------------
@@ -65,15 +81,16 @@ if __name__ == "__main__":
 # ------------------------------------------------------------------------------
 import unittest
 class Testcase(unittest.TestCase):
-    def test_processFile(self):
-        print("todo: implement")
-
+    def test_determineMaxLineLength(self):
         fileToCheck = "testFile0.txt"
         maxLineLength = determineMaxLineLength(fileToCheck)
         self.assertEqual(40, maxLineLength, "detected maximum line length is not fitting to the expectation")
 
+    def test_padFile(self):
+        print("todo: implement")
+
 # ------------------------------------------------------------------------------
 
-# ---- here comes the execution of the unit-tests ----
+# # ---- here comes the execution of the unit-tests ----
 # if __name__ == '__main__':
 #     unittest.main()
