@@ -24,7 +24,20 @@
 def processFile(filePath):
     print("handle now:", filePath)
 
-    pass # todo add more code ..
+    file = open(filePath, 'r')
+
+    maxLineLength = -1
+
+    # read content
+    for line in file.readlines():
+        currentLength = len(line.rstrip()) # check the stripped length (just trailing whitespce)
+
+        if currentLength > maxLineLength:
+            maxLineLength = currentLength
+
+    file.close()
+
+    return maxLineLength
 
 # ----------------- main function -----------------
 def main():
@@ -44,6 +57,8 @@ def main():
 # if __name__ == "__main__":
 #     main()
 
+# todo: idea: to make unit-tests and the real usage work at the same time, parse the argument1 and then select the correct subsequent calls
+
 # ------------------------------------------------------------------------------
 # unit-tests
 # ------------------------------------------------------------------------------
@@ -55,7 +70,7 @@ class Testcase(unittest.TestCase):
         fileToCheck = "testFile0.txt"
         maxLineLength = processFile(fileToCheck)
         self.assertEqual(40, maxLineLength, "detected maximum line length is not fitting to the expectation")
-        
+
 # ------------------------------------------------------------------------------
 
 # ---- here comes the execution of the unit-tests ----
