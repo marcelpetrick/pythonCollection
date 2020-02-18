@@ -48,6 +48,16 @@ def padFile(filePath, maxLineLength):
 
     print("padFile: handle now:", filePath)
 
+    tempFilePath = filePath + "1337" # make it unique; maybe better use UUIDs
+
+    with open(filePath, 'r') as inputFile:
+        with open(tempFilePath, 'rw') as tempFile:
+            for line in inputFile:
+                strippedLine = line.rstrip() # just like above
+                adjustedLine = strippedLine.ljust(maxLineLength, '_')
+                print("adjusted:", adjustedLine)
+
+
     # todo add code
 
 # ----------------- main function -----------------
@@ -88,6 +98,12 @@ class Testcase(unittest.TestCase):
 
     def test_padFile(self):
         print("todo: implement")
+
+        fileToCheck = "testFile0.txt"
+        maxLineLength = determineMaxLineLength(fileToCheck)
+
+        # then adjust the file
+        padFile(fileToCheck, maxLineLength)
 
 # ------------------------------------------------------------------------------
 
