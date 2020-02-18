@@ -55,16 +55,19 @@ def padFile(filePath, maxLineLength):
             for line in inputFile:
                 strippedLine = line.rstrip() # just like above
                 paddedLine = strippedLine.rjust(maxLineLength, ' ') # pad to the left with spaces
-                print("paddedLine:", paddedLine) # todom remove
+                #print("paddedLine:", paddedLine) # todom remove
                 # strip again (to avoid lines full of empty spaces!
                 finalLine = paddedLine.rstrip()
 
-                # todo put this into the temp-file
+                # put the new string into the temp-file
                 tempFile.write(finalLine)
+                tempFile.write('\n')
 
-    # todo rename the tempfile to real file
-    import os
-    os.rename(tempFilePath, filePath)
+    # rename the tempfile to real file
+    # import os
+    # os.rename(tempFilePath, filePath)
+    from shutil import move
+    move(tempFilePath, filePath)
 
 # ----------------- main function -----------------
 def main():
@@ -82,8 +85,6 @@ def main():
 
     # then adjust the file
     padFile(fileToProcessPath, maxLength)
-
-    # todo add the real functionality
 
 # ----------------- execution -----------------
 
@@ -103,8 +104,6 @@ class Testcase(unittest.TestCase):
         self.assertEqual(40, maxLineLength, "detected maximum line length is not fitting to the expectation")
 
     def test_padFile(self):
-        print("todo: implement")
-
         fileToCheck = "testFile0.txt"
         maxLineLength = determineMaxLineLength(fileToCheck)
 
@@ -116,3 +115,8 @@ class Testcase(unittest.TestCase):
 # # ---- here comes the execution of the unit-tests ----
 # if __name__ == '__main__':
 #     unittest.main()
+
+# ------------------------------------------------------------------------------
+
+# quick run:
+# >python theRightAlignment.py testFile0.txt
