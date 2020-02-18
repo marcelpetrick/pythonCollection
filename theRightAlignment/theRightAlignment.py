@@ -51,14 +51,20 @@ def padFile(filePath, maxLineLength):
     tempFilePath = filePath + "1337" # make it unique; maybe better use UUIDs
 
     with open(filePath, 'r') as inputFile:
-        with open(tempFilePath, 'rw') as tempFile:
+        with open(tempFilePath, 'w+') as tempFile: # open for writing; also create if not existing
             for line in inputFile:
                 strippedLine = line.rstrip() # just like above
-                adjustedLine = strippedLine.ljust(maxLineLength, '_')
-                print("adjusted:", adjustedLine)
+                paddedLine = strippedLine.rjust(maxLineLength, ' ') # pad to the left with spaces
+                print("paddedLine:", paddedLine) # todom remove
+                # strip again (to avoid lines full of empty spaces!
+                finalLine = paddedLine.rstrip()
 
+                # todo put this into the temp-file
+                tempFile.write(finalLine)
 
-    # todo add code
+    # todo rename the tempfile to real file
+    import os
+    os.rename(tempFilePath, filePath)
 
 # ----------------- main function -----------------
 def main():
