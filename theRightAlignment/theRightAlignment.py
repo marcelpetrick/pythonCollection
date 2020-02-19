@@ -54,20 +54,28 @@ def padFile(filePath, maxLineLength):
         with open(tempFilePath, 'w+') as tempFile: # open for writing; also create if not existing
             for line in inputFile:
                 strippedLine = line.rstrip() # just like above
-                paddedLine = strippedLine.rjust(maxLineLength, ' ') # pad to the left with spaces
-                #print("paddedLine:", paddedLine) # todom remove
-                # strip again (to avoid lines full of empty spaces!
-                finalLine = paddedLine.rstrip()
+
+                # padding exceptions
+                paddingExceptions = {
+                    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" # Qt ui file: parsing would fail afterward
+                }
+
+                # pad to align right if not one of the exceptions
+                if strippedLine not in paddingExceptions:
+                    paddedLine = strippedLine.rjust(maxLineLength, ' ') # pad to the left with spaces
+                    #print("paddedLine:", paddedLine) # todom remove
+                    # strip again (to avoid lines full of empty spaces!
+                    finalLine = paddedLine.rstrip()
+                else: # just take the original, but strip
+                    finalLine = strippedLine
 
                 # put the new string into the temp-file
                 tempFile.write(finalLine)
                 tempFile.write('\n')
 
     # rename the temporary file to real file
-    # import os
-    # os.rename(tempFilePath, filePath)
     from shutil import move
-    move(tempFilePath, filePath)
+    move(tempFilePath, filePath) # os.rename does not replace existing files
 
 # ----------------- main function -----------------
 def main():
