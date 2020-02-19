@@ -63,7 +63,7 @@ def padFile(filePath, maxLineLength):
                 tempFile.write(finalLine)
                 tempFile.write('\n')
 
-    # rename the tempfile to real file
+    # rename the temporary file to real file
     # import os
     # os.rename(tempFilePath, filePath)
     from shutil import move
