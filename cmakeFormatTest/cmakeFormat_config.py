@@ -21,3 +21,6 @@ with section("format"):
   # parenthesis on its own line.
   dangle_parens = True
   
+  # What style line endings to use in the output.
+  line_ending = 'unix'
+  
