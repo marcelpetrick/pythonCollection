@@ -6,9 +6,9 @@
 # How many n-digit positive integers exist which are also an nth power?
 # ------------------------------------------------------------------------------
 # idea:
-# TODO
-#
-#
+# * just compute straight-forward the n-th power of a digit and then check if the result has the length n
+# * brute force could be enough
+# * maybe some special cases are n+1 digit numbers as base which are then also n-th powers?
 # ------------------------------------------------------------------------------
 
 #import unittest
@@ -18,3 +18,26 @@
 #     unittest.main()
 
 # ------------------------------------------------------------------------------
+
+def getListOfNthPowers():
+
+    returnValue = []
+
+    for base in range(1, 10):
+        for power in range(1, 10):
+            result = base ** power
+
+            if len(str(result)) == power:
+                print("got one:", base, power, result)
+                returnValue.append(result)
+
+    return returnValue
+
+# ------------------------------------------------------------------------------
+
+print("------------------------------------------------------------------------------")
+auto = getListOfNthPowers()
+print("------------------------------------------------------------------------------")
+print("all numbers which fit:", auto)
+print("------------------------------------------------------------------------------")
+print("how many are that?", len(auto))
