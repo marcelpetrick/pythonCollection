@@ -27,5 +27,24 @@
 # implementation
 # ------------------------------------------------------------------------------
 
-def function():
+import enum
+class NumberType(enum.Enum):
+    ''' Enum to determine which type a number is. '''
+    Increasing = 0
+    Decreasing = 1
+    Bouncy = 2
+
+# ------------------------------------------------------------------------------
+
+def determineType():
+    ''' Returns Increasing, Decreasing or Bouncy :) '''
+
+    # TODO
+
     pass
+
+# ------------------------------------------------------------------------------
+
+# add unit-tests
+
+# ------------------------------------------------------------------------------
