@@ -24,3 +24,10 @@ with section("format"):
   # What style line endings to use in the output.
   line_ending = 'unix'
   
+  # If true, the argument lists which are known to be sortable will be sorted
+  # lexicographicall
+  enable_sort = True
+
+  # If true, the parsers may infer whether or not an argument list is sortable
+  # (without annotation).
+  autosort = False
