@@ -66,7 +66,21 @@ def determineType(number):
 
 # ------------------------------------------------------------------------------
 
-# add unit-tests
+# ------------------------------------------------------------------------------
+import unittest
+
+class Testcase(unittest.TestCase):
+
+    def test_determineType(self):
+        self.assertEqual(Type.Increasing, determineType(134468))
+        self.assertEqual(Type.Decreasing, determineType(66420))
+        self.assertEqual(Type.Bouncy, determineType(155349))
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
+
+# ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
 
