@@ -36,32 +36,47 @@ class Type(enum.Enum):
 
 # ------------------------------------------------------------------------------
 
-class Direction(enum.Enum):
-    ''' Enum to determine which type a number is. '''
-    Equal = 0
-    Up = 1
-    Down = 2
+# class Direction(enum.Enum):
+#     ''' Enum to determine which type a number is. '''
+#     Equal = 0
+#     Up = 1
+#     Down = 2
 # ------------------------------------------------------------------------------
 
 def determineType(number):
     ''' Returns Increasing, Decreasing or Bouncy :) '''
 
+    # note: funny: single-digit-numbers can be Increasing and Decreasing at the same time ..
+
     # parsing direction is left-to-right
 
+    # *** test: INCREASING ***
     rising = True
     numberStr = str(number)
     lastValue = int(numberStr[0]) # will have at least one digit
     for elem in numberStr[1:]:
         currentValue = int(elem)
-        if currentValue <= lastValue:
+        if currentValue < lastValue:
             rising = False
             break
 
     if rising:
         return Type.Increasing
 
-    # TODO
+    # *** test: DECREASING ***
+    rising = True
+    numberStr = str(number)
+    lastValue = int(numberStr[0]) # will have at least one digit
+    for elem in numberStr[1:]:
+        currentValue = int(elem)
+        if currentValue > lastValue:
+            rising = False
+            break
 
+    if rising:
+        return Type.Decreasing
+
+    # *** else: DECREASING ***
     return Type.Bouncy
 
 # ------------------------------------------------------------------------------
@@ -72,6 +87,7 @@ import unittest
 class Testcase(unittest.TestCase):
 
     def test_determineType(self):
+        # given input from Project Euler itself
         self.assertEqual(Type.Increasing, determineType(134468))
         self.assertEqual(Type.Decreasing, determineType(66420))
         self.assertEqual(Type.Bouncy, determineType(155349))
@@ -82,8 +98,9 @@ if __name__ == '__main__':
 
 # ------------------------------------------------------------------------------
 
+# numberToTest = 134468
+# result = determineType(numberToTest)
+# print(numberToTest, "is", result)
+
 # ------------------------------------------------------------------------------
 
-numberToTest = 134468
-result = determineType(numberToTest)
-print(numberToTest, "is", result)
