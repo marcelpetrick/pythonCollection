@@ -39,6 +39,11 @@ app.exec() # what is the difference to exec()?
 
 #------------------------------------------------------
 
+# exec versus exec_:
+# https://www.learnpyqt.com/blog/pyqt5-vs-pyside2/#exec-or-exec_
+
 #------------------------------------------------------
+
+# https://machinekoder.com/pyqt-vs-qt-for-python-pyside2-pyside/
 
 #------------------------------------------------------
