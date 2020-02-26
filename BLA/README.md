@@ -8,4 +8,5 @@ First iteration should create a single widget-app, which serves as drag&drop-tar
 
 Not sure if to use PySide or PyQt as binding. Better test both.
 
-![second app]("secondApp.png")
+## second app
+![second app](media/secondApp.png)
