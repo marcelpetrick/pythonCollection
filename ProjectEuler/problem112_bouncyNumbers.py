@@ -95,6 +95,31 @@ def determineAmountOfBouncyNumbersBelowLimit(limit):
     return nrOfBouncyNumbers
 
 # ------------------------------------------------------------------------------
+
+def findNumberWhereBouncyNumbersReachGivenPercentageFirst(percentage):
+
+    nrOfBouncyNumbers = 0
+    totalAmount = 0
+    number = 1
+    while True:
+        # +1 for the amount
+        totalAmount += 1
+        # check the current one
+        if determineType(number) == Type.Bouncy:
+            nrOfBouncyNumbers += 1
+        # check if the target was reached
+        currentPercentage = nrOfBouncyNumbers / totalAmount * 100
+        #print(number, ":", currentPercentage)
+        if currentPercentage >= percentage:
+            #print("reached percentage")
+            break
+
+        # go to the next number
+        number += 1
+
+    return number
+
+# ------------------------------------------------------------------------------
 import unittest
 
 class Testcase(unittest.TestCase):
@@ -109,6 +134,10 @@ class Testcase(unittest.TestCase):
         # given input from Project Euler itself
         self.assertEqual(525, determineAmountOfBouncyNumbersBelowLimit(1000))
 
+    def test_percentage(self):
+        self.assertEqual(538, findNumberWhereBouncyNumbersReachGivenPercentageFirst(50))
+        self.assertEqual(21780, findNumberWhereBouncyNumbersReachGivenPercentageFirst(90))
+
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
     unittest.main()
@@ -121,3 +150,12 @@ if __name__ == '__main__':
 
 # ------------------------------------------------------------------------------
 
+print("solution is:", findNumberWhereBouncyNumbersReachGivenPercentageFirst(99))
+# ------------------------------------------------------------------------------
+
+# Launching unittests with arguments python -m unittest C:/Users/husband-boy/Desktop/coding/pythonCollection/ProjectEuler/problem112_bouncyNumbers.py in C:\Users\husband-boy\Desktop\coding\pythonCollection\ProjectEuler
+#
+# solution is: 1587000
+#
+#
+# Ran 3 tests in 0.059s
