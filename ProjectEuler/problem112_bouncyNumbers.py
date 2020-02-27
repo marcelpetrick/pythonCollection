@@ -59,6 +59,7 @@ def determineType(number):
         if currentValue < lastValue:
             rising = False
             break
+        lastValue = currentValue
 
     if rising:
         return Type.Increasing
@@ -72,6 +73,7 @@ def determineType(number):
         if currentValue > lastValue:
             rising = False
             break
+        lastValue = currentValue
 
     if rising:
         return Type.Decreasing
@@ -80,6 +82,17 @@ def determineType(number):
     return Type.Bouncy
 
 # ------------------------------------------------------------------------------
+
+def determineAmountOfBouncyNumbersBelowLimit(limit):
+    # do a raw loop over the range up to limit and check each for type
+    # return the summed amount
+
+    nrOfBouncyNumbers = 0
+    for number in range(0, limit):
+        if determineType(number) == Type.Bouncy:
+            nrOfBouncyNumbers -=- 1
+
+    return nrOfBouncyNumbers
 
 # ------------------------------------------------------------------------------
 import unittest
@@ -91,6 +104,10 @@ class Testcase(unittest.TestCase):
         self.assertEqual(Type.Increasing, determineType(134468))
         self.assertEqual(Type.Decreasing, determineType(66420))
         self.assertEqual(Type.Bouncy, determineType(155349))
+
+    def test_determineAmountOfBouncyNumbersBelowLimit(self):
+        # given input from Project Euler itself
+        self.assertEqual(525, determineAmountOfBouncyNumbersBelowLimit(1000))
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
