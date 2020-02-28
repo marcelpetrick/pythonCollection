@@ -138,27 +138,26 @@ class Testcase(unittest.TestCase):
         self.assertEqual(538, findNumberWhereBouncyNumbersReachGivenPercentageFirst(50))
         self.assertEqual(21780, findNumberWhereBouncyNumbersReachGivenPercentageFirst(90))
 
+    def test_createSolution(self):
+        import time
+        startTime = time.time()
+        print("solution: 99 percent bouncyness is reached at number:", findNumberWhereBouncyNumbersReachGivenPercentageFirst(99))
+        print("calculation took", time.time() - startTime, "s")
+
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
     unittest.main()
 
 # ------------------------------------------------------------------------------
 
-# numberToTest = 134468
-# result = determineType(numberToTest)
-# print(numberToTest, "is", result)
-
-# ------------------------------------------------------------------------------
-
-print("solution is:", findNumberWhereBouncyNumbersReachGivenPercentageFirst(99))
-# ------------------------------------------------------------------------------
-
-# Launching unittests with arguments python -m unittest C:/Users/husband-boy/Desktop/coding/pythonCollection/ProjectEuler/problem112_bouncyNumbers.py in C:\Users\husband-boy\Desktop\coding\pythonCollection\ProjectEuler
+# solution: 99 percent bouncyness is reached at number: 1587000
+# calculation took 3.1421914100646973 s
+# ....
+# ----------------------------------------------------------------------
+# Ran 4 tests in 3.182s
 #
-# solution is: 1587000
-#
-#
-# Ran 3 tests in 0.059s
+# OK
+
 # ------------------------------------------------------------------------------
 
 # Congratulations, the answer you gave to problem 112 is correct.
