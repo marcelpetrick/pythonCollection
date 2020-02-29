@@ -16,7 +16,9 @@
 # ------------------------------------------------------------------------------
 
 # idea:
-# TODO
+# * dont solve it like problem 112; instead use an iterative approach over the lenght of the string (number string, just 100 digits)
+# for each string (starting string) find the fitting follow up numbers (equal or bigger). recursive approach? check how long this would take
+#
 
 # ------------------------------------------------------------------------------
 # implementation
