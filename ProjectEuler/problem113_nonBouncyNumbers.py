@@ -23,3 +23,52 @@
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+
+def determineFollowupNumbers(currentChar):
+    currentNumber = int(currentChar)
+
+    returnList = range(currentNumber, 10) # from the current number, because increasing = "equal or higher"
+
+    return returnList
+
+# ------------------------------------------------------------------------------
+
+def computeAllIncreasingNumbersUpToLimit_recursiveApproach_(limit):
+    initialString = "0"
+    # todo maybe think about the start ... because empty string would be better
+
+    # determine all follow up numbers (increasing -> just those bigger than last digit)
+
+    # collect the result-strings (list?) and combine with current string?
+    pass
+
+# ------------------------------------------------------------------------------
+import unittest
+
+class Testcase(unittest.TestCase):
+
+    def test_determineFollowupNumbers(self):
+
+        # given input from Project Euler itself
+        self.assertEqual([9], determineFollowupNumbers("9"))
+        self.assertEqual([8, 9], determineFollowupNumbers("8"))
+
+    # def test_determineAmountOfBouncyNumbersBelowLimit(self):
+    #     # given input from Project Euler itself
+    #     self.assertEqual(525, determineAmountOfBouncyNumbersBelowLimit(1000))
+    #
+    # def test_percentage(self):
+    #     self.assertEqual(538, findNumberWhereBouncyNumbersReachGivenPercentageFirst(50))
+    #     self.assertEqual(21780, findNumberWhereBouncyNumbersReachGivenPercentageFirst(90))
+    #
+    # def test_createSolution(self):
+    #     import time
+    #     startTime = time.time()
+    #     print("solution: 99 percent bouncyness is reached at number:", findNumberWhereBouncyNumbersReachGivenPercentageFirst(99))
+    #     print("calculation took", time.time() - startTime, "s")
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
+
+# ------------------------------------------------------------------------------
