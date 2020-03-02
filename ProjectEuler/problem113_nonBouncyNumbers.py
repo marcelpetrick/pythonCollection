@@ -27,7 +27,7 @@
 def determineFollowupNumbers(currentChar):
     currentNumber = int(currentChar)
 
-    returnList = range(currentNumber, 10) # from the current number, because increasing = "equal or higher"
+    returnList = list(range(currentNumber, 10))  # from the current number, because increasing = "equal or higher"
 
     return returnList
 
@@ -52,6 +52,7 @@ class Testcase(unittest.TestCase):
         # given input from Project Euler itself
         self.assertEqual([9], determineFollowupNumbers("9"))
         self.assertEqual([8, 9], determineFollowupNumbers("8"))
+        self.assertEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], determineFollowupNumbers("0"))
 
     # def test_determineAmountOfBouncyNumbersBelowLimit(self):
     #     # given input from Project Euler itself
