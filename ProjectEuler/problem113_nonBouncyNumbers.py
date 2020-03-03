@@ -11,7 +11,7 @@
 # As n increases, the proportion of bouncy numbers below n increases such that there are only 12951 numbers below
 # one-million that are not bouncy and only 277032 non-bouncy numbers below 1010.
 #
-# How many numbers below a googol (10100) are not bouncy?
+# How many numbers below a googol (10 ** 100) are not bouncy?
 
 # ------------------------------------------------------------------------------
 
@@ -53,20 +53,6 @@ class Testcase(unittest.TestCase):
         self.assertEqual([9], determineFollowupNumbers("9"))
         self.assertEqual([8, 9], determineFollowupNumbers("8"))
         self.assertEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], determineFollowupNumbers("0"))
-
-    # def test_determineAmountOfBouncyNumbersBelowLimit(self):
-    #     # given input from Project Euler itself
-    #     self.assertEqual(525, determineAmountOfBouncyNumbersBelowLimit(1000))
-    #
-    # def test_percentage(self):
-    #     self.assertEqual(538, findNumberWhereBouncyNumbersReachGivenPercentageFirst(50))
-    #     self.assertEqual(21780, findNumberWhereBouncyNumbersReachGivenPercentageFirst(90))
-    #
-    # def test_createSolution(self):
-    #     import time
-    #     startTime = time.time()
-    #     print("solution: 99 percent bouncyness is reached at number:", findNumberWhereBouncyNumbersReachGivenPercentageFirst(99))
-    #     print("calculation took", time.time() - startTime, "s")
 
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
