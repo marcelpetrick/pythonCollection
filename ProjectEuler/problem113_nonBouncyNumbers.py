@@ -16,8 +16,10 @@
 # ------------------------------------------------------------------------------
 
 # idea:
-# * dont solve it like problem 112; instead use an iterative approach over the lenght of the string (number string, just 100 digits)
+# * don't solve it like problem 112; instead use an iterative approach over the lenght of the string (number string, just 100 digits)
 # for each string (starting string) find the fitting follow up numbers (equal or bigger). recursive approach? check how long this would take
+#
+#
 #
 
 # ------------------------------------------------------------------------------
@@ -33,7 +35,7 @@ def determineFollowupNumbers(currentChar):
 
 # ------------------------------------------------------------------------------
 
-def computeAllIncreasingNumbersUpToLimit_recursiveApproach_(limit):
+def computeAllIncreasingNumbersUpToLimit_recursiveApproach(limit):
     initialString = "0"
     # todo maybe think about the start ... because empty string would be better
 
