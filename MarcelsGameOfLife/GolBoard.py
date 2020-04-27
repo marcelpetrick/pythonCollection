@@ -11,5 +11,5 @@ class GolBoard:
         pass
 
 
-foo = GolBoard()
-foo.print()
+#foo = GolBoard()
+#foo.print()
