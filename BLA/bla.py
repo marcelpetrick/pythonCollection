@@ -13,4 +13,4 @@ def unzip(zipFilePath, unzipPath):
     pass
 
 
-unzip("test.zip", "extractDir")
+unzip("testData.zip", "extractDir")
