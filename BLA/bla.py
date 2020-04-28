@@ -12,5 +12,9 @@ def unzip(zipFilePath, unzipPath):
 
     pass
 
+#--------------------
 
-unzip("testData.zip", "extractDir")
+extractDir = "extractDir"
+unzip("testData.zip", extractDir)
+import shutil
+shutil.rmtree(extractDir)
