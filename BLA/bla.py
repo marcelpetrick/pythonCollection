@@ -14,13 +14,38 @@ def unzip(zipFilePath, unzipPath):
 
 #--------------------
 
-extractDir = "extractDir"
-unzip("testData.zip", extractDir)
-import shutil
-shutil.rmtree(extractDir)
+class BuildLogAnalyzer:
+
+    def __init__(self):
+        self.extractDir = "extractDir"
+        self.zipFilePath = "testData.zip"
+
+        # nothing so far
+        pass
+
+    # --------------------
+
+    def unzip(self):
+        from zipfile import ZipFile
+
+        with ZipFile(self.zipFilePath, 'r') as zipObject:
+            zipObject.extractall(self.extractDir)
+
+        # todo some check for the content if it is not empty? or check for errors?
+
+    # --------------------
+
+    def cleanup(self):
+        import shutil
+        shutil.rmtree(self.extractDir)
 
 #--------------------
 
 # todo make it a class
+objectUnderTest = BuildLogAnalyzer()
+objectUnderTest.unzip()
+objectUnderTest.cleanup()
+
 # todo add unit test before anythign else!
+
 
