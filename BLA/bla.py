@@ -18,3 +18,9 @@ extractDir = "extractDir"
 unzip("testData.zip", extractDir)
 import shutil
 shutil.rmtree(extractDir)
+
+#--------------------
+
+# todo make it a class
+# todo add unit test before anythign else!
+
