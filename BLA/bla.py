@@ -32,6 +32,7 @@ class BuildLogAnalyzer:
             zipObject.extractall(self.extractDir)
 
         # todo some check for the content if it is not empty? or check for errors?
+        # todo. determine the content; the filenames; and store them for later usage ..
 
     # --------------------
 
@@ -41,11 +42,8 @@ class BuildLogAnalyzer:
 
 #--------------------
 
-# todo make it a class
 objectUnderTest = BuildLogAnalyzer()
 objectUnderTest.unzip()
 objectUnderTest.cleanup()
 
-# todo add unit test before anythign else!
-
-
+# todo add unit test before anything else!
