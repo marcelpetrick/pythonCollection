@@ -1,20 +1,28 @@
 # task: take a given filename
 # get the information of GetFileVersionInfo - maybe return as string (filename + version)
 
-# taken from: http://timgolden.me.uk/python/win32_how_do_i/get_dll_version.html
-from win32api import GetFileVersionInfo, LOWORD, HIWORD
-
-def get_version_number (filename):
-  info = GetFileVersionInfo (filename, "\\")
-  ms = info['FileVersionMS']
-  ls = info['FileVersionLS']
-  return HIWORD (ms), LOWORD (ms), HIWORD (ls), LOWORD (ls)
+# ----------------------------------------------------------------------------------------------------------------
 
 def getVersionString(filename):
-  import os
-  filename = os.environ["COMSPEC"]
-  versionStr = ".".join ([str (i) for i in get_version_number (filename)])
-  return versionStr
+    # inspiration taken from: http://timgolden.me.uk/python/win32_how_do_i/get_dll_version.html
+    from win32api import GetFileVersionInfo, LOWORD, HIWORD
 
+    info = GetFileVersionInfo (filename, "\\")
+    ms = info['FileVersionMS']
+    ls = info['FileVersionLS']
+    versionAsList = [HIWORD(ms), LOWORD(ms), HIWORD(ls), LOWORD(ls)]
+    versionStr = ".".join([str (i) for i in versionAsList])
 
-getVersionString()
+    return versionStr
+
+# ----------------------------------------------------------------------------------------------------------------
+
+def getVersionStringWithFilename(filename):
+    returnValue = str(filename) + " ; " + getVersionString(filename)
+
+    return returnValue
+
+# ----------------------------------------------------------------------------------------------------------------
+
+print("getVersionStringWithFilename:", getVersionStringWithFilename("C:\Windows\\twain_32.dll")) # the need for doubled backslashes is not good
+# will print: "getVersionStringWithFilename: C:\Windows\twain_32.dll ; 1.7.1.3" - which fits :)
