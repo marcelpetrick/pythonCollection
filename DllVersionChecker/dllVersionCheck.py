@@ -28,3 +28,16 @@ print("getVersionStringWithFilename:", getVersionStringWithFilename("C:\Windows\
 # will print: "getVersionStringWithFilename: C:\Windows\twain_32.dll ; 1.7.1.3" - which fits :)
 
 # todo Add function to give a directory; parse its file-contents and then print the list of: name + versionStr
+
+# ----------------------------------------------------------------------------------------------------------------
+
+def printDllVersionContentToStdOut(filepath):
+    # todo check if this exists
+
+    # todo get list of all files: rglob?
+
+    # todo run and print for each file: getVersionStringWithFilename(..)
+
+    pass
+
+# ----------------------------------------------------------------------------------------------------------------
