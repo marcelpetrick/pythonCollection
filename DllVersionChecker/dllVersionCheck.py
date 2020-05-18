@@ -7,7 +7,11 @@ def getVersionString(filename):
     # inspiration taken from: http://timgolden.me.uk/python/win32_how_do_i/get_dll_version.html
     from win32api import GetFileVersionInfo, LOWORD, HIWORD
 
-    info = GetFileVersionInfo(str(filename), "\\")
+    try:
+        info = GetFileVersionInfo(str(filename), "\\")
+    except:
+        return "---" # f'failed for {filename}'
+
     ms = info['FileVersionMS']
     ls = info['FileVersionLS']
     versionAsList = [HIWORD(ms), LOWORD(ms), HIWORD(ls), LOWORD(ls)]
@@ -24,33 +28,21 @@ def getVersionStringWithFilename(filename):
 
 # ----------------------------------------------------------------------------------------------------------------
 
-print("getVersionStringWithFilename:", getVersionStringWithFilename("C:\Windows\\twain_32.dll")) # the need for doubled backslashes is not good
+#print("getVersionStringWithFilename:", getVersionStringWithFilename("C:\Windows\\twain_32.dll")) # the need for doubled backslashes is not good
 # will print: "getVersionStringWithFilename: C:\Windows\twain_32.dll ; 1.7.1.3" - which fits :)
 
-# todo Add function to give a directory; parse its file-contents and then print the list of: name + versionStr
-
 # ----------------------------------------------------------------------------------------------------------------
 
-def printDllVersionContentToStdOut(filepath):
+# todo Add function to give a directory; parse its file-contents and then print the list of: name + versionStr
+def printDllVersionContentToStdOut(pathToCheck):
     from pathlib import Path
 
-    pathToCheck = "C:/Windows/System32"
-
-    # TODO make this a real function with time measurement!
-    fileList = []
+    # get all DLL-files
     for filename in Path(pathToCheck).rglob('*.dll'):
-        fileList.append(filename)
-
+        # run the printer on them
         print(getVersionStringWithFilename(filename))
-
-    # todo check if this exists
-
-    # todo get list of all files: rglob?
-
-    # todo run and print for each file: getVersionStringWithFilename(..)
-
-    pass
 
 # ----------------------------------------------------------------------------------------------------------------
 
-printDllVersionContentToStdOut("klaus")
+pathToCheck = "C:/Program Files/Instrument Systems/LumiSuite SDK"
+printDllVersionContentToStdOut(pathToCheck)
