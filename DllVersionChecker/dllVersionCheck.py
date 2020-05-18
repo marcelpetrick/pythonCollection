@@ -7,7 +7,7 @@ def getVersionString(filename):
     # inspiration taken from: http://timgolden.me.uk/python/win32_how_do_i/get_dll_version.html
     from win32api import GetFileVersionInfo, LOWORD, HIWORD
 
-    info = GetFileVersionInfo(filename, "\\")
+    info = GetFileVersionInfo(str(filename), "\\")
     ms = info['FileVersionMS']
     ls = info['FileVersionLS']
     versionAsList = [HIWORD(ms), LOWORD(ms), HIWORD(ls), LOWORD(ls)]
@@ -32,6 +32,17 @@ print("getVersionStringWithFilename:", getVersionStringWithFilename("C:\Windows\
 # ----------------------------------------------------------------------------------------------------------------
 
 def printDllVersionContentToStdOut(filepath):
+    from pathlib import Path
+
+    pathToCheck = "C:/Windows/System32"
+
+    # TODO make this a real function with time measurement!
+    fileList = []
+    for filename in Path(pathToCheck).rglob('*.dll'):
+        fileList.append(filename)
+
+        print(getVersionStringWithFilename(filename))
+
     # todo check if this exists
 
     # todo get list of all files: rglob?
@@ -41,3 +52,5 @@ def printDllVersionContentToStdOut(filepath):
     pass
 
 # ----------------------------------------------------------------------------------------------------------------
+
+printDllVersionContentToStdOut("klaus")
