@@ -54,3 +54,44 @@ printDllVersionContentToStdOut(pathToCheck)
 # for the ui-start: add start with param --gui
 # maybe show the results as sortable table (with: remove those with version)
 # move to dedicated repo
+
+# ----------------------------------------------------------------------------------------------------------------
+
+class DllVersionProcessor:
+
+    def __init__(self, pathToCheck, suffixForFiltering):
+        self.__pathToCheck = pathToCheck
+        self.__suffixForFiltering = suffixForFiltering
+
+    def getDictionaryOfFileVersions(self):
+
+        resultValue = dict()
+
+        return resultValue
+
+    def __createListOfFilesWithGivenSuffix(self):
+
+        pass
+
+    # todo question: how to unit-test private functions?
+
+# ----------------------------------------------------------------------------------------------------------------
+
+# todo unit tests
+import unittest
+
+# proper unit-test
+class Testcase(unittest.TestCase):
+    def test_DllVersionProcessor(self):
+        processor = DllVersionProcessor(".", "*.dll")
+
+        resultDict = processor.getDictionaryOfFileVersions()
+
+        self.assertEqual(len(resultDict), 0)
+
+# ----------------------------------------------------------------------------------------------------------------
+
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
+# ----------------------------------------------------------------------------------------------------------------
