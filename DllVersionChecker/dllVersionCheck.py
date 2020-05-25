@@ -1,25 +1,13 @@
-# task: take a given filename
-# get the information of GetFileVersionInfo - maybe return as string (filename + version)
+# -- Task --
+#
+# Provide means to retrieve for a given filename or path the version-information of the DLL.
+# (See WinAPI GetFileVersionInfo).
 
 # ----------------------------------------------------------------------------------------------------------------
 
-# todo Add function to give a directory; parse its file-contents and then print the list of: name + versionStr
-def printDllVersionContentToStdOut(pathToCheck):
-    from pathlib import Path
-
-    # get all DLL-files
-    for filename in Path(pathToCheck).rglob('*.dll'):
-        # run the printer on them
-        print(DllVersionProcessor.getVersionStringWithFilename(filename))
-
-# ----------------------------------------------------------------------------------------------------------------
-
-pathToCheck = "C:/Program Files/Instrument Systems/LumiSuite SDK"
-printDllVersionContentToStdOut(pathToCheck)
-
-# todos:
-# make it a class
-# add unit-test-suite: check against twain32.dll (is and must be windows)
+#  -- TODO --
+# ✓ make it a class
+# ✓ add unit-test-suite: check against twain32.dll (is and must be windows)
 # add ui: just a button, where you pick with qfiledialog a path, then run the stuff
 # for the ui-start: add start with param --gui
 # maybe show the results as sortable table (with: remove those with version)
@@ -31,6 +19,8 @@ class DllVersionProcessor:
 
     def __init__(self, pathToCheck, suffixForFiltering):
         self.__pathToCheck = pathToCheck
+
+        # todo check if the given suffix fits the format; e.g. '*.dll'
         self.__suffixForFiltering = suffixForFiltering
 
     # --------------------
@@ -39,25 +29,36 @@ class DllVersionProcessor:
 
         resultValue = dict()
 
+        for filename in self.__createListOfFilesWithGivenSuffix():
+            resultValue[filename] = self.getVersionString(filename)
+
         return resultValue
 
     # --------------------
 
     def __createListOfFilesWithGivenSuffix(self):
+        from pathlib import Path
 
-        pass
+        resultValue = []
+
+        for filename in Path(self.__pathToCheck).rglob(self.__suffixForFiltering):
+            resultValue.append(filename)
+
+        return resultValue
+
+    # --------------------
 
     # todo question: how to unit-test private functions?
 
     # --------------------
 
     @staticmethod
-    def getVersionString(fileName):
+    def getVersionString(filename):
         # inspiration taken from: http://timgolden.me.uk/python/win32_how_do_i/get_dll_version.html
         from win32api import GetFileVersionInfo, LOWORD, HIWORD
 
         try:
-            info = GetFileVersionInfo(str(fileName), "\\")
+            info = GetFileVersionInfo(str(filename), "\\")
         except:
             return "---"  # f'failed for {filename}'
 
@@ -71,8 +72,8 @@ class DllVersionProcessor:
     # --------------------
 
     @staticmethod
-    def getVersionStringWithFilename(fileName):
-        returnValue = str(fileName) + " ; " + DllVersionProcessor.getVersionString(fileName)
+    def getVersionStringWithFilename(filename):
+        returnValue = str(filename) + " ; " + DllVersionProcessor.getVersionString(filename)
 
         return returnValue
 
@@ -83,12 +84,17 @@ import unittest
 
 # proper unit-test
 class Testcase(unittest.TestCase):
-    def test_DllVersionProcessor(self):
+    def test_DllVersionProcessor_dirWithNoDll(self):
         processor = DllVersionProcessor(".", "*.dll")
-
         resultDict = processor.getDictionaryOfFileVersions()
-
         self.assertEqual(len(resultDict), 0)
+
+    def test_DllVersionProcessor_sdkDir(self):
+        processor = DllVersionProcessor("C:/Program Files/Instrument Systems/LumiSuite SDK (Internal)", "*.dll")
+        resultDict = processor.getDictionaryOfFileVersions()
+        print("result for the SDK-directory:")
+        [print(key, ":", value) for key, value in resultDict.items()] # print line by line
+        self.assertTrue(1 == 1) # nothing to do here ..
 
     def test_getVersionString(self):
         result = DllVersionProcessor.getVersionString("C:\Windows\\twain_32.dll")
@@ -104,4 +110,5 @@ class Testcase(unittest.TestCase):
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
     unittest.main()
+
 # ----------------------------------------------------------------------------------------------------------------
