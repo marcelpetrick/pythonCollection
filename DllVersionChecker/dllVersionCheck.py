@@ -46,3 +46,11 @@ def printDllVersionContentToStdOut(pathToCheck):
 
 pathToCheck = "C:/Program Files/Instrument Systems/LumiSuite SDK"
 printDllVersionContentToStdOut(pathToCheck)
+
+# todos:
+# make it a class
+# add unit-test-suite: check against twain32.dll (is and must be windows)
+# add ui: just a button, where you pick with qfiledialog a path, then run the stuff
+# for the ui-start: add start with param --gui
+# maybe show the results as sortable table (with: remove those with version)
+# move to dedicated repo
