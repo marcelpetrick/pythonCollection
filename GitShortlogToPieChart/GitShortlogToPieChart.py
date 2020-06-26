@@ -59,12 +59,16 @@ def renderPieChart(fileContentDict):
                 startangle=90)
         ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-        plt.show()
+        #plt.show()
+        #plt.savefig('GitShortlogToPieChart.png') # todo make this configureable by the user
+
+        return plt
 
 #-------------------------
 
 fileContentDict = prepareFileContent()
-renderPieChart(fileContentDict)
+plot = renderPieChart(fileContentDict)
+plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
 
 #-------------------------
 #-------------------------
