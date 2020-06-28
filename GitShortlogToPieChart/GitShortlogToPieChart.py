@@ -59,16 +59,36 @@ def renderPieChart(fileContentDict):
                 startangle=90)
         ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-        #plt.show()
+        plt.show()
         #plt.savefig('GitShortlogToPieChart.png') # todo make this configureable by the user
 
         return plt
 
 #-------------------------
 
-fileContentDict = prepareFileContent()
-plot = renderPieChart(fileContentDict)
-plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
+def invokeGit():
+        # call "git shortlog -sne --no-merges" and get the output; check for this at the upload-script
+        import subprocess
+        git = subprocess.Popen(["git", "shortlog -sne"],
+                               stdout=subprocess.PIPE,
+                               stderr=subprocess.PIPE,
+                               shell=True)
+        stdout, stderr = git.communicate()
+        # check the return code for errors
+        if git.returncode != 0:
+                raise Exception("Something failed while invoking the git-command.")
+        print("stdout:", stdout.decode('ascii'))
+        print("stderr:", stderr.decode('ascii'))
+
+        # result is binary, just using str() to stringify it, results in leading "b"
+        # splittedOut = stdout.decode('ascii').split(":")
+
+#-------------------------
+
+invokeGit()
+#fileContentDict = prepareFileContent()
+#plot = renderPieChart(fileContentDict)
+#plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
 
 #-------------------------
 #-------------------------
