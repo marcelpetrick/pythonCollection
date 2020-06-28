@@ -76,13 +76,13 @@ def invokeGit():
         stdout, stderr = git.communicate()
         # check the return code for errors
         if git.returncode != 0:
-                raise Exception("Something failed while invoking the git-command.")
+                raise Exception(f"Something failed while invoking the git-command. Returncode: {git.returncode}")
+                # Exception: Something failed while invoking the git-command. Returncode: 1
         print("stdout:", stdout.decode('ascii'))
         print("stderr:", stderr.decode('ascii'))
 
-        # result is binary, just using str() to stringify it, results in leading "b"
-        # splittedOut = stdout.decode('ascii').split(":")
-
+        # todo split the stringified output and process it have a proper input for the chart renderer
+        
 #-------------------------
 
 invokeGit()
