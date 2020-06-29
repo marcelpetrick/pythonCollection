@@ -71,7 +71,7 @@ def invokeGit():
         import subprocess
         git = subprocess.Popen(
                 #["mspaint.exe"], # does at least this work? yes :/
-                ["git", "shortlog", "-sne"],
+                ["git", "shortlog", "HEAD", "-sne"], # hint: the commit to checkout was missing, so it failed, it was not the minus!
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 shell=True
@@ -83,20 +83,40 @@ def invokeGit():
                 # Exception: Something failed while invoking the git-command. Returncode: 1; same happens with subprocess.run .. I guess the problem is that the git cmd is not resolved?!?
 
         # just for checking
-        print("stdout:", stdout.decode('utf-8'))
+        stdOut = stdout.decode('utf-8')
+        print("stdout:", stdOut, "\nlen:", stdOut.__len__())
         print("stderr:", stderr.decode('utf-8'))
 
-        # todo split the stringified output and process it have a proper input for the chart renderer
+        # split the stringified output and process it have a proper input for the chart renderer
+        results = dict()
+        for line in stdOut:
+                # avoid processing empty lines
+                if len(line) == 0:
+                        continue
+                print("line:", line) # todom remove
+                strippedLine = line.strip()
+                print("strippedLine:", strippedLine) # todom remove
+                # split at first occasion of " "
+                amount, name = strippedLine.split(' ', 1)
+                #print(name, amount)  # todom remove
+                # just take the name, not the mail - else the legend is too long
+                key = list(name.split('<'))[0].rstrip()
+                results[key] = amount
+
+        return results
         
 #-------------------------
 
-invokeGit()
+### from csv file ###
 #fileContentDict = prepareFileContent()
 #plot = renderPieChart(fileContentDict)
 #plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
 
 #-------------------------
-#-------------------------
-#-------------------------
-#-------------------------
 
+### from git ###
+content = invokeGit()
+content = renderPieChart(content)
+#plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
+
+#-------------------------
