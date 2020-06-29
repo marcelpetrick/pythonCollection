@@ -59,8 +59,7 @@ def renderPieChart(fileContentDict):
                 startangle=90)
         ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-        plt.show()
-        #plt.savefig('GitShortlogToPieChart.png') # todo make this configureable by the user
+        #plt.show() # will clear the plot, so don't uncomment if this should be saved
 
         return plt
 
@@ -112,7 +111,7 @@ def processGitOutput(output):
                 results[name] = amount
 
         return results
-        
+
 #-------------------------
 
 ### from csv file ###
