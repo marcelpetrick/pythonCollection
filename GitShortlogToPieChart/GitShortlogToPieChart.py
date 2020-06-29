@@ -55,7 +55,7 @@ def renderPieChart(fileContentDict):
                 #explode=explode,
                 labels=labels,
                 autopct='%1.1f%%',
-                shadow=True,
+                shadow=False,
                 startangle=90)
         ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
@@ -69,8 +69,8 @@ def invokeGit():
         # call "git shortlog -sne --no-merges" and get the output; check for this at the upload-script
         import subprocess
         git = subprocess.Popen(
-                #["mspaint.exe"], # does at least this work? yes :/
-                ["git", "shortlog", "HEAD", "-sne"], # hint: the commit to checkout was missing, so it failed, it was not the minus!
+                # hint: the commit to checkout was missing, so it failed, it was not the minus!
+                ["git", "shortlog", "HEAD", "-sne", "--no-merges"],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 shell=True
@@ -79,7 +79,6 @@ def invokeGit():
         # check the return code for errors
         if git.returncode != 0:
                 raise Exception(f"Something failed while invoking the git-command. Returncode: {git.returncode}")
-                # Exception: Something failed while invoking the git-command. Returncode: 1; same happens with subprocess.run .. I guess the problem is that the git cmd is not resolved?!?
 
         # just for checking
         stdOut = stdout.decode('utf-8') # utf-8/ascii
