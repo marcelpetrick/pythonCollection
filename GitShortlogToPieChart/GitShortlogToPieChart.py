@@ -70,7 +70,8 @@ def invokeGit():
         # call "git shortlog -sne --no-merges" and get the output; check for this at the upload-script
         import subprocess
         git = subprocess.Popen(
-                ["git", "shortlog -sne"],
+                #["mspaint.exe"], # does at least this work? yes :/
+                ["git", "shortlog", "-sne"],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 shell=True
