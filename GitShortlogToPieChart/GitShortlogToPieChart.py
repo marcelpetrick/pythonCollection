@@ -75,14 +75,14 @@ def invokeGit():
                 stderr=subprocess.PIPE,
                 shell=True
         )
-        stdout, stderr = git.communicate()
+        stdout, stderr = git.communicate() # stderr is throwaway, maybe use [0] directly
         # check the return code for errors
         if git.returncode != 0:
                 raise Exception(f"Something failed while invoking the git-command. Returncode: {git.returncode}")
                 # Exception: Something failed while invoking the git-command. Returncode: 1; same happens with subprocess.run .. I guess the problem is that the git cmd is not resolved?!?
 
         # just for checking
-        stdOut = stdout.decode('ascii') # or utf-8 better?
+        stdOut = stdout.decode('utf-8') # utf-8/ascii
         print("stdout:\n", stdOut, "\nlen:", stdOut.__len__())
         #print("stderr:\n", stderr.decode('ascii'))
 
