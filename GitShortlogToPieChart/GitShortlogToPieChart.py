@@ -83,19 +83,23 @@ def invokeGit():
                 # Exception: Something failed while invoking the git-command. Returncode: 1; same happens with subprocess.run .. I guess the problem is that the git cmd is not resolved?!?
 
         # just for checking
-        stdOut = stdout.decode('utf-8')
-        print("stdout:", stdOut, "\nlen:", stdOut.__len__())
-        print("stderr:", stderr.decode('utf-8'))
+        stdOut = stdout.decode('ascii')
+        print("stdout:\n", stdOut, "\nlen:", stdOut.__len__())
+        print("stderr:\n", stderr.decode('ascii'))
+
+        textToUse = (" ".join(str(x)) for x in stdOut)
+        print("textToUse:", textToUse)
 
         # split the stringified output and process it have a proper input for the chart renderer
         results = dict()
-        for line in stdOut:
-                # avoid processing empty lines
-                if len(line) == 0:
-                        continue
+        for line in textToUse:
                 print("line:", line) # todom remove
+                continue
                 strippedLine = line.strip()
                 print("strippedLine:", strippedLine) # todom remove
+                # avoid processing empty lines
+                if not strippedLine:
+                        continue
                 # split at first occasion of " "
                 amount, name = strippedLine.split(' ', 1)
                 #print(name, amount)  # todom remove
