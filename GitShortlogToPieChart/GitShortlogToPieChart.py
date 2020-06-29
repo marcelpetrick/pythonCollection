@@ -83,25 +83,28 @@ def invokeGit():
                 # Exception: Something failed while invoking the git-command. Returncode: 1; same happens with subprocess.run .. I guess the problem is that the git cmd is not resolved?!?
 
         # just for checking
-        stdOut = stdout.decode('ascii')
+        stdOut = stdout.decode('ascii') # or utf-8 better?
         print("stdout:\n", stdOut, "\nlen:", stdOut.__len__())
-        print("stderr:\n", stderr.decode('ascii'))
+        #print("stderr:\n", stderr.decode('ascii'))
 
-        textToUse = (" ".join(str(x)) for x in stdOut)
-        print("textToUse:", textToUse)
+        return stdOut
+
+#-------------------------
+def processGitOutput(output):
+        # make sure to have a clear new separator in the logging
+        import sys
+        print(f"---- {sys._getframe().f_code.co_name} ----")
 
         # split the stringified output and process it have a proper input for the chart renderer
         results = dict()
-        for line in textToUse:
-                print("line:", line) # todom remove
-                continue
+        for line in output.split('\n'):
                 strippedLine = line.strip()
-                print("strippedLine:", strippedLine) # todom remove
+                #print("strippedLine:", strippedLine) # todom remove
                 # avoid processing empty lines
                 if not strippedLine:
                         continue
-                # split at first occasion of " "
-                amount, name = strippedLine.split(' ', 1)
+                # split at first occasion of <tab>
+                amount, name = strippedLine.split('\t', 1)
                 #print(name, amount)  # todom remove
                 # just take the name, not the mail - else the legend is too long
                 key = list(name.split('<'))[0].rstrip()
@@ -119,7 +122,8 @@ def invokeGit():
 #-------------------------
 
 ### from git ###
-content = invokeGit()
+output = invokeGit()
+content = processGitOutput(output)
 content = renderPieChart(content)
 #plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
 
