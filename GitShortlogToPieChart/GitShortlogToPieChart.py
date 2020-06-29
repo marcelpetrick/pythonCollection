@@ -69,17 +69,21 @@ def renderPieChart(fileContentDict):
 def invokeGit():
         # call "git shortlog -sne --no-merges" and get the output; check for this at the upload-script
         import subprocess
-        git = subprocess.Popen(["git", "shortlog -sne"],
-                               stdout=subprocess.PIPE,
-                               stderr=subprocess.PIPE,
-                               shell=True)
+        git = subprocess.Popen(
+                ["git", "shortlog -sne"],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                shell=True
+        )
         stdout, stderr = git.communicate()
         # check the return code for errors
         if git.returncode != 0:
                 raise Exception(f"Something failed while invoking the git-command. Returncode: {git.returncode}")
-                # Exception: Something failed while invoking the git-command. Returncode: 1
-        print("stdout:", stdout.decode('ascii'))
-        print("stderr:", stderr.decode('ascii'))
+                # Exception: Something failed while invoking the git-command. Returncode: 1; same happens with subprocess.run .. I guess the problem is that the git cmd is not resolved?!?
+
+        # just for checking
+        print("stdout:", stdout.decode('utf-8'))
+        print("stderr:", stderr.decode('utf-8'))
 
         # todo split the stringified output and process it have a proper input for the chart renderer
         
