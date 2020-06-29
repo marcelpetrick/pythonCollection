@@ -55,7 +55,7 @@ def renderPieChart(fileContentDict):
                 #explode=explode,
                 labels=labels,
                 autopct='%1.1f%%',
-                shadow=False,
+                shadow=True,
                 startangle=90)
         ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
@@ -108,7 +108,8 @@ def processGitOutput(output):
                 #print(name, amount)  # todom remove
                 # just take the name, not the mail - else the legend is too long
                 key = list(name.split('<'))[0].rstrip()
-                results[key] = amount
+                #results[key] = amount
+                results[name] = amount
 
         return results
         
