@@ -124,7 +124,7 @@ def processGitOutput(output):
 ### from git ###
 output = invokeGit()
 content = processGitOutput(output)
-content = renderPieChart(content)
-#plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
+plot = renderPieChart(content)
+plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
 
 #-------------------------
