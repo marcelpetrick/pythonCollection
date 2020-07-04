@@ -1,8 +1,38 @@
-import matplotlib.pyplot as plt
+# todo write license and author and bla
+
+#-------------------------
+
+### from csv file ###
+def chartFromFile():
+        # make sure to have a clear new separator in the logging
+        import sys
+        print(f"---- {sys._getframe().f_code.co_name} ----")
+
+        fileContentDict = prepareFileContent()
+        plot = renderPieChart(fileContentDict)
+        plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
+
+#-------------------------
+
+### from git ###
+def chartFromGit():
+        # make sure to have a clear new separator in the logging
+        import sys
+        print(f"---- {sys._getframe().f_code.co_name} ----")
+
+        output = invokeGit()
+        content = processGitOutput(output)
+        plot = renderPieChart(content)
+        plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
 
 #-------------------------
 
 def generateExampleChart():
+        # make sure to have a clear new separator in the logging
+        import sys
+        print(f"---- {sys._getframe().f_code.co_name} ----")
+
+        import matplotlib.pyplot as plt
         # modified example taken from: https://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/pie_features.html
         # and: https://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/pie_and_donut_labels.html#sphx-glr-gallery-pie-and-polar-charts-pie-and-donut-labels-py
 
@@ -25,6 +55,10 @@ def generateExampleChart():
 #-------------------------
 
 def prepareFileContent():
+        # make sure to have a clear new separator in the logging
+        import sys
+        print(f"---- {sys._getframe().f_code.co_name} ----")
+
         results = dict()
         with open('testdata.csv') as file:
                 for line in file.readlines():
@@ -43,6 +77,12 @@ def prepareFileContent():
 #-------------------------
 
 def renderPieChart(fileContentDict):
+        # make sure to have a clear new separator in the logging
+        import sys
+        print(f"---- {sys._getframe().f_code.co_name} ----")
+
+        import matplotlib.pyplot as plt
+
         print(fileContentDict) # todom  remove
 
         # data preparation
@@ -66,6 +106,10 @@ def renderPieChart(fileContentDict):
 #-------------------------
 
 def invokeGit():
+        # make sure to have a clear new separator in the logging
+        import sys
+        print(f"---- {sys._getframe().f_code.co_name} ----")
+
         # call "git shortlog -sne --no-merges" and get the output; check for this at the upload-script
         import subprocess
         git = subprocess.Popen(
@@ -88,6 +132,7 @@ def invokeGit():
         return stdOut
 
 #-------------------------
+
 def processGitOutput(output):
         # make sure to have a clear new separator in the logging
         import sys
@@ -113,17 +158,8 @@ def processGitOutput(output):
 
 #-------------------------
 
-### from csv file ###
-#fileContentDict = prepareFileContent()
-#plot = renderPieChart(fileContentDict)
-#plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
-
-#-------------------------
-
-### from git ###
-output = invokeGit()
-content = processGitOutput(output)
-plot = renderPieChart(content)
-plot.savefig('GitShortlogToPieChart.png', bbox_inches='tight')
+# ### execution ###
+if __name__ == "__main__":
+    chartFromGit()
 
 #-------------------------
