@@ -1,5 +1,13 @@
-# todo write license and author and bla
+# author mail@marcelpetrick.it
+# license: GPLv3.0
 
+# idea:
+# Generate a pie-chart as PNG out of the current "git shortlog -sne --no-merges" output.
+# Just run the script (see chartFromGit()).
+#
+# todo:
+# Receive params for determining the name to save the plot.
+#
 #-------------------------
 
 ### from csv file ###
