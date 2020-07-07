@@ -9,9 +9,9 @@ def groundSpace():
     listOfItems = [0] * (2 ** 20)
     byteArray = bytearray(listOfItems)
     with open('temporaryFile.tmp', 'ba') as tempFile: # refer to this for the second param: https://docs.python.org/3/library/functions.html#open
-        for a in range(2 ** 30):
+        for a in range(2 ** 10):
             tempFile.write(byteArray)
-            print("one loop-block done")
+        print("one GB written")
 
     #print("done writing")
 
