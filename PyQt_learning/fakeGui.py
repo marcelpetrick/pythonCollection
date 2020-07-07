@@ -14,21 +14,13 @@
 
 #------------------------------------------------------
 
-# description: first simple example
-
-# from PyQt5.QtWidgets import QApplication, QLabel
-#
-# label = QLabel("ja, super")
-# label.show()
-# app.exec_()
-#------------------------------------------------------
-
 def firstPyQtGui():
     # description: two buttons in a layout
-    from PyQt5.QtWidgets import QApplication\
+    from PyQt5.QtWidgets import QApplication \
         , QWidget\
         , QPushButton \
         , QVBoxLayout \
+        , QHBoxLayout \
         , QSpacerItem \
         , QSpacerItem \
         , QLCDNumber \
@@ -38,25 +30,30 @@ def firstPyQtGui():
     app = QApplication([])
     app.setApplicationName("my second PyQt app, lol")
     window = QWidget()
-    layout = QVBoxLayout()
 
     # add the widgets
+    verticalLayoutButtons = QVBoxLayout()
     upperButton = QPushButton("upper button")
-    layout.addWidget(upperButton)
+    verticalLayoutButtons.addWidget(upperButton)
     lowerButton = QPushButton("lower button")
-    layout.addWidget(lowerButton)
+    verticalLayoutButtons.addWidget(lowerButton)
 
+    verticalLayoutSlider = QVBoxLayout()
     lcd = QLCDNumber() # research: how to hand over the parent for widget at PyQt?
-    layout.addWidget(lcd)
-    #upperButton.clicked.connect(lcd.display("1"))
+    verticalLayoutSlider.addWidget(lcd)
     slider = QSlider(Qt.Horizontal)
-    layout.addWidget(slider)
+    verticalLayoutSlider.addWidget(slider)
     slider.valueChanged.connect(lcd.display)
-
     # just make it a bit wider -  else the window's title is cut
     spacer = QSpacerItem(666, 1)
-    layout.addSpacerItem(spacer)
-    window.setLayout(layout)
+    verticalLayoutSlider.addSpacerItem(spacer)
+
+    # put both layouts into a new one
+    horizontalLayout = QHBoxLayout()
+    horizontalLayout.addLayout(verticalLayoutButtons)
+    horizontalLayout.addLayout(verticalLayoutSlider)
+    window.setLayout(horizontalLayout)
+
     # execute
     window.show()
     app.exec() # what is the difference to exec()?
@@ -73,10 +70,10 @@ def firstPyQtGui():
 #------------------------------------------------------
 
 
-#-------------------------
+#------------------------------------------------------
 
 # ### execution ###
 if __name__ == "__main__":
     firstPyQtGui()
 
-#-------------------------
+#------------------------------------------------------
