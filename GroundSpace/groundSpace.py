@@ -25,8 +25,8 @@ def groundSpace():
 # Benchmarks over several seconds on Win10; checked via TaskManager
 # Samsung SSD 960 EVO 500GB achieves just 300 MB/s continuous
 # sk hynix BC501 256 GB: 160 MB/s
-while True:
-    groundSpace()
+# while True:
+#     groundSpace()
 
 #-----------------------------
 
@@ -42,3 +42,20 @@ while True:
 # OSError: [Errno 28] No space left on device
 #
 # Process finished with exit code 1
+
+#---------------
+
+def gui():
+    import sys
+    from PyQt5.QtWidgets import QApplication, QDialog
+    from ui_frontend import Ui_frontend
+
+    app = QApplication(sys.argv)
+    window = QDialog()
+    ui = Ui_frontend()
+    ui.setupUi(window)
+
+    window.show()
+    sys.exit(app.exec_())
+
+gui()
