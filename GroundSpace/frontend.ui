@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>666</width>
-    <height>261</height>
+    <width>480</width>
+    <height>270</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <item>
       <layout class="QVBoxLayout" name="editsVL">
        <item>
-        <widget class="QLabel" name="label_5">
+        <widget class="QLabel" name="basedirLabel">
          <property name="text">
           <string>base dir:</string>
          </property>
@@ -29,7 +29,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="patternLabel">
          <property name="text">
           <string>pattern:</string>
          </property>
@@ -39,7 +39,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="repetitionsLabel">
          <property name="text">
           <string>repetitions:</string>
          </property>
@@ -49,7 +49,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="resultfilesizeLabel">
          <property name="text">
           <string>resulting file size:</string>
          </property>
@@ -59,7 +59,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="numberoffilesLabel">
          <property name="text">
           <string>number of files:</string>
          </property>
@@ -73,19 +73,19 @@
      <item>
       <layout class="QVBoxLayout" name="labelVL">
        <item>
-        <widget class="QLineEdit" name="lineEdit_2"/>
+        <widget class="QLineEdit" name="basedirLE"/>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_5"/>
+        <widget class="QLineEdit" name="patternLE"/>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_4"/>
+        <widget class="QLineEdit" name="repetitionsLE"/>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_3"/>
+        <widget class="QLineEdit" name="resultingfilesizeLE"/>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="numberoffilesLE"/>
        </item>
       </layout>
      </item>
