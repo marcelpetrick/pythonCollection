@@ -48,7 +48,9 @@ def groundSpace():
 def gui():
     import sys
     from PyQt5.QtWidgets import QApplication, QDialog
-    from ui_frontend import Ui_frontend
+    # ui-file converted by pyuic5: see https://www.riverbankcomputing.com/static/Docs/PyQt5/designer.html for more info
+    # "$ pyuic5 frontend.ui > ui_frontend.py"
+    from ui_frontend import Ui_frontend # PyCharm will mark this as unresolvable reference, but it works!
 
     app = QApplication(sys.argv)
     window = QDialog()
