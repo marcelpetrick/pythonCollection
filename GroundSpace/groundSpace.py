@@ -45,7 +45,14 @@ def groundSpace():
 
 #---------------
 
-def gui():
+class GroundSpaceGUI():
+    def __init__(self):
+        print("class GroundSpaceGUI()")
+        pass
+
+#---------------
+
+def makeGui():
     import sys
     from PyQt5.QtWidgets import QApplication, QDialog
     # ui-file converted by pyuic5: see https://www.riverbankcomputing.com/static/Docs/PyQt5/designer.html for more info
@@ -60,4 +67,5 @@ def gui():
     window.show()
     sys.exit(app.exec_())
 
-gui()
+gui = GroundSpaceGUI()
+makeGui()
