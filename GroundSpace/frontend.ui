@@ -109,6 +109,9 @@
    </item>
    <item>
     <widget class="QProgressBar" name="progressBar">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="value">
       <number>31</number>
      </property>
@@ -126,6 +129,13 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item>
+    <widget class="QPushButton" name="runPB">
+     <property name="text">
+      <string>Run, Forrest!</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">

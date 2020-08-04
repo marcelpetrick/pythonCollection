@@ -6,18 +6,15 @@
 
 #-----------------------------
 
-def groundSpace():
+def groundSpace(pattern = "0"):
 
-    #print("before writing")
-    #listOfItems = [123, 124, 64, 98, 12]
-    listOfItems = [0] * (2 ** 20)
-    byteArray = bytearray(listOfItems)
+    convertedContent = bytearray()
+    convertedContent.extend(map(ord, pattern))
+    byteArray = bytearray(convertedContent)
     with open('temporaryFile.tmp', 'ba') as tempFile: # refer to this for the second param: https://docs.python.org/3/library/functions.html#open
         for a in range(2 ** 10):
             tempFile.write(byteArray)
         print("one GB written")
-
-    #print("done writing")
 
 #-----------------------------
 
@@ -51,7 +48,7 @@ from PyQt5.QtWidgets import QApplication, QDialog
 #---------------
 
 # ui-file converted by pyuic5: see https://www.riverbankcomputing.com/static/Docs/PyQt5/designer.html for more info
-# "$ pyuic5 frontend.ui > ui_frontend.py"
+# $ pyuic5 frontend.ui > ui_frontend.py
 from ui_frontend import Ui_frontend # PyCharm will mark this as unresolvable reference, but it works
 
 class GroundSpaceGUI(QDialog):
@@ -74,6 +71,14 @@ class GroundSpaceGUI(QDialog):
         self.ui.patternLE.setText("huiui")
         self.pattern = self.ui.patternLE.text() # use braces at the end
         print("self.pattern:", self.pattern)
+
+        self.ui.runPB.clicked.connect(self.slotRunClicked)
+
+    def slotRunClicked(self):
+        # get pattern
+        self.pattern = self.ui.patternLE.text() # use braces at the end
+        # trigger creation
+        groundSpace(self.pattern)
 
 #---------------
 
