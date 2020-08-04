@@ -46,31 +46,36 @@ def groundSpace():
 #---------------
 
 import sys
-from PyQt5.QtWidgets import QApplication, QDialog # maybe remove the last
-from PyQt5 import QtWidgets, uic # ui file loader
+from PyQt5.QtWidgets import QApplication, QDialog
 
 #---------------
 
-class GroundSpaceGUI(QtWidgets.QDialog):
+# ui-file converted by pyuic5: see https://www.riverbankcomputing.com/static/Docs/PyQt5/designer.html for more info
+# "$ pyuic5 frontend.ui > ui_frontend.py"
+from ui_frontend import Ui_frontend # PyCharm will mark this as unresolvable reference, but it works
+
+class GroundSpaceGUI(QDialog):
     def __init__(self):
+        super(GroundSpaceGUI, self).__init__() # call inherited classes' ctor
+
         print("class GroundSpaceGUI()")
 
-        super(GroundSpaceGUI, self).__init__() # call inherited classes' ctor
-        uic.loadUi('frondend.ui', self) # load the ui file
+        self.ui = Ui_frontend()
+        self.ui.setupUi(self)
 
-        self.show()
+        # acces one ui-member and change the attribute
+        self.ui.basedirLE.setText("foo")
 
 #---------------
 
+# now following the clean approach: https://stackoverflow.com/a/37907101/1694302
 def makeGui():
-
-    # ui-file converted by pyuic5: see https://www.riverbankcomputing.com/static/Docs/PyQt5/designer.html for more info
-    # "$ pyuic5 frontend.ui > ui_frontend.py"
-    #from ui_frontend import Ui_frontend # PyCharm will mark this as unresolvable reference, but it works!
-
-    app = QtWidgets.QApplication(sys.argv)
+    app = QApplication(sys.argv)
     window = GroundSpaceGUI()
-    app.exec()
 
-#gui = GroundSpaceGUI()
+    window.show()
+    sys.exit(app.exec_())
+
+#---------------
+
 makeGui()
