@@ -15,6 +15,7 @@ def groundSpace(pattern = "0", repsPattern = 0, repsChunk = 0):
     with open('temporaryFile.tmp', 'ba') as tempFile: # refer to this for the second param: https://docs.python.org/3/library/functions.html#open
         for _ in range(repsChunk):
             tempFile.write(convertedContent)
+            print(".")
         print("groundSpace successfully run once")
 
 #-----------------------------
@@ -68,17 +69,11 @@ class GroundSpaceGUI(QDialog):
         self.ui.repsChunkLE.setText("2 ** 10")
         #self.ui.resultFileSizeLE.setText("0")
 
-
         # connect some of the buttons from the button-box. But not really convenient. Will do better via
         self.ui.buttonBox.accepted.connect(self.accept)
         # self.ui.buttonBox.close.connect(self.accept)
 
-        # how to access data from the ui?
-
-        #self.pattern = self.ui.patternLE.text() # use braces at the end
-        #print("self.pattern:", self.pattern)
-
-
+        # the "start button"
         self.ui.runPB.clicked.connect(self.slotRunClicked)
 
     def slotRunClicked(self):
@@ -96,7 +91,20 @@ class GroundSpaceGUI(QDialog):
         print(f"repsChunk: {repsChunk}")
 
         # trigger creation
-        groundSpace(pattern, repPattern, repsChunk)
+        self.groundSpace(pattern, repPattern, repsChunk)
+
+
+    def groundSpace(self, pattern = "0", repsPattern = 0, repsChunk = 0):
+        convertedContent = bytearray()
+        for _ in range(repsPattern):
+            convertedContent.extend(map(ord, pattern))
+
+        with open('temporaryFile.tmp', 'ba') as tempFile: # refer to this for the second param: https://docs.python.org/3/library/functions.html#open
+            for i in range(repsChunk):
+                tempFile.write(convertedContent)
+                self.ui.progressBar.setValue(100 * i / repsChunk)
+
+        self.ui.progressBar.setValue(100)
 
 #---------------
 
