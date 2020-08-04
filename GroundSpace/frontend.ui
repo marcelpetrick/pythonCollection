@@ -19,7 +19,7 @@
      <item>
       <layout class="QVBoxLayout" name="editsVL">
        <item>
-        <widget class="QLabel" name="basedirLabel">
+        <widget class="QLabel" name="baseDirLabel">
          <property name="text">
           <string>base dir:</string>
          </property>
@@ -39,9 +39,9 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="repetitionsLabel">
+        <widget class="QLabel" name="repsPatternLabel">
          <property name="text">
-          <string>repetitions:</string>
+          <string>reps per pattern:</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -49,19 +49,19 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="resultfilesizeLabel">
+        <widget class="QLabel" name="repsChunkLabel">
+         <property name="text">
+          <string>reps for for chunks:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="resultFileSizeLabel">
          <property name="text">
           <string>resulting file size:</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="numberoffilesLabel">
-         <property name="text">
-          <string>number of files:</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -73,19 +73,33 @@
      <item>
       <layout class="QVBoxLayout" name="labelVL">
        <item>
-        <widget class="QLineEdit" name="basedirLE"/>
+        <widget class="QLineEdit" name="baseDirLE">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Currently not implemented</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="patternLE"/>
        </item>
        <item>
-        <widget class="QLineEdit" name="repetitionsLE"/>
+        <widget class="QLineEdit" name="repsPatternLE"/>
        </item>
        <item>
-        <widget class="QLineEdit" name="resultingfilesizeLE"/>
+        <widget class="QLineEdit" name="repsChunkLE"/>
        </item>
        <item>
-        <widget class="QLineEdit" name="numberoffilesLE"/>
+        <widget class="QLineEdit" name="resultFileSizeLE">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Currently not implemented</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -108,14 +122,7 @@
     </spacer>
    </item>
    <item>
-    <widget class="QProgressBar" name="progressBar">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="value">
-      <number>31</number>
-     </property>
-    </widget>
+    <widget class="QProgressBar" name="progressBar"/>
    </item>
    <item>
     <spacer name="verticalSpacer_2">
@@ -141,9 +148,6 @@
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
       <set>QDialogButtonBox::Abort|QDialogButtonBox::Close|QDialogButtonBox::Ok|QDialogButtonBox::RestoreDefaults</set>
-     </property>
-     <property name="centerButtons">
-      <bool>false</bool>
      </property>
     </widget>
    </item>

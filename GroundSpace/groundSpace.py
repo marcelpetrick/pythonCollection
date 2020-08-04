@@ -60,25 +60,37 @@ class GroundSpaceGUI(QDialog):
         self.ui = Ui_frontend()
         self.ui.setupUi(self)
 
-        # access one ui-member and change the attribute
-        self.ui.basedirLE.setText("foo")
+        # access ui-members and change their attributes
+        #self.ui.baseDirLE.setText(".")
+        self.ui.patternLE.setText("0")
+        self.ui.repsPatternLE.setText("2**20")
+        self.ui.repsChunkLE.setText("2**10")
+        #self.ui.resultFileSizeLE.setText("0")
+
 
         # connect some of the buttons from the button-box. But not really convenient. Will do better via
         self.ui.buttonBox.accepted.connect(self.accept)
         # self.ui.buttonBox.close.connect(self.accept)
 
         # how to access data from the ui?
-        self.ui.patternLE.setText("huiui")
-        self.pattern = self.ui.patternLE.text() # use braces at the end
-        print("self.pattern:", self.pattern)
+
+        #self.pattern = self.ui.patternLE.text() # use braces at the end
+        #print("self.pattern:", self.pattern)
+
 
         self.ui.runPB.clicked.connect(self.slotRunClicked)
 
     def slotRunClicked(self):
         # get pattern
-        self.pattern = self.ui.patternLE.text() # use braces at the end
+        pattern = self.ui.patternLE.text() # use braces at the end
+        repPattern = eval(self.ui.repsPatternLE.text()) # use braces at the end
+        if(not repPattern.is_integer()):
+            repPattern = 0
+
+        print(f"repPattern: {repPattern}")
+
         # trigger creation
-        groundSpace(self.pattern)
+        groundSpace(pattern)
 
 #---------------
 
