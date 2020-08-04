@@ -6,15 +6,16 @@
 
 #-----------------------------
 
-def groundSpace(pattern = "0"):
+def groundSpace(pattern = "0", repsPattern = 0, repsChunk = 0):
 
     convertedContent = bytearray()
-    convertedContent.extend(map(ord, pattern))
-    byteArray = bytearray(convertedContent)
+    for _ in range(repsPattern):
+        convertedContent.extend(map(ord, pattern))
+    #byteArray = bytearray(convertedContent)
     with open('temporaryFile.tmp', 'ba') as tempFile: # refer to this for the second param: https://docs.python.org/3/library/functions.html#open
-        for a in range(2 ** 10):
-            tempFile.write(byteArray)
-        print("one GB written")
+        for _ in range(repsChunk):
+            tempFile.write(convertedContent)
+        print("groundSpace successfully run once")
 
 #-----------------------------
 
@@ -63,8 +64,8 @@ class GroundSpaceGUI(QDialog):
         # access ui-members and change their attributes
         #self.ui.baseDirLE.setText(".")
         self.ui.patternLE.setText("0")
-        self.ui.repsPatternLE.setText("2**20")
-        self.ui.repsChunkLE.setText("2**10")
+        self.ui.repsPatternLE.setText("2 ** 20")
+        self.ui.repsChunkLE.setText("2 ** 10")
         #self.ui.resultFileSizeLE.setText("0")
 
 
@@ -81,16 +82,21 @@ class GroundSpaceGUI(QDialog):
         self.ui.runPB.clicked.connect(self.slotRunClicked)
 
     def slotRunClicked(self):
-        # get pattern
+        # prepare the input
         pattern = self.ui.patternLE.text() # use braces at the end
-        repPattern = eval(self.ui.repsPatternLE.text()) # use braces at the end
-        if(not repPattern.is_integer()):
-            repPattern = 0
 
+        repPattern = eval(self.ui.repsPatternLE.text())
+        if(not isinstance(repPattern, int)):
+            repPattern = 0
         print(f"repPattern: {repPattern}")
 
+        repsChunk = eval(self.ui.repsChunkLE.text())
+        if(not isinstance(repsChunk, int)):
+            repsChunk = 0
+        print(f"repsChunk: {repsChunk}")
+
         # trigger creation
-        groundSpace(pattern)
+        groundSpace(pattern, repPattern, repsChunk)
 
 #---------------
 
