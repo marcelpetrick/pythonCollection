@@ -63,8 +63,17 @@ class GroundSpaceGUI(QDialog):
         self.ui = Ui_frontend()
         self.ui.setupUi(self)
 
-        # acces one ui-member and change the attribute
+        # access one ui-member and change the attribute
         self.ui.basedirLE.setText("foo")
+
+        # connect some of the buttons from the button-box. But not really convenient. Will do better via
+        self.ui.buttonBox.accepted.connect(self.accept)
+        # self.ui.buttonBox.close.connect(self.accept)
+
+        # how to access data from the ui?
+        self.ui.patternLE.setText("huiui")
+        self.pattern = self.ui.patternLE.text() # use braces at the end
+        print("self.pattern:", self.pattern)
 
 #---------------
 
