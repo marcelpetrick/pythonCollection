@@ -7,10 +7,14 @@ Qt for C++ is nice, but PyQt is really easy and fast to develop. :thumbsup:
 
 ## Prerequisites aka Pip
 
-TODO
+$ pip install PyQt5
 
 ## How to use?
-TODO [add screenshot]
+* run the script
+* initial state of the ui:
+![screenshot of the current ](ui_currentState.png)
+* set parameters for pattern, repetitions and click "Run, Forrest!"
+* watch the progressbar moving to 100% :'D
 
 ## contact and author
 mail@marcelpetrick.it
