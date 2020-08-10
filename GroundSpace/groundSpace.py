@@ -46,6 +46,7 @@ def groundSpace(pattern = "0", repsPattern = 0, repsChunk = 0):
 
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog
+from PyQt5 import QtCore
 
 #---------------
 
@@ -61,6 +62,12 @@ class GroundSpaceGUI(QDialog):
 
         self.ui = Ui_frontend()
         self.ui.setupUi(self)
+
+        # remove the "What's this"-ui-item
+        self.setWindowFlags(self.windowFlags() # reuse initial flags
+            & ~QtCore.Qt.WindowContextHelpButtonHint
+            #& QtCore.Qt.CustomizeWindowHint # not needed, this would just mingle with the dialog-settings (-> wrong!)
+        )
 
         # access ui-members and change their attributes
         #self.ui.baseDirLE.setText(".")
