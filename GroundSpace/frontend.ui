@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
-    <height>270</height>
+    <width>400</width>
+    <height>223</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -106,6 +106,13 @@
     </layout>
    </item>
    <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -122,7 +129,11 @@
     </spacer>
    </item>
    <item>
-    <widget class="QProgressBar" name="progressBar"/>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </item>
    <item>
     <spacer name="verticalSpacer_2">
@@ -140,14 +151,7 @@
    <item>
     <widget class="QPushButton" name="runPB">
      <property name="text">
-      <string>Run, Forrest!</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Abort|QDialogButtonBox::Close|QDialogButtonBox::Ok|QDialogButtonBox::RestoreDefaults</set>
+      <string>Run (once)</string>
      </property>
     </widget>
    </item>

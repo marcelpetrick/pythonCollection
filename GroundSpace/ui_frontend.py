@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'frontend.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.2
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_frontend(object):
     def setupUi(self, frontend):
         frontend.setObjectName("frontend")
-        frontend.resize(480, 270)
+        frontend.resize(400, 223)
         self.verticalLayout = QtWidgets.QVBoxLayout(frontend)
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -62,9 +62,15 @@ class Ui_frontend(object):
         self.labelVL.addWidget(self.resultFileSizeLE)
         self.horizontalLayout.addLayout(self.labelVL)
         self.verticalLayout.addLayout(self.horizontalLayout)
+        self.line = QtWidgets.QFrame(frontend)
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.verticalLayout.addWidget(self.line)
         spacerItem = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.verticalLayout.addItem(spacerItem)
         self.progressBar = QtWidgets.QProgressBar(frontend)
+        self.progressBar.setAlignment(QtCore.Qt.AlignCenter)
         self.progressBar.setObjectName("progressBar")
         self.verticalLayout.addWidget(self.progressBar)
         spacerItem1 = QtWidgets.QSpacerItem(0, 0, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
@@ -72,10 +78,6 @@ class Ui_frontend(object):
         self.runPB = QtWidgets.QPushButton(frontend)
         self.runPB.setObjectName("runPB")
         self.verticalLayout.addWidget(self.runPB)
-        self.buttonBox = QtWidgets.QDialogButtonBox(frontend)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Abort|QtWidgets.QDialogButtonBox.Close|QtWidgets.QDialogButtonBox.Ok|QtWidgets.QDialogButtonBox.RestoreDefaults)
-        self.buttonBox.setObjectName("buttonBox")
-        self.verticalLayout.addWidget(self.buttonBox)
 
         self.retranslateUi(frontend)
         QtCore.QMetaObject.connectSlotsByName(frontend)
@@ -90,4 +92,4 @@ class Ui_frontend(object):
         self.resultFileSizeLabel.setText(_translate("frontend", "resulting file size:"))
         self.baseDirLE.setPlaceholderText(_translate("frontend", "Currently not implemented"))
         self.resultFileSizeLE.setPlaceholderText(_translate("frontend", "Currently not implemented"))
-        self.runPB.setText(_translate("frontend", "Run, Forrest!"))
+        self.runPB.setText(_translate("frontend", "Run (once)"))

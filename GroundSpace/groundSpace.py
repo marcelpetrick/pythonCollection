@@ -74,13 +74,9 @@ class GroundSpaceGUI(QDialog):
         self.ui.patternLE.setText("0") # or 🐈? does not work, because not in the range for a byte! 0..255
         self.ui.repsPatternLE.setText("2 ** 20")
         self.ui.repsChunkLE.setText("2 ** 10")
-        #self.ui.resultFileSizeLE.setText("0")
+        self.slotValuesChanged() # make sure the currently shown size is correct
 
-        # connect some of the buttons from the button-box. But not really convenient. Will do better via
-        self.ui.buttonBox.accepted.connect(self.accept)
-        # self.ui.buttonBox.close.connect(self.accept)
-
-        # handlings for user-input
+        # handling for user-input
         self.ui.runPB.clicked.connect(self.slotRunClicked) # start button
         self.ui.patternLE.textChanged.connect(self.slotValuesChanged)
         self.ui.repsPatternLE.textChanged.connect(self.slotValuesChanged)
@@ -88,7 +84,9 @@ class GroundSpaceGUI(QDialog):
 
     def slotValuesChanged(self):
         print("slotValuesChanged")
-        pass
+        # todo collect values and multiply them and then assign to the lineedit
+
+        self.ui.resultFileSizeLE.setText("1234 fake")
 
     def slotRunClicked(self):
         # prepare the input
@@ -106,7 +104,6 @@ class GroundSpaceGUI(QDialog):
 
         # trigger creation
         self.groundSpace(pattern, repPattern, repsChunk)
-
 
     def groundSpace(self, pattern = "0", repsPattern = 0, repsChunk = 0):
         convertedContent = bytearray()
