@@ -71,7 +71,7 @@ class GroundSpaceGUI(QDialog):
 
         # access ui-members and change their attributes
         #self.ui.baseDirLE.setText(".")
-        self.ui.patternLE.setText("0")
+        self.ui.patternLE.setText("0") # or 🐈? does not work, because not in the range for a byte! 0..255
         self.ui.repsPatternLE.setText("2 ** 20")
         self.ui.repsChunkLE.setText("2 ** 10")
         #self.ui.resultFileSizeLE.setText("0")
@@ -80,8 +80,15 @@ class GroundSpaceGUI(QDialog):
         self.ui.buttonBox.accepted.connect(self.accept)
         # self.ui.buttonBox.close.connect(self.accept)
 
-        # the "start button"
-        self.ui.runPB.clicked.connect(self.slotRunClicked)
+        # handlings for user-input
+        self.ui.runPB.clicked.connect(self.slotRunClicked) # start button
+        self.ui.patternLE.textChanged.connect(self.slotValuesChanged)
+        self.ui.repsPatternLE.textChanged.connect(self.slotValuesChanged)
+        self.ui.repsChunkLE.textChanged.connect(self.slotValuesChanged)
+
+    def slotValuesChanged(self):
+        print("slotValuesChanged")
+        pass
 
     def slotRunClicked(self):
         # prepare the input
