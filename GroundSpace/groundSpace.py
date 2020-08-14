@@ -69,12 +69,17 @@ class GroundSpaceGUI(QDialog):
             #& QtCore.Qt.CustomizeWindowHint # not needed, this would just mingle with the dialog-settings (-> wrong!)
         )
 
+        # init some members
+        self.pattern = "0"
+        self.repPattern = 0
+        self.repsChunk = 0
+
         # access ui-members and change their attributes
         #self.ui.baseDirLE.setText(".")
         self.ui.patternLE.setText("0") # or 🐈? does not work, because not in the range for a byte! 0..255
         self.ui.repsPatternLE.setText("2 ** 20")
         self.ui.repsChunkLE.setText("2 ** 10")
-        self.slotValuesChanged() # make sure the currently shown size is correct
+        self.slotValuesChanged() # make sure the currently shown size is correct; if setting would happen after the connects, this line could be saved. But then the valueChanged-slot is called three times ..
 
         # handling for user-input
         self.ui.runPB.clicked.connect(self.slotRunClicked) # start button
@@ -83,27 +88,34 @@ class GroundSpaceGUI(QDialog):
         self.ui.repsChunkLE.textChanged.connect(self.slotValuesChanged)
 
     def slotValuesChanged(self):
-        print("slotValuesChanged")
-        # todo collect values and multiply them and then assign to the lineedit
+        ''' Collect all values and multiply them and assign to the corresponding lineedit. '''
 
-        self.ui.resultFileSizeLE.setText("1234 fake")
+        self.collectAllInput()
+        sizeInByte = len(self.pattern) * self.repPattern * self.repsChunk # maybe it is wrong, because the string won't be converted 1 to 1 into bytes, but ... who cares?
+
+        self.ui.resultFileSizeLE.setText(str(sizeInByte))
 
     def slotRunClicked(self):
         # prepare the input
-        pattern = self.ui.patternLE.text() # use braces at the end
+        self.collectAllInput()
+
+        # trigger creation
+        self.groundSpace(self.pattern, self.repPattern, self.repsChunk)
+
+    def collectAllInput(self):
+        self.pattern = self.ui.patternLE.text() # use braces at the end to trigger Qt-item-method
 
         repPattern = eval(self.ui.repsPatternLE.text())
         if(not isinstance(repPattern, int)):
             repPattern = 0
-        print(f"repPattern: {repPattern}")
+        print(f"repPattern: {repPattern}") # todom remove
+        self.repPattern = repPattern
 
         repsChunk = eval(self.ui.repsChunkLE.text())
         if(not isinstance(repsChunk, int)):
             repsChunk = 0
-        print(f"repsChunk: {repsChunk}")
-
-        # trigger creation
-        self.groundSpace(pattern, repPattern, repsChunk)
+        print(f"repsChunk: {repsChunk}") # todom remove
+        self.repsChunk = repsChunk
 
     def groundSpace(self, pattern = "0", repsPattern = 0, repsChunk = 0):
         convertedContent = bytearray()
