@@ -105,6 +105,8 @@ class GroundSpaceGUI(QDialog):
     def collectAllInput(self):
         self.pattern = self.ui.patternLE.text() # use braces at the end to trigger Qt-item-method
 
+        # todo the evals are really a killer. not that they crash while doing something like "2 1", but
+        # also malicious actions are possible: https://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html
         repPattern = eval(self.ui.repsPatternLE.text())
         if(not isinstance(repPattern, int)):
             repPattern = 0
