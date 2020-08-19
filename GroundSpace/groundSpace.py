@@ -107,15 +107,24 @@ class GroundSpaceGUI(QDialog):
 
         # todo the evals are really a killer. not that they crash while doing something like "2 1", but
         # also malicious actions are possible: https://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html
-        repPattern = eval(self.ui.repsPatternLE.text())
+        # see additionally: https://realpython.com/python-eval-function/
+        repsDefaultValue = 1
+
+        try:
+            repPattern = eval(self.ui.repsPatternLE.text())
+        except SyntaxError:
+            repPattern = repsDefaultValue
         if(not isinstance(repPattern, int)):
-            repPattern = 0
+            repPattern = repsDefaultValue
         print(f"repPattern: {repPattern}") # todom remove
         self.repPattern = repPattern
 
-        repsChunk = eval(self.ui.repsChunkLE.text())
+        try:
+            repsChunk = eval(self.ui.repsChunkLE.text())
+        except SyntaxError:
+            repsChunk = repsDefaultValue
         if(not isinstance(repsChunk, int)):
-            repsChunk = 0
+            repsChunk = repsDefaultValue
         print(f"repsChunk: {repsChunk}") # todom remove
         self.repsChunk = repsChunk
 
