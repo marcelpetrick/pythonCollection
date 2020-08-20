@@ -99,10 +99,10 @@ class GroundSpaceGUI(QDialog):
         prefixes = ['', 'K', 'M', 'G', 'T'] # what if bigger?
         numberOfOrder = 0
         while number > 1024:
+            if numberOfOrder == len(prefixes) - 1:
+                break
             number /= 1024
             numberOfOrder += 1
-            if numberOfOrder == len(prefixes):
-                break
 
         prefixToUse = prefixes[numberOfOrder]
 
