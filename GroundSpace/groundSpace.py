@@ -93,7 +93,21 @@ class GroundSpaceGUI(QDialog):
         self.collectAllInput()
         sizeInByte = len(self.pattern) * self.repPattern * self.repsChunk # maybe it is wrong, because the string won't be converted 1 to 1 into bytes, but ... who cares?
 
-        self.ui.resultFileSizeLE.setText(str(sizeInByte))
+        self.ui.resultFileSizeLE.setText(self.stringifyByteValue(sizeInByte))
+
+    def stringifyByteValue(self, number):
+        prefixes = ['', 'K', 'M', 'G', 'T'] # what if bigger?
+        numberOfOrder = 0
+        while number > 1024:
+            number /= 1024
+            numberOfOrder += 1
+            if numberOfOrder == len(prefixes):
+                break
+
+        prefixToUse = prefixes[numberOfOrder]
+
+        resultString = str(number) + " " + prefixToUse + "Byte"
+        return resultString
 
     def slotRunClicked(self):
         # prepare the input
