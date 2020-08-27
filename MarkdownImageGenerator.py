@@ -1,5 +1,8 @@
 # smoil script te generate the markdown-tags for a list of 38 images.
-# lol, never do something manually what you can automate in 2 hrs
+# lol, never do something manually what you can automate in 2 hrs ..
+
+# author: mail@marcelpetrick.it
+# license: GPL v3.0
 
 #-----------------------------------------------------------------
 def makeTwoDigitsString(number):
@@ -14,6 +17,7 @@ def makeTwoDigitsString(number):
 for number in range(1, 38):
     result = "![](Day3_question" + makeTwoDigitsString(number) + ".png)"
     print(result)
+    print("-----") # added to have a separator, because white-bordered screenshots on white background are not distinguishable
 
 #-----------------------------------------------------------------
 
