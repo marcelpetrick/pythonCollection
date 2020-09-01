@@ -70,16 +70,17 @@ class GroundSpaceGUI(QDialog):
         )
 
         # init some members
+        self.baseDir = 'temporaryFile.tmp'
         self.pattern = "0"
         self.repPattern = 0
         self.repsChunk = 0
 
         # access ui-members and change their attributes
-        #self.ui.baseDirLE.setText(".")
+        self.ui.baseDirLE.setText('temporaryFile.tmp')
         self.ui.patternLE.setText("0") # or 🐈? does not work, because not in the range for a byte! 0..255
         self.ui.repsPatternLE.setText("2 ** 20")
         self.ui.repsChunkLE.setText("2 ** 10")
-        self.slotValuesChanged() # make sure the currently shown size is correct; if setting would happen after the connects, this line could be saved. But then the valueChanged-slot is called three times ..
+        self.slotValuesChanged() # called to make sure the currently shown size is correct; if setting would happen after the connects, this line could be saved. But then the valueChanged-slot is called three times ..
 
         # handling for user-input
         self.ui.runPB.clicked.connect(self.slotRunClicked) # start button
@@ -114,7 +115,7 @@ class GroundSpaceGUI(QDialog):
         self.collectAllInput()
 
         # trigger creation
-        self.groundSpace(self.pattern, self.repPattern, self.repsChunk)
+        self.groundSpace(todo, self.pattern, self.repPattern, self.repsChunk)
 
     def collectAllInput(self):
         self.pattern = self.ui.patternLE.text() # use braces at the end to trigger Qt-item-method
