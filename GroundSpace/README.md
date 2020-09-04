@@ -11,10 +11,14 @@ $ pip install PyQt5
 
 ## How to use?
 * run the script
-* initial state of the ui:
-![screenshot of the current ](ui_currentState.png)
+* this is how the ui looks:  
+![screenshot of the current UI state](ui_currentState.png)
 * set parameters for pattern, repetitions and click "Run, Forrest!"
 * watch the progressbar moving to 100% :'D
 
-## contact and author
+## contact the author
 mail@marcelpetrick.it
+
+## planned ideas
+* add some option to let it run infinitely (until the space is used up)
+* display the current writing-speed
