@@ -69,14 +69,15 @@ class GroundSpaceGUI(QDialog):
             #& QtCore.Qt.CustomizeWindowHint # not needed, this would just mingle with the dialog-settings (-> wrong!)
         )
 
-        # init some members
-        self.baseDir = 'temporaryFile.tmp'
+        # initialize the members
+        self.path = 'temporaryFile.tmp'
         self.pattern = "0"
         self.repPattern = 0
         self.repsChunk = 0
 
         # access ui-members and change their attributes
-        self.ui.baseDirLE.setText('temporaryFile.tmp')
+        self.ui.baseDirLE.setText(self.path)
+        self.ui.baseDirLE.setEnabled(True) # todo change this inside the ui file when also the "repeat infinite is done"
         self.ui.patternLE.setText("0") # or 🐈? does not work, because not in the range for a byte! 0..255
         self.ui.repsPatternLE.setText("2 ** 20")
         self.ui.repsChunkLE.setText("2 ** 10")
@@ -115,10 +116,11 @@ class GroundSpaceGUI(QDialog):
         self.collectAllInput()
 
         # trigger creation
-        self.groundSpace(todo, self.pattern, self.repPattern, self.repsChunk)
+        self.groundSpace(self.path, self.pattern, self.repPattern, self.repsChunk)
 
     def collectAllInput(self):
         self.pattern = self.ui.patternLE.text() # use braces at the end to trigger Qt-item-method
+        self.path = self.ui.baseDirLE.text()
 
         # todo the evals are really a killer. not that they crash while doing something like "2 1", but
         # also malicious actions are possible: https://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html
@@ -143,12 +145,12 @@ class GroundSpaceGUI(QDialog):
         print(f"repsChunk: {repsChunk}") # todom remove
         self.repsChunk = repsChunk
 
-    def groundSpace(self, pattern = "0", repsPattern = 0, repsChunk = 0):
+    def groundSpace(self, path = 'temporaryFile.tmp', pattern = "0", repsPattern = 0, repsChunk = 0):
         convertedContent = bytearray()
         for _ in range(repsPattern):
             convertedContent.extend(map(ord, pattern))
 
-        with open('temporaryFile.tmp', 'ba') as tempFile: # refer to this for the second param: https://docs.python.org/3/library/functions.html#open
+        with open(path, 'ba') as tempFile: # refer to this for the second param: https://docs.python.org/3/library/functions.html#open
             for i in range(repsChunk):
                 tempFile.write(convertedContent)
                 self.ui.progressBar.setValue(100 * i / repsChunk)
