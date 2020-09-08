@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'frontend.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.1
+# Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_frontend(object):
     def setupUi(self, frontend):
         frontend.setObjectName("frontend")
-        frontend.resize(400, 223)
+        frontend.resize(400, 274)
         self.verticalLayout = QtWidgets.QVBoxLayout(frontend)
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -70,14 +70,26 @@ class Ui_frontend(object):
         spacerItem = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.verticalLayout.addItem(spacerItem)
         self.progressBar = QtWidgets.QProgressBar(frontend)
+        self.progressBar.setProperty("value", 42)
         self.progressBar.setAlignment(QtCore.Qt.AlignCenter)
         self.progressBar.setObjectName("progressBar")
         self.verticalLayout.addWidget(self.progressBar)
         spacerItem1 = QtWidgets.QSpacerItem(0, 0, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem1)
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.checkBox = QtWidgets.QCheckBox(frontend)
+        self.checkBox.setObjectName("checkBox")
+        self.horizontalLayout_2.addWidget(self.checkBox)
         self.runPB = QtWidgets.QPushButton(frontend)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.runPB.sizePolicy().hasHeightForWidth())
+        self.runPB.setSizePolicy(sizePolicy)
         self.runPB.setObjectName("runPB")
-        self.verticalLayout.addWidget(self.runPB)
+        self.horizontalLayout_2.addWidget(self.runPB)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
 
         self.retranslateUi(frontend)
         QtCore.QMetaObject.connectSlotsByName(frontend)
@@ -92,4 +104,5 @@ class Ui_frontend(object):
         self.resultFileSizeLabel.setText(_translate("frontend", "resulting file size:"))
         self.baseDirLE.setPlaceholderText(_translate("frontend", "Currently not implemented"))
         self.resultFileSizeLE.setPlaceholderText(_translate("frontend", "Currently not implemented"))
+        self.checkBox.setText(_translate("frontend", "repeat"))
         self.runPB.setText(_translate("frontend", "Run (once)"))

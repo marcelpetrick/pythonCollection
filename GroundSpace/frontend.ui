@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>223</height>
+    <height>274</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -130,6 +130,9 @@
    </item>
    <item>
     <widget class="QProgressBar" name="progressBar">
+     <property name="value">
+      <number>42</number>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -149,11 +152,28 @@
     </spacer>
    </item>
    <item>
-    <widget class="QPushButton" name="runPB">
-     <property name="text">
-      <string>Run (once)</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QCheckBox" name="checkBox">
+       <property name="text">
+        <string>repeat</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="runPB">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Run (once)</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

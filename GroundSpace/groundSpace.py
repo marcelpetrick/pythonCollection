@@ -82,6 +82,8 @@ class GroundSpaceGUI(QDialog):
         self.ui.repsPatternLE.setText("2 ** 20")
         self.ui.repsChunkLE.setText("2 ** 10")
         self.slotValuesChanged() # called to make sure the currently shown size is correct; if setting would happen after the connects, this line could be saved. But then the valueChanged-slot is called three times ..
+        self.ui.progressBar.setValue(0)
+        self.ui.progressBar.setEnabled(False)
 
         # handling for user-input
         self.ui.runPB.clicked.connect(self.slotRunClicked) # start button
@@ -115,7 +117,10 @@ class GroundSpaceGUI(QDialog):
         # prepare the input
         self.collectAllInput()
 
-        # trigger creation
+        # enable the progress bar
+        self.ui.progressBar.setEnabled(True)
+
+        # trigger creation of the file
         self.groundSpace(self.path, self.pattern, self.repPattern, self.repsChunk)
 
     def collectAllInput(self):
