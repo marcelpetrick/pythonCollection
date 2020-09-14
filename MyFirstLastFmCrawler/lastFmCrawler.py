@@ -69,7 +69,7 @@ def parseClassResult(input):
     # split into artist and track
     splitter = "/_/"
     # unquote before, else problems with those special characters
-    tuple = unquote(targetString).replace("+", " ").split(splitter)
+    tuple = unquote(targetString).replace("&amp;", "&").replace("+", " ").split(splitter)
     #print("tuple:", tuple)
     artistAndTrack = (tuple[1], tuple[0]) # reverse order
 
