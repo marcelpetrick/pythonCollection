@@ -45,8 +45,8 @@ def scrapypediscrap():
     classes = soup.find_all("td", class_="chartlist-name")
     for hit in classes:
         #print(hit) # wow, that is really what I need!
-        parseClassResult(hit)
-
+        artistAndTrack = parseClassResult(hit)
+        print(artistAndTrack) # just as proof of concept
 
 # -------------
 def parseClassResult(input):
@@ -60,14 +60,18 @@ def parseClassResult(input):
 
     #print("first, last:", indexA, indexB)
     targetString = input[indexA + 13 : indexB - 2]
-    print("targetString:", targetString)
+    #print("targetString:", targetString)
 
     # now we have something in that format:
     # targetString: Billy+Currington/_/Love+Done+Gone
 
     # split into artist and track
+    splitter = "/_/"
+    tuple = targetString.replace("+", " ").split(splitter)
+    #print("tuple:", tuple)
+    artistAndTrack = (tuple[1], tuple[0]) # reverse order
 
-
+    return artistAndTrack
 
 # ------------- trigger (warning) ---------------
 scrapypediscrap()
