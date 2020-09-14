@@ -17,6 +17,7 @@
 
 import requests
 from bs4 import BeautifulSoup # beautifulstonesoup?!?
+from urllib.parse import unquote
 
 headers = {
     'Access-Control-Allow-Origin': '*',
@@ -67,7 +68,8 @@ def parseClassResult(input):
 
     # split into artist and track
     splitter = "/_/"
-    tuple = targetString.replace("+", " ").split(splitter)
+    # unquote before, else problems with those special characters
+    tuple = unquote(targetString).replace("+", " ").split(splitter)
     #print("tuple:", tuple)
     artistAndTrack = (tuple[1], tuple[0]) # reverse order
 
