@@ -5,9 +5,7 @@
 # https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 #
 # install:
-# $ pip install beautifulsoup4
-# $ pip install lxml
-# $ pip3 install beautifulsoup4 requests
+# $ pip3 install beautifulsoup4 requests lxml
 
 # ok, we need a fake account to crawl: lets do aaabbbccc ;D
 # https://www.last.fm/user/aaabbbccc/loved
@@ -28,8 +26,16 @@ headers = {
     }
 
 def scrapypediscrap():
-    url = "https://www.last.fm/user/aaabbbccc/loved?page=1"
+    baseUrl = "https://www.last.fm/user/aaabbbccc/loved?page="
+    number = 100
+    url = baseUrl + str(number)
+    print("url is:", url)
     req = requests.get(url, headers)
+    print("status code:", req.status_code)
+    if not req.status_code == 200: #check for status code "success", but last.fm falls back to the last loved tracks page (here 4) .. uff
+        print("failure; page not successfully downloaded")
+        return
+
     soup = BeautifulSoup(req.content, "lxml")
     #print(soup.prettify())
 
@@ -69,10 +75,8 @@ def parseClassResult(input):
     # split into artist and track
     splitter = "/_/"
     # unquote before, else problems with those special characters
-    tuple = unquote(targetString).replace("&amp;", "&").replace("+", " ").split(splitter)
-    #print("tuple:", tuple)
-    artistAndTrack = (tuple[1], tuple[0]) # reverse order
-
+    artistAndTrack = unquote(targetString).replace("&amp;", "&").replace("+", " ").split(splitter)
+    #print("artistAndTrack:", artistAndTrack)
     return artistAndTrack
 
 # ------------- trigger (warning) ---------------
