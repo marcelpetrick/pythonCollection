@@ -165,6 +165,8 @@ class GroundSpaceGUI(QDialog):
                 tempFile.write(convertedContent)
                 self.ui.progressBar.setValue(100 * i / repsChunk)
 
+                QtCore.QCoreApplication.processEvents() # enforce processing the event-queue
+
         self.ui.progressBar.setValue(100)
 
 #---------------
