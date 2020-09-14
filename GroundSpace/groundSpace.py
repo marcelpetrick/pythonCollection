@@ -120,8 +120,13 @@ class GroundSpaceGUI(QDialog):
         # enable the progress bar
         self.ui.progressBar.setEnabled(True)
 
-        # trigger creation of the file
+        # trigger creation of the file (at least once)
         self.groundSpace(self.path, self.pattern, self.repPattern, self.repsChunk)
+
+        # if the checkbox is ticket, repeat .. this works, but the user can't interrupt by unchecking ..
+        while self.ui.repeatCB.isChecked():
+            print("repeat-loop") # todom remove
+            self.groundSpace(self.path, self.pattern, self.repPattern, self.repsChunk)
 
     def collectAllInput(self):
         self.pattern = self.ui.patternLE.text() # use braces at the end to trigger Qt-item-method

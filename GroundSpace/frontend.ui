@@ -154,7 +154,10 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QCheckBox" name="checkBox">
+      <widget class="QCheckBox" name="repeatCB">
+       <property name="toolTip">
+        <string>If checked, the procedure will be repeated until unchecked.</string>
+       </property>
        <property name="text">
         <string>repeat</string>
        </property>
