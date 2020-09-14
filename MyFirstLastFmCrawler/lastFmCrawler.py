@@ -27,10 +27,10 @@ headers = {
     }
 
 def scrapypediscrap():
-    url = "https://www.last.fm/user/aaabbbccc/loved"
+    url = "https://www.last.fm/user/aaabbbccc/loved?page=1"
     req = requests.get(url, headers)
     soup = BeautifulSoup(req.content, "lxml")
-    print(soup.prettify())
+    #print(soup.prettify())
 
     # as we can see: taking from this class would make it easy, but for that a playable youtube-url has to be set:
     # class="chartlist-play-button js-playlink"
