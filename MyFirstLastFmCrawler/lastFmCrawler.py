@@ -32,6 +32,8 @@ def scrapypediscrap():
     print("url is:", url)
     req = requests.get(url, headers)
     print("status code:", req.status_code)
+    # todo a solution for the iteration: instead of parsing the footer for the pagination thingy (what is the maximum page?),
+    # just compare the track-artist-parsing-result from last page with current page: if identical, then a non-existant page was requested! #avoidTheProblem ..
     if not req.status_code == 200: #check for status code "success", but last.fm falls back to the last loved tracks page (here 4) .. uff
         print("failure; page not successfully downloaded")
         return
