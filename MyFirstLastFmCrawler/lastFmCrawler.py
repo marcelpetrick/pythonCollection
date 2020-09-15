@@ -25,13 +25,28 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
     }
 
+#-----------------------------------------------------------------
+
+def createBaseUrl(username):
+    baseUrl = "https://www.last.fm/user/" + username + "/loved?page="
+
+    return baseUrl
+
+#-----------------------------------------------------------------
+
 def scrapypediscrap():
-    baseUrl = "https://www.last.fm/user/aaabbbccc/loved?page="
+    import time
+    baseUrl = createBaseUrl("aaabbbccc")
     number = 100
     url = baseUrl + str(number)
     print("url is:", url)
+
+    # do the request
+    currentTime = time.time()
     req = requests.get(url, headers)
+    print("request took ", time.time() - currentTime, "seconds")
     print("status code:", req.status_code)
+
     # todo a solution for the iteration: instead of parsing the footer for the pagination thingy (what is the maximum page?),
     # just compare the track-artist-parsing-result from last page with current page: if identical, then a non-existant page was requested! #avoidTheProblem ..
     if not req.status_code == 200: #check for status code "success", but last.fm falls back to the last loved tracks page (here 4) .. uff
@@ -51,11 +66,16 @@ def scrapypediscrap():
     #              </a>
     #             </td>"
 
+    # "processing"
+    currentTime = time.time()
+
     classes = soup.find_all("td", class_="chartlist-name")
     for hit in classes:
         #print(hit) # wow, that is really what I need!
         artistAndTrack = parseClassResult(hit)
         print(artistAndTrack) # just as proof of concept
+
+    print("processing took ", time.time() - currentTime, "seconds")
 
 # -------------
 def parseClassResult(input):
