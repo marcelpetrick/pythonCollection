@@ -7,7 +7,7 @@
 # install:
 # $ pip3 install beautifulsoup4 requests lxml
 
-# ok, we need a fake account to crawl: lets do aaabbbccc ;D
+# ok, we need a n existing clown-account to crawl: lets take aaabbbccc ;D
 # https://www.last.fm/user/aaabbbccc/loved
 
 # let's try another tutorial, since the one is used first is without 'requests'
@@ -36,25 +36,30 @@ def createBaseUrl(username):
 
 def scrapypediscrap():
 
+    currentTime = time.time()
     baseUrl = createBaseUrl("aaabbbccc")
 
     completeLovedTrackCollection = set()
+    lastResult = set()
 
-    number = 0
+    page = 0
     while True:
-        number += 1
-        url = baseUrl + str(number)
+        page += 1
+        url = baseUrl + str(page)
         currentResult = scrapArtistTrackFromPage(url)
         print("current result:", currentResult)
 
-        if currentResult.issubset(completeLovedTrackCollection):
+        if currentResult == lastResult:
             print("stop scraping, because the results were already parsed!")
             break
 
-        completeLovedTrackCollection.union(currentResult)
+        completeLovedTrackCollection = completeLovedTrackCollection.union(currentResult)
+        lastResult = currentResult
 
+    print("--------------------------------------")
     print("final:", completeLovedTrackCollection)
-    print("len:", len(completeLovedTrackCollection))
+    print("loved tracks:", len(completeLovedTrackCollection))
+    print("scraping took ", time.time() - currentTime, "seconds")
 
 #-----------------------------------------------------------------
 
