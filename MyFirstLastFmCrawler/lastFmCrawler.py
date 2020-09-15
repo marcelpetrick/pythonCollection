@@ -35,10 +35,32 @@ def createBaseUrl(username):
 #-----------------------------------------------------------------
 
 def scrapypediscrap():
-    import time
+
     baseUrl = createBaseUrl("aaabbbccc")
-    number = 100
-    url = baseUrl + str(number)
+
+    completeLovedTrackCollection = set()
+
+    number = 0
+    while True:
+        number += 1
+        url = baseUrl + str(number)
+        currentResult = scrapArtistTrackFromPage(url)
+        print("current result:", currentResult)
+
+        if currentResult.issubset(completeLovedTrackCollection):
+            print("stop scraping, because the results were already parsed!")
+            break
+
+        completeLovedTrackCollection.union(currentResult)
+
+    print("final:", completeLovedTrackCollection)
+    print("len:", len(completeLovedTrackCollection))
+
+#-----------------------------------------------------------------
+
+import time
+def scrapArtistTrackFromPage(url):
+    print("--------------------------------------")
     print("url is:", url)
 
     # do the request
@@ -48,7 +70,7 @@ def scrapypediscrap():
     print("status code:", req.status_code)
 
     # todo a solution for the iteration: instead of parsing the footer for the pagination thingy (what is the maximum page?),
-    # just compare the track-artist-parsing-result from last page with current page: if identical, then a non-existant page was requested! #avoidTheProblem ..
+    # just compare the track-artist-parsing-result from last page with current page: if identical, then a non-existent page was requested! #avoidTheProblem ..
     if not req.status_code == 200: #check for status code "success", but last.fm falls back to the last loved tracks page (here 4) .. uff
         print("failure; page not successfully downloaded")
         return
@@ -69,13 +91,17 @@ def scrapypediscrap():
     # "processing"
     currentTime = time.time()
 
+    result = set()
     classes = soup.find_all("td", class_="chartlist-name")
     for hit in classes:
         #print(hit) # wow, that is really what I need!
         artistAndTrack = parseClassResult(hit)
-        print(artistAndTrack) # just as proof of concept
+        #print(artistAndTrack) # just as proof of concept
+        result.add(artistAndTrack)
 
     print("processing took ", time.time() - currentTime, "seconds")
+
+    return result
 
 # -------------
 def parseClassResult(input):
@@ -99,7 +125,7 @@ def parseClassResult(input):
     # unquote before, else problems with those special characters
     artistAndTrack = unquote(targetString).replace("&amp;", "&").replace("+", " ").split(splitter)
     #print("artistAndTrack:", artistAndTrack)
-    return artistAndTrack
+    return tuple(artistAndTrack)
 
 # ------------- trigger (warning) ---------------
 scrapypediscrap()
