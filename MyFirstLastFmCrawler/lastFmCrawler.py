@@ -1,3 +1,7 @@
+# author mail@marcelpetrick.it
+# license: GPLv3.0
+#
+#-----------------------------------------------------------------
 # Idea is to create a crawler which can 'collect' all the loved songs from a given user account
 # Should be a simple warm-up to get familiar with beautiful soup -.-
 
@@ -12,10 +16,12 @@
 
 # let's try another tutorial, since the one is used first is without 'requests'
 # https://hackersandslackers.com/scraping-urls-with-beautifulsoup/
+#-----------------------------------------------------------------
 
 import requests
-from bs4 import BeautifulSoup # beautifulstonesoup?!?
-from urllib.parse import unquote
+from bs4 import BeautifulSoup
+import time
+from urllib.parse import unquote_plus
 
 headers = {
     'Access-Control-Allow-Origin': '*',
@@ -37,7 +43,7 @@ def createBaseUrl(username):
 def scrapypediscrap():
 
     currentTime = time.time()
-    baseUrl = createBaseUrl("aaabbbccc")
+    baseUrl = createBaseUrl("aaabbbccc") # param is the username
 
     completeLovedTrackCollection = set()
     lastResult = set()
@@ -63,7 +69,6 @@ def scrapypediscrap():
 
 #-----------------------------------------------------------------
 
-import time
 def scrapArtistTrackFromPage(url):
     print("--------------------------------------")
     print("url is:", url)
@@ -127,8 +132,8 @@ def parseClassResult(input):
 
     # split into artist and track
     splitter = "/_/"
-    # unquote before, else problems with those special characters
-    artistAndTrack = unquote(targetString).replace("&amp;", "&").replace("+", " ").split(splitter)
+    # decode the html-transcript (also replace "+" with space); see: https://docs.python.org/3/library/urllib.parse.html#urllib.parse.unquote_plus
+    artistAndTrack = unquote_plus(targetString).replace("&amp;", "&").split(splitter)
     #print("artistAndTrack:", artistAndTrack)
     return tuple(artistAndTrack)
 
