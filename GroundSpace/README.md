@@ -13,12 +13,13 @@ $ pip install PyQt5
 * run the script
 * this is how the ui looks:  
 ![screenshot of the current UI state](ui_currentState.png)
-* set parameters for pattern, repetitions and click "Run, Forrest!"
+* set parameters for pattern, repetitions and click "Run"
 * watch the progressbar moving to 100% :'D
+* if the "repeat"-checkbox is checked, then the file-writing will be repeated (until unchecked or the disk is full)
 
 ## contact the author
 mail@marcelpetrick.it
 
 ## planned ideas
-* add some option to let it run infinitely (until the space is used up)
 * display the current writing-speed
+* fix the bug that the run-button is not disabled after starting the process (multiple runs happens ..)
