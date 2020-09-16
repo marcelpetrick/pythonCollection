@@ -66,6 +66,12 @@ def scrapypediscrap():
     print("final:", completeLovedTrackCollection)
     print("loved tracks:", len(completeLovedTrackCollection))
     print("scraping took ", time.time() - currentTime, "seconds")
+    print("--------------------------------------")
+
+    # one final, properly usable output
+    for elem in completeLovedTrackCollection:
+        print(elem[0], "//", elem[1])
+    print("--------------------------------------")
 
 #-----------------------------------------------------------------
 
