@@ -68,8 +68,8 @@ def scrapypediscrap():
     print("scraping took ", time.time() - currentTime, "seconds")
     print("--------------------------------------")
 
-    # one final, properly usable output
-    for elem in completeLovedTrackCollection:
+    # one final, properly readable output - sorted (is a list then not a set anymore!)
+    for elem in sorted(completeLovedTrackCollection):
         print(elem[0], "//", elem[1])
     print("--------------------------------------")
 
@@ -141,13 +141,19 @@ def parseClassResult(input):
     # decode the html-transcript (also replace "+" with space); see: https://docs.python.org/3/library/urllib.parse.html#urllib.parse.unquote_plus
     artistAndTrack = unquote_plus(targetString).replace("&amp;", "&").split(splitter)
     #print("artistAndTrack:", artistAndTrack)
+
+    # -------------
+    # fix this noredirect-prefix for artist:
+    # " noredirect/Gae Bolg And The Church Of Fand // Offertorio"
+    # -------------
+    # todo Python 3.9: "removePrefix(..)"
+    prefixToKill = " noredirect/"
+    if artistAndTrack[0].startswith(prefixToKill):
+        #print("found something to fix:", artistAndTrack)
+        artistAndTrack[0] = artistAndTrack[0][len(prefixToKill):]
+        #print("fixed:", artistAndTrack)
+
     return tuple(artistAndTrack)
 
 # ------------- trigger (warning) ---------------
 scrapypediscrap()
-
-
-# -------------
-# fix this noredirect-prefix for artist:
-# " noredirect/Gae Bolg And The Church Of Fand // Offertorio"
-# -------------
