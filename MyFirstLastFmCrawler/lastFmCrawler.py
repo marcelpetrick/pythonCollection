@@ -145,3 +145,9 @@ def parseClassResult(input):
 
 # ------------- trigger (warning) ---------------
 scrapypediscrap()
+
+
+# -------------
+# fix this noredirect-prefix for artist:
+# " noredirect/Gae Bolg And The Church Of Fand // Offertorio"
+# -------------
