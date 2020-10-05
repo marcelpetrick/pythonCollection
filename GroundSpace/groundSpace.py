@@ -1,7 +1,6 @@
 # idea: create files with random binary content (written to disk) - see how much throughput is possible
 
 # todo:
-# * gui (see mockup)
 # * give option to write until disk full or "leave 100 MiB free"?; repeat option? one file or several files (uuid based?)
 
 #-----------------------------
@@ -163,7 +162,7 @@ class GroundSpaceGUI(QDialog):
         with open(path, 'ba') as tempFile: # refer to this for the second param: https://docs.python.org/3/library/functions.html#open
             for i in range(repsChunk):
                 tempFile.write(convertedContent)
-                self.ui.progressBar.setValue(100 * i / repsChunk)
+                self.ui.progressBar.setValue(int(100 * i / repsChunk))
 
                 QtCore.QCoreApplication.processEvents() # enforce processing the event-queue
 
