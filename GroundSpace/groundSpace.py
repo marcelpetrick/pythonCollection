@@ -1,32 +1,23 @@
-# idea: create files with random binary content (written to disk) - see how much throughput is possible
+# idea: create file with random (user selected) binary content (written to disk) - see how much throughput is possible
+
+# contact the author:
+# mail@marcelpetrick.it
 
 # todo:
-# * give option to write until disk full or "leave 100 MiB free"?; repeat option? one file or several files (uuid based?)
+# * feature: give option to write until disk full or "leave 100 MiB free"? - catch the diskqtfull-exception
+# * cosmetic: there is too much vertical height in the dialog (fix the spacer)
+# * feature: show maybe the current throughput (in the last second)
 
-#-----------------------------
-
-def groundSpace(pattern = "0", repsPattern = 0, repsChunk = 0):
-
-    convertedContent = bytearray()
-    for _ in range(repsPattern):
-        convertedContent.extend(map(ord, pattern))
-    #byteArray = bytearray(convertedContent)
-    with open('temporaryFile.tmp', 'ba') as tempFile: # refer to this for the second param: https://docs.python.org/3/library/functions.html#open
-        for _ in range(repsChunk):
-            tempFile.write(convertedContent)
-            print(".")
-        print("groundSpace successfully run once")
-
-#-----------------------------
+# ------------------------------------------------------------------------------
 
 # I am impressed: writes 8 GiB in some seconds ... can be maybe improved
 # Benchmarks over several seconds on Win10; checked via TaskManager
-# Samsung SSD 960 EVO 500GB achieves just 300 MB/s continuous
+#
+# Samsung SSD 960 EVO 500GB achieves just 300 MB/s continuous; drops after 8 GiB
 # sk hynix BC501 256 GB: 160 MB/s
-# while True:
-#     groundSpace()
+# Micron 2200S NVMe 512GB: 300 MB/s continuously, just drops after 40 GiB!
 
-#-----------------------------
+# ------------------------------------------------------------------------------
 
 # failure is reported like this
 # ..
@@ -41,13 +32,15 @@ def groundSpace(pattern = "0", repsPattern = 0, repsChunk = 0):
 #
 # Process finished with exit code 1
 
-#---------------
+# ------------------------------------------------------------------------------
+# implementation
+# ------------------------------------------------------------------------------
 
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog
 from PyQt5 import QtCore
 
-#---------------
+# ------------------------------------------------------------------------------
 
 # ui-file converted by pyuic5: see https://www.riverbankcomputing.com/static/Docs/PyQt5/designer.html for more info
 # $ pyuic5 frontend.ui > ui_frontend.py
@@ -168,9 +161,9 @@ class GroundSpaceGUI(QDialog):
 
         self.ui.progressBar.setValue(100)
 
-#---------------
+# ------------------------------------------------------------------------------
 
-# now following the clean approach: https://stackoverflow.com/a/37907101/1694302
+# following the clean approach: https://stackoverflow.com/a/37907101/1694302 for ui-creation
 def makeGui():
     app = QApplication(sys.argv)
     window = GroundSpaceGUI()
@@ -178,6 +171,6 @@ def makeGui():
     window.show()
     sys.exit(app.exec_())
 
-#---------------
+# ------------------------------------------------------------------------------
 
 makeGui()
