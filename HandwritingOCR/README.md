@@ -1,9 +1,9 @@
 # Handwriting to Text via OCR (and maybe DeepLEarning)
 
-That ReseNet-example from ML reminded me that I could do something similar for the texts of one of my grandmas.
+That ResNet-example from ML reminded me that I could do something similar for the texts of one of my grandmas.
 I love receiving letters and postcards from her, but I have problems with deciphering :')
 
-So why not take that challenge and create a tool, which could convert the photo of a textblock into readable text?
+So why not take that challenge and create a tool, which could convert the photo of a text block into readable text?
 
 ## Steps so far:
 * grayscale and preprocess the image (maybe reduce resolution)
@@ -17,3 +17,5 @@ So why not take that challenge and create a tool, which could convert the photo 
 + promising approach with ResNet101: <https://medium.com/@akshaychougule/handwritten-devanagari-character-identification-using-resnet-b90894b42c4d>
 * almost forgotten about this: <https://modelzoo.co/>
 * ugh: <https://nanonets.com/blog/handwritten-character-recognition/>
+* google vision as python-lib can be helpful to extract the text: <https://stackoverflow.com/questions/58805719/how-to-extract-both-automated-and-handwritten-text-in-image-using-gcp-vision-or>
+*how to find a baseline of written text: <https://www.researchgate.net/post/How_to_find_the_baseline_of_a_handwritten_word>
