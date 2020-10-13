@@ -16,3 +16,4 @@ So why not take that challenge and create a tool, which could convert the photo 
 * <http://cs231n.stanford.edu/reports/2017/pdfs/810.pdf>
 + promising approach with ResNet101: <https://medium.com/@akshaychougule/handwritten-devanagari-character-identification-using-resnet-b90894b42c4d>
 * almost forgotten about this: <https://modelzoo.co/>
+* ugh: <https://nanonets.com/blog/handwritten-character-recognition/>
