@@ -94,7 +94,7 @@ class GroundSpaceGUI(QDialog):
 
         self.ui.resultFileSizeLE.setText(self.stringifyByteValue(self.sizeInByte))
 
-    def stringifyByteValue(self, number):
+    def stringifyByteValue(self, number, keepTail = True):
         prefixes = ['', 'K', 'M', 'G', 'T'] # what if bigger?
         numberOfOrder = 0
         while number > 1024:
@@ -105,7 +105,7 @@ class GroundSpaceGUI(QDialog):
 
         prefixToUse = prefixes[numberOfOrder]
 
-        resultString = str(number) + " " + prefixToUse + "Byte"
+        resultString = (str(number if keepTail else int(number))) + " " + prefixToUse + "Byte"
         return resultString
 
     def slotRunClicked(self):
@@ -120,7 +120,7 @@ class GroundSpaceGUI(QDialog):
 
         # if the checkbox is ticket, repeat .. this works, but the user can't interrupt by unchecking ..
         while self.ui.repeatCB.isChecked():
-            print("repeat-loop") # todom remove
+            print("--- repeat-loop ---") # todom remove
             self.groundSpace(self.path, self.pattern, self.repPattern, self.repsChunk)
 
     def collectAllInput(self):
@@ -164,10 +164,12 @@ class GroundSpaceGUI(QDialog):
                 QtCore.QCoreApplication.processEvents() # enforce processing the event-queue
 
         self.ui.progressBar.setValue(100)
+
+        # speed computation
         duration = time.time() - startingTime
         print(f"one cycle took {duration} seconds")
         bytesPerSecond = self.sizeInByte / duration
-        print(f"speed: {bytesPerSecond} bytes per second")
+        print(f"speed: {self.stringifyByteValue(bytesPerSecond, False)} bytes per second")
 
 # ------------------------------------------------------------------------------
 
