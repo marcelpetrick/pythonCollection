@@ -39,6 +39,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog
 from PyQt5 import QtCore
+import time
 
 # ------------------------------------------------------------------------------
 
@@ -66,6 +67,8 @@ class GroundSpaceGUI(QDialog):
         self.pattern = "0"
         self.repPattern = 0
         self.repsChunk = 0
+        # for storage
+        self.sizeInByte = 0
 
         # access ui-members and change their attributes
         self.ui.baseDirLE.setText(self.path)
@@ -87,9 +90,9 @@ class GroundSpaceGUI(QDialog):
         ''' Collect all values and multiply them and assign to the corresponding lineedit. '''
 
         self.collectAllInput()
-        sizeInByte = len(self.pattern) * self.repPattern * self.repsChunk # maybe it is wrong, because the string won't be converted 1 to 1 into bytes, but ... who cares?
+        self.sizeInByte = len(self.pattern) * self.repPattern * self.repsChunk # maybe it is wrong, because the string won't be converted 1 to 1 into bytes, but ... who cares?
 
-        self.ui.resultFileSizeLE.setText(self.stringifyByteValue(sizeInByte))
+        self.ui.resultFileSizeLE.setText(self.stringifyByteValue(self.sizeInByte))
 
     def stringifyByteValue(self, number):
         prefixes = ['', 'K', 'M', 'G', 'T'] # what if bigger?
@@ -148,6 +151,7 @@ class GroundSpaceGUI(QDialog):
         self.repsChunk = repsChunk
 
     def groundSpace(self, path = 'temporaryFile.tmp', pattern = "0", repsPattern = 0, repsChunk = 0):
+        startingTime = time.time()
         convertedContent = bytearray()
         for _ in range(repsPattern):
             convertedContent.extend(map(ord, pattern))
@@ -160,6 +164,10 @@ class GroundSpaceGUI(QDialog):
                 QtCore.QCoreApplication.processEvents() # enforce processing the event-queue
 
         self.ui.progressBar.setValue(100)
+        duration = time.time() - startingTime
+        print(f"one cycle took {duration} seconds")
+        bytesPerSecond = self.sizeInByte / duration
+        print(f"speed: {bytesPerSecond} bytes per second")
 
 # ------------------------------------------------------------------------------
 
