@@ -169,7 +169,9 @@ class GroundSpaceGUI(QDialog):
         duration = time.time() - startingTime
         print(f"one cycle took {duration} seconds")
         bytesPerSecond = self.sizeInByte / duration
-        print(f"speed: {self.stringifyByteValue(bytesPerSecond, False)} bytes per second")
+        speedString = f"{self.stringifyByteValue(bytesPerSecond, False)}/s"
+        print("speed: " + speedString)
+        self.ui.speedL.setText(speedString)
 
 # ------------------------------------------------------------------------------
 
