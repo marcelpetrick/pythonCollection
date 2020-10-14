@@ -14,12 +14,14 @@ $ pip install PyQt5
 * this is how the ui looks:  
 ![screenshot of the current UI state](ui_currentState.png)
 * set parameters for pattern, repetitions and click "Run"
-* watch the progressbar moving to 100% :'D
+* watch the progressbar move to 100% :'D
 * if the "repeat"-checkbox is checked, then the file-writing will be repeated (until unchecked or the disk is full)
+* after each cycle the throughput (speed) will be updated in the bottom-left
 
 ## contact the author
 mail@marcelpetrick.it
 
 ## planned ideas
-* display the current writing-speed
 * fix the bug that the run-button is not disabled after starting the process (multiple runs happens ..)
+* maybe add an option to abort the writing
+* add option to delete the file at shutdown of the app

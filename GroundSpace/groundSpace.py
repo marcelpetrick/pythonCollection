@@ -5,8 +5,6 @@
 
 # todo:
 # * feature: give option to write until disk full or "leave 100 MiB free"? - catch the diskqtfull-exception
-# * cosmetic: there is too much vertical height in the dialog (fix the spacer)
-# * feature: show maybe the current throughput (in the last second)
 
 # ------------------------------------------------------------------------------
 
@@ -15,7 +13,7 @@
 #
 # Samsung SSD 960 EVO 500GB achieves just 300 MB/s continuous; drops after 8 GiB
 # sk hynix BC501 256 GB: 160 MB/s
-# Micron 2200S NVMe 512GB: 300 MB/s continuously, just drops after 40 GiB!
+# Micron 2200S NVMe 512GB: 640 MB/s continuously, just drops after 40 GiB! (maximum speed achieved at 4 GiByte chunks)
 
 # ------------------------------------------------------------------------------
 
