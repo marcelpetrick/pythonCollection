@@ -38,7 +38,9 @@ def computeNumberBruteForce(amount):
     possibleWays = 0
 
     for numC200 in range(amount // 200 + 1):
+        print("numC200:" + str(numC200))
         for numC100 in range(amount // 100 + 1):
+            print("numC100:" + str(numC100))
             for numC50 in range(amount // 50 + 1):
                 for numC20 in range(amount // 20 + 1):
                     for numC10 in range(amount // 10 + 1):
@@ -52,7 +54,22 @@ def computeNumberBruteForce(amount):
 
     print(f"amount = {amount} --> possible ways: {possibleWays}")
 
-computeNumberBruteForce(5) # --> 4 ways
-computeNumberBruteForce(50) # -->
-computeNumberBruteForce(100) # -->
-computeNumberBruteForce(200) # -->
+# ------------------------------------------------------------------------------
+
+def timedCall(amount):
+    import time
+    startTime = time.time()
+    computeNumberBruteForce(amount)
+    duration = time.time() - startTime
+    print(f"    computation tooK {duration} s")
+
+# ------------------------------------------------------------------------------
+
+timedCall(5) # --> 4 ways
+timedCall(50) # --> 451
+timedCall(100) # --> 4563
+timedCall(200) # --> ... not computed yet
+
+# ------------------------------------------------------------------------------
+# see as well: https://en.wikipedia.org/wiki/Subset_sum_problem
+# ------------------------------------------------------------------------------
