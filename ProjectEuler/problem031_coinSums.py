@@ -90,3 +90,20 @@ timedCall(200) # --> ... not computed yet
 # ------------------------------------------------------------------------------
 # see as well: https://en.wikipedia.org/wiki/Subset_sum_problem
 # ------------------------------------------------------------------------------
+
+# amount = 5 --> possible ways: 4
+#     computation tooK 0.0 s
+# amount = 50 --> possible ways: 451
+#     computation tooK 0.02383899688720703 s
+# amount = 100 --> possible ways: 4563
+#     computation tooK 2.025925874710083 s
+# amount = 200 --> possible ways: 73682
+#     computation tooK 310.35107588768005 s
+# ------------------------------------------------------------------------------
+
+# Answer was correct!
+# Completed on Fri, 23 Oct 2020, 13:55
+#
+# marcelpetrick
+# Level 2
+# Solved 50 out of 730 problems
