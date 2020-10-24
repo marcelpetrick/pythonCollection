@@ -100,3 +100,13 @@ if __name__ == '__main__':
 
 # ------------------------------------------------------------------------------
 
+# bst perimeter would be  840  with  8  -->  {(120, 350, 370), (40, 399, 401), (56, 390, 394), (140, 336, 364), (210, 280, 350), (240, 252, 348), (105, 360, 375), (168, 315, 357)}
+# computing the euler-result took 128.30492305755615 s
+
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 39 is correct.
+#
+# You are the 72168th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 25%.
