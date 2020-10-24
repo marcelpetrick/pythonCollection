@@ -14,7 +14,7 @@
 # ------------------------------------------------------------------------------
 # idea:
 # * brute force, naive: two stacked loops from 1 to 10 ** 9: abort inner loop if length of the result would be bigger
-# than (9 - multiLength - multipliLength), which should be quite early
+# than (9 - multiLength - multipleLength), which should be quite early
 # * then compute the result and check if the whole stringified addition would be pandigital: maybe check even first if
 # one of the digits in the second number ps art of the first (then abort)
 #
