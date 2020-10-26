@@ -31,8 +31,8 @@ def checkTriangleForBeingRightAngled(a, b, c):
 
 def findAllRightAngledPartitionsOfPerimeter(perimeter):
     result = set()
-    for a in range(1, perimeter - 1): # edges cant be zero, so from 1 to perimeter-2
-        for b in range(1, perimeter - a):
+    for a in range(1, (perimeter // 3)): # can't proof it, but one of the sides will be less than a third of the perimeter for right-angled triangles
+        for b in range(1, perimeter - a): # edges cant be zero, so from 1 to perimeter-2
             c = perimeter - a - b
             # note: this simple approach also creates partitions like 1,2,3 and 1,3,2 for 6 - which are identical and therefore don't have to be checked multiple times ..
             #print(a,b,c, "=", a+b+c)
@@ -66,7 +66,7 @@ def findMaxPartitions(inclusiveLimit):
             bestPerimeter = perimeter
 
     result = findAllRightAngledPartitionsOfPerimeter(bestPerimeter)
-    print("bst perimeter would be ", bestPerimeter, " with ", len(result), " --> ", result)
+    print("best perimeter would be", bestPerimeter, "with", len(result), "partitions -->", result)
 
 # ------------------------------------------------------------------------------
 
@@ -100,7 +100,7 @@ if __name__ == '__main__':
 
 # ------------------------------------------------------------------------------
 
-# bst perimeter would be  840  with  8  -->  {(120, 350, 370), (40, 399, 401), (56, 390, 394), (140, 336, 364), (210, 280, 350), (240, 252, 348), (105, 360, 375), (168, 315, 357)}
+# best perimeter would be 840 with 8 partitions --> {(120, 350, 370), (40, 399, 401), (56, 390, 394), (140, 336, 364), (210, 280, 350), (240, 252, 348), (105, 360, 375), (168, 315, 357)}
 # computing the euler-result took 128.30492305755615 s
 
 # ------------------------------------------------------------------------------
@@ -110,3 +110,9 @@ if __name__ == '__main__':
 # You are the 72168th person to have solved this problem.
 #
 # This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 25%.
+
+# ------------------------------------------------------------------------------
+
+# improved outer loop reduces time by 40% ..
+# best perimeter would be 840 with 8 partitions --> {(120, 350, 370), (40, 399, 401), (56, 390, 394), (140, 336, 364), (210, 280, 350), (240, 252, 348), (105, 360, 375), (168, 315, 357)}
+# computing the euler-result took 83.70878911018372 s
