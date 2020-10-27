@@ -11,8 +11,38 @@
 # Find the pair of pentagonal numbers, Pj and Pk, for which their sum and difference are pentagonal and D = |Pk − Pj|
 # is minimised; what is the value of D?
 # ------------------------------------------------------------------------------
+# idea:
+# * let's simplify the needed equation: n(3n-1)/2 - m(3m-1)/2 = d(3d-1)/2 .. so save the division for all of them
+# * put the intermediate results into a map, so that they can be reused (or better a dict?)
+# * one loop which computes the next pentagonal number, then checks if this number minus one of the previous
+# ones is contained in the container as value?
+
+# ------------------------------------------------------------------------------
+
+def makeDoublePentagonalNumber(n):
+    return n*(3*n-1)
+
+
+penNums = dict()
+
+def findPenPairs(limit):
+    n = 1
+    while True:
+        nP = makeDoublePentagonalNumber(n)
+        penNums[n] = nP
+        for m in range(n-1, 0, -1): # one less than the start, then down to 1
+            #print("n, m", n, m) # todom remove
+            mP = penNums[m]
+
+            diff = nP - mP
+            if diff in penNums.values():
+                print("diff hit:", n, nP, m, mP, diff)
+
+        n += 1
+        if n == limit:
+            break
 
 
 # ------------------------------------------------------------------------------
 
-# ------------------------------------------------------------------------------
+findPenPairs(100)
