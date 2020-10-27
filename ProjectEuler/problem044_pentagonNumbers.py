@@ -26,6 +26,8 @@ def makeDoublePentagonalNumber(n):
 penNums = dict()
 
 def findPenPairs(limit):
+    minimalDiffSoFar = 666
+
     n = 1
     while True:
         # look it up, if possible, else compute. See the sum-check below for the reason why n/nP can already exist in the dictionary
@@ -44,19 +46,24 @@ def findPenPairs(limit):
                 #print("diff hit:", n, nP, m, mP, "-->", diff)
 
                 sum = nP + mP
+
+                # prepare the dict while counting up
                 fakeN = n
                 while True:
                     fakeNP = makeDoublePentagonalNumber(fakeN)
                     penNums[fakeN] = fakeNP
-                    if fakeNP > sum:
+                    if fakeNP >= sum:
                         #print("  sum not pentagonal")
                         break
-                    else:
-                        print("diff hit:", n, nP, m, mP, "-->", diff)
-                        print("  sum is also pentagonal!", fakeN, fakeNP)
-                        # todo do something
-                        break
+                    fakeN += 1
 
+                # todo do something
+                if sum in penNums.values():
+                    print("diff hit:", n, nP, m, mP, "-->", diff)
+                    print("  sum is also pentagonal!", fakeN, fakeNP)
+                    if diff < minimalDiffSoFar:
+                        print("-------------------------------> D:", diff)
+                        minimalDiffSoFar = diff
 
         n += 1
         if n == limit:
@@ -65,4 +72,4 @@ def findPenPairs(limit):
 
 # ------------------------------------------------------------------------------
 
-findPenPairs(100)
+findPenPairs(100**10)
