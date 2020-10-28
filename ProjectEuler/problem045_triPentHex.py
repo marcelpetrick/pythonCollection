@@ -51,15 +51,27 @@ def findHits(maxAmount):
             nH = makeHexagonalNumber(n)
             hexNums[n] = nH
 
-        print("handle now", n, "-->", nH) # todom remove
+        print("hex: handle now", n, "-->", nH) # todom remove
 
         # fill the dicts of the tria and pent numbers
-        while (currentMax := max(triNums, key=lambda x: triNums[x])) < nH: # assigment in condition is a python 3.8 feature!
-            nextKey = currentMax+ + 1
-            triNums[nextKey] = makeTriangleNumber(nextKey)
-            print("    ", nextKey, triNums[nextKey]) # todom remove
+        while True:
+            currentMax = max(triNums, key=lambda x: triNums[x])
+            if triNums[currentMax] < nH:
+                nextKey = currentMax+ + 1
+                triNums[nextKey] = makeTriangleNumber(nextKey)
+                print("    tri:", nextKey, triNums[nextKey]) # todom remove
+            else:
+                break
 
-        # todo do the same for pentagonal number dict
+        # do the same for pentagonal number dict
+        while True:
+            currentMax = max(pentNums, key=lambda x: pentNums[x])
+            if pentNums[currentMax] < nH:
+                nextKey = currentMax+ + 1
+                pentNums[nextKey] = makePentagonalNumber(nextKey)
+                print("    pent:", nextKey, pentNums[nextKey]) # todom remove
+            else:
+                break
 
         n += 1
 
