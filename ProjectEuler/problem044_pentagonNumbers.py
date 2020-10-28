@@ -19,7 +19,7 @@
 
 # ------------------------------------------------------------------------------
 
-def makeDoublePentagonalNumber(n):
+def makeDoublePentagonalNumber(n): # todo rename the function, because it is not doubled anymore
     return n*(3*n-1)//2
 
 

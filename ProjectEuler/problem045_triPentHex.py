@@ -91,10 +91,21 @@ def findHits(maxAmount):
 
 # ------------------------------------------------------------------------------
 
-findHits(10)
+findHits(10) # lol, limit wasn't implemented. it breaks hard
 
 # ------------------------------------------------------------------------------
 
 # output:
+# [..]
+# this shall be the wanted result: 1533776805 for n= 27693
 
 # ------------------------------------------------------------------------------
+# Congratulations, the answer you gave to problem 45 is correct.
+#
+# You are the 70077th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 25%.
+
+# ------------------------------------------------------------------------------
+
+# todo: discard the dicts, just compute the tri number and pent number up to the current hex number .. no lookup into the dicts needed!
