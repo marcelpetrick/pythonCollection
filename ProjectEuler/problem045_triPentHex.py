@@ -59,7 +59,7 @@ def findHits(maxAmount):
             if triNums[currentMax] < nH:
                 nextKey = currentMax+ + 1
                 triNums[nextKey] = makeTriangleNumber(nextKey)
-                print("    tri:", nextKey, triNums[nextKey]) # todom remove
+                #print("    tri:", nextKey, triNums[nextKey]) # todom remove
             else:
                 break
 
@@ -69,9 +69,19 @@ def findHits(maxAmount):
             if pentNums[currentMax] < nH:
                 nextKey = currentMax+ + 1
                 pentNums[nextKey] = makePentagonalNumber(nextKey)
-                print("    pent:", nextKey, pentNums[nextKey]) # todom remove
+                #print("    pent:", nextKey, pentNums[nextKey]) # todom remove
             else:
                 break
+
+        # check now if the current hex number is also tri and pent
+        if nH in pentNums.values():
+            print("-------------------")
+            if nH in triNums.values():
+                print("nH:", nH)
+
+
+                if nH > 40755:
+                    print("this shall be the wanted result:", nH)
 
         n += 1
 
