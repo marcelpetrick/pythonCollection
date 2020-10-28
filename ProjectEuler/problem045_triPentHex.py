@@ -51,7 +51,7 @@ def findHits(maxAmount):
             nH = makeHexagonalNumber(n)
             hexNums[n] = nH
 
-        print("hex: handle now", n, "-->", nH) # todom remove
+        #print("hex: handle now", n, "-->", nH) # todom remove
 
         # fill the dicts of the tria and pent numbers
         while True:
@@ -75,15 +75,24 @@ def findHits(maxAmount):
 
         # check now if the current hex number is also tri and pent
         if nH in pentNums.values():
-            print("-------------------")
+            print("-----------------------------------------------------------------")
             if nH in triNums.values():
-                print("nH:", nH)
+                print("found a good hit! nH:", nH, "for n=", n)
+                print("tri:", triNums)
+                print("pen:", pentNums)
+                print("hex:", hexNums)
 
 
                 if nH > 40755:
-                    print("this shall be the wanted result:", nH)
+                    print("this shall be the wanted result:", nH, "for n=", n)
+                    break
 
         n += 1
 
+        # if n > 144:
+        #     print(triNums)
+        #     print(pentNums)
+        #     print(hexNums)
+        #     break
 
 findHits(10)
