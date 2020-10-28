@@ -20,3 +20,48 @@
 #   but should be doable until midnight
 
 # ------------------------------------------------------------------------------
+
+def makeTriangleNumber(n):
+    return n * (n + 1) // 2
+
+def makePentagonalNumber(n):
+    return n*(3 * n - 1) // 2
+
+def makeHexagonalNumber(n):
+    return n*(2 * n - 1)
+
+# ------------------------------------------------------------------------------
+
+triNums = dict()
+pentNums = dict()
+hexNums = dict()
+
+# init
+triNums[1] = 1 # needed for the way how for the maximum key in the dict is searched
+pentNums[1] = 1
+
+def findHits(maxAmount):
+
+    n = 1
+    while True:
+        # compute the current hexagonal number
+        if n in hexNums:
+            nH = makeHexagonalNumber[n]
+        else:
+            nH = makeHexagonalNumber(n)
+            hexNums[n] = nH
+
+        print("handle now", n, "-->", nH) # todom remove
+
+        # fill the dicts of the tria and pent numbers
+        while (currentMax := max(triNums, key=lambda x: triNums[x])) < nH: # assigment in condition is a python 3.8 feature!
+            nextKey = currentMax+ + 1
+            triNums[nextKey] = makeTriangleNumber(nextKey)
+            print("    ", nextKey, triNums[nextKey]) # todom remove
+
+        # todo do the same for pentagonal number dict
+
+        n += 1
+
+
+findHits(10)
