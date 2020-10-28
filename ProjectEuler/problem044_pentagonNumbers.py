@@ -57,7 +57,7 @@ def findPenPairs(limit):
                         break
                     fakeN += 1
 
-                # todo do something
+                # check now if the sum was also pentagonal
                 if sum in penNums.values():
                     print("diff hit:", n, nP, m, mP, "-->", diff)
                     print("  sum is also pentagonal!", fakeN, fakeNP)
@@ -69,7 +69,18 @@ def findPenPairs(limit):
         if n == limit:
             break
 
-
 # ------------------------------------------------------------------------------
 
 findPenPairs(100**10)
+
+# ------------------------------------------------------------------------------
+# C:\Users\MarcelP\Desktop\MarcelsFolder\coding\pythonCollection\venv\Scripts\python.exe C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/ProjectEuler/problem044_pentagonNumbers.py
+# diff hit: 2167 7042750 1020 1560090 --> 5482660 (last number is answer; just quit the computation, since there can't be smaller solutions for the difference
+#   sum is also pentagonal! 2395 8602840
+# ------------------------------------------------------------------------------
+# Congratulations, the answer you gave to problem 44 is correct.
+#
+# You are the 57500th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 25%. #
+# ------------------------------------------------------------------------------
