@@ -156,3 +156,9 @@ print("send to PE:", finalSum)
 # result2=['406357289', '106357289', '460357289', '160357289', '430952867', '130952867']
 # result1=['1406357289', '4106357289', '1460357289', '4160357289', '1430952867', '4130952867']
 # send to PE: 16695334890
+# ------------------------------------------------------------------------------
+# Congratulations, the answer you gave to problem 43 is correct.
+#
+# You are the 58827th person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 25%.
