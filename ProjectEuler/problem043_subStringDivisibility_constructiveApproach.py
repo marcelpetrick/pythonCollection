@@ -60,8 +60,8 @@ def generateAlld8d9d10Numbers():
 
         startingValue += 17
 
-    print("candidates:", candidates)
-    print("number of items:", len(candidates))
+    #print("candidates:", candidates)
+    #print("number of items:", len(candidates))
     return candidates
 
 # ------------------------------------------------------------------------------
@@ -85,27 +85,27 @@ def findRemainingDigits(inputString):
 # print(findRemainingDigits("085"))
 # ------------------------------------------------------------------------------
 
-def createAllCandidatesWhichFulfilld7d8d9Attribute(inputListOfStringifiedSuffixes):
-    # 0. create all possible combinations of one element of the  remaining digits prefixed to
-    # the given element from inputListOfStringifiedSuffixes
-    # 1. then check if this is dividable by 13 (should eliminate a lot of elements)
-
-    for d8d9d10 in inputListOfStringifiedSuffixes:
-        # 0. remaining digits
-        remainingDigits = findRemainingDigits(d8d9d10)
-        for d7 in remainingDigits:
-            d7d8d9d10 = d7 + d8d9d10
-            if int(d7d8d9d10[:3]) % 13 == 0:
-                print("-->", d7d8d9d10)
-
-                # todo continue with that one
-                print("continue implementation here: that block should be refactored out: because it is applied iteratively for all other requirements")
-
-    pass
-
-# ------------------------------------------------------------------------------
-
-createAllCandidatesWhichFulfilld7d8d9Attribute(generateAlld8d9d10Numbers()) # todo make this a better approach; the function shall create the input itself
+# def createAllCandidatesWhichFulfilld7d8d9Attribute(inputListOfStringifiedSuffixes):
+#     # 0. create all possible combinations of one element of the  remaining digits prefixed to
+#     # the given element from inputListOfStringifiedSuffixes
+#     # 1. then check if this is dividable by 13 (should eliminate a lot of elements)
+#
+#     for d8d9d10 in inputListOfStringifiedSuffixes:
+#         # 0. remaining digits
+#         remainingDigits = findRemainingDigits(d8d9d10)
+#         for d7 in remainingDigits:
+#             d7d8d9d10 = d7 + d8d9d10
+#             if int(d7d8d9d10[:3]) % 13 == 0:
+#                 print("-->", d7d8d9d10)
+#
+#                 # todo continue with that one
+#                 print("continue implementation here: that block should be refactored out: because it is applied iteratively for all other requirements")
+#
+#     pass
+#
+# # ------------------------------------------------------------------------------
+#
+# createAllCandidatesWhichFulfilld7d8d9Attribute(generateAlld8d9d10Numbers()) # todo make this a better approach; the function shall create the input itself
 
 # ------------------------------------------------------------------------------
 
@@ -128,35 +128,43 @@ def createListOfStringifiedNumbersByPrependingOneOfTheRemainingDigitsWhileFulfil
 
 # ------------------------------------------------------------------------------
 
-result13 = createListOfStringifiedNumbersByPrependingOneOfTheRemainingDigitsWhileFulfillingDivisibility(generateAlld8d9d10Numbers(), 13)
-print("result13:", result13)
+import time
+startTime = time.time()
+result17 = generateAlld8d9d10Numbers()
+print(f"{result17=}") # abused the f-string-functionality for printing the variables name in front of the value
+result13 = createListOfStringifiedNumbersByPrependingOneOfTheRemainingDigitsWhileFulfillingDivisibility(result17, 13)
+print(f"{result13=}")
 result11 = createListOfStringifiedNumbersByPrependingOneOfTheRemainingDigitsWhileFulfillingDivisibility(result13, 11)
-print("result11:", result11)
+print(f"{result11=}")
 result7 = createListOfStringifiedNumbersByPrependingOneOfTheRemainingDigitsWhileFulfillingDivisibility(result11, 7)
-print(f"{result7=}") # abused the f-string-functionality for printing the vaiables name in front of the value
+print(f"{result7=}")
 result5 = createListOfStringifiedNumbersByPrependingOneOfTheRemainingDigitsWhileFulfillingDivisibility(result7, 5)
 print(f"{result5=}")
 result3 = createListOfStringifiedNumbersByPrependingOneOfTheRemainingDigitsWhileFulfillingDivisibility(result5, 3)
 print(f"{result3=}")
 result2 = createListOfStringifiedNumbersByPrependingOneOfTheRemainingDigitsWhileFulfillingDivisibility(result3, 2)
 print(f"{result2=}")
-# a filler for the first digit is needed: and this can be whatevery, so just make it divisiable by one!
+# a filler for the first digit is needed: and this can be whatever, so just make it dividable by one!
 result1 = createListOfStringifiedNumbersByPrependingOneOfTheRemainingDigitsWhileFulfillingDivisibility(result2, 1)
 print(f"{result1=}")
 
 finalSum = sum([int(elem) for elem in result1])
 print("send to PE:", finalSum)
+print("computation took", time.time() - startTime, "s")
 # ------------------------------------------------------------------------------
 
-# result13: ['2085', '9102', '0136', '7153', '5204', '9238', '7289', '1306', '2340', '6374', '0391', '8459', '2476', '3510', '0527', '4680', '1697', '8714', '2731', '0782', '4816', '2867', '3901', '0918', '7935', '1952', '5986']
-# result11: ['89102', '67153', '35204', '79238', '57289', '91306', '80391', '92476', '93510', '60527', '94680', '62731', '40782', '74816', '52867', '53901', '20918', '31952', '75986']
+# result17=['017', '034', '051', '068', '085', '102', '136', '153', '170', '187', '204', '238', '289', '306', '340', '357', '374', '391', '408', '425', '459', '476', '493', '510', '527', '561', '578', '612', '629', '680', '697', '714', '731', '748', '765', '782', '816', '850', '867', '901', '918', '935', '952', '986']
+# result13=['2085', '9102', '0136', '7153', '5204', '9238', '7289', '1306', '2340', '6374', '0391', '8459', '2476', '3510', '0527', '4680', '1697', '8714', '2731', '0782', '4816', '2867', '3901', '0918', '7935', '1952', '5986']
+# result11=['89102', '67153', '35204', '79238', '57289', '91306', '80391', '92476', '93510', '60527', '94680', '62731', '40782', '74816', '52867', '53901', '20918', '31952', '75986']
 # result7=['735204', '679238', '357289', '791306', '280391', '392476', '693510', '294680', '462731', '140782', '574816', '952867', '420918', '175986']
-# result5=['6357289', '0357289', '4357289', '1357289', '4952867', '0952867', '3952867', '1952867']
-# result3=['06357289', '60357289', '30952867', '03952867']
-# result2=['406357289', '106357289', '460357289', '160357289', '430952867', '130952867']
-# result1=['1406357289', '4106357289', '1460357289', '4160357289', '1430952867', '4130952867']
+# result5=['0357289', '6357289', '4357289', '1357289', '0952867', '3952867', '4952867', '1952867']
+# result3=['60357289', '06357289', '30952867', '03952867']
+# result2=['460357289', '160357289', '406357289', '106357289', '430952867', '130952867']
+# result1=['1460357289', '4160357289', '1406357289', '4106357289', '1430952867', '4130952867']
 # send to PE: 16695334890
+# computation took 0.0009756088256835938 s
 # ------------------------------------------------------------------------------
+
 # Congratulations, the answer you gave to problem 43 is correct.
 #
 # You are the 58827th person to have solved this problem.
