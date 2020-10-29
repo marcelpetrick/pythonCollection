@@ -32,9 +32,15 @@
 # implementation
 # ------------------------------------------------------------------------------
 
-# todo: works, but has a problem with numbers with less than three digits (like 0), because the prefix of zeroes would be added -> boom, not fitting anymore!
 def hasUniqueDigits(number):
     stringified = str(number)
+
+    # this check fixes the problem with numbers with less than three digits (like 0), because the prefix
+    # of zeroes would be added -> boom, not fitting anymore!
+    if len(stringified) < 3:
+        stringified = stringified.rjust(3, '0')
+        #print("pad pad:", stringified)
+
     everycharUnique = len(set(stringified)) == len(stringified)
     return everycharUnique
 
@@ -49,13 +55,14 @@ def generateAlld8d9d10Numbers():
     while startingValue < 1000:
         if startingValue % 17 == 0:
             if hasUniqueDigits(startingValue):
-                print(startingValue)
-                candidates.append(startingValue)
+                #print(startingValue)
+                candidates.append(str(startingValue).rjust(3, '0'))
 
         startingValue += 17
 
     print("candidates:", candidates)
     print("number of items:", len(candidates))
+    return candidates
 
 # ------------------------------------------------------------------------------
 
@@ -63,3 +70,18 @@ import time
 currentTime = time.time()
 generateAlld8d9d10Numbers()
 print("generation took", time.time() - currentTime, "s")
+
+# ------------------------------------------------------------------------------
+
+def createAllCandidatesWhichFulfilld7d8d9Attribute(inputListOfStringifiedSuffixes):
+    print("continue implementation here")
+
+    # 0. create all possible combinations of one element of the  remaining digits prefixed to
+    # the given element from inputListOfStringifiedSuffixes
+    # 1. then check if this is dividable by 13 (should eliminate a lot of elements)
+    pass
+
+# ------------------------------------------------------------------------------
+
+createAllCandidatesWhichFulfilld7d8d9Attribute()
+
