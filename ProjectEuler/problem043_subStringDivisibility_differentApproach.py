@@ -23,10 +23,43 @@
 # ** construct all possible triplets from 0to9pandigital number-space: and check if div-able by 17
 # ** if yes, then add one letter in front and check the new triplet if this is also divisable by 13
 # ** .. same approach for the rest: this shall really rule out a lot of duds
-# * question how many take-three-from-ten variants exist? (3 digits can be arranged in 6 different ways)
+# * question how many take-three-from-ten variants exist? (3 digits can be arranged in 6 different ways) - there should be 12 over 9 variations to pick 3 elements of ten given ones; then rearranging the oder multiply with six
+# * but wait: instead of making a fuzz: for the start just count up all multiples of 17 from 0 to 1000: then check if unique digits (nothing double) and then use this as start for the additional checks ..
 #
 # ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
+
+# todo: works, but has a problem with numbers with less than three digits (like 0), because the prefix of zeroes would be added -> boom, not fitting anymore!
+def hasUniqueDigits(number):
+    stringified = str(number)
+    everycharUnique = len(set(stringified)) == len(stringified)
+    return everycharUnique
+
+# ------------------------------------------------------------------------------
+print(hasUniqueDigits(221)) # todo convert to unit-test!
+print(hasUniqueDigits(123))
+# ------------------------------------------------------------------------------
+
+def generateAlld8d9d10Numbers():
+    candidates = []
+    startingValue = 0
+    while startingValue < 1000:
+        if startingValue % 17 == 0:
+            if hasUniqueDigits(startingValue):
+                print(startingValue)
+                candidates.append(startingValue)
+
+        startingValue += 17
+
+    print("candidates:", candidates)
+    print("number of items:", len(candidates))
+
+# ------------------------------------------------------------------------------
+
+import time
+currentTime = time.time()
+generateAlld8d9d10Numbers()
+print("generation took", time.time() - currentTime, "s")
