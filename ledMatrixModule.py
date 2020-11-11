@@ -5,11 +5,13 @@
 
 #------------------------------
 
-def computeMatrix(number : int):
+def computeMatrix(number):
     returnString = ""
 
-    returnString += "90009:" + "07070:" + "00200:" + "90009:" + "07070:"
+    # newline either by : or with \n
+    returnString += "90009:" + "07070:" + "00200:" + "90009:" + "07070:" # for now hardcoded; use something like number//4%25 for the remaineder
 
+    # problem: that string can't be auto-converted to Image-type; super weird ..
     return returnString
 
 print(computeMatrix(80))
