@@ -17,6 +17,15 @@
 # What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?
 
 # ------------------------------------------------------------------------------
-# idea:
+# idea: (naive)
+# * composite numbers are the "non-prime" numbers
+# * in this case even just the odd ones ..
+# * generate a list (or generator) of those by pre-computing the primes until a certain limit, then taking the
+#   "inverse", then filtering by oddness?
 #
+# * goldbach-check: create the difference of "number to test" and "loop up to the prime below number to check":
+# ** then divide the difference by two: and the resulting number shall be a square.
+# ** at least once this shall be true then -> then the conjecture would be true
+#
+# * go upwards to find the first number, which does not fulfill it
 # ------------------------------------------------------------------------------
