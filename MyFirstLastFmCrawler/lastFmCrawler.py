@@ -28,7 +28,7 @@ headers = {
     'Access-Control-Allow-Methods': 'GET',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '3600',
-    'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
+    'User-Agent': 'Mozilla/5.0 (Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0' # lel https://www.whatismybrowser.com/guides/the-latest-user-agent/firefox
     }
 
 #-----------------------------------------------------------------
@@ -41,9 +41,8 @@ def createBaseUrl(username):
 #-----------------------------------------------------------------
 
 def scrapypediscrap():
-
     currentTime = time.time()
-    baseUrl = createBaseUrl("aaabbbccc") # param is the username
+    baseUrl = createBaseUrl("mydamnbusiness") # param is the username
 
     completeLovedTrackCollection = set()
     lastResult = set()
