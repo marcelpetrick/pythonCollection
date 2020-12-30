@@ -5,12 +5,12 @@
 # It was proposed by Christian Goldbach that every odd composite number can be written as the sum of a prime
 # and twice a square.
 #
-# 9 = 7 + 2×12
-# 15 = 7 + 2×22
-# 21 = 3 + 2×32
-# 25 = 7 + 2×32
-# 27 = 19 + 2×22
-# 33 = 31 + 2×12
+# 9 = 7 + 2×1^2
+# 15 = 7 + 2×2^2
+# 21 = 3 + 2×3^2
+# 25 = 7 + 2×3^2
+# 27 = 19 + 2×2^2
+# 33 = 31 + 2×1^2
 #
 # It turns out that the conjecture was false.
 #
@@ -46,19 +46,58 @@ def getPrimesUntilLimit(limit):
 # ------------------------------------------------------------------------------
 
 def getPotentialOddComposites(limit):
+    # task: since the list of primes is later needed anyway for the Goldbach-check, pass it as argument?
     primes = getPrimesUntilLimit(limit)
-    # range 3: because 1 is not considered to be a composite number
+    # range 3: because 1 is not considered to be a composite number; also take stepping 2 for just "the odd ones"
     returnValue = [x for x in range(3, limit+1, 2) if x not in primes]
 
     return returnValue
 
 # ------------------------------------------------------------------------------
 
-upperLimit = 100
-primesTillLimit = getPrimesUntilLimit(upperLimit)
-print("primesTillLimit:", primesTillLimit)
-potentialOddComposites = getPotentialOddComposites(upperLimit)
-print("potentialOddComposites:", potentialOddComposites)
+# upperLimit = 100
+# primesTillLimit = getPrimesUntilLimit(upperLimit)
+# print("primesTillLimit:", primesTillLimit)
+# potentialOddComposites = getPotentialOddComposites(upperLimit)
+# print("potentialOddComposites:", potentialOddComposites)
+
+# ------------------------------------------------------------------------------
+
+# so far just with some arbitrary upper limit ... if this has to be incremented, then improve later
+limitForTest = 2 ** 17
+def findAGoldbachConjectureViolation(limit):
+    primes = getPrimesUntilLimit(limit)
+    candidates = getPotentialOddComposites(limit)
+
+    hasFittingFormula = False
+    for elem in candidates:
+        print("testing elem:", elem)
+        for prime in primes:
+            # abort if all primes until the number were tested
+            if prime > elem:
+                print("  prime > elem:", prime, ">", elem)
+                return False # abort mission
+
+            difference = elem - prime
+            if difference % 2 == 1:
+                #print("  remaining double-square is not even: difference = ", difference)
+                continue
+
+            remainingSquare = difference // 2
+
+            if ((remainingSquare ** 0.5) ** 2) != remainingSquare:
+                #print("   not a square:", remainingSquare)
+                continue
+
+            print("  has fitting formula:", elem, " = ", prime, " + 2 * ", int(remainingSquare ** 0.5), " ^ 2")
+            # hasFittingFormula = True
+            # return True
+            break
+
+
+
+
+findAGoldbachConjectureViolation(limitForTest)
 
 # ------------------------------------------------------------------------------
 
