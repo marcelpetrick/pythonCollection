@@ -25,9 +25,14 @@
 # implementation
 # ------------------------------------------------------------------------------
 
+# dictOfDistinctPrimeFactors = dict()
 def determineDistinctPrimeFactors(number):
-    primeFactors = set()
+    # # first try the good old lookup
+    # if number in dictOfDistinctPrimeFactors:
+    #     return dictOfDistinctPrimeFactors[number]
 
+    # else compute
+    primeFactors = set()
     current = number
 
     for divisor in range(2, number):
