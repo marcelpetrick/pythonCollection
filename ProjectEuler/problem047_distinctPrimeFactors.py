@@ -26,10 +26,19 @@
 # ------------------------------------------------------------------------------
 
 def determineDistinctPrimeFactors(number):
-    resultList = []
-    resultList.append(2)
-    return resultList
+    primeFactors = set()
 
+    current = number
+
+    for divisor in range(2, number):
+        if current % divisor == 0:
+            current = current // divisor
+            primeFactors.add(divisor)
+
+    return primeFactors
+
+# todo make this a unittest with the given values
+#print(determineDistinctPrimeFactors(646))
 # ------------------------------------------------------------------------------
 
 def findFourConsecutiveIntegers():
