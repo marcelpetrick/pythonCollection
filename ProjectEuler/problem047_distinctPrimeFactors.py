@@ -25,38 +25,46 @@
 # implementation
 # ------------------------------------------------------------------------------
 
-# dictOfDistinctPrimeFactors = dict()
-def determineDistinctPrimeFactors(number):
-    # # first try the good old lookup
-    # if number in dictOfDistinctPrimeFactors:
-    #     return dictOfDistinctPrimeFactors[number]
+import sys
+sys.setrecursionlimit(10**6)
+
+dictOfDistinctPrimeFactors = dict()
+def determineDistinctPrimeFactors(number, divisor):
+    # first try the good old lookup
+    if number in dictOfDistinctPrimeFactors:
+        return dictOfDistinctPrimeFactors[number]
 
     # else compute
-    primeFactors = set()
     current = number
+    #print("compute for number divisor:", number, divisor)
 
-    for divisor in range(2, number):
-        while current % divisor == 0:
-            current = current // divisor
-            primeFactors.add(divisor)
+    if current == 1:
+        primeFactors = set()
+        #primeFactors.add(2)
+    elif current % divisor == 0:
+        #current = current // divisor
+        primeFactors = determineDistinctPrimeFactors(current // divisor, divisor)
+        primeFactors.add(divisor)
+    else:
+        primeFactors = determineDistinctPrimeFactors(current, divisor + 1)
 
     return primeFactors
 
 # todo make this a unittest with the given values
-print(sorted(list(determineDistinctPrimeFactors(646)))) # sorted just for readability
+print(sorted(list(determineDistinctPrimeFactors(646, 2)))) # sorted just for readability
 # ------------------------------------------------------------------------------
 def benchmarkTest(limit):
     import time
     startTime = time.time()
 
     for number in range(2, limit):
-        pf = determineDistinctPrimeFactors(number)
+        pf = determineDistinctPrimeFactors(number, 2)
         #print(number, "->", pf)
 
     print("benchmarkTest took", time.time() - startTime, "s")
 
 
-benchmarkTest(2 ** 13)
+benchmarkTest(2 ** 12)
 # old implementation:  2 ** 13: 4.2 s
 
 # ------------------------------------------------------------------------------
