@@ -36,14 +36,29 @@ def determineDistinctPrimeFactors(number):
     current = number
 
     for divisor in range(2, number):
-        if current % divisor == 0:
+        while current % divisor == 0:
             current = current // divisor
             primeFactors.add(divisor)
 
     return primeFactors
 
 # todo make this a unittest with the given values
-#print(determineDistinctPrimeFactors(646))
+print(sorted(list(determineDistinctPrimeFactors(646)))) # sorted just for readability
+# ------------------------------------------------------------------------------
+def benchmarkTest(limit):
+    import time
+    startTime = time.time()
+
+    for number in range(2, limit):
+        pf = determineDistinctPrimeFactors(number)
+        #print(number, "->", pf)
+
+    print("benchmarkTest took", time.time() - startTime, "s")
+
+
+benchmarkTest(2 ** 13)
+# old implementation:  2 ** 13: 4.2 s
+
 # ------------------------------------------------------------------------------
 
 def findFourConsecutiveIntegers():
@@ -74,4 +89,14 @@ def findFourConsecutiveIntegers():
 
 # ------------------------------------------------------------------------------
 
-findFourConsecutiveIntegers()
+#findFourConsecutiveIntegers()
+
+# ------------------------------------------------------------------------------
+
+# found one:
+#    23373 -> {53, 3, 21, 7}
+#    23374 -> {2, 29, 13, 31}
+#    23375 -> {17, 11, 5, 25}
+#    23376 -> {2, 3, 4, 487}
+#
+# Process finished with exit code -1
