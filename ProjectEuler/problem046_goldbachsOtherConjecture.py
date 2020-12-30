@@ -64,19 +64,18 @@ def getPotentialOddComposites(limit):
 # ------------------------------------------------------------------------------
 
 # so far just with some arbitrary upper limit ... if this has to be incremented, then improve later
-limitForTest = 2 ** 17
+limitForTest = 2 ** 13 # first run had 2 ** 16, but ... can be chosen smaller ;)
 def findAGoldbachConjectureViolation(limit):
     primes = getPrimesUntilLimit(limit)
     candidates = getPotentialOddComposites(limit)
 
-    hasFittingFormula = False
     for elem in candidates:
         print("testing elem:", elem)
         for prime in primes:
             # abort if all primes until the number were tested
             if prime > elem:
-                print("  prime > elem:", prime, ">", elem)
-                return False # abort mission
+                print("abort mission, because all primes up to the given number where tested:", prime, ">", elem)
+                return elem # abort mission
 
             difference = elem - prime
             if difference % 2 == 1:
@@ -85,19 +84,22 @@ def findAGoldbachConjectureViolation(limit):
 
             remainingSquare = difference // 2
 
-            if ((remainingSquare ** 0.5) ** 2) != remainingSquare:
+            if (int(remainingSquare ** 0.5) ** 2) != remainingSquare:
                 #print("   not a square:", remainingSquare)
                 continue
 
             print("  has fitting formula:", elem, " = ", prime, " + 2 * ", int(remainingSquare ** 0.5), " ^ 2")
-            # hasFittingFormula = True
-            # return True
-            break
+            break # no more testing of the given candidate needed
 
+    return -1337 # fail
 
+# ------------------------------------------------------------------------------
 
-
-findAGoldbachConjectureViolation(limitForTest)
+import time
+startTime = time.time()
+violator = findAGoldbachConjectureViolation(limitForTest)
+print("computation ran for", time.time() - startTime, "s")
+print("result is:", violator)
 
 # ------------------------------------------------------------------------------
 
@@ -124,3 +126,25 @@ if __name__ == '__main__':
    unittest.main()
 
 # ------------------------------------------------------------------------------
+
+# ..
+#   has fitting formula: 5773  =  571  + 2 *  51  ^ 2
+# testing elem: 5775
+#   has fitting formula: 5775  =  157  + 2 *  53  ^ 2
+# testing elem: 5777
+# abort mission, because all primes up to the given number where tested: 5779 > 5777
+# computation ran for 0.602898359298706 s
+# result is: 5777
+# ..
+# ----------------------------------------------------------------------
+# Ran 2 tests in 0.000s
+#
+# OK
+
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 46 is correct.
+#
+# You are the 60972nd person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 25%.
