@@ -17,6 +17,9 @@
 # * create all permutations of 4 (digits) (or just 4-tuple?) out of digits from 1..9 (by a generator, not in memory)
 # * compute all permuts of this 4-tuple, then check if prime, then store all primes for that: and determine of any
 # 3-set the arithm. difference (also called: offset)?
+#
+# alternative approach: create all primes below 10.000 (four digits), then condense them into a map of ordered digits: key is the ascending order; values is then a list of the primes.
+# for each elem of the list, check then for difference ... first: just lists with at least two items (or three? i find the description ambiguous)
 
 # ------------------------------------------------------------------------------
 # implementation
