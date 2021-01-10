@@ -25,10 +25,25 @@
 # implementation
 # ------------------------------------------------------------------------------
 
-#import time
+# reuse code from previous solution: will require the existing numpy!
+# TODO maybe consider to use a prime-generator, which is proven and tested; see problem041
+def getPrimesUntilLimit(limit):
+    from ProjectEuler.problem668_numpy import sieveEras  # works, but just after commenting lots of code inside that file
+    primes = sieveEras(limit, False) # this is also a mistake in the second parameter
+    #print(len(primes), ":", primes)  # 78,498 for 10 ** 6 - which is correct
+
+    return primes
 
 # ------------------------------------------------------------------------------
 
+def createAscendingOrderedDigitString(number):
+    ''' Take input number, convert to string, sort ascending, return. '''
+
+    charList = ''.join(sorted(str(number)))
+    return charList
+# ------------------------------------------------------------------------------
+
+#todo remove
 def createListOfPrimePermutationsOfInputNumber(number):
     # todo maybe make the input a string
 
@@ -38,3 +53,13 @@ def createListOfPrimePermutationsOfInputNumber(number):
 
 # ------------------------------------------------------------------------------
 
+import unittest
+class Testcase(unittest.TestCase):
+    def test_createAscendingOrderedDigitString(self):
+        self.assertEqual(1337, createAscendingOrderedDigitString('1337'))
+        self.assertEqual(7331, createAscendingOrderedDigitString("1337"))
+        self.assertEqual(1733, createAscendingOrderedDigitString("1337"))
+
+# ------------------------------------------------------------------------------
+if __name__ == '__main__':
+    unittest.main()
