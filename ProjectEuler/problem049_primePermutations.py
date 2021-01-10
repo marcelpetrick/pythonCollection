@@ -31,35 +31,45 @@ def getPrimesUntilLimit(limit):
     from ProjectEuler.problem668_numpy import sieveEras  # works, but just after commenting lots of code inside that file
     primes = sieveEras(limit, False) # this is also a mistake in the second parameter
     #print(len(primes), ":", primes)  # 78,498 for 10 ** 6 - which is correct
-
     return primes
 
 # ------------------------------------------------------------------------------
 
 def createAscendingOrderedDigitString(number):
-    ''' Take input number, convert to string, sort ascending, return. '''
-
+    ''' Take input number, convert to string, sort ascending, return combined string. '''
     charList = ''.join(sorted(str(number)))
     return charList
+
 # ------------------------------------------------------------------------------
 
-#todo remove
-def createListOfPrimePermutationsOfInputNumber(number):
-    # todo maybe make the input a string
+def mapAllPrimesWithNormalizedStringAsKey(limit):
+    allPrimes = getPrimesUntilLimit(limit)
 
-    # todo maybe create some dictionary as backup: key will be the sorted digits of the number (normalization)
+    mappingDict = dict()
+    for prime in allPrimes:
+        normForm = createAscendingOrderedDigitString(prime)
 
-    pass
+        # check first if a list has to be created
+        if normForm not in mappingDict:
+            mappingDict[normForm] = []
 
+        formerValue = mappingDict[normForm]
+        formerValue.append(prime)
+        mappingDict[normForm] = formerValue
+
+    print("mappingDict:", mappingDict)
+
+mapAllPrimesWithNormalizedStringAsKey(1000)
 # ------------------------------------------------------------------------------
 
 import unittest
 class Testcase(unittest.TestCase):
     def test_createAscendingOrderedDigitString(self):
-        self.assertEqual(1337, createAscendingOrderedDigitString('1337'))
-        self.assertEqual(7331, createAscendingOrderedDigitString("1337"))
-        self.assertEqual(1733, createAscendingOrderedDigitString("1337"))
+        self.assertEqual("1337", createAscendingOrderedDigitString(1337))
+        self.assertEqual("1337", createAscendingOrderedDigitString(7331))
+        self.assertEqual("1337", createAscendingOrderedDigitString(1733))
 
 # ------------------------------------------------------------------------------
 if __name__ == '__main__':
     unittest.main()
+# ------------------------------------------------------------------------------
