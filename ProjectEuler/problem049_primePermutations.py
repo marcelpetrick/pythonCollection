@@ -60,12 +60,20 @@ def mapAllPrimesWithNormalizedStringAsKey(limit):
     return mappingDict
 
 # test run
-limit = 10000
-mapped = mapAllPrimesWithNormalizedStringAsKey(limit)
-print("mapped:", mapped)
-filtered = {k: v for k, v in mapped.items() if len(v) > 1 and len(k) == 4} # list comprehension for a map, OMG!
-print("filtered:", filtered)
+def theProgram():
+    limit = 10000
+    mapped = mapAllPrimesWithNormalizedStringAsKey(limit)
+    print("mapped:", mapped)
+    filtered = {k: v for k, v in mapped.items() if len(v) > 1 and len(k) == 4} # list comprehension for a map, OMG!
+    print("filtered:", filtered)
+    # lacks sorting: https://stackoverflow.com/questions/1479649/readably-print-out-a-python-dict-sorted-by-key
+    for key, value in sorted(filtered.items(), key=lambda x: x[0]):
+        print("{} : {}".format(key, value))
 
+# ------------------------------------------------------------------------------
+def findCandidates(input):
+    # todo implement until the new unit-test works!
+    return []
 # ------------------------------------------------------------------------------
 
 import unittest
@@ -74,6 +82,12 @@ class Testcase(unittest.TestCase):
         self.assertEqual("1337", createAscendingOrderedDigitString(1337))
         self.assertEqual("1337", createAscendingOrderedDigitString(7331))
         self.assertEqual("1337", createAscendingOrderedDigitString(1733))
+
+    def test_findCandidates(self):
+        # quote: "The arithmetic sequence, 1487, 4817, 8147, in which each of the terms increases by 3330,"
+        input = [1487, 1847, 4817, 4871, 7481, 7841, 8147, 8741]
+        result = [1487, 4817, 8147]
+        self.assertEqual(findCandidates(input), result)
 
 # ------------------------------------------------------------------------------
 if __name__ == '__main__':
