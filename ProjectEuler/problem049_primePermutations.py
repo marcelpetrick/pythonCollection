@@ -59,6 +59,8 @@ def mapAllPrimesWithNormalizedStringAsKey(limit):
 
     return mappingDict
 
+# ------------------------------------------------------------------------------
+
 # test run
 def theProgram():
     limit = 10000
@@ -71,9 +73,26 @@ def theProgram():
         print("{} : {}".format(key, value))
 
 # ------------------------------------------------------------------------------
+
 def findCandidates(input):
     # todo implement until the new unit-test works!
+
+    # idea: given is a list of primes, which share the same set of digits
+    # * sort this (just to be sure, because the list should be ascending, because the primes are generated like this,
+    # but just to be sure
+    # * then check the difference between each possible pair of integers: and also maybe map this to a structure
+    # where the key is the difference? and then we need at least two entries
+
+    sl = sorted(input)
+
+    # 1487: 1847, 4817, 4871, 7481, ..
+    # 1847: 4817, 4871, ..
+    # by list slicing?
+
+    #for elem in
+
     return []
+
 # ------------------------------------------------------------------------------
 
 import unittest
