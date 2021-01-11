@@ -83,13 +83,45 @@ def findCandidates(input):
     # * then check the difference between each possible pair of integers: and also maybe map this to a structure
     # where the key is the difference? and then we need at least two entries
 
-    sl = sorted(input)
+    sortedList = sorted(input)
 
     # 1487: 1847, 4817, 4871, 7481, ..
     # 1847: 4817, 4871, ..
     # by list slicing?
 
-    #for elem in
+    diffDict = dict()
+    for index in range(0, len(sortedList) - 1):
+        minuend = sortedList[index]
+        subtrahends = sortedList[index+1:]
+        print("minuend", minuend, "subtrahends", subtrahends)
+        # just like it should be:
+        # minuend 1487 subtrahends [1847, 4817, 4871, 7481, 7841, 8147, 8741]
+        # minuend 1847 subtrahends [4817, 4871, 7481, 7841, 8147, 8741]
+        # minuend 4817 subtrahends [4871, 7481, 7841, 8147, 8741]
+        # minuend 4871 subtrahends [7481, 7841, 8147, 8741]
+        # minuend 7481 subtrahends [7841, 8147, 8741]
+        # minuend 7841 subtrahends [8147, 8741]
+        # minuend 8147 subtrahends [8741]
+
+        print("diffs:")
+        for subtrahend in subtrahends:
+            diff = subtrahend - minuend # changed order to achieve always a positive result
+            print("diff:", diff) # todom remove
+
+            # check first for existence
+            if diff not in diffDict:
+                diffDict[diff] = []
+
+            # append to the entry: make a list of tuples
+            diffDict[diff].append(tuple([minuend, subtrahend]))
+
+    # filter now the resulting diffDict: this is a dict of list of tuples xD
+    filteredDiffDict = {k: v for k, v in diffDict.items() if len(v) > 1}
+
+    print("filteredDiffDict:", filteredDiffDict)
+    # result is quite close: filteredDiffDict: {360: [(1487, 1847), (7481, 7841)], 3330: [(1487, 4817), (4817, 8147)], 5994: [(1487, 7481), (1847, 7841)], 2970: [(1847, 4817), (4871, 7841)], 3024: [(1847, 4871), (4817, 7841)]}
+
+    # next: check if the last of each tuple in the lists is the first of the next (this filtering should lead to just one candidate)
 
     return []
 
