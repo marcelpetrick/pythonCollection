@@ -57,9 +57,15 @@ def mapAllPrimesWithNormalizedStringAsKey(limit):
         formerValue.append(prime)
         mappingDict[normForm] = formerValue
 
-    print("mappingDict:", mappingDict)
+    return mappingDict
 
-mapAllPrimesWithNormalizedStringAsKey(1000)
+# test run
+limit = 10000
+mapped = mapAllPrimesWithNormalizedStringAsKey(limit)
+print("mapped:", mapped)
+filtered = {k: v for k, v in mapped.items() if len(v) > 1 and len(k) == 4} # list comprehension for a map, OMG!
+print("filtered:", filtered)
+
 # ------------------------------------------------------------------------------
 
 import unittest
