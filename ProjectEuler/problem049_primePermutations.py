@@ -93,7 +93,7 @@ def findCandidates(input):
     for index in range(0, len(sortedList) - 1):
         minuend = sortedList[index]
         subtrahends = sortedList[index+1:]
-        print("minuend", minuend, "subtrahends", subtrahends)
+        #print("minuend", minuend, "subtrahends", subtrahends)
         # just like it should be:
         # minuend 1487 subtrahends [1847, 4817, 4871, 7481, 7841, 8147, 8741]
         # minuend 1847 subtrahends [4817, 4871, 7481, 7841, 8147, 8741]
@@ -103,10 +103,10 @@ def findCandidates(input):
         # minuend 7841 subtrahends [8147, 8741]
         # minuend 8147 subtrahends [8741]
 
-        print("diffs:")
+        #print("diffs:")
         for subtrahend in subtrahends:
             diff = subtrahend - minuend # changed order to achieve always a positive result
-            print("diff:", diff) # todom remove
+            #print("diff:", diff) # todom remove
 
             # check first for existence
             if diff not in diffDict:
@@ -121,9 +121,19 @@ def findCandidates(input):
     print("filteredDiffDict:", filteredDiffDict)
     # result is quite close: filteredDiffDict: {360: [(1487, 1847), (7481, 7841)], 3330: [(1487, 4817), (4817, 8147)], 5994: [(1487, 7481), (1847, 7841)], 2970: [(1847, 4817), (4871, 7841)], 3024: [(1847, 4871), (4817, 7841)]}
 
+    resultList = []
     # next: check if the last of each tuple in the lists is the first of the next (this filtering should lead to just one candidate)
+    for key in filteredDiffDict:
+        diffList = filteredDiffDict[key]
 
-    return []
+        if diffList[0][1] == diffList[1][0]:
+            print("hit!", diffList[0][1], diffList[1][0])
+            resultList = [diffList[0][0], diffList[0][1], diffList[1][0]]
+
+        if len(diffList) > 2:
+            raise Exception("more elements in the chain than expected!")
+
+    return resultList
 
 # ------------------------------------------------------------------------------
 
