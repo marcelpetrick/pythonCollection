@@ -61,19 +61,6 @@ def mapAllPrimesWithNormalizedStringAsKey(limit):
 
 # ------------------------------------------------------------------------------
 
-# test run
-def theProgram():
-    limit = 10000
-    mapped = mapAllPrimesWithNormalizedStringAsKey(limit)
-    print("mapped:", mapped)
-    filtered = {k: v for k, v in mapped.items() if len(v) > 1 and len(k) == 4} # list comprehension for a map, OMG!
-    print("filtered:", filtered)
-    # lacks sorting: https://stackoverflow.com/questions/1479649/readably-print-out-a-python-dict-sorted-by-key
-    for key, value in sorted(filtered.items(), key=lambda x: x[0]):
-        print("{} : {}".format(key, value))
-
-# ------------------------------------------------------------------------------
-
 def findCandidates(input):
     # todo implement until the new unit-test works!
 
@@ -118,7 +105,7 @@ def findCandidates(input):
     # filter now the resulting diffDict: this is a dict of list of tuples xD
     filteredDiffDict = {k: v for k, v in diffDict.items() if len(v) > 1}
 
-    print("filteredDiffDict:", filteredDiffDict)
+    #print("filteredDiffDict:", filteredDiffDict)
     # result is quite close: filteredDiffDict: {360: [(1487, 1847), (7481, 7841)], 3330: [(1487, 4817), (4817, 8147)], 5994: [(1487, 7481), (1847, 7841)], 2970: [(1847, 4817), (4871, 7841)], 3024: [(1847, 4871), (4817, 7841)]}
 
     resultList = []
@@ -126,12 +113,14 @@ def findCandidates(input):
     for key in filteredDiffDict:
         diffList = filteredDiffDict[key]
 
+        # actually this is just a simplified test, which luckily hits the mark. BUT each pair has to be checked "last of tuple is first of next one.."
+        # big TODO
         if diffList[0][1] == diffList[1][0]:
             print("hit!", diffList[0][1], diffList[1][0])
-            resultList = [diffList[0][0], diffList[0][1], diffList[1][0]]
+            resultList = [diffList[0][0], diffList[0][1], diffList[1][1]]
 
-        if len(diffList) > 2:
-            raise Exception("more elements in the chain than expected!")
+        #if len(diffList) > 2:
+        #    raise Exception("more elements in the chain than expected!")
 
     return resultList
 
@@ -154,3 +143,40 @@ class Testcase(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 # ------------------------------------------------------------------------------
+
+# test run
+def theProgram():
+    limit = 10000
+    mapped = mapAllPrimesWithNormalizedStringAsKey(limit)
+    #print("mapped:", mapped)
+    filtered = {k: v for k, v in mapped.items() if len(v) > 1 and len(k) == 4} # list comprehension for a map, OMG!
+    #print("filtered:", filtered)
+    # lacks sorting: https://stackoverflow.com/questions/1479649/readably-print-out-a-python-dict-sorted-by-key
+    for key, value in sorted(filtered.items(), key=lambda x: x[0]):
+        print("{} : {}".format(key, value))
+
+        chain = findCandidates(value)
+
+        if len(chain) > 0:
+            print("    ---> chain:", chain)
+
+import time
+currentTime = time.time()
+theProgram()
+print("program ran for:", time.time() - currentTime,"s")
+# ------------------------------------------------------------------------------
+
+# ..
+# hit! 6299 6299
+#     ---> chain: [2969, 6299, 9629]
+# program ran for: 0.16277813911437988 s
+#
+# --> combined manually: 296962999629
+
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 49 is correct.
+#
+# You are the 57341st person to have solved this problem.
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 25%.
