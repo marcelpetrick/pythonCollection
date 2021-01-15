@@ -17,7 +17,10 @@
 
 # ------------------------------------------------------------------------------
 # idea:
-# * todo
+# * todo [..] yeah, this is what happens when you implement on the fly and then it does NOT work!
+# * it looks like primefactors of higher power are counted as "different": see the given example for 3: 644 and 646 both
+# share the prime factor 2, but first has power of two, the other of one -> this attribute  could be the reason the current
+# program returns a non-accepted value (I don't want to call it: wrong)
 #
 # ------------------------------------------------------------------------------
 
@@ -26,7 +29,7 @@
 # ------------------------------------------------------------------------------
 
 import sys
-sys.setrecursionlimit(10**6)
+sys.setrecursionlimit(10**6) # todo: still needed?
 
 dictOfDistinctPrimeFactors = dict()
 def determineDistinctPrimeFactors(number, divisor):
@@ -40,9 +43,7 @@ def determineDistinctPrimeFactors(number, divisor):
 
     if current == 1:
         primeFactors = set()
-        #primeFactors.add(2)
     elif current % divisor == 0:
-        #current = current // divisor
         primeFactors = determineDistinctPrimeFactors(current // divisor, divisor)
         primeFactors.add(divisor)
     else:
@@ -108,3 +109,11 @@ def findFourConsecutiveIntegers():
 #    23376 -> {2, 3, 4, 487}
 #
 # Process finished with exit code -1
+
+# ------------------------------------------------------------------------------
+
+# last run:
+# [2, 17, 19]
+#
+# Process finished with exit code -1073741571 (0xC00000FD)
+# stack overflow says: "Simple as that, you are getting a stack overflow.", xD
