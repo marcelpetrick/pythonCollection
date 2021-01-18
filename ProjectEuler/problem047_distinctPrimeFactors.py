@@ -36,9 +36,10 @@ def getPrimesUntilLimit(limit):
     #print(len(primes), ":", primes)  # 78,498 for 10 ** 6 - which is correct
     return primes
 
-hardCodedPrimeList = getPrimesUntilLimit(10 ** 5) # is 100k really enough? with all four-digit number? doubt it
+hardCodedPrimeList = getPrimesUntilLimit(666666) # is 100k really enough? with all four-digit number? doubt it
 # ------------------------------------------------------------------------------
 
+# kept the pure function - should be put into a nice, nice library later
 def computePrimeFactors(number):
     #primeFactorLimit = int(number ** 0.5) + 1
     #print("number", number, "primeFactorLimit:", primeFactorLimit)
@@ -64,6 +65,28 @@ def computePrimeFactors(number):
 
 # ------------------------------------------------------------------------------
 
+def computePrimeFactorsCombined(number):
+    ''' idea: instead of 12 = 2*3*3 return: 4*3,
+        means: combine all identical prime factors into one number
+    '''
+
+    primeFactors = []
+
+    rest = number
+    for elem in hardCodedPrimeList:
+        power = 0
+        while rest % elem == 0:
+            power = power + 1
+            rest = rest // elem
+        if power > 0:
+            primeFactors.append(elem ** power)
+        if rest == 1:
+            break
+
+    return primeFactors
+
+# ------------------------------------------------------------------------------
+
 # # todo make this a unittest with the given values
 # print(sorted(list(determineDistinctPrimeFactors(646, 2)))) # sorted just for readability
 # ------------------------------------------------------------------------------
@@ -71,17 +94,18 @@ def computePrimeFactors(number):
 def findFourConsecutiveIntegers():
 
     number = 1
-    while True:
-        pf0 = determineDistinctPrimeFactors(number + 0)
+    increaseUntilInfinity = True
+    while increaseUntilInfinity:
+        pf0 = computePrimeFactorsCombined(number + 0)
 
         if len(pf0) == 4:
-            pf1 = determineDistinctPrimeFactors(number + 1)
+            pf1 = computePrimeFactorsCombined(number + 1)
 
             if len(pf1) == 4:
-                pf2 = determineDistinctPrimeFactors(number + 2)
+                pf2 = computePrimeFactorsCombined(number + 2)
 
                 if len(pf2) == 4:
-                    pf3 = determineDistinctPrimeFactors(number + 3)
+                    pf3 = computePrimeFactorsCombined(number + 3)
 
                     if len(pf3) == 4:
                         print("found one:")
@@ -90,13 +114,26 @@ def findFourConsecutiveIntegers():
                         print("  ", number + 2, "->", pf2)
                         print("  ", number + 3, "->", pf3)
 
-                        # todo continue here ..
+                        # todo continue here .. compare if they are distinct
+                        combinedSet = set()
+                        combinedSet.update(pf0)
+                        combinedSet.update(pf1)
+                        combinedSet.update(pf2)
+                        combinedSet.update(pf3)
+                        print("combinedSet:", combinedSet)
+                        print("has length:", len(combinedSet))
+
+                        if len(combinedSet) == 16:
+                            print("we have matched the conditions")
+                            increaseUntilInfinity = False
 
         number-=-1
 
+    print("the wanted number is:", number)
+
 # ------------------------------------------------------------------------------
 
-#findFourConsecutiveIntegers()
+findFourConsecutiveIntegers()
 
 # ------------------------------------------------------------------------------
 
@@ -132,6 +169,13 @@ class Testcase(unittest.TestCase):
         # 645 = 3 × 5 × 43
         # 646 = 2 × 17 × 19.
 
+    def test_computePrimeFactorsCombined(self):
+        self.assertEqual([7, 191], computePrimeFactorsCombined(1337))
+        self.assertEqual([16], computePrimeFactorsCombined(16))
+        self.assertEqual([4, 7, 23], computePrimeFactorsCombined(644))
+        self.assertEqual([3, 5, 43], computePrimeFactorsCombined(645))
+        self.assertEqual([2, 17, 19], computePrimeFactorsCombined(646))
+
     def test_benchmark(self):
         import time
         startTime = time.time()
@@ -148,3 +192,36 @@ class Testcase(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 # ------------------------------------------------------------------------------
+
+# C:\Users\MarcelP\Desktop\MarcelsFolder\coding\pythonCollection\venv\Scripts\python.exe C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/ProjectEuler/problem047_distinctPrimeFactors.py
+# found one:
+#    134043 -> [3, 7, 13, 491]
+#    134044 -> [4, 23, 31, 47]
+#    134045 -> [5, 17, 19, 83]
+#    134046 -> [2, 9, 11, 677]
+# combinedSet: {2, 3, 4, 5, 677, 7, 9, 491, 11, 13, 47, 17, 19, 83, 23, 31}
+# has length: 16
+# we have matched the conditions
+# the wanted number is: 134044
+# benchmarkTest took 0.17865967750549316 s
+# ...
+# ----------------------------------------------------------------------
+# Ran 3 tests in 0.179s
+#
+# OK
+#
+# Process finished with exit code 0
+
+# ------------------------------------------------------------------------------
+
+# Congratulations, the answer you gave to problem 47 is correct.
+#
+# You are the 57440th person to have solved this problem.
+#
+# You have earned 1 new award:
+#
+#     Flawless Fifty: Solve fifty consecutive problems
+#
+#
+#
+# This problem had a difficulty rating of 5%. The highest difficulty rating you have solved so far is 25%.
