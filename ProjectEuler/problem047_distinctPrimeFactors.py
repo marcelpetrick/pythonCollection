@@ -28,6 +28,41 @@
 # implementation
 # ------------------------------------------------------------------------------
 
+# reuse code from previous solution: will require the existing numpy!
+# TODO maybe consider to use a prime-generator, which is proven and tested; see problem041
+def getPrimesUntilLimit(limit):
+    from ProjectEuler.problem668_numpy import sieveEras  # works, but just after commenting lots of code inside that file
+    primes = sieveEras(limit, False) # this is also a mistake in the second parameter
+    #print(len(primes), ":", primes)  # 78,498 for 10 ** 6 - which is correct
+    return primes
+
+# ------------------------------------------------------------------------------
+
+def computePrimeFactors(number):
+    primeFactorLimit = int(number ** 0.5) + 1
+    print("number", number, "primeFactorLimit:", primeFactorLimit)
+
+    primeList = getPrimesUntilLimit(primeFactorLimit)
+
+    primeFactors = []
+
+    rest = number
+    for elem in primeList:
+        while rest % elem == 0:
+            primeFactors.append(elem)
+            rest = rest // elem
+        if rest == 1:
+            break
+
+    # add the rest if it was not one, because then this is a prime as well!
+    if rest != 1:
+        primeFactors.append(rest)
+
+    print("number", number, "primeFactors:", primeFactors)
+    return primeFactors
+
+# ------------------------------------------------------------------------------
+
 import sys
 sys.setrecursionlimit(10**6) # todo: still needed?
 
@@ -51,6 +86,8 @@ def determineDistinctPrimeFactors(number, divisor):
 
     return primeFactors
 
+# ------------------------------------------------------------------------------
+
 # todo make this a unittest with the given values
 print(sorted(list(determineDistinctPrimeFactors(646, 2)))) # sorted just for readability
 # ------------------------------------------------------------------------------
@@ -65,7 +102,7 @@ def benchmarkTest(limit):
     print("benchmarkTest took", time.time() - startTime, "s")
 
 
-benchmarkTest(2 ** 12)
+#benchmarkTest(2 ** 12)
 # old implementation:  2 ** 13: 4.2 s
 
 # ------------------------------------------------------------------------------
@@ -117,3 +154,28 @@ def findFourConsecutiveIntegers():
 #
 # Process finished with exit code -1073741571 (0xC00000FD)
 # stack overflow says: "Simple as that, you are getting a stack overflow.", xD
+
+
+import unittest
+class Testcase(unittest.TestCase):
+    def test_computePrimeFactors(self):
+        self.assertEqual([7,191], computePrimeFactors(1337))
+        self.assertEqual([2,2,2,2], computePrimeFactors(16))
+        self.assertEqual([2,2,7,23], computePrimeFactors(644))
+        self.assertEqual([3,5,43], computePrimeFactors(645))
+        self.assertEqual([2,17,19], computePrimeFactors(646))
+
+        # 644 = 2² × 7 × 23
+        # 645 = 3 × 5 × 43
+        # 646 = 2 × 17 × 19.
+
+    # def test_findCandidates(self):
+    #     # quote: "The arithmetic sequence, 1487, 4817, 8147, in which each of the terms increases by 3330,"
+    #     input = [1487, 1847, 4817, 4871, 7481, 7841, 8147, 8741]
+    #     result = [1487, 4817, 8147]
+    #     self.assertEqual(findCandidates(input), result)
+
+# ------------------------------------------------------------------------------
+if __name__ == '__main__':
+    unittest.main()
+# ------------------------------------------------------------------------------
