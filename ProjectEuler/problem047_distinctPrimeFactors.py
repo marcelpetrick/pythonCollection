@@ -36,18 +36,19 @@ def getPrimesUntilLimit(limit):
     #print(len(primes), ":", primes)  # 78,498 for 10 ** 6 - which is correct
     return primes
 
+hardCodedPrimeList = getPrimesUntilLimit(10 ** 5) # is 100k really enough? with all four-digit number? doubt it
 # ------------------------------------------------------------------------------
 
 def computePrimeFactors(number):
-    primeFactorLimit = int(number ** 0.5) + 1
-    print("number", number, "primeFactorLimit:", primeFactorLimit)
+    #primeFactorLimit = int(number ** 0.5) + 1
+    #print("number", number, "primeFactorLimit:", primeFactorLimit)
 
-    primeList = getPrimesUntilLimit(primeFactorLimit)
+    #primeList = getPrimesUntilLimit(primeFactorLimit)
 
     primeFactors = []
 
     rest = number
-    for elem in primeList:
+    for elem in hardCodedPrimeList:
         while rest % elem == 0:
             primeFactors.append(elem)
             rest = rest // elem
@@ -58,53 +59,13 @@ def computePrimeFactors(number):
     if rest != 1:
         primeFactors.append(rest)
 
-    print("number", number, "primeFactors:", primeFactors)
+    #print("number", number, "primeFactors:", primeFactors)
     return primeFactors
 
 # ------------------------------------------------------------------------------
 
-import sys
-sys.setrecursionlimit(10**6) # todo: still needed?
-
-dictOfDistinctPrimeFactors = dict()
-def determineDistinctPrimeFactors(number, divisor):
-    # first try the good old lookup
-    if number in dictOfDistinctPrimeFactors:
-        return dictOfDistinctPrimeFactors[number]
-
-    # else compute
-    current = number
-    #print("compute for number divisor:", number, divisor)
-
-    if current == 1:
-        primeFactors = set()
-    elif current % divisor == 0:
-        primeFactors = determineDistinctPrimeFactors(current // divisor, divisor)
-        primeFactors.add(divisor)
-    else:
-        primeFactors = determineDistinctPrimeFactors(current, divisor + 1)
-
-    return primeFactors
-
-# ------------------------------------------------------------------------------
-
-# todo make this a unittest with the given values
-print(sorted(list(determineDistinctPrimeFactors(646, 2)))) # sorted just for readability
-# ------------------------------------------------------------------------------
-def benchmarkTest(limit):
-    import time
-    startTime = time.time()
-
-    for number in range(2, limit):
-        pf = determineDistinctPrimeFactors(number, 2)
-        #print(number, "->", pf)
-
-    print("benchmarkTest took", time.time() - startTime, "s")
-
-
-#benchmarkTest(2 ** 12)
-# old implementation:  2 ** 13: 4.2 s
-
+# # todo make this a unittest with the given values
+# print(sorted(list(determineDistinctPrimeFactors(646, 2)))) # sorted just for readability
 # ------------------------------------------------------------------------------
 
 def findFourConsecutiveIntegers():
@@ -155,6 +116,7 @@ def findFourConsecutiveIntegers():
 # Process finished with exit code -1073741571 (0xC00000FD)
 # stack overflow says: "Simple as that, you are getting a stack overflow.", xD
 
+# ------------------------------------------------------------------------------
 
 import unittest
 class Testcase(unittest.TestCase):
@@ -165,15 +127,22 @@ class Testcase(unittest.TestCase):
         self.assertEqual([3,5,43], computePrimeFactors(645))
         self.assertEqual([2,17,19], computePrimeFactors(646))
 
+        # from the task itself:
         # 644 = 2² × 7 × 23
         # 645 = 3 × 5 × 43
         # 646 = 2 × 17 × 19.
 
-    # def test_findCandidates(self):
-    #     # quote: "The arithmetic sequence, 1487, 4817, 8147, in which each of the terms increases by 3330,"
-    #     input = [1487, 1847, 4817, 4871, 7481, 7841, 8147, 8741]
-    #     result = [1487, 4817, 8147]
-    #     self.assertEqual(findCandidates(input), result)
+    def test_benchmark(self):
+        import time
+        startTime = time.time()
+#
+        limit = 2 ** 14
+        for number in range(2, limit):
+            # pf = determineDistinctPrimeFactors(number, 2)
+            pf = computePrimeFactors(number)
+            # print(number, "->", pf)
+
+        print("benchmarkTest took", time.time() - startTime, "s")
 
 # ------------------------------------------------------------------------------
 if __name__ == '__main__':
