@@ -27,10 +27,6 @@
 # NOTE: Wording was modified slightly on 24 April 2007 to emphasise the theoretical nature of Lychrel numbers.
 
 # ------------------------------------------------------------------------------
-# idea:
-# TODO
-
-# ------------------------------------------------------------------------------
 # implementation
 # ------------------------------------------------------------------------------
 
@@ -40,11 +36,10 @@ def doLychrelIteration(number):
     returnValue = number + mirrorNumber
     return returnValue
 
-# TODO write a unit-test with the given numbers
-#print(doLychrelIteration(349))
 # ------------------------------------------------------------------------------
 
-def computeNumberOfLychrelStepsNeeded(number, limitOfIterations):
+# big problem with that function is that palindromic lychrels as starting point are returned as being non-lychrel!
+def computeNumberOfLychrelStepsNeeded(number, limitOfIterations, firstIteration = False):
     ''' Returns a tuple of (failed?, number of iterations). '''
 
     if limitOfIterations == 0:
@@ -54,51 +49,13 @@ def computeNumberOfLychrelStepsNeeded(number, limitOfIterations):
     # check if given number is palindromic
     numberString = str(number)
     mirrorNumberStr = numberString[::-1]
-    if numberString == mirrorNumberStr:
+    if numberString == mirrorNumberStr and not firstIteration:
         return False, 0 # is already palindromic, so zero iterations needed
     else:
         # do lychrel iteration and therefore the "+1" for the number of iterations
         # reduce the limit
         result, iterations = computeNumberOfLychrelStepsNeeded(doLychrelIteration(number), limitOfIterations - 1)
         return result, iterations+1
-
-# TODO write unit-test
-# print("quick test 349:", computeNumberOfLychrelStepsNeeded(349, 50)) # should be 3
-# print("quick test 10677:", computeNumberOfLychrelStepsNeeded(10677, 60)) # should be 53 iterations? yes
-
-# ------------------------------------------------------------------------------
-
-# # todo remove this
-# def eulerDriver():
-#     lychrelIterationsLimit = 50
-#     numberLimit = 10000
-#     lychrels = []
-#     for number in range(1, numberLimit + 1):
-#         failed, neededIterations = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
-#
-#         if failed == True: # means: after 50 iterations no result was found
-#             print("lychrel number:", number, ":", neededIterations)
-#             lychrels.append(number)
-#
-#     print(len(lychrels), "Lychrel numbers below", numberLimit)
-#     print("lychrels:", lychrels)
-#
-#     expectedLychrelsBelow2k = [196, 295, 394, 493, 592, 689, 691, 788, 790, 879, 887, 978, 986, 1495, 1497, 1585, 1587, 1675, 1677, 1765, 1767, 1855, 1857, 1945, 1947, 1997]
-#     print("expected:", expectedLychrelsBelow2k)
-#
-#     print("diff:", [elem for elem in expectedLychrelsBelow2k if elem not in lychrels])
-#     # sadly this proves below 2k they are identical ... whut?!?
-# # ------------------------------------------------------------------------------
-#
-# eulerDriver()
-
-# lychrel number: 9957
-# lychrel number: 9974
-# lychrel number: 9978
-# lychrel number: 9988
-# 246 Lychrel numbers below 10000
-# .. this is off by 3!
-
 
 # ------------------------------------------------------------------------------
 
@@ -107,7 +64,9 @@ def computeLychrelsWithLimit50IterationsBelowLimit(limit):
     lychrels = []
 
     for number in range(1, limit + 1):
-        failed, neededIterations = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
+        if number == 4994:
+            print("debug now")
+        failed, neededIterations = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit, True)
 
         if failed == True: # means: after 50 iterations no result was found
             #print("lychrel number:", number, ":", neededIterations) # will print 716, because 666+50+1 ... lol
@@ -155,11 +114,23 @@ class Testcase(unittest.TestCase):
         # missing: 9999
         # that are the three palindromic lychrels ... why do they miss from the computed list?!?
 
-print(4994, computeNumberOfLychrelStepsNeeded(4994, 100))
-print(8778, computeNumberOfLychrelStepsNeeded(8778, 100))
-print(9999, computeNumberOfLychrelStepsNeeded(9999, 100))
+print(4994, computeNumberOfLychrelStepsNeeded(4994, 100, True))
+print(8778, computeNumberOfLychrelStepsNeeded(8778, 100, True))
+print(9999, computeNumberOfLychrelStepsNeeded(9999, 100, True))
 
 # ------------------------------------------------------------------------------
 if __name__ == '__main__':
     unittest.main()
+# ------------------------------------------------------------------------------
+
+import time
+startTime = time.time()
+print(f"amount of potential Lychrel numbers below 10k: {len(computeLychrelsWithLimit50IterationsBelowLimit(10000))}")
+print(f"computation too {time.time() - startTime} seconds")
+
+# ------------------------------------------------------------------------------
+
+# amount of potential Lychrel numbers below 10k: 249
+# computation too 0.03774762153625488 seconds
+
 # ------------------------------------------------------------------------------
