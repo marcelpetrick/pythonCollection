@@ -67,7 +67,6 @@ def computeNumberOfLychrelStepsNeeded(number, limitOfIterations):
 # ------------------------------------------------------------------------------
 
 def eulerDriver():
-    amount = 0
     lychrelIterationsLimit = 50
     numberLimit = 10000
     lychrels = []
@@ -75,11 +74,10 @@ def eulerDriver():
         result, neededIterations = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
 
         if result == True:
-            #print("lychrel number:", number)
-            amount += 1
+            print("lychrel number:", number, ":", neededIterations)
             lychrels.append(number)
 
-    print(amount, "Lychrel numbers below", numberLimit)
+    print(len(lychrels), "Lychrel numbers below", numberLimit)
     print("lychrels:", lychrels)
 
     expectedLychrelsBelow2k = [196, 295, 394, 493, 592, 689, 691, 788, 790, 879, 887, 978, 986, 1495, 1497, 1585, 1587, 1675, 1677, 1765, 1767, 1855, 1857, 1945, 1947, 1997]
@@ -96,3 +94,16 @@ eulerDriver()
 # lychrel number: 9988
 # 246 Lychrel numbers below 10000
 # .. this is off by 3!
+
+
+# ------------------------------------------------------------------------------
+
+import unittest
+class Testcase(unittest.TestCase):
+    def test_computeNumberOfLychrelStepsNeeded(self):
+        self.assertEqual((3, True), computeNumberOfLychrelStepsNeeded(349, 50))
+
+# ------------------------------------------------------------------------------
+if __name__ == '__main__':
+    unittest.main()
+# ------------------------------------------------------------------------------
