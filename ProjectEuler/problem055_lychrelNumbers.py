@@ -45,6 +45,8 @@ def doLychrelIteration(number):
 # ------------------------------------------------------------------------------
 
 def computeNumberOfLychrelStepsNeeded(number, limitOfIterations):
+    ''' Returns a tuple of (failed?, number of iterations). '''
+
     if limitOfIterations == 0:
         # abort mission!
         return True, 666
@@ -55,7 +57,7 @@ def computeNumberOfLychrelStepsNeeded(number, limitOfIterations):
     if numberString == mirrorNumberStr:
         return False, 0 # is already palindromic, so zero iterations needed
     else:
-        # do lychrel iteration and therefore the "+1" for the iterations
+        # do lychrel iteration and therefore the "+1" for the number of iterations
         # reduce the limit
         result, iterations = computeNumberOfLychrelStepsNeeded(doLychrelIteration(number), limitOfIterations - 1)
         return result, iterations+1
@@ -66,28 +68,30 @@ def computeNumberOfLychrelStepsNeeded(number, limitOfIterations):
 
 # ------------------------------------------------------------------------------
 
-def eulerDriver():
-    lychrelIterationsLimit = 50
-    numberLimit = 10000
-    lychrels = []
-    for number in range(1, numberLimit + 1):
-        result, neededIterations = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
+# # todo remove this
+# def eulerDriver():
+#     lychrelIterationsLimit = 50
+#     numberLimit = 10000
+#     lychrels = []
+#     for number in range(1, numberLimit + 1):
+#         failed, neededIterations = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
+#
+#         if failed == True: # means: after 50 iterations no result was found
+#             print("lychrel number:", number, ":", neededIterations)
+#             lychrels.append(number)
+#
+#     print(len(lychrels), "Lychrel numbers below", numberLimit)
+#     print("lychrels:", lychrels)
+#
+#     expectedLychrelsBelow2k = [196, 295, 394, 493, 592, 689, 691, 788, 790, 879, 887, 978, 986, 1495, 1497, 1585, 1587, 1675, 1677, 1765, 1767, 1855, 1857, 1945, 1947, 1997]
+#     print("expected:", expectedLychrelsBelow2k)
+#
+#     print("diff:", [elem for elem in expectedLychrelsBelow2k if elem not in lychrels])
+#     # sadly this proves below 2k they are identical ... whut?!?
+# # ------------------------------------------------------------------------------
+#
+# eulerDriver()
 
-        if result == True:
-            print("lychrel number:", number, ":", neededIterations)
-            lychrels.append(number)
-
-    print(len(lychrels), "Lychrel numbers below", numberLimit)
-    print("lychrels:", lychrels)
-
-    expectedLychrelsBelow2k = [196, 295, 394, 493, 592, 689, 691, 788, 790, 879, 887, 978, 986, 1495, 1497, 1585, 1587, 1675, 1677, 1765, 1767, 1855, 1857, 1945, 1947, 1997]
-    print("expected:", expectedLychrelsBelow2k)
-
-    print("diff:", [elem for elem in expectedLychrelsBelow2k if elem not in lychrels])
-    # sadly this proves below 2k they are identical ... whut?!?
-# ------------------------------------------------------------------------------
-
-eulerDriver()
 # lychrel number: 9957
 # lychrel number: 9974
 # lychrel number: 9978
@@ -98,10 +102,29 @@ eulerDriver()
 
 # ------------------------------------------------------------------------------
 
+def computeLychrelsWithLimit50IterationsBelowLimit(limit):
+    lychrelIterationsLimit = 50
+    lychrels = []
+
+    for number in range(1, limit + 1):
+        failed, neededIterations = computeNumberOfLychrelStepsNeeded(number, lychrelIterationsLimit)
+
+        if failed == True: # means: after 50 iterations no result was found
+            #print("lychrel number:", number, ":", neededIterations) # will print 716, because 666+50+1 ... lol
+            lychrels.append(number)
+
+    return lychrels
+
+# ------------------------------------------------------------------------------
+
 import unittest
 class Testcase(unittest.TestCase):
     def test_computeNumberOfLychrelStepsNeeded(self):
-        self.assertEqual((3, True), computeNumberOfLychrelStepsNeeded(349, 50))
+        self.assertEqual((False, 3), computeNumberOfLychrelStepsNeeded(349, 50))
+        self.assertEqual((False, 53), computeNumberOfLychrelStepsNeeded(10677, 60))
+
+    def test_computeLychrelsWithLimit50IterationsBelowLimit(self):
+        self.assertEqual([196, 295, 394, 493, 592, 689, 691, 788, 790, 879, 887, 978, 986], computeLychrelsWithLimit50IterationsBelowLimit(1000))
 
 # ------------------------------------------------------------------------------
 if __name__ == '__main__':
