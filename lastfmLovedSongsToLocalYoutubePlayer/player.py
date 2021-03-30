@@ -2,6 +2,7 @@
 #-----------------------------------------------
 import pafy
 import vlc
+from time import sleep
 
 url = "https://www.youtube.com/watch?v=bMt47wvK6u0"
 video = pafy.new(url)
@@ -18,8 +19,10 @@ player.play()
 print("after play")
 
 # prevent end of the run, so that there is time to run
-while True:
-     pass
+# OTOH: now the video-window does not react to any "close button" anymore
+sleep(6)
+while player.is_playing():
+    sleep(1)
 
 #---------------------------
 # outcome: works, but really awkward, there are no "controls" and nothing else to do
