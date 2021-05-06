@@ -22,7 +22,7 @@ def copyFile(originalPath, file, resultPath):
     tail = remove_prefix(file, originalPath)
     print("tail:", tail)  # todom remove
     # remove leading "\" and replace the second one with underscore
-    finalName = tail[1:].replace("\\", "_")
+    finalName = tail[1:].replace("\\generic_", "_")
     print("finalName:", finalName) # todom remove
 
     import shutil
@@ -36,12 +36,12 @@ def remove_prefix(text, prefix):
     return text[text.startswith(prefix) and len(prefix):]
 
 #------------------------------------------------------------------------------------------------------
-# test run
+# test run: hardcoded path - no kwargs 😬
 inputPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/testFolder"
 # overwrite with real one
 inputPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/yocto_license_tree/yocto_license_tree/licenses"
 resultPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/licenses"
-discriminiatingPrefix = "generic_"
+discriminatingPrefix = "generic_"
 
 # call
-handleFilesRecursively(inputPath, resultPath, discriminiatingPrefix)
+handleFilesRecursively(inputPath, resultPath, discriminatingPrefix)
