@@ -27,10 +27,14 @@ def copyFile(originalPath, file, resultPath):
     # remove leading "\" and replace the second one with underscore
     finalName = tail[1:].replace("\\", "_")
     print("finalName:", finalName) # todom remove
-    
+
+    import shutil
+    target = resultPath+"/"+finalName
+    print("target:", target)
+    shutil.copy(file, target)
 
 #------------------------------------------------------------------------------------------------------
-# no Python 3.9, so <https://stackoverflow.com/a/16892491>
+# no Python 3.9 for str.removeprefix, so <https://stackoverflow.com/a/16892491>
 def remove_prefix(text, prefix):
     return text[text.startswith(prefix) and len(prefix):]
 #------------------------------------------------------------------------------------------------------
