@@ -2,24 +2,21 @@
 # @see README.md
 
 #------------------------------------------------------------------------------------------------------
-
-def handleFilesRecursively(path, prefix):
+def handleFilesRecursively(inputPath, resultPath, prefix):
     import os
 
-    for dirname, dirnames, filenames in os.walk(path):
+    for dirname, dirnames, filenames in os.walk(inputPath):
         #print("iter:", dirname, dirnames, filenames) # todom remove
         for filename in filenames:
             if filename.startswith(prefix):
                 fullPath = os.path.join(dirname, filename)
-                print("proper file:", fullPath)
-
+                # print("proper file:", fullPath)
                 # copy file with new name
-                resultPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/licenses"
-                #resultPath = "C:\Users\MarcelP\Desktop\MarcelsFolder\coding\pythonCollection\yoctoLicensePrep\licenses"
-                copyFile(path, fullPath, resultPath)
+                copyFile(inputPath, fullPath, resultPath)
 
 #------------------------------------------------------------------------------------------------------
 def copyFile(originalPath, file, resultPath):
+    print("----")
     print("copyFile:", originalPath, file, resultPath)
 
     tail = remove_prefix(file, originalPath)
@@ -37,10 +34,14 @@ def copyFile(originalPath, file, resultPath):
 # no Python 3.9 for str.removeprefix, so <https://stackoverflow.com/a/16892491>
 def remove_prefix(text, prefix):
     return text[text.startswith(prefix) and len(prefix):]
-#------------------------------------------------------------------------------------------------------
 
+#------------------------------------------------------------------------------------------------------
 # test run
-prefix = "generic_"
-path = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/testFolder"
-#path = "C:\Users\MarcelP\Desktop\MarcelsFolder\coding\pythonCollection\yoctoLicensePrep\\testFolder"
-handleFilesRecursively(path, prefix)
+inputPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/testFolder"
+# overwrite with real one
+inputPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/yocto_license_tree/yocto_license_tree/licenses"
+resultPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/licenses"
+discriminiatingPrefix = "generic_"
+
+# call
+handleFilesRecursively(inputPath, resultPath, discriminiatingPrefix)
