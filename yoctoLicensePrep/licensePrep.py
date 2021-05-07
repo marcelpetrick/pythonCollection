@@ -6,6 +6,7 @@
 #------------------------------------------------------------------------------------------------------
 # open tasks:
 # * use kwargs for input and output dir
+# * maybe filter double licenses by check via hash, but: how to reference to the fitting license? (maybe create a map of "license tpye -> libs")
 # * add unit test
 # * class-ify
 
@@ -53,4 +54,7 @@ resultPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoc
 discriminatingPrefix = "generic_"
 
 # call
+import time
+startTime = time.time()
 handleFilesRecursively(inputPath, resultPath, discriminatingPrefix)
+print("preparation took", time.time()-startTime, "seconds") # preparation took 9.707338094711304 seconds
