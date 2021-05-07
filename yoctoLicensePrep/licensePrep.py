@@ -1,5 +1,13 @@
-# License file preparator for Yocto-libs
+# @brief License file preparator for Yocto-libs
 # @see README.md
+# @author: mail@marcelpetrick.it
+# @spdx: GPL-3.0-or-later
+
+#------------------------------------------------------------------------------------------------------
+# open tasks:
+# * use kwargs for input and output dir
+# * add unit test
+# * class-ify
 
 #------------------------------------------------------------------------------------------------------
 def handleFilesRecursively(inputPath, resultPath, prefix):
@@ -16,23 +24,24 @@ def handleFilesRecursively(inputPath, resultPath, prefix):
 
 #------------------------------------------------------------------------------------------------------
 def copyFile(originalPath, file, resultPath):
-    print("----")
-    print("copyFile:", originalPath, file, resultPath)
+    import shutil
+    #print("----")
+    #print("copyFile:", originalPath, file, resultPath)
 
-    tail = remove_prefix(file, originalPath)
-    print("tail:", tail)  # todom remove
+    # name mangling
+    tail = removePrefix(file, originalPath)
+    #print("tail:", tail)  # todom remove
     # remove leading "\" and replace the second one with underscore
     finalName = tail[1:].replace("\\generic_", "_")
-    print("finalName:", finalName) # todom remove
+    #print("finalName:", finalName) # todom remove
 
-    import shutil
     target = resultPath+"/"+finalName
     print("target:", target)
     shutil.copy(file, target)
 
 #------------------------------------------------------------------------------------------------------
-# no Python 3.9 for str.removeprefix, so <https://stackoverflow.com/a/16892491>
-def remove_prefix(text, prefix):
+# no Python 3.9 for str.removeprefix ..
+def removePrefix(text, prefix):
     return text[text.startswith(prefix) and len(prefix):]
 
 #------------------------------------------------------------------------------------------------------
