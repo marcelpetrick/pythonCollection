@@ -46,15 +46,42 @@ def removePrefix(text, prefix):
     return text[text.startswith(prefix) and len(prefix):]
 
 #------------------------------------------------------------------------------------------------------
-# test run: hardcoded path - no kwargs 😬
-inputPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/testFolder"
-# overwrite with real one
-inputPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/yocto_license_tree/yocto_license_tree/licenses"
-resultPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/licenses"
-discriminatingPrefix = "generic_"
-
+#------------------------------------------------------------------------------------------------------
 # call
-import time
-startTime = time.time()
-handleFilesRecursively(inputPath, resultPath, discriminatingPrefix)
-print("preparation took", time.time()-startTime, "seconds") # preparation took 9.707338094711304 seconds
+def startPrep(inputPath, resultPath):
+    import time
+
+    # test run: hardcoded path - no kwargs 😬
+    #inputPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/testFolder"
+    # overwrite with real one
+    if not inputPath:
+        inputPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/yocto_license_tree/yocto_license_tree/licenses"
+    if not resultPath:
+        #resultPath = "C:/Users/MarcelP/Desktop/MarcelsFolder/coding/pythonCollection/yoctoLicensePrep/licenses"
+        resultPath = "licenses"
+
+    discriminatingPrefix = "generic_"
+
+    startTime = time.time()
+    handleFilesRecursively(inputPath, resultPath, discriminatingPrefix)
+    print("preparation took", time.time()-startTime, "seconds") # preparation took 9.707338094711304 seconds
+
+#------------------------------------------------------------------------------------------------------
+# arg parsing for input
+import argparse
+import sys
+import os
+
+def create_arg_parser():
+    # Creates and returns the ArgumentParser object
+
+    parser = argparse.ArgumentParser(description='Helper to collect and copy the license files..')
+    parser.add_argument('inputDirectory', help='Path to the input directory.')
+    parser.add_argument('--outputDirectory', help='Path to the output that contains the license files.')
+    return parser
+#------------
+
+if __name__ == "__main__":
+    arg_parser = create_arg_parser()
+    parsed_args = arg_parser.parse_args(sys.argv[1:])
+    startPrep(parsed_args.inputDirectory, parsed_args.outputDirectory)
