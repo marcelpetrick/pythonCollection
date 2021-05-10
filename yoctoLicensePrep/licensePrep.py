@@ -5,10 +5,9 @@
 
 #------------------------------------------------------------------------------------------------------
 # open tasks:
-# * use kwargs for input and output dir
-# * maybe filter double licenses by check via hash, but: how to reference to the fitting license? (maybe create a map of "license tpye -> libs")
 # * add unit test
 # * class-ify
+# * maybe filter double licenses by check via hash, but: how to reference to the fitting license? (maybe create a map of "license tpye -> libs")
 
 #------------------------------------------------------------------------------------------------------
 def handleFilesRecursively(inputPath, resultPath, prefix):
