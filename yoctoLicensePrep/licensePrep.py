@@ -5,9 +5,12 @@
 
 #------------------------------------------------------------------------------------------------------
 # open tasks:
+# * add proper description
+# * add a check if the target-directory exists -> else create one
 # * add unit test
 # * class-ify
-# * maybe filter double licenses by check via hash, but: how to reference to the fitting license? (maybe create a map of "license tpye -> libs")
+# * won't do: maybe filter double licenses by check via hash, but: how to reference to the fitting license?
+#   (maybe create a map of "license type -> libs")
 
 #------------------------------------------------------------------------------------------------------
 def handleFilesRecursively(inputPath, resultPath, prefix):
@@ -32,6 +35,7 @@ def copyFile(originalPath, file, resultPath):
     tail = removePrefix(file, originalPath)
     #print("tail:", tail)  # todom remove
     # remove leading "\" and replace the second one with underscore
+    # this is not working for *nix: because of the path-separator ('/') -> make it generic (or do it with OS-flags ..)
     finalName = tail[1:].replace("\\generic_", "_")
     #print("finalName:", finalName) # todom remove
 
@@ -74,9 +78,9 @@ import os
 def create_arg_parser():
     # Creates and returns the ArgumentParser object
 
-    parser = argparse.ArgumentParser(description='Helper to collect and copy the license files..')
-    parser.add_argument('inputDirectory', help='Path to the input directory.')
-    parser.add_argument('--outputDirectory', help='Path to the output that contains the license files.')
+    parser = argparse.ArgumentParser(description = 'Helper to collect and copy the license files')
+    parser.add_argument('inputDirectory', help = 'Path to the input directory.')
+    parser.add_argument('--outputDirectory', help = 'Path to the output that contains the license files.')
     return parser
 #------------
 
