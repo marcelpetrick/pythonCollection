@@ -12,3 +12,6 @@ cototienNumbers = [2, 4, 8, 23, 35, 47, 59, 63, 83, 89]
 ketihNumbers = [14, 19, 28, 47, 61, 75]
 strictlyNonPalindromicNumbers = []
 carolNumbers = [7, 47, 223, 959, 3967, 16127, 65023, 261119, 1046527, 4190207, 16769023, 67092479, 268402687, 1073676287, 4294836223, 17179607039, 68718952447, 274876858367, 1099509530623, 4398042316799, 17592177655807, 70368727400447, 281474943156223]
+
+# Even without program I can see the number 47 as number, which stands out.
+# Especially if you check it with the caro numbers. 7 is not Eisenstein prime, but next Caro Number 47 is
