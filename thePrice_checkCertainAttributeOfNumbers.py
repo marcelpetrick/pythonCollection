@@ -15,3 +15,17 @@ carolNumbers = [7, 47, 223, 959, 3967, 16127, 65023, 261119, 1046527, 4190207, 1
 
 # Even without program I can see the number 47 as number, which stands out.
 # Especially if you check it with the caro numbers. 7 is not Eisenstein prime, but next Caro Number 47 is
+
+#-----------------
+# Just to spin off the idea of how to solve similar issues:
+# Instead of iterating each list and then checking: let's make the Durschnitt (english?) of all non-empty lists.
+# Content would be the solution (if there is more than one such elements) ..
+
+intersection = set.intersection(set(superSingularPrimes),
+                                set(eisensteinPrimes),
+                                set(cototienNumbers),
+                                set(ketihNumbers),
+                                set(carolNumbers)
+                                )
+print("result:", intersection)
+# result: {47}
