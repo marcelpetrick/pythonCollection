@@ -88,3 +88,6 @@ if __name__ == "__main__":
     arg_parser = create_arg_parser()
     parsed_args = arg_parser.parse_args(sys.argv[1:])
     startPrep(parsed_args.inputDirectory, parsed_args.outputDirectory)
+
+# trigger with:
+# > python licensePrep.py --outputDirectory="licenses" "testFolder"
