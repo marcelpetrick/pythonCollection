@@ -13,44 +13,26 @@ def insertFilenameIntoHeader():
 
     print("----------------------------- handling:", filename,"---------------") # remove later
 
-    # open the file and check for the line
-
     # replace with new line: " * @file	$filename$"
-    newLine = " * @file\t" + filename
+    newLine = " * @file\t" + filename + "\n"
+
+    # read everything in and store an edited version in buffer
+    reading_file = open(filename, "r")
+    new_file_content = ""
+
+    for line in reading_file:
+        if ("@file") in line:
+            print(line, " --> ", newLine)
+            line = newLine
+
+        new_file_content += line #+ "\n"
+
+    reading_file.close()
+
+    # write to same file for replacing
+    writing_file = open(filename, "w")
+    writing_file.write(new_file_content)
+    writing_file.close()
+# -----------------------------------------------------------
 
 insertFilenameIntoHeader()
-
-# -----------------------------
-
-def oldCode():
-
-    import sys
-
-    # idea:
-    # shifting window of two lines over the whole file. if both lines are emtpy, then discard it by not printing. else print "last line".
-
-    lastLine = ""
-    currentLine = ""
-    # determine if this is the very first line - then suppress the output
-    firstLine = True
-
-    for line in sys.stdin:
-        print("----------------------------- handling:", )
-        line = line.replace("\n", "").replace("\r", "")
-
-        currentLine = line
-        #print("lastLine:", lastLine) # todom remove
-        #print("currentLine:", currentLine)  # todom remove
-
-        if(len(currentLine) != 0 or len(lastLine) != 0):
-            if(firstLine):
-                firstLine = False
-            else:
-                sys.stdout.write(lastLine)
-                sys.stdout.write("\n")
-
-        lastLine = currentLine
-
-    # print the last buffered line
-    sys.stdout.write(currentLine)
-    sys.stdout.write("\n")
