@@ -1,5 +1,8 @@
+# Small script to insert the filename as string to the header of the qml/h/cpp-file. Sometimes they were missing despite @file.
+#
 # @author mail@marcelpetrick.it
 
+# -----------------------------------------------------------
 def insertFilenameIntoHeader():
     # determine given parameter
     import sys
@@ -13,10 +16,10 @@ def insertFilenameIntoHeader():
         print("filename aas input missing")
         exit(1)
 
-    print("----------------------------- handling:", filename,"---------------") # remove later
+    print("----------------------------- handling:", filename, "---------------") # remove later
 
     # replace with new line: " * @file	$filename$"
-    # but just use the filename, disacard the leading path!
+    # but just use the filename, discard the leading path!
     newLine = " * @file    " + ntpath.basename(filename) + "\n" # also 4 spaces instead of tab
 
     # read everything in and store an edited version in buffer
