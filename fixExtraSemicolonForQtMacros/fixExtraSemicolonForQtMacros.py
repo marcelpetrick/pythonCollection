@@ -4,7 +4,6 @@
 def fixExtraSemicolonForQtMacros():
     # determine given parameter
     import sys
-    #import ntpath
 
     if len(sys.argv) < 2:
         print("too less args: first param = filename")
@@ -14,7 +13,7 @@ def fixExtraSemicolonForQtMacros():
         print("filename as input missing")
         exit(1)
 
-    print("----------------------------- handle now:", filename, "---------------") # remove later
+    #print("----------------------------- handle now:", filename, "---------------") # remove later
 
     # replace with new line: " * @file	$filename$"
     # but just use the filename, discard the leading path!
@@ -26,9 +25,16 @@ def fixExtraSemicolonForQtMacros():
 
     # handle all lines of the file
     for line in reading_file:
-        print(line)
         # expand this ...
-        if "Q_OBJECT" in line:
+        hit = False
+        givenQtMacros = {"Q_NAMESPACE", "Q_ENUM_NS", "Q_OBJECT", "Q_LOGGING_CATEGORY", "Q_DECLARE_OPERATORS_FOR_FLAGS",
+                         "Q_DECLARE_FLAGS", "Q_DECLARE_LOGGING_CATEGORY", "Q_DECLARE_METATYPE", "Q_PROPERTY"}
+        for macro in givenQtMacros:
+            if macro in line:
+                hit = True
+                break
+
+        if hit:
             line = line.replace(";", "")
 
         # append the processed line
@@ -41,6 +47,5 @@ def fixExtraSemicolonForQtMacros():
     writing_file.write(new_file_content)
     writing_file.close()
 #---------------------------------------------------------------------------------------------------------
-
-# just for testing
-# python fixExtraSemicolonForQtMacros.py "testInputFile.cpp"
+# this line must exist here to be callable from cmd with parameval
+fixExtraSemicolonForQtMacros()
