@@ -1,5 +1,8 @@
 # @author mail@marcelpetrick.it
 
+# execute with:
+#  ( find . -name "*.qml" ; find . -name "*.h" ; find . -name "*.cpp" ) | parallel --bar python3 ~/Documents/pythonCollection/fixExtraSemicolonForQtMacros/fixExtraSemicolonForQtMacros.py
+
 #---------------------------------------------------------------------------------------------------------
 def fixExtraSemicolonForQtMacros():
     # determine given parameter
