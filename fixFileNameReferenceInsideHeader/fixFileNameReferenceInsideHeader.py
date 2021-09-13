@@ -13,7 +13,7 @@ def insertFilenameIntoHeader():
         exit(1)
     filename = sys.argv[1]
     if not filename:
-        print("filename aas input missing")
+        print("filename as input missing")
         exit(1)
 
     print("----------------------------- handling:", filename, "---------------") # remove later
