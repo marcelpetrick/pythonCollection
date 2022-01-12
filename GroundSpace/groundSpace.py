@@ -92,10 +92,11 @@ class GroundSpaceGUI(QDialog):
 
         self.ui.resultFileSizeLE.setText(self.stringifyByteValue(self.sizeInByte))
 
+    # bug: values over 1 GB/s are shown as 1 ... there some digits would be helpful
     def stringifyByteValue(self, number, keepTail = True):
         prefixes = ['', 'K', 'M', 'G', 'T'] # what if bigger?
         numberOfOrder = 0
-        while number > 1024:
+        while number > 10*1024:
             if numberOfOrder == len(prefixes) - 1:
                 break
             number /= 1024
@@ -107,6 +108,8 @@ class GroundSpaceGUI(QDialog):
         return resultString
 
     def slotRunClicked(self):
+        print("--- start ---")  # todom remove
+
         # prepare the input
         self.collectAllInput()
 
