@@ -1,11 +1,18 @@
-# GPL v3
+# spdx: GNU General Public License v3.0 only
 # author: mail@marcelpetrick.it
+# year: 2022
 
 # idea: call like `python autoTrans.py input.ts output.ts` (later input is edited in place)
 # Replace all untranslated strings with the respective result from some online-translator.
 #
 # Steps? Read file linewise (tbd: may pose a problem for wrapped strings ..),
 # then take input and call whatever API (or webscrape?) and then replace it in the file.
+#
+# # todos
+# * create a requirements.txt
+# * add unit-tesing (at least the given ts-file should be translated properly)
+
+
 
 # ------------------------------------------------------------------------------------------------------------
 def simpleTest():
@@ -26,3 +33,17 @@ def simpleTest():
     #    print(translation.origin, ' -> ', translation.text)
 # ------------------------------------------------------------------------------------------------------------
 simpleTest()
+
+# ------------------------------------------------------------------------------------------------------------
+# xml parsing text. just open and try to grab some nodes
+# follows mostly https://realpython.com/python-xml-parser/#choose-the-right-xml-parsing-model for understanding the different possibilites
+def parsingxMLTest():
+    from xml.dom.minidom import parse, parseString
+    document = parse("testing/helloworld.ts")
+    print(document.version, document.encoding, document.standalone)  # 1.0 utf-8 None
+
+    root = document.documentElement
+    elemByTag = root.getElementsByTagName("context")
+    print(elemByTag)  # [<DOM Element: context at 0x2b1c3d0e1f0>, <DOM Element: context at 0x2b1c3d331f0>]
+
+parsingxMLTest()
