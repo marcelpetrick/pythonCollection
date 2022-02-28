@@ -43,7 +43,31 @@ def parsingxMLTest():
     print(document.version, document.encoding, document.standalone)  # 1.0 utf-8 None
 
     root = document.documentElement
-    elemByTag = root.getElementsByTagName("context")
-    print(elemByTag)  # [<DOM Element: context at 0x2b1c3d0e1f0>, <DOM Element: context at 0x2b1c3d331f0>]
+    contexts = root.getElementsByTagName("context")
+    print("elemByTag:", contexts)  # [<DOM Element: context at 0x2b1c3d0e1f0>, <DOM Element: context at 0x2b1c3d331f0>]
+
+    for elem in contexts:
+        messages = elem.getElementsByTagName("message")
+        print("messages:", messages)
+
+        for elem in messages:
+            translation = elem.getElementsByTagName("translation")
+            print("translation:", translation)
+
+            ## todo: check if the typ of translation is "unfinished" (how is this called?) and if yes, then take "source" and translate
+
+            #nodeAttributes = translation.attributes
+            #print("nodeAttributes:", nodeAttributes)
+
+            for t in translation:
+                if t.hasAttribute("type"):
+                    print("hss attribute..")
+                    nodeType = t.getAttribute("type") # see: https://docs.python.org/3/library/xml.dom.html#dom-attr-objects
+                    print("nodeType:", nodeType) # nodeType: unfinished
+
+
+            ## insert the result in "translation" and remove that "unfinished" tag
+
+    # todo print/store the modified xml! done
 
 parsingxMLTest()
