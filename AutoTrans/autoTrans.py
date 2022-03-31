@@ -32,10 +32,15 @@ def simpleTest():
     #for translation in translations:
     #    print(translation.origin, ' -> ', translation.text)
 # ------------------------------------------------------------------------------------------------------------
-simpleTest()
+#simpleTest()
+
 # ------------------------------------------------------------------------------------------------------------
 
 def translateOneString(input, source='de', destination='en'):
+    # maybe not the best way to deal with the open socket ..
+    import warnings
+    warnings.filterwarnings(action="ignore", message="unclosed", category=ResourceWarning)
+
     # use this to fix problem with latest release which reports ".. no token .."
     # `pip install googletrans==4.0.0-rc1`
     from googletrans import Translator
@@ -83,9 +88,9 @@ def parsingxMLTest():
 
     # todo print/store the modified xml! done
 
-parsingxMLTest()
+#parsingxMLTest()
 
-#-----------------
+# ------------------------------------------------------------------------------
 
 class Testcase(unittest.TestCase):
     def testTranslator0(self):
@@ -93,20 +98,26 @@ class Testcase(unittest.TestCase):
         expectedResult = 'chicken'
         output = translateOneString(input)
         self.assertEqual(output, expectedResult)
-        print(" --> input", input, "yielded result:", output)
+        #print(" --> input", input, "yielded result:", output)
 
     def testTranslator1(self):
         input = 'Huhn'
         expectedResult = 'piletina'
         output = translateOneString(input, 'de', 'hr')
         self.assertEqual(output, expectedResult)
-        print(" --> input", input, "yielded result:", output)
+        #print(" --> input", input, "yielded result:", output)
 
         # works, but check this:
         # ResourceWarning: Enable tracemalloc to get the object allocation traceback
-# # ------------------------------------------------------------------------------
+
+    def testTranslator2(self):
+        input = 'hello'
+        expectedResult = '你好'
+        output = translateOneString(input, 'en', 'zh-cn')
+        self.assertEqual(output, expectedResult)
+        # print(" --> input", input, "yielded result:", output)
+# ------------------------------------------------------------------------------
 #
 # ---- here comes the execution of the unit-tests ----
 if __name__ == '__main__':
     unittest.main()
-
