@@ -12,7 +12,7 @@
 # * create a requirements.txt
 # * add unit-tesing (at least the given ts-file should be translated properly)
 
-
+import unittest
 
 # ------------------------------------------------------------------------------------------------------------
 def simpleTest():
@@ -33,6 +33,19 @@ def simpleTest():
     #    print(translation.origin, ' -> ', translation.text)
 # ------------------------------------------------------------------------------------------------------------
 simpleTest()
+# ------------------------------------------------------------------------------------------------------------
+
+def translateOneString(input, source='de', destination='en'):
+    # use this to fix problem with latest release which reports ".. no token .."
+    # `pip install googletrans==4.0.0-rc1`
+    from googletrans import Translator
+
+    translator = Translator()
+
+    translation = translator.translate(input, src = source , dest = destination)
+    # obviously the v4.0-rc1 has an issue with bulk translations: https://github.com/ssut/py-googletrans/issues/264
+
+    return translation.text
 
 # ------------------------------------------------------------------------------------------------------------
 # xml parsing text. just open and try to grab some nodes
@@ -71,3 +84,29 @@ def parsingxMLTest():
     # todo print/store the modified xml! done
 
 parsingxMLTest()
+
+#-----------------
+
+class Testcase(unittest.TestCase):
+    def testTranslator0(self):
+        input = 'Huhn'
+        expectedResult = 'chicken'
+        output = translateOneString(input)
+        self.assertEqual(output, expectedResult)
+        print(" --> input", input, "yielded result:", output)
+
+    def testTranslator1(self):
+        input = 'Huhn'
+        expectedResult = 'piletina'
+        output = translateOneString(input, 'de', 'hr')
+        self.assertEqual(output, expectedResult)
+        print(" --> input", input, "yielded result:", output)
+
+        # works, but check this:
+        # ResourceWarning: Enable tracemalloc to get the object allocation traceback
+# # ------------------------------------------------------------------------------
+#
+# ---- here comes the execution of the unit-tests ----
+if __name__ == '__main__':
+    unittest.main()
+
