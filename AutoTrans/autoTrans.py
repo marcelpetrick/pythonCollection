@@ -79,16 +79,22 @@ def parsingxMLTest():
 
             for t in translation:
                 if t.hasAttribute("type"):
-                    print("hss attribute..")
+                    print("has attribute `type`")
                     nodeType = t.getAttribute("type") # see: https://docs.python.org/3/library/xml.dom.html#dom-attr-objects
                     print("nodeType:", nodeType) # nodeType: unfinished
+
+                    # todo remove the type "unfinished" by using removeAttribute("type")
+                    t.removeAttribute("type")
+
+                    # todo: do the translation by replacing "content" - the part with firstcHild?
+
 
 
             ## insert the result in "translation" and remove that "unfinished" tag
 
     # todo print/store the modified xml! done
 
-#parsingxMLTest()
+parsingxMLTest()
 
 # ------------------------------------------------------------------------------
 
