@@ -56,44 +56,56 @@ def translateOneString(input, source='de', destination='en'):
 # xml parsing text. just open and try to grab some nodes
 # follows mostly https://realpython.com/python-xml-parser/#choose-the-right-xml-parsing-model for understanding the different possibilites
 def parsingxMLTest():
-    from xml.dom.minidom import parse, parseString
+    from xml.dom.minidom import parse #, parseString
     document = parse("testing/helloworld.ts")
-    print(document.version, document.encoding, document.standalone)  # 1.0 utf-8 None
+    print("version=", document.version, "encoding=", document.encoding, "stand-alone=", document.standalone)  # 1.0 utf-8 None
 
     root = document.documentElement
-    contexts = root.getElementsByTagName("context")
+    contexts = root.getElementsByTagName("context") # <<- this is fix by structure of the ts-file
     print("elemByTag:", contexts)  # [<DOM Element: context at 0x2b1c3d0e1f0>, <DOM Element: context at 0x2b1c3d331f0>]
 
-    for elem in contexts:
-        messages = elem.getElementsByTagName("message")
+    for contextItem in contexts:
+        messages = contextItem.getElementsByTagName("message") # <<- this is fix by structure of the ts-file
         print("messages:", messages)
 
-        for elem in messages:
-            translation = elem.getElementsByTagName("translation")
-            print("translation:", translation)
+        for messageItem in messages:
+            translation = messageItem.getElementsByTagName("translation") # <<- this is fix by structure of the ts-file
+            print("translation:", translation, translation.length) # the length should always be 1! One 'source' one 'translation'
 
             ## todo: check if the typ of translation is "unfinished" (how is this called?) and if yes, then take "source" and translate
 
             #nodeAttributes = translation.attributes
             #print("nodeAttributes:", nodeAttributes)
 
-            for t in translation:
-                if t.hasAttribute("type"):
+            needsToBeTranslated = False
+
+            for translationItem in translation:
+                if translationItem.hasAttribute("type"):
                     print("has attribute `type`")
-                    nodeType = t.getAttribute("type") # see: https://docs.python.org/3/library/xml.dom.html#dom-attr-objects
+                    nodeType = translationItem.getAttribute("type") # see: https://docs.python.org/3/library/xml.dom.html#dom-attr-objects
                     print("nodeType:", nodeType) # nodeType: unfinished
+                    needsToBeTranslated = True
 
                     # todo remove the type "unfinished" by using removeAttribute("type")
-                    t.removeAttribute("type")
+                    translationItem.removeAttribute("type")
 
-                    # todo: do the translation by replacing "content" - the part with firstcHild?
+                    # todo: do the translation by replacing "content" - the part with firstChild?
 
+            # now check if it needs to be translated
+            if(needsToBeTranslated):
+                print(" --> handle the translation now!")
 
+                # todo get the source-node and its content
 
-            ## insert the result in "translation" and remove that "unfinished" tag
+                # todo put it to the translator
+
+                # todo add the translated string to the translation-node (see above - maybe store it somewhere..)
+
+                # remove the unfinished-tag from the 'translation'
 
     # todo print/store the modified xml! done
 
+# call for explorative development and testing
 parsingxMLTest()
 
 # ------------------------------------------------------------------------------
