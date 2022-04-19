@@ -1,6 +1,12 @@
 # quick check how a loan could be used to buy ETF
 # I am not really convinced, but naively the question is: should the ETF not outgrow (quickly) the current low itnerest rates?
 # (83 for 1k for 12 months they say)
+# ------------------------------------------------------------------------------
+# TODO
+# * add unit-testing
+# * monthly rate is actually a direct result of "start Amout divided by monthsToRun" - plan is to use this fully for financial growth
+#   but what happens if it zeroes? and there is no "putback"?
+# * add also a reminder of the fiscal tax? (25%?)
 
 def loanFondsPrinter(startAmount = 1000, monthlyRates = 83, etfGrowthAnuallyInPercent = 12, monthsToRun = 12):
     # start at zero, then do the rates; first rate at 1
@@ -11,14 +17,17 @@ def loanFondsPrinter(startAmount = 1000, monthlyRates = 83, etfGrowthAnuallyInPe
         # to keep it conservative: first deduct, then increase the rest by the gain
         amount -= monthlyRates
         amount *= growthPerMonthFactor
-        # since you can't have negative amounts on an ETF account
+        # since you can't have negative amounts on an ETF account, stop calculating the interest by growth
+        # TODO this looks wrong; move above line 13
         if amount < 0:
             amount = 0
         print("month", month, amount)
     print("remainder:", amount)
 
+# ------------------------------------------------------------------------------
 # added 100e as "additionally taken out
-loanFondsPrinter(10000, 285 + 0, 15, 36)
+loanFondsPrinter(30000, 1259, 20, 24)
+# ------------------------------------------------------------------------------
 # run: 285; 15%
 # ..
 # month 30 4090.639184306465
