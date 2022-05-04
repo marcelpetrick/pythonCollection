@@ -69,13 +69,15 @@ def removeSuperflousStructuringLines():
 
     for line in reading_file:
         for waste in stuffToRemove:
-            if line.__contains__(waste)
-        if waste.lower() in line.lower():
-            print("waste found")
-            outputLine = False
+            if waste in line: # no .lower() for both, else "software" matches "SOF"
+                print("waste found:", waste)
+                outputLine = False
+                break
 
         if outputLine:
             new_file_content += line #+ "\n"
+        
+        outputLine = True            
 
     reading_file.close()
 
