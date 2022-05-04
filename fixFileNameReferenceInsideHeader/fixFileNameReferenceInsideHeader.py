@@ -58,7 +58,13 @@ def removeSuperflousStructuringLines():
     # read everything in and store an edited version in buffer
     reading_file = open(filename, "r")
     new_file_content = ""
-    stuffToRemove = {"private method", "public method"}
+    stuffToRemove = {
+        "Private methods",
+        "Public methods"
+        "Protected methods",
+        "SOF",
+        "EOF"
+    }
     outputLine = True
 
     for line in reading_file:
