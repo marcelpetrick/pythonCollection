@@ -40,5 +40,46 @@ def insertFilenameIntoHeader():
     writing_file.write(new_file_content)
     writing_file.close()
 # -----------------------------------------------------------
+def removeSuperflousStructuringLines():
+    # determine given parameter
+    import sys
+    import ntpath
 
+    if len(sys.argv) < 2:
+        print("too less args: first param = filename")
+        exit(1)
+    filename = sys.argv[1]
+    if not filename:
+        print("filename as input missing")
+        exit(1)
+
+    print("----------------------------- handling:", filename, "---------------") # remove later
+
+    # read everything in and store an edited version in buffer
+    reading_file = open(filename, "r")
+    new_file_content = ""
+    stuffToRemove = {"private method", "public method"}
+    outputLine = True
+
+    for line in reading_file:
+        for waste in stuffToRemove:
+            if line.__contains__(waste)
+        if waste.lower() in line.lower():
+            print("waste found")
+            outputLine = False
+
+        if outputLine:
+            new_file_content += line #+ "\n"
+
+    reading_file.close()
+
+    # write to same file for replacing
+    writing_file = open(filename, "w")
+    writing_file.write(new_file_content)
+    writing_file.close()
+# -----------------------------------------------------------
+
+# first fix the headers
 insertFilenameIntoHeader()
+# then remove the crap
+removeSuperflousStructuringLines()
