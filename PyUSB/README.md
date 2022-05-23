@@ -45,3 +45,15 @@ ps@ps-kub:~/Documents/pythonCollection/PyUSB$
 
 Question: what is the tty-device?
 
+-------------
+
+see: https://github.com/xypron/pysispm/blob/master/examples/sispmctl.py
+```
+ps@ps-kub:~/Documents/pythonCollection/PyUSB$ sudo ./sispmctl.py -o 1
+device 0, 01:01:60:d0:e9
+        status[1] = 1
+        status[2] = 0
+        status[3] = 0
+        status[4] = 0
+ps@ps-kub:~/Documents/pythonCollection/PyUSB$ 
+```
