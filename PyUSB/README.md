@@ -25,3 +25,11 @@ as well:
 > pip install pysispm
 
 https://github.com/marcelpetrick/pysispm/blob/master/examples/printenv.py
+
+as well: pyserial!
+
+
+Check for devices:
+lsusb
+
+Bus 001 Device 003: ID 04b4:fd15 Cypress Semiconductor Corp. Energenie EG-PMS2
