@@ -3,9 +3,14 @@
 # author: mail@marcelpetrick.it
 # date: 20220523
 
+CYCLES=0
+
 # cycle
 while true; do
-    echo "--------------------------------------------------"
+    # increment
+    CYCLES=$((CYCLES+1))
+    echo "-------------------- run $CYCLES --------------------"
+    
     # turn outlet 1 on
     echo "* turn on *"
     sudo ./sispmctl.py -o 1
@@ -29,6 +34,9 @@ while true; do
         echo "found version; driver works"
     else
         echo "version not found -> break!"
+        date # timestamp
+        timestamp=$(date +%s)
+        echo "timestamp: $timestamp"        
         break
     fi
     
