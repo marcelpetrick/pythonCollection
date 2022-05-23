@@ -33,3 +33,15 @@ Check for devices:
 lsusb
 
 Bus 001 Device 003: ID 04b4:fd15 Cypress Semiconductor Corp. Energenie EG-PMS2
+----------------
+
+ps@ps-kub:~/Documents/pythonCollection/PyUSB$ sudo python3 powerCycle.py 
+sispm.getid(d): 01:01:60:d0:e9
+found device with fitting id
+line 44: end of powerCycle()
+ps@ps-kub:~/Documents/pythonCollection/PyUSB$ 
+
+----------------
+
+Question: what is the tty-device?
+

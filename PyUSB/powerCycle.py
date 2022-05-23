@@ -41,7 +41,7 @@ def powerCycle():
         print('Device ' + id + ' not found')
         quit()
         
-    print("line 31")
+    print("line 44: end of powerCycle()")
 
 #-------------------------------
 
