@@ -1,7 +1,11 @@
 #!/bin/bash    
 
 # author: mail@marcelpetrick.it
-# date: 20220523
+# date: 20220524
+# version: 2
+
+echo "* turn off before first cycle *"
+sudo ./sispmctl.py -f 1
 
 CYCLES=0
 
