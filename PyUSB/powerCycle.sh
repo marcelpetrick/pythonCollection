@@ -6,6 +6,7 @@
 
 echo "* turn off before first cycle *"
 sudo ./sispmctl.py -f 1
+sleep 1s
 
 CYCLES=0
 
@@ -13,7 +14,7 @@ CYCLES=0
 while true; do
     # increment
     CYCLES=$((CYCLES+1))
-    echo "-------------------- run $CYCLES --------------------"
+    echo "-------------------- run $CYCLES / $(date) --------------------"
     
     # turn outlet 1 on
     echo "* turn on *"
