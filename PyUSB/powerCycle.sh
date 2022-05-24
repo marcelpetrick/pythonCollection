@@ -2,7 +2,7 @@
 
 # author: mail@marcelpetrick.it
 # date: 20220524
-# version: 6
+# version: 7
 
 # Info: Script to run automated on/off-tests with a programmable power-outlet.
 #       Does a cycle of "turn on, wait until booted, check if the touchcontroller-firmware-version is readable.
@@ -85,6 +85,8 @@ else
         CONTINUOUS=true
     fi
 fi
+
+echo "running version: $(ssh root@192.168.100.21 cat /etc/os-version)"
 
 # call the function
 powerCycle
