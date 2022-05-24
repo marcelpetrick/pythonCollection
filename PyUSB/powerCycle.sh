@@ -2,7 +2,14 @@
 
 # author: mail@marcelpetrick.it
 # date: 20220524
-# version: 2
+# version: 4
+
+# Info: Script to run automated on/off-tests with a programmable power-outlet.
+#       Does a cycle of "turn on, wait until booted, check if the touchcontroller-firmware-version is readable.
+#       If yes, turn off outlet. Else just break and wait.
+#
+# Requires: sispmctl.py from https://github.com/xypron/pysispm/blob/master/examples/sispmctl.py
+#           and the device put to outlet 1 (and configured wifi-access..)
 
 echo "* turn off before first cycle *"
 sudo ./sispmctl.py -f 1
@@ -40,8 +47,6 @@ while true; do
     else
         echo "version not found -> break!"
         date # timestamp
-        timestamp=$(date +%s)
-        echo "timestamp: $timestamp"        
         break
     fi
     
