@@ -57,3 +57,81 @@ device 0, 01:01:60:d0:e9
         status[4] = 0
 ps@ps-kub:~/Documents/pythonCollection/PyUSB$ 
 ```
+
+
+----------------
+Output looks like this:
+
+```
+$ sudo ./powerCycle.sh --cont
+* turn off before first cycle *
+device 0, 01:01:60:d0:e9
+        status[1] = 0
+        status[2] = 0
+        status[3] = 0
+        status[4] = 0
+---------- run 1 / 0 freezes yet / Di 24. Mai 14:18:16 CEST 2022 / continuous=false ----------
+* turn on *
+device 0, 01:01:60:d0:e9
+        status[1] = 1
+        status[2] = 0
+        status[3] = 0
+        status[4] = 0
+^C
+ps@ps-kub:~/Documents/pythonCollection/PyUSB$ sudo ./powerCycle.sh -cont
+continuous mode enabled!
+* turn off before first cycle *
+device 0, 01:01:60:d0:e9
+        status[1] = 0
+        status[2] = 0
+        status[3] = 0
+        status[4] = 0
+---------- run 1 / 0 freezes yet / Di 24. Mai 14:18:20 CEST 2022 / continuous=true ----------
+* turn on *
+device 0, 01:01:60:d0:e9
+        status[1] = 1
+        status[2] = 0
+        status[3] = 0
+        status[4] = 0
+* ssh now *
+SSHRESULT=0600.0000.b7cc.aa0a
+10.25.0d.00.01
+03.04
+5a.80:AP
+found version; driver works
+* turn off *
+device 0, 01:01:60:d0:e9
+        status[1] = 0
+        status[2] = 0
+        status[3] = 0
+        status[4] = 0
+* wait one more second *
+---------- run 2 / 0 freezes yet / Di 24. Mai 14:18:42 CEST 2022 / continuous=true ----------
+* turn on *
+device 0, 01:01:60:d0:e9
+        status[1] = 1
+        status[2] = 0
+        status[3] = 0
+        status[4] = 0
+* ssh now *
+SSHRESULT=0600.0000.b7cc.aa0a
+10.25.0d.00.01
+03.04
+5a.80:AP
+found version; driver works
+* turn off *
+device 0, 01:01:60:d0:e9
+        status[1] = 0
+        status[2] = 0
+        status[3] = 0
+        status[4] = 0
+* wait one more second *
+---------- run 3 / 0 freezes yet / Di 24. Mai 14:19:05 CEST 2022 / continuous=true ----------
+* turn on *
+device 0, 01:01:60:d0:e9
+        status[1] = 1
+        status[2] = 0
+        status[3] = 0
+        status[4] = 0
+
+```
