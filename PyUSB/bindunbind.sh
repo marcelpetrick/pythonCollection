@@ -19,3 +19,4 @@ while true ; do
         test -e /dev/input/touchscreen0 || break
         echo "ok: $CYCLES - $(date)"
 done
+echo "failed; check dmesg .."
