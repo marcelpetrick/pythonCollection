@@ -1,8 +1,9 @@
 #!/bin/sh
 
+echo "---------------"
 # print some info about the device first
 echo "installed bundle: $(cat /etc/os-version)"
-echo "used HMI: $(cat /logging/p118/log.log | grep fd | tail -1)"
+echo "used HMI: $(cat /logging/p118/log.log | grep FD | tail -1)"
 echo "firmware information: $(cat /sys/devices/platform/soc@0/30800000.bus/30a30000.i2c/i2c-1/1-0041/{{firmware,kernel,protocol}_version,mode})"
 echo "---------------"
 
