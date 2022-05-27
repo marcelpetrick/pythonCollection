@@ -7,5 +7,5 @@ while true ; do
         echo 1-0041 > /sys/bus/i2c/drivers/ili210x_i2c/bind 
         sleep 1
         test -e /dev/input/touchscreen0 || break
-        echo "ok: $(CYCLES) - $(date)"
+        echo "ok: $CYCLES - $(date)"
 done 
