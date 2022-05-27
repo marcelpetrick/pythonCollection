@@ -1,11 +1,12 @@
 #!/bin/sh
 
-# print current firmware-version first
+# print some info about the device first
+echo "installed bundle: $(cat /etc/os-version)"
 echo "firmware information:"
 cat /sys/devices/platform/soc@0/30800000.bus/30a30000.i2c/i2c-1/1-0041/{{firmware,kernel,protocol}_version,mode} 
-
+echo "---------------"
 # cycles
-echo "Will do the unbind/bind-cycles now. Check with \"dmesg -w\" the output."
+echo "Will do the unbind/bind-cycles now. Check with \"dmesg -w\" the output.\n"
 CYCLES=0
 while true ; do
 	CYCLES=$((CYCLES+1))
