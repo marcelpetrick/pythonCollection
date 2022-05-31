@@ -1,11 +1,14 @@
 #!/bin/sh
 
-echo "---------------"
 # print some info about the device first
+echo "---------------"
 echo "installed bundle: $(cat /etc/os-version)"
+echo "---------------"
 echo "used HMI: $(cat /logging/p118/log.log | grep FD | tail -1)"
-echo "firmware information: $(cat /sys/devices/platform/soc@0/30800000.bus/30a30000.i2c/i2c-1/1-0041/{{firmware,kernel,protocol}_version,mode})"
+echo "---------------"
 echo "firmware alternative: $(cat /sys/bus/i2c/devices/1-0041/*version)"
+echo "---------------"
+echo "md5 of firmware file: $(md5sum /lib/firmware/ilitek/ili251x.bin)"
 echo "---------------"
 
 # cycles
@@ -21,3 +24,4 @@ while true ; do
         echo "ok: $CYCLES - $(date)"
 done
 echo "failed; check dmesg .."
+echo "---------------"
