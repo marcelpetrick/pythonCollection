@@ -4,7 +4,7 @@
 echo "---------------"
 echo "installed bundle: $(cat /etc/os-version)"
 echo "---------------"
-echo "used HMI: $(cat /logging/p118/log.log | grep FD | tail -1)"
+echo "used HMI: $(cat /logging/p118/log.log | grep "HMI FD" | tail -1)"
 echo "---------------"
 echo "firmware alternative: $(cat /sys/bus/i2c/devices/1-0041/*version)"
 echo "---------------"
