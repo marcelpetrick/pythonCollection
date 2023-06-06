@@ -9,7 +9,7 @@ def computeMatrix(number):
     returnString = ""
 
     # newline either by : or with \n
-    returnString += "90009:" + "07070:" + "00200:" + "90009:" + "07070:" # for now hardcoded; use something like number//4%25 for the remaineder
+    returnString += "90009:" + "07070:" + "00200:" + "90009:" + "07070:" # for now hardcoded; use something like number//4%25 for the remainder
 
     # problem: that string can't be auto-converted to Image-type; super weird ..
     return returnString
