@@ -1,5 +1,6 @@
 import sys
 import xml.etree.ElementTree as ET
+import shutil
 
 def translateString(input):
     # Implement your translation logic here
@@ -18,14 +19,17 @@ def transform_ts_file(ts_file_path):
             translated_text = translateString(source_text)
             translation.text = translated_text
 
-    transformed_ts_file_path = ts_file_path.replace('.ts', '_transformed.ts')
-    tree.write(transformed_ts_file_path, encoding='utf-8')
+    tree.write(ts_file_path, encoding='utf-8', xml_declaration=True)
+
+    # Preserve the last empty line
+    with open(ts_file_path, 'a', encoding='utf-8') as file:
+        file.write('\n')
 
     print("TS file transformed successfully.")
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python autoTrans_v2.py <ts_file_path>")
+        print("Usage: python script.py <ts_file_path>")
         return
 
     ts_file_path = sys.argv[1]
