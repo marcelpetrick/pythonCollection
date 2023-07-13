@@ -10,7 +10,7 @@
 #
 # # todos
 # * create a requirements.txt
-# * add unit-tesing (at least the given ts-file should be translated properly)
+# * add unit-testing (at least the given ts-file should be translated properly)
 
 import unittest
 
@@ -32,7 +32,7 @@ def simpleTest():
     #for translation in translations:
     #    print(translation.origin, ' -> ', translation.text)
 # ------------------------------------------------------------------------------------------------------------
-#simpleTest()
+simpleTest()
 
 # ------------------------------------------------------------------------------------------------------------
 
@@ -106,7 +106,7 @@ def parsingxMLTest():
     # todo print/store the modified xml! done
 
 # call for explorative development and testing
-parsingxMLTest()
+#parsingxMLTest()
 
 # ------------------------------------------------------------------------------
 
@@ -137,5 +137,5 @@ class Testcase(unittest.TestCase):
 # ------------------------------------------------------------------------------
 #
 # ---- here comes the execution of the unit-tests ----
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
