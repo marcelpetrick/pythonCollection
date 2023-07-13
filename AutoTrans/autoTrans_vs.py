@@ -1,3 +1,4 @@
+import sys
 import xml.etree.ElementTree as ET
 
 def translateString(input):
@@ -22,5 +23,13 @@ def transform_ts_file(ts_file_path):
 
     print("TS file transformed successfully.")
 
-# Example usage
-transform_ts_file('your_ts_file.ts')
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python autoTrans_v2.py <ts_file_path>")
+        return
+
+    ts_file_path = sys.argv[1]
+    transform_ts_file(ts_file_path)
+
+if __name__ == "__main__":
+    main()
