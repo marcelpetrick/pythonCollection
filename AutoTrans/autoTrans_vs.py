@@ -2,6 +2,18 @@ import sys
 import xml.etree.ElementTree as ET
 import shutil
 
+
+def replace_first_lines(file_path):
+    with open(file_path, 'r+', encoding='utf-8') as file:
+        lines = file.readlines()
+        lines[0] = '<?xml version="1.0" encoding="utf-8"?>\n'
+        lines.insert(1, '<!DOCTYPE TS>\n')
+
+        file.seek(0)
+        file.writelines(lines)
+        file.truncate()
+
+
 def translateString(input):
     # Implement your translation logic here
     # This is just a placeholder
@@ -17,12 +29,13 @@ def transform_ts_file(ts_file_path):
         if translation is not None and translation.attrib.get('type') == 'unfinished':
             source_text = message.find('source').text
             translated_text = translateString(source_text)
-            # Assign the translated text
             translation.text = translated_text
-            # Remove the 'type' attribute
             del translation.attrib['type']
 
     tree.write(ts_file_path, encoding='utf-8', xml_declaration=True)
+
+    # Replace the first two lines of the output file
+    replace_first_lines(ts_file_path)
 
     # Preserve the last empty line
     with open(ts_file_path, 'a', encoding='utf-8') as file:
