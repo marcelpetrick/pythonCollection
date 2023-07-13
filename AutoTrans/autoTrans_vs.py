@@ -17,7 +17,10 @@ def transform_ts_file(ts_file_path):
         if translation is not None and translation.attrib.get('type') == 'unfinished':
             source_text = message.find('source').text
             translated_text = translateString(source_text)
+            # Assign the translated text
             translation.text = translated_text
+            # Remove the 'type' attribute
+            del translation.attrib['type']
 
     tree.write(ts_file_path, encoding='utf-8', xml_declaration=True)
 
