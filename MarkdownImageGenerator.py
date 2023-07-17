@@ -1,5 +1,5 @@
-# smoil script te generate the markdown-tags for a list of 38 images.
-# lol, never do something manually what you can automate in 2 hrs ..
+# smol script to generate the markdown-tags for a list of 38 images.
+# lol, never do something manually what you can automate in 2 hrs..
 
 # author: mail@marcelpetrick.it
 # license: GPL v3.0
