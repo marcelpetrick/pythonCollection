@@ -1,141 +1,111 @@
-# spdx: GNU General Public License v3.0 only
-# author: mail@marcelpetrick.it
-# year: 2022
+import sys
+import xml.etree.ElementTree as ET
+import time
+import translators
 
-# idea: call like `python autoTrans.py input.ts output.ts` (later input is edited in place)
-# Replace all untranslated strings with the respective result from some online-translator.
+def replace_first_lines(file_path):
+    """
+    Replaces the first two lines of a file with the XML declaration and DOCTYPE.
+
+    :param file_path: The path to the file to modify
+    :type file_path: str
+    """
+    with open(file_path, 'r+', encoding='utf-8') as file:
+        lines = file.readlines()
+        lines[0] = '<?xml version="1.0" encoding="utf-8"?>\n'
+        lines.insert(1, '<!DOCTYPE TS>\n')
+
+        file.seek(0)
+        file.writelines(lines)
+        file.truncate()
+
+
+def translateString(input: str, fromLang: str, toLang: str) -> str:
+    """
+    Translate a string from one language to another.
+
+    This function uses Google's translation service, but could be modified to use another service like DeepL or Yandex.
+    The translation process is timed, and the duration is printed alongside the original and translated strings and the source and target languages.
+
+    Parameters:
+    input (str): The string to translate.
+    fromLang (str): The ISO 639-1 code of the language to translate from.
+    toLang (str): The ISO 639-1 code of the language to translate to.
+
+    Returns:
+    str: The translated string.
+
+    Example:
+    >>> translateString("hello world", "en", "es")
+    'hola mundo'
+    """
+    startTime = time.time()
+    output = translators.google(input, fromLang, toLang) # or deepl or yandex
+    print(f"translateString: {time.time() - startTime}s : {input} -> {output} ({fromLang} -> {toLang})")
+
+    return output
+
+def transform_ts_file(ts_file_path, sourceLanguage, targetLanguage):
+    """
+    Transforms a .ts file by translating all 'unfinished' messages.
+    The translated messages replace the original messages in the .ts file.
+
+    :param ts_file_path: The path to the .ts file to transform
+    :type ts_file_path: str
+    """
+    tree = ET.parse(ts_file_path)
+    root = tree.getroot()
+
+    #sourceLanguage, targetLanguage = 'en', 'de' # todo make this dependent on the given parameters, maybe read from ts-file
+
+    # Iterate over all 'message' elements in the XML tree
+    for message in root.iter('message'):
+        translation = message.find('translation')
+        if translation is not None and translation.attrib.get('type') == 'unfinished':
+            source_text = message.find('source').text
+            translated_text = translateString(source_text, sourceLanguage, targetLanguage)
+            translation.text = translated_text
+            del translation.attrib['type']
+
+    tree.write(ts_file_path, encoding='utf-8', xml_declaration=True)
+
+    # Replace the first two lines of the output file
+    replace_first_lines(ts_file_path)
+
+    # Preserve the last empty line
+    with open(ts_file_path, 'a', encoding='utf-8') as file:
+        file.write('\n')
+
+    print("TS file transformed successfully.")
+
+
+def main():
+    """
+    The main entry point of the script. It checks if a file path was given as
+    command line argument and if so, calls the function to transform the .ts file.
+    """
+    if len(sys.argv) < 4:
+        print("Usage: python script.py <ts_file_path> sourceLanguage targetLanguage")
+        return
+
+    ts_file_path = sys.argv[1]
+    startTime = time.time()
+    transform_ts_file(ts_file_path, sys.argv[2], sys.argv[3])
+    print(f"Whole execution took {time.time() - startTime}s.")
+
+if __name__ == "__main__":
+    main()
+
+# test call:
+#  python autoTrans.py testing/helloworld.ts en de
+
+# another example:
 #
-# Steps? Read file linewise (tbd: may pose a problem for wrapped strings ..),
-# then take input and call whatever API (or webscrape?) and then replace it in the file.
-#
-# # todos
-# * create a requirements.txt
-# * add unit-testing (at least the given ts-file should be translated properly)
-
-import unittest
-
-# ------------------------------------------------------------------------------------------------------------
-def simpleTest():
-    # use this to fix problem with latest release which reports ".. no token .."
-    # `pip install googletrans==4.0.0-rc1`
-    from googletrans import Translator
-
-    translator = Translator()
-
-    translation = translator.translate('Überbackenes Weißbrot mit Wiener Schnitzel und Tomaten.', src='de', dest='en')
-    # obviously the v4.0-rc1 has an issue with bulk translations: https://github.com/ssut/py-googletrans/issues/264
-
-    print(translation.origin, " -> ", translation.text)
-
-    # original from the official googletrans-page
-    #translations = translator.translate(['The quick brown fox', 'jumps over', 'the lazy dog'], dest='ko')
-    #for translation in translations:
-    #    print(translation.origin, ' -> ', translation.text)
-# ------------------------------------------------------------------------------------------------------------
-simpleTest()
-
-# ------------------------------------------------------------------------------------------------------------
-
-def translateOneString(input, source='de', destination='en'):
-    # maybe not the best way to deal with the open socket ..
-    import warnings
-    warnings.filterwarnings(action="ignore", message="unclosed", category=ResourceWarning)
-
-    # use this to fix problem with latest release which reports ".. no token .."
-    # `pip install googletrans==4.0.0-rc1`
-    from googletrans import Translator
-
-    translator = Translator()
-
-    translation = translator.translate(input, src = source , dest = destination)
-    # obviously the v4.0-rc1 has an issue with bulk translations: https://github.com/ssut/py-googletrans/issues/264
-
-    return translation.text
-
-# ------------------------------------------------------------------------------------------------------------
-# xml parsing text. just open and try to grab some nodes
-# follows mostly https://realpython.com/python-xml-parser/#choose-the-right-xml-parsing-model for understanding the different possibilites
-def parsingxMLTest():
-    from xml.dom.minidom import parse #, parseString
-    document = parse("testing/helloworld.ts")
-    print("version=", document.version, "encoding=", document.encoding, "stand-alone=", document.standalone)  # 1.0 utf-8 None
-
-    root = document.documentElement
-    contexts = root.getElementsByTagName("context") # <<- this is fix by structure of the ts-file
-    print("elemByTag:", contexts)  # [<DOM Element: context at 0x2b1c3d0e1f0>, <DOM Element: context at 0x2b1c3d331f0>]
-
-    for contextItem in contexts:
-        messages = contextItem.getElementsByTagName("message") # <<- this is fix by structure of the ts-file
-        print("messages:", messages)
-
-        for messageItem in messages:
-            translation = messageItem.getElementsByTagName("translation") # <<- this is fix by structure of the ts-file
-            print("translation:", translation, translation.length) # the length should always be 1! One 'source' one 'translation'
-
-            ## todo: check if the typ of translation is "unfinished" (how is this called?) and if yes, then take "source" and translate
-
-            #nodeAttributes = translation.attributes
-            #print("nodeAttributes:", nodeAttributes)
-
-            needsToBeTranslated = False
-
-            for translationItem in translation:
-                if translationItem.hasAttribute("type"):
-                    print("has attribute `type`")
-                    nodeType = translationItem.getAttribute("type") # see: https://docs.python.org/3/library/xml.dom.html#dom-attr-objects
-                    print("nodeType:", nodeType) # nodeType: unfinished
-                    needsToBeTranslated = True
-
-                    # todo remove the type "unfinished" by using removeAttribute("type")
-                    translationItem.removeAttribute("type")
-
-                    # todo: do the translation by replacing "content" - the part with firstChild?
-
-            # now check if it needs to be translated
-            if(needsToBeTranslated):
-                print(" --> handle the translation now!")
-
-                # todo get the source-node and its content
-
-                # todo put it to the translator
-
-                # todo add the translated string to the translation-node (see above - maybe store it somewhere..)
-
-                # remove the unfinished-tag from the 'translation'
-
-    # todo print/store the modified xml! done
-
-# call for explorative development and testing
-#parsingxMLTest()
-
-# ------------------------------------------------------------------------------
-
-class Testcase(unittest.TestCase):
-    def testTranslator0(self):
-        input = 'Huhn'
-        expectedResult = 'chicken'
-        output = translateOneString(input)
-        self.assertEqual(output, expectedResult)
-        #print(" --> input", input, "yielded result:", output)
-
-    def testTranslator1(self):
-        input = 'Huhn'
-        expectedResult = 'piletina'
-        output = translateOneString(input, 'de', 'hr')
-        self.assertEqual(output, expectedResult)
-        #print(" --> input", input, "yielded result:", output)
-
-        # works, but check this:
-        # ResourceWarning: Enable tracemalloc to get the object allocation traceback
-
-    def testTranslator2(self):
-        input = 'hello'
-        expectedResult = '你好'
-        output = translateOneString(input, 'en', 'zh-cn')
-        self.assertEqual(output, expectedResult)
-        # print(" --> input", input, "yielded result:", output)
-# ------------------------------------------------------------------------------
-#
-# ---- here comes the execution of the unit-tests ----
-# if __name__ == '__main__':
-#     unittest.main()
+# (venv) [mpetrick@marcel-precision3551 AutoTrans]$  python autoTrans.py testing/helloworld.ts en cn
+# Using Germany server backend.
+# translateString: 1.3896245956420898s : Hello world! -> 你好世界！ (en -> cn)
+# translateString: 1.9492523670196533s : My first dish. -> 我的第一道菜。 (en -> cn)
+# translateString: 2.112003803253174s : white bread with butter -> 白面包和黄油 (en -> cn)
+# TS file transformed successfully.
+# Whole execution took 5.453961610794067s.
+# (venv) [mpetrick@marcel-precision3551 AutoTrans]$
