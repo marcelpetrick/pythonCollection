@@ -1,6 +1,7 @@
 import sys
 import xml.etree.ElementTree as ET
-
+import time
+import translators
 
 def replace_first_lines(file_path):
     """
@@ -18,22 +19,12 @@ def replace_first_lines(file_path):
         file.writelines(lines)
         file.truncate()
 
+def translateString(input, fromLang, toLang):
+    startTime = time.time()
+    output = translators.google(input, fromLang, toLang) # or deepl or yandex
+    print(f"translateString: {time.time() - startTime}s : {input} -> {output} ({fromLang} -> {toLang})")
 
-def translateString(input):
-    """
-    Translates a given string. The actual implementation should be replaced
-    with your desired translation logic.
-
-    :param input: The string to translate
-    :type input: str
-    :return: The translated string
-    :rtype: str
-    """
-    # Implement your translation logic here
-    # This is just a placeholder
-    translation = "Translated: " + input
-    return translation
-
+    return output
 
 def transform_ts_file(ts_file_path):
     """
@@ -46,12 +37,14 @@ def transform_ts_file(ts_file_path):
     tree = ET.parse(ts_file_path)
     root = tree.getroot()
 
+    fromLang, toLang = 'en', 'de' # todo make this dependent on the given parameters, maybe read from ts-file
+
     # Iterate over all 'message' elements in the XML tree
     for message in root.iter('message'):
         translation = message.find('translation')
         if translation is not None and translation.attrib.get('type') == 'unfinished':
             source_text = message.find('source').text
-            translated_text = translateString(source_text)
+            translated_text = translateString(source_text, fromLang, toLang)
             translation.text = translated_text
             del translation.attrib['type']
 
@@ -82,3 +75,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# test call:
+#  python autoTrans_vs.py testing/helloworld.ts
