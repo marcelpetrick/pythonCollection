@@ -14,10 +14,12 @@ def translateString(input, fromLang, toLang):
 
     return result
 
-print(translateString("Kuh Haus Maus Klaus", "de", "en"))
-print(translateString("Das ist eine Pizza", "de", "en"))
-print(translateString("dritter Call", "de", "en"))
+for a in range(0,5):
+    print("** run ", a, "**")
+    print(translateString("Kuh Haus Maus Klaus", "de", "en"))
+    print(translateString("Das ist eine Pizza", "de", "en"))
+    print(translateString("dritter Call", "de", "en"))
 
 # Result: most of the time the three calls are only translated until the second request: last one fails due to
 # requests.exceptions.HTTPError: 429 Client Error:  for url: https://www2.deepl.com/jsonrpc?method=LMT_handle_jobs
-# maybe using a delay would help: else: other backend? or: doing batch-translations?
+# maybe using a delay would help: else: other backend (yes, this worked)? or: doing batch-translations?
