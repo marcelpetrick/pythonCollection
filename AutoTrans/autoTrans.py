@@ -7,7 +7,7 @@ def replace_first_lines(file_path):
     """
     Replaces the first two lines of a file with the XML declaration and DOCTYPE.
 
-    :param file_path: The path to the file to modify
+    :param file_path: The path to the file to modify.
     :type file_path: str
     """
     with open(file_path, 'r+', encoding='utf-8') as file:
@@ -24,20 +24,14 @@ def translateString(input: str, fromLang: str, toLang: str) -> str:
     """
     Translate a string from one language to another.
 
-    This function uses Google's translation service, but could be modified to use another service like DeepL or Yandex.
-    The translation process is timed, and the duration is printed alongside the original and translated strings and the source and target languages.
-
-    Parameters:
-    input (str): The string to translate.
-    fromLang (str): The ISO 639-1 code of the language to translate from.
-    toLang (str): The ISO 639-1 code of the language to translate to.
-
-    Returns:
-    str: The translated string.
-
-    Example:
-    >>> translateString("hello world", "en", "es")
-    'hola mundo'
+    :param input: The string to translate.
+    :type input: str
+    :param fromLang: The ISO 639-1 code of the language to translate from.
+    :type fromLang: str
+    :param toLang: The ISO 639-1 code of the language to translate to.
+    :type toLang: str
+    :return: The translated string.
+    :rtype: str
     """
     startTime = time.time()
     output = translators.google(input, fromLang, toLang) # or deepl or yandex
@@ -50,8 +44,12 @@ def transform_ts_file(ts_file_path, sourceLanguage, targetLanguage):
     Transforms a .ts file by translating all 'unfinished' messages.
     The translated messages replace the original messages in the .ts file.
 
-    :param ts_file_path: The path to the .ts file to transform
+    :param ts_file_path: The path to the .ts file to transform.
     :type ts_file_path: str
+    :param sourceLanguage: The ISO 639-1 code of the source language.
+    :type sourceLanguage: str
+    :param targetLanguage: The ISO 639-1 code of the target language.
+    :type targetLanguage: str
     """
     tree = ET.parse(ts_file_path)
     root = tree.getroot()
@@ -97,11 +95,10 @@ if __name__ == "__main__":
     main()
 
 # test call:
-#  python autoTrans.py testing/helloworld.ts en de
+# python autoTrans.py testing/helloworld.ts en de
 
 # another example:
-#
-# (venv) [mpetrick@marcel-precision3551 AutoTrans]$  python autoTrans.py testing/helloworld.ts en cn
+# (venv) [mpetrick@marcel-precision3551 AutoTrans]$ python autoTrans.py testing/helloworld.ts en cn
 # Using Germany server backend.
 # translateString: 1.3896245956420898s : Hello world! -> 你好世界！ (en -> cn)
 # translateString: 1.9492523670196533s : My first dish. -> 我的第一道菜。 (en -> cn)
