@@ -1,7 +1,14 @@
+"""
+This is a Python script for translating .ts files from one language to another.
+It makes use of the translators library to translate individual strings in the file,
+updating the file with the new translations.
+"""
+
 import sys
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree
 import time
 import translators
+
 
 def replace_first_lines(file_path):
     """
@@ -20,48 +27,50 @@ def replace_first_lines(file_path):
         file.truncate()
 
 
-def translateString(input: str, fromLang: str, toLang: str) -> str:
+def translate_string(source_string: str, source_language: str, target_language: str) -> str:
     """
-    Translate a string from one language to another.
+    ...
 
-    :param input: The string to translate.
-    :type input: str
-    :param fromLang: The ISO 639-1 code of the language to translate from.
-    :type fromLang: str
-    :param toLang: The ISO 639-1 code of the language to translate to.
-    :type toLang: str
+    :param source_string: The string to translate.
+    :type source_string: str
+    :param source_language: The ISO 639-1 code of the language to translate from.
+    :type source_language: str
+    :param target_language: The ISO 639-1 code of the language to translate to.
+    :type target_language: str
     :return: The translated string.
     :rtype: str
     """
-    startTime = time.time()
-    output = translators.google(input, fromLang, toLang) # or deepl or yandex
-    print(f"translateString: {time.time() - startTime}s : {input} -> {output} ({fromLang} -> {toLang})")
+    start_time = time.time()
+    output = translators.google(source_string, source_language, target_language)
+    print(
+        f"translateString: {time.time() - start_time}s : {source_string} -> {output} "
+        f"({source_language} -> {target_language})"
+    )
 
     return output
 
-def transform_ts_file(ts_file_path, sourceLanguage, targetLanguage):
+
+def transform_ts_file(ts_file_path, _language, target_language):
     """
     Transforms a .ts file by translating all 'unfinished' messages.
     The translated messages replace the original messages in the .ts file.
 
     :param ts_file_path: The path to the .ts file to transform.
     :type ts_file_path: str
-    :param sourceLanguage: The ISO 639-1 code of the source language.
-    :type sourceLanguage: str
-    :param targetLanguage: The ISO 639-1 code of the target language.
-    :type targetLanguage: str
+    :param _language: The ISO 639-1 code of the source language.
+    :type _language: str
+    :param target_language: The ISO 639-1 code of the target language.
+    :type target_language: str
     """
-    tree = ET.parse(ts_file_path)
+    tree = xml.etree.ElementTree.parse(ts_file_path)
     root = tree.getroot()
-
-    #sourceLanguage, targetLanguage = 'en', 'de' # todo make this dependent on the given parameters, maybe read from ts-file
 
     # Iterate over all 'message' elements in the XML tree
     for message in root.iter('message'):
         translation = message.find('translation')
         if translation is not None and translation.attrib.get('type') == 'unfinished':
             source_text = message.find('source').text
-            translated_text = translateString(source_text, sourceLanguage, targetLanguage)
+            translated_text = translate_string(source_text, _language, target_language)
             translation.text = translated_text
             del translation.attrib['type']
 
@@ -87,18 +96,17 @@ def main():
         return
 
     ts_file_path = sys.argv[1]
-    startTime = time.time()
+    start_time = time.time()
     transform_ts_file(ts_file_path, sys.argv[2], sys.argv[3])
-    print(f"Whole execution took {time.time() - startTime}s.")
+    print(f"Whole execution took {time.time() - start_time}s.")
+
 
 if __name__ == "__main__":
     main()
 
 # test call:
-# python autoTrans.py testing/helloworld.ts en de
-
-# another example:
-# (venv) [mpetrick@marcel-precision3551 AutoTrans]$ python autoTrans.py testing/helloworld.ts en cn
+# python auto_trans.py testing/helloworld.ts en cn
+#
 # Using Germany server backend.
 # translateString: 1.3896245956420898s : Hello world! -> 你好世界！ (en -> cn)
 # translateString: 1.9492523670196533s : My first dish. -> 我的第一道菜。 (en -> cn)
