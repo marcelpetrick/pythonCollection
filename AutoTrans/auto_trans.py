@@ -49,7 +49,6 @@ def translate_string(source_string: str, source_language: str, target_language: 
 
     return output
 
-
 def transform_ts_file(ts_file_path, _language, target_language):
     """
     Transforms a .ts file by translating all 'unfinished' messages.
@@ -65,22 +64,30 @@ def transform_ts_file(ts_file_path, _language, target_language):
     tree = xml.etree.ElementTree.parse(ts_file_path)
     root = tree.getroot()
 
-    # Iterate over all 'message' elements in the XML tree
     for message in root.iter('message'):
-        translation = message.find('translation')
-        if translation is not None and translation.attrib.get('type') == 'unfinished':
+        numerus = message.attrib.get('numerus') == 'yes'
+        if numerus:
             source_text = message.find('source').text
-            translated_text = translate_string(source_text, _language, target_language)
-            translation.text = translated_text
-            del translation.attrib['type']
+            unfinished_translation = message.find('translation')
+            if unfinished_translation is not None and unfinished_translation.attrib.get('type') == 'unfinished':
+                translated_text = translate_string(source_text, _language, target_language)
+                for num_form in unfinished_translation.findall('numerusform'):
+                    unfinished_translation.remove(num_form)  # Remove existing empty numerusforms
+                for i in range(2):  # assuming two forms, singular and plural
+                    new_numerusform = xml.etree.ElementTree.SubElement(unfinished_translation, 'numerusform')
+                    new_numerusform.text = translated_text
+                del unfinished_translation.attrib['type']
+        else:
+            translation = message.find('translation')
+            if translation is not None and translation.attrib.get('type') == 'unfinished':
+                source_text = message.find('source').text
+                translated_text = translate_string(source_text, _language, target_language)
+                translation.text = translated_text
+                del translation.attrib['type']
 
     tree.write(ts_file_path, encoding='utf-8', xml_declaration=True)
-
-    # Replace the first two lines of the output file
-    replace_first_lines(ts_file_path)
-
-    # Preserve the last empty line
-    with open(ts_file_path, 'a', encoding='utf-8') as file:
+    replace_first_lines(ts_file_path)  # Replace the first two lines of the output file
+    with open(ts_file_path, 'a', encoding='utf-8') as file:  # Preserve the last empty line
         file.write('\n')
 
     print("TS file transformed successfully.")
@@ -114,3 +121,7 @@ if __name__ == "__main__":
 # TS file transformed successfully.
 # Whole execution took 5.453961610794067s.
 # (venv) [mpetrick@marcel-precision3551 AutoTrans]$
+
+# manual tests:
+# python auto_trans.py testing/numerus.ts de cn
+# python auto_trans.py testing/helloworld.ts en cn
