@@ -6,6 +6,7 @@ These tests cover the functions replace_first_lines, translate_string and transf
 import unittest
 from unittest.mock import patch, MagicMock
 from xml.etree import ElementTree
+
 import auto_trans
 
 
@@ -18,7 +19,6 @@ class AutoTransTest(unittest.TestCase):
         """
         Set up anything that is necessary for the test environment.
         """
-        pass
 
     @patch("builtins.open", new_callable=MagicMock)
     def test_replace_first_lines(self, mock_open):
@@ -31,7 +31,8 @@ class AutoTransTest(unittest.TestCase):
     @patch("translators.google", return_value="你好世界")
     def test_translate_string(self, mock_google):
         """
-        Test that translate_string calls the appropriate translation function and returns the correct result.
+        Test that translate_string calls the appropriate translation function
+        and returns the correct result.
         """
         result = auto_trans.translate_string("Hello world", "en", "cn")
         self.assertEqual(result, "你好世界")
@@ -59,6 +60,7 @@ class AutoTransTest(unittest.TestCase):
         mock_replace_first_lines.assert_called_once_with("fakepath")
         self.assertIsNone(fake_translation.attrib.get('type'))
         self.assertEqual(fake_translation.text, "你好世界")
+
 
 if __name__ == "__main__":
     unittest.main()

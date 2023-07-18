@@ -5,8 +5,9 @@ updating the file with the new translations.
 """
 
 import sys
-import xml.etree.ElementTree
 import time
+import xml.etree.ElementTree
+
 import translators
 
 
@@ -49,6 +50,7 @@ def translate_string(source_string: str, source_language: str, target_language: 
 
     return output
 
+
 def transform_ts_file(ts_file_path, _language, target_language):
     """
     Transforms a .ts file by translating all 'unfinished' messages.
@@ -69,12 +71,14 @@ def transform_ts_file(ts_file_path, _language, target_language):
         if numerus:
             source_text = message.find('source').text
             unfinished_translation = message.find('translation')
-            if unfinished_translation is not None and unfinished_translation.attrib.get('type') == 'unfinished':
+            if unfinished_translation is not None and \
+                    unfinished_translation.attrib.get('type') == 'unfinished':
                 translated_text = translate_string(source_text, _language, target_language)
                 for num_form in unfinished_translation.findall('numerusform'):
                     unfinished_translation.remove(num_form)  # Remove existing empty numerusforms
-                for i in range(2):  # assuming two forms, singular and plural
-                    new_numerusform = xml.etree.ElementTree.SubElement(unfinished_translation, 'numerusform')
+                for _ in range(2):  # assuming two forms, singular and plural
+                    new_numerusform = xml.etree.ElementTree.SubElement(unfinished_translation,
+                                                                       'numerusform')
                     new_numerusform.text = translated_text
                 del unfinished_translation.attrib['type']
         else:
