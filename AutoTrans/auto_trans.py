@@ -4,6 +4,12 @@ It makes use of the translators library to translate individual strings in the f
 updating the file with the new translations.
 """
 
+# for the package - newer versions are broken!
+# pip install translators==5.3.1
+
+# for the backend:
+# pacman -S nodejs npm
+
 import sys
 import time
 import xml.etree.ElementTree
